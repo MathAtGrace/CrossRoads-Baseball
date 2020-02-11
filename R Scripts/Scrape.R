@@ -50,15 +50,15 @@ names(baseball) <- c("Batting", "Pitching", "Fielding")
 #A function to write the data to csv files
 writeit <- function(x) {
   #Batting
-  write.csv(batting[[x]], file = paste0("../Data/Batting", "/", x, ".csv"))
+  write.csv(batting[[x]], file = paste0("Data/Pitching", "/", x, ".csv"))
   #Pitching
-  write.csv(pitching[[x]], file = paste0("../Data/Pitching", "/", x, ".csv"))
+  write.csv(pitching[[x]], file = paste0("Data/Pitching", "/", x, ".csv"))
   #Fielding
-  write.csv(fielding[[x]], file = paste0("../Data/Fielding", "/", x, ".csv"))
+  write.csv(fielding[[x]], file = paste0("Data/Fielding", "/", x, ".csv"))
 }
 
 #Write to csv
 lapply(teams, writeit)
 
 #Save to an Rdata file
-save(baseball, file = "../Data/stats_by_type.Rdata")
+save(baseball, file = "Data/stats_by_type.Rdata")
