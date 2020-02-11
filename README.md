@@ -1,5 +1,6 @@
 # CrossRoads-Baseball
-The current plan is to rank players and predict games.
+This project is still in its beginning stages.  The current plan is to rank players and predict games.
 
-### Update - 2/6/2020
-Created repository, but we don't have anything we're ready to share yet.
+## Scraping the Data
+
+For an explanation of how we scraped the data, go [here](Markdown/ScrapingTheWebsite.Rmd)
