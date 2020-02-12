@@ -1,10 +1,10 @@
 library(rvest)
-require(tidyverse)
+#require(tidyverse)
 
-load("Results2.Rdata")
-batting <- results[["Batting"]]
-pitching <- results[["Pitching"]]
-fielding <- results[["Fielding"]]
+load("Data/stats_by_type.Rdata")
+batting <- baseball[["Batting"]]
+pitching <- baseball[["Pitching"]]
+fielding <- baseball[["Fielding"]]
 teams <- names(batting)
 
 bat_stats <- function(y){
