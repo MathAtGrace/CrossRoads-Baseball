@@ -1,18 +1,84 @@
 ---
 title: "Scraping the Website"
 output: html_notebook
+author: Ryan Johnson
 ---
 
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+For this project we used the NAIA statistics posted on the website [dakstats](http://www.dakstats.com/websync/Pages/Association.aspx?association=10).  They have batting, pitching, and fielding statitistics for each baseball team in the Crossroads league, of which Grace College is a member.
 
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
-
-```{r}
-plot(cars)
+We found the `rvest` R package to be very useful for this project.
+```{r rvest}
+suppressWarnings(library(rvest))
 ```
 
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+Dakstats assigns each team an identification number, and uses this number in their webpage urls.  We've created 2-4 letter abreviations for each team, and named them by their ID numbers.
+```{r teams-and-urls}
+teams <- c("BC","GOC","GRC","HU","INWU","MAR","MVNU","SAU","SFIN","TAYL")
+names(teams) <- c(1629, 1678, 1679, 1688, 1694, 1717, 1736, 1780, 1805, 1784)
+urls <- paste0("http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=",names(teams),"&sea=NAIMBA_2019")
+```
 
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+Then we created functions to retrieve only the batting, pitching, and fielding tables, which we turned into data frames in R.
 
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+```{r retrieval-functions}
+get_batting <- function(url) {
+  bpf <- url %>%
+    read_html() %>%
+    html_nodes("table") %>%
+    .[[37]] %>%
+    html_table(fill = TRUE)
+}
+
+get_pitching <- function(url) {
+  bpf <- url %>%
+    read_html() %>%
+    html_nodes("table") %>%
+    .[[38]] %>%
+    html_table(fill = TRUE)
+}
+
+get_fielding <- function(url) {
+  bpf <- url %>%
+    read_html() %>%
+    html_nodes("table") %>%
+    .[[39]] %>%
+    html_table(fill = TRUE)
+}
+```
+
+We used the `lapply` R function with these functions to get our data.
+
+```{r lapply-it}
+batting <- lapply(urls, get_batting)
+names(batting) <- teams
+pitching <- lapply(urls, get_pitching)
+names(pitching) <- teams
+fielding <- lapply(urls, get_fielding)
+names(fielding) <- teams
+```
+And put all of our data into one list.
+```{r}
+baseball <- list(batting, pitching, fielding)
+names(baseball) <- c("Batting", "Pitching", "Fielding")
+```
+Then we wrote a function to write all of the tables into csv files,
+```{r writeit}
+#A function to write the data to csv files
+writeit <- function(x) {
+  #Batting
+  write.csv(batting[[x]], file = paste0("../Data/Batting", "/", x, ".csv"))
+  #Pitching
+  write.csv(pitching[[x]], file = paste0("../Data/Pitching", "/", x, ".csv"))
+  #Fielding
+  write.csv(fielding[[x]], file = paste0("../Data/Fielding", "/", x, ".csv"))
+}
+```
+and used `lapply` to write the csv's all at once.
+```{r write-to-csv}
+invisible(lapply(teams, writeit))
+```
+Lastly, we also saved our data to an Rdata file for our own convenience.
+```{r saved}
+save(baseball, file = "../Data/stats_by_type.Rdata")
+```
+

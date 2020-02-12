@@ -10,6 +10,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="Ryan Johnson" />
 
 
 <title>Scraping the Website</title>
@@ -1744,26 +1745,118 @@ summary {
 
 
 <h1 class="title toc-ignore">Scraping the Website</h1>
+<h4 class="author">Ryan Johnson</h4>
 
 </div>
 
 
 <!-- rnb-text-begin -->
-<p>This is an <a href="http://rmarkdown.rstudio.com">R Markdown</a> Notebook. When you execute code within the notebook, the results appear beneath the code.</p>
-<p>Try executing this chunk by clicking the <em>Run</em> button within the chunk or by placing your cursor inside it and pressing <em>Ctrl+Shift+Enter</em>.</p>
+<p>For this project we used the NAIA statistics posted on the website <a href="http://www.dakstats.com/websync/Pages/Association.aspx?association=10">dakstats</a>. They have batting, pitching, and fielding statitistics for each baseball team in the Crossroads league, of which Grace College is a member.</p>
+<p>We found the <code>rvest</code> R package to be very useful for this project.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGxvdChjYXJzKVxuYGBgIn0= -->
-<pre class="r"><code>plot(cars)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VwcHJlc3NXYXJuaW5ncyhsaWJyYXJ5KHJ2ZXN0KSlcbmBgYCJ9 -->
+<pre class="r"><code>suppressWarnings(library(rvest))</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>Add a new chunk by clicking the <em>Insert Chunk</em> button on the toolbar or by pressing <em>Ctrl+Alt+I</em>.</p>
-<p>When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the <em>Preview</em> button or press <em>Ctrl+Shift+K</em> to preview the HTML file).</p>
-<p>The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike <em>Knit</em>, <em>Preview</em> does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.</p>
+<p>Dakstats assigns each team an identification number, and uses this number in their webpage urls. We’ve created 2-4 letter abreviations for each team, and named them by their ID numbers.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGVhbXMgPC0gYyhcIkJDXCIsXCJHT0NcIixcIkdSQ1wiLFwiSFVcIixcIklOV1VcIixcIk1BUlwiLFwiTVZOVVwiLFwiU0FVXCIsXCJTRklOXCIsXCJUQVlMXCIpXG5uYW1lcyh0ZWFtcykgPC0gYygxNjI5LCAxNjc4LCAxNjc5LCAxNjg4LCAxNjk0LCAxNzE3LCAxNzM2LCAxNzgwLCAxODA1LCAxNzg0KVxudXJscyA8LSBwYXN0ZTAoXCJodHRwOi8vd3d3LmRha3N0YXRzLmNvbS9XZWJTeW5jL1BhZ2VzL1RlYW0vSW5kaXZpZHVhbFN0YXRzLmFzcHg/YXNzb2NpYXRpb249MTAmc2c9TUJBJmNvbmZlcmVuY2U9TkFJTUJBMV9DUk9TUyZ0ZWFtPVwiLG5hbWVzKHRlYW1zKSxcIiZzZWE9TkFJTUJBXzIwMTlcIilcbmBgYCJ9 -->
+<pre class="r"><code>teams &lt;- c(&quot;BC&quot;,&quot;GOC&quot;,&quot;GRC&quot;,&quot;HU&quot;,&quot;INWU&quot;,&quot;MAR&quot;,&quot;MVNU&quot;,&quot;SAU&quot;,&quot;SFIN&quot;,&quot;TAYL&quot;)
+names(teams) &lt;- c(1629, 1678, 1679, 1688, 1694, 1717, 1736, 1780, 1805, 1784)
+urls &lt;- paste0(&quot;http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&amp;sg=MBA&amp;conference=NAIMBA1_CROSS&amp;team=&quot;,names(teams),&quot;&amp;sea=NAIMBA_2019&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Then we created functions to retrieve only the batting, pitching, and fielding tables, which we turned into data frames in R.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2V0X2JhdHRpbmcgPC0gZnVuY3Rpb24odXJsKSB7XG4gIGJwZiA8LSB1cmwgJT4lXG4gICAgcmVhZF9odG1sKCkgJT4lXG4gICAgaHRtbF9ub2RlcyhcInRhYmxlXCIpICU+JVxuICAgIC5bWzM3XV0gJT4lXG4gICAgaHRtbF90YWJsZShmaWxsID0gVFJVRSlcbn1cblxuZ2V0X3BpdGNoaW5nIDwtIGZ1bmN0aW9uKHVybCkge1xuICBicGYgPC0gdXJsICU+JVxuICAgIHJlYWRfaHRtbCgpICU+JVxuICAgIGh0bWxfbm9kZXMoXCJ0YWJsZVwiKSAlPiVcbiAgICAuW1szOF1dICU+JVxuICAgIGh0bWxfdGFibGUoZmlsbCA9IFRSVUUpXG59XG5cbmdldF9maWVsZGluZyA8LSBmdW5jdGlvbih1cmwpIHtcbiAgYnBmIDwtIHVybCAlPiVcbiAgICByZWFkX2h0bWwoKSAlPiVcbiAgICBodG1sX25vZGVzKFwidGFibGVcIikgJT4lXG4gICAgLltbMzldXSAlPiVcbiAgICBodG1sX3RhYmxlKGZpbGwgPSBUUlVFKVxufVxuYGBgIn0= -->
+<pre class="r"><code>get_batting &lt;- function(url) {
+  bpf &lt;- url %&gt;%
+    read_html() %&gt;%
+    html_nodes(&quot;table&quot;) %&gt;%
+    .[[37]] %&gt;%
+    html_table(fill = TRUE)
+}
+
+get_pitching &lt;- function(url) {
+  bpf &lt;- url %&gt;%
+    read_html() %&gt;%
+    html_nodes(&quot;table&quot;) %&gt;%
+    .[[38]] %&gt;%
+    html_table(fill = TRUE)
+}
+
+get_fielding &lt;- function(url) {
+  bpf &lt;- url %&gt;%
+    read_html() %&gt;%
+    html_nodes(&quot;table&quot;) %&gt;%
+    .[[39]] %&gt;%
+    html_table(fill = TRUE)
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>We used the <code>lapply</code> R function with these functions to get our data.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYmF0dGluZyA8LSBsYXBwbHkodXJscywgZ2V0X2JhdHRpbmcpXG5uYW1lcyhiYXR0aW5nKSA8LSB0ZWFtc1xucGl0Y2hpbmcgPC0gbGFwcGx5KHVybHMsIGdldF9waXRjaGluZylcbm5hbWVzKHBpdGNoaW5nKSA8LSB0ZWFtc1xuZmllbGRpbmcgPC0gbGFwcGx5KHVybHMsIGdldF9maWVsZGluZylcbm5hbWVzKGZpZWxkaW5nKSA8LSB0ZWFtc1xuYGBgIn0= -->
+<pre class="r"><code>batting &lt;- lapply(urls, get_batting)
+names(batting) &lt;- teams
+pitching &lt;- lapply(urls, get_pitching)
+names(pitching) &lt;- teams
+fielding &lt;- lapply(urls, get_fielding)
+names(fielding) &lt;- teams</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>And put all of our data into one list.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYmFzZWJhbGwgPC0gbGlzdChiYXR0aW5nLCBwaXRjaGluZywgZmllbGRpbmcpXG5uYW1lcyhiYXNlYmFsbCkgPC0gYyhcIkJhdHRpbmdcIiwgXCJQaXRjaGluZ1wiLCBcIkZpZWxkaW5nXCIpXG5gYGAifQ== -->
+<pre class="r"><code>baseball &lt;- list(batting, pitching, fielding)
+names(baseball) &lt;- c(&quot;Batting&quot;, &quot;Pitching&quot;, &quot;Fielding&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Then we wrote a function to write all of the tables into csv files,</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0EgZnVuY3Rpb24gdG8gd3JpdGUgdGhlIGRhdGEgdG8gY3N2IGZpbGVzXG53cml0ZWl0IDwtIGZ1bmN0aW9uKHgpIHtcbiAgI0JhdHRpbmdcbiAgd3JpdGUuY3N2KGJhdHRpbmdbW3hdXSwgZmlsZSA9IHBhc3RlMChcIi4uL0RhdGEvQmF0dGluZ1wiLCBcIi9cIiwgeCwgXCIuY3N2XCIpKVxuICAjUGl0Y2hpbmdcbiAgd3JpdGUuY3N2KHBpdGNoaW5nW1t4XV0sIGZpbGUgPSBwYXN0ZTAoXCIuLi9EYXRhL1BpdGNoaW5nXCIsIFwiL1wiLCB4LCBcIi5jc3ZcIikpXG4gICNGaWVsZGluZ1xuICB3cml0ZS5jc3YoZmllbGRpbmdbW3hdXSwgZmlsZSA9IHBhc3RlMChcIi4uL0RhdGEvRmllbGRpbmdcIiwgXCIvXCIsIHgsIFwiLmNzdlwiKSlcbn1cbmBgYCJ9 -->
+<pre class="r"><code>#A function to write the data to csv files
+writeit &lt;- function(x) {
+  #Batting
+  write.csv(batting[[x]], file = paste0(&quot;../Data/Batting&quot;, &quot;/&quot;, x, &quot;.csv&quot;))
+  #Pitching
+  write.csv(pitching[[x]], file = paste0(&quot;../Data/Pitching&quot;, &quot;/&quot;, x, &quot;.csv&quot;))
+  #Fielding
+  write.csv(fielding[[x]], file = paste0(&quot;../Data/Fielding&quot;, &quot;/&quot;, x, &quot;.csv&quot;))
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>and used <code>lapply</code> to write the csv’s all at once.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaW52aXNpYmxlKGxhcHBseSh0ZWFtcywgd3JpdGVpdCkpXG5gYGAifQ== -->
+<pre class="r"><code>invisible(lapply(teams, writeit))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Lastly, we also saved our data to an Rdata file for our own convenience.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2F2ZShiYXNlYmFsbCwgZmlsZSA9IFwiLi4vRGF0YS9zdGF0c19ieV90eXBlLlJkYXRhXCIpXG5gYGAifQ== -->
+<pre class="r"><code>save(baseball, file = &quot;../Data/stats_by_type.Rdata&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlNjcmFwaW5nIHRoZSBXZWJzaXRlIg0Kb3V0cHV0OiBodG1sX25vdGVib29rDQotLS0NCg0KVGhpcyBpcyBhbiBbUiBNYXJrZG93bl0oaHR0cDovL3JtYXJrZG93bi5yc3R1ZGlvLmNvbSkgTm90ZWJvb2suIFdoZW4geW91IGV4ZWN1dGUgY29kZSB3aXRoaW4gdGhlIG5vdGVib29rLCB0aGUgcmVzdWx0cyBhcHBlYXIgYmVuZWF0aCB0aGUgY29kZS4gDQoNClRyeSBleGVjdXRpbmcgdGhpcyBjaHVuayBieSBjbGlja2luZyB0aGUgKlJ1biogYnV0dG9uIHdpdGhpbiB0aGUgY2h1bmsgb3IgYnkgcGxhY2luZyB5b3VyIGN1cnNvciBpbnNpZGUgaXQgYW5kIHByZXNzaW5nICpDdHJsK1NoaWZ0K0VudGVyKi4gDQoNCmBgYHtyfQ0KcGxvdChjYXJzKQ0KYGBgDQoNCkFkZCBhIG5ldyBjaHVuayBieSBjbGlja2luZyB0aGUgKkluc2VydCBDaHVuayogYnV0dG9uIG9uIHRoZSB0b29sYmFyIG9yIGJ5IHByZXNzaW5nICpDdHJsK0FsdCtJKi4NCg0KV2hlbiB5b3Ugc2F2ZSB0aGUgbm90ZWJvb2ssIGFuIEhUTUwgZmlsZSBjb250YWluaW5nIHRoZSBjb2RlIGFuZCBvdXRwdXQgd2lsbCBiZSBzYXZlZCBhbG9uZ3NpZGUgaXQgKGNsaWNrIHRoZSAqUHJldmlldyogYnV0dG9uIG9yIHByZXNzICpDdHJsK1NoaWZ0K0sqIHRvIHByZXZpZXcgdGhlIEhUTUwgZmlsZSkuDQoNClRoZSBwcmV2aWV3IHNob3dzIHlvdSBhIHJlbmRlcmVkIEhUTUwgY29weSBvZiB0aGUgY29udGVudHMgb2YgdGhlIGVkaXRvci4gQ29uc2VxdWVudGx5LCB1bmxpa2UgKktuaXQqLCAqUHJldmlldyogZG9lcyBub3QgcnVuIGFueSBSIGNvZGUgY2h1bmtzLiBJbnN0ZWFkLCB0aGUgb3V0cHV0IG9mIHRoZSBjaHVuayB3aGVuIGl0IHdhcyBsYXN0IHJ1biBpbiB0aGUgZWRpdG9yIGlzIGRpc3BsYXllZC4NCg==</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlNjcmFwaW5nIHRoZSBXZWJzaXRlIg0Kb3V0cHV0OiBodG1sX25vdGVib29rDQphdXRob3I6IFJ5YW4gSm9obnNvbg0KLS0tDQoNCkZvciB0aGlzIHByb2plY3Qgd2UgdXNlZCB0aGUgTkFJQSBzdGF0aXN0aWNzIHBvc3RlZCBvbiB0aGUgd2Vic2l0ZSBbZGFrc3RhdHNdKGh0dHA6Ly93d3cuZGFrc3RhdHMuY29tL3dlYnN5bmMvUGFnZXMvQXNzb2NpYXRpb24uYXNweD9hc3NvY2lhdGlvbj0xMCkuICBUaGV5IGhhdmUgYmF0dGluZywgcGl0Y2hpbmcsIGFuZCBmaWVsZGluZyBzdGF0aXRpc3RpY3MgZm9yIGVhY2ggYmFzZWJhbGwgdGVhbSBpbiB0aGUgQ3Jvc3Nyb2FkcyBsZWFndWUsIG9mIHdoaWNoIEdyYWNlIENvbGxlZ2UgaXMgYSBtZW1iZXIuDQoNCldlIGZvdW5kIHRoZSBgcnZlc3RgIFIgcGFja2FnZSB0byBiZSB2ZXJ5IHVzZWZ1bCBmb3IgdGhpcyBwcm9qZWN0Lg0KYGBge3IgcnZlc3R9DQpzdXBwcmVzc1dhcm5pbmdzKGxpYnJhcnkocnZlc3QpKQ0KYGBgDQoNCkRha3N0YXRzIGFzc2lnbnMgZWFjaCB0ZWFtIGFuIGlkZW50aWZpY2F0aW9uIG51bWJlciwgYW5kIHVzZXMgdGhpcyBudW1iZXIgaW4gdGhlaXIgd2VicGFnZSB1cmxzLiAgV2UndmUgY3JlYXRlZCAyLTQgbGV0dGVyIGFicmV2aWF0aW9ucyBmb3IgZWFjaCB0ZWFtLCBhbmQgbmFtZWQgdGhlbSBieSB0aGVpciBJRCBudW1iZXJzLg0KYGBge3IgdGVhbXMtYW5kLXVybHN9DQp0ZWFtcyA8LSBjKCJCQyIsIkdPQyIsIkdSQyIsIkhVIiwiSU5XVSIsIk1BUiIsIk1WTlUiLCJTQVUiLCJTRklOIiwiVEFZTCIpDQpuYW1lcyh0ZWFtcykgPC0gYygxNjI5LCAxNjc4LCAxNjc5LCAxNjg4LCAxNjk0LCAxNzE3LCAxNzM2LCAxNzgwLCAxODA1LCAxNzg0KQ0KdXJscyA8LSBwYXN0ZTAoImh0dHA6Ly93d3cuZGFrc3RhdHMuY29tL1dlYlN5bmMvUGFnZXMvVGVhbS9JbmRpdmlkdWFsU3RhdHMuYXNweD9hc3NvY2lhdGlvbj0xMCZzZz1NQkEmY29uZmVyZW5jZT1OQUlNQkExX0NST1NTJnRlYW09IixuYW1lcyh0ZWFtcyksIiZzZWE9TkFJTUJBXzIwMTkiKQ0KYGBgDQoNClRoZW4gd2UgY3JlYXRlZCBmdW5jdGlvbnMgdG8gcmV0cmlldmUgb25seSB0aGUgYmF0dGluZywgcGl0Y2hpbmcsIGFuZCBmaWVsZGluZyB0YWJsZXMsIHdoaWNoIHdlIHR1cm5lZCBpbnRvIGRhdGEgZnJhbWVzIGluIFIuDQoNCmBgYHtyIHJldHJpZXZhbC1mdW5jdGlvbnN9DQpnZXRfYmF0dGluZyA8LSBmdW5jdGlvbih1cmwpIHsNCiAgYnBmIDwtIHVybCAlPiUNCiAgICByZWFkX2h0bWwoKSAlPiUNCiAgICBodG1sX25vZGVzKCJ0YWJsZSIpICU+JQ0KICAgIC5bWzM3XV0gJT4lDQogICAgaHRtbF90YWJsZShmaWxsID0gVFJVRSkNCn0NCg0KZ2V0X3BpdGNoaW5nIDwtIGZ1bmN0aW9uKHVybCkgew0KICBicGYgPC0gdXJsICU+JQ0KICAgIHJlYWRfaHRtbCgpICU+JQ0KICAgIGh0bWxfbm9kZXMoInRhYmxlIikgJT4lDQogICAgLltbMzhdXSAlPiUNCiAgICBodG1sX3RhYmxlKGZpbGwgPSBUUlVFKQ0KfQ0KDQpnZXRfZmllbGRpbmcgPC0gZnVuY3Rpb24odXJsKSB7DQogIGJwZiA8LSB1cmwgJT4lDQogICAgcmVhZF9odG1sKCkgJT4lDQogICAgaHRtbF9ub2RlcygidGFibGUiKSAlPiUNCiAgICAuW1szOV1dICU+JQ0KICAgIGh0bWxfdGFibGUoZmlsbCA9IFRSVUUpDQp9DQpgYGANCg0KV2UgdXNlZCB0aGUgYGxhcHBseWAgUiBmdW5jdGlvbiB3aXRoIHRoZXNlIGZ1bmN0aW9ucyB0byBnZXQgb3VyIGRhdGEuDQoNCmBgYHtyIGxhcHBseS1pdH0NCmJhdHRpbmcgPC0gbGFwcGx5KHVybHMsIGdldF9iYXR0aW5nKQ0KbmFtZXMoYmF0dGluZykgPC0gdGVhbXMNCnBpdGNoaW5nIDwtIGxhcHBseSh1cmxzLCBnZXRfcGl0Y2hpbmcpDQpuYW1lcyhwaXRjaGluZykgPC0gdGVhbXMNCmZpZWxkaW5nIDwtIGxhcHBseSh1cmxzLCBnZXRfZmllbGRpbmcpDQpuYW1lcyhmaWVsZGluZykgPC0gdGVhbXMNCmBgYA0KQW5kIHB1dCBhbGwgb2Ygb3VyIGRhdGEgaW50byBvbmUgbGlzdC4NCmBgYHtyfQ0KYmFzZWJhbGwgPC0gbGlzdChiYXR0aW5nLCBwaXRjaGluZywgZmllbGRpbmcpDQpuYW1lcyhiYXNlYmFsbCkgPC0gYygiQmF0dGluZyIsICJQaXRjaGluZyIsICJGaWVsZGluZyIpDQpgYGANClRoZW4gd2Ugd3JvdGUgYSBmdW5jdGlvbiB0byB3cml0ZSBhbGwgb2YgdGhlIHRhYmxlcyBpbnRvIGNzdiBmaWxlcywNCmBgYHtyIHdyaXRlaXR9DQojQSBmdW5jdGlvbiB0byB3cml0ZSB0aGUgZGF0YSB0byBjc3YgZmlsZXMNCndyaXRlaXQgPC0gZnVuY3Rpb24oeCkgew0KICAjQmF0dGluZw0KICB3cml0ZS5jc3YoYmF0dGluZ1tbeF1dLCBmaWxlID0gcGFzdGUwKCIuLi9EYXRhL0JhdHRpbmciLCAiLyIsIHgsICIuY3N2IikpDQogICNQaXRjaGluZw0KICB3cml0ZS5jc3YocGl0Y2hpbmdbW3hdXSwgZmlsZSA9IHBhc3RlMCgiLi4vRGF0YS9QaXRjaGluZyIsICIvIiwgeCwgIi5jc3YiKSkNCiAgI0ZpZWxkaW5nDQogIHdyaXRlLmNzdihmaWVsZGluZ1tbeF1dLCBmaWxlID0gcGFzdGUwKCIuLi9EYXRhL0ZpZWxkaW5nIiwgIi8iLCB4LCAiLmNzdiIpKQ0KfQ0KYGBgDQphbmQgdXNlZCBgbGFwcGx5YCB0byB3cml0ZSB0aGUgY3N2J3MgYWxsIGF0IG9uY2UuDQpgYGB7ciB3cml0ZS10by1jc3Z9DQppbnZpc2libGUobGFwcGx5KHRlYW1zLCB3cml0ZWl0KSkNCmBgYA0KTGFzdGx5LCB3ZSBhbHNvIHNhdmVkIG91ciBkYXRhIHRvIGFuIFJkYXRhIGZpbGUgZm9yIG91ciBvd24gY29udmVuaWVuY2UuDQpgYGB7ciBzYXZlZH0NCnNhdmUoYmFzZWJhbGwsIGZpbGUgPSAiLi4vRGF0YS9zdGF0c19ieV90eXBlLlJkYXRhIikNCmBgYA0KDQo=</div>
 
 
 
