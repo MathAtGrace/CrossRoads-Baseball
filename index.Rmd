@@ -1,0 +1,127 @@
+---
+title: "Crossroads Baseball Project."
+author: "Levi Cain, Kara Godsey, and Dr. Ryan Johnson"
+date: "`r Sys.Date()`"
+output:
+  rmdformats::readthedown:
+    #highlight: kate
+---
+
+
+```{r setup, echo=FALSE, cache=FALSE}
+suppressWarnings(library(knitr))
+suppressWarnings(library(rmdformats))
+
+## Global options
+options(max.print="75")
+opts_chunk$set(echo=TRUE,
+	             cache=TRUE,
+               prompt=FALSE,
+               tidy=TRUE,
+               comment=NA,
+               message=FALSE,
+               warning=FALSE)
+opts_knit$set(width=75)
+```
+
+
+# Welcome
+Welcome to our student research project.  This project is still in its beginning stages.  The current plan is to rank players and predict games.
+
+### Update 2/12/2020
+We have scraped data from the website, although the strictly-conference level data is still elluding us.  To view our process go to "Scraping the Data" on the left-hand side of your screen.
+
+# Scraping the Data
+
+For this project we used the NAIA statistics posted on the website [dakstats](http://www.dakstats.com/websync/Pages/Association.aspx?association=10).  They have batting, pitching, and fielding statitistics for each baseball team in the Crossroads league, of which Grace College is a member.
+
+We found the `rvest` R package to be very useful for this project.
+
+```{r echo = FALSE}
+suppressWarnings(library(rvest))
+```
+
+```{r eval=FALSE}
+library(rvest)
+```
+
+## The Webpage Url's
+
+Dakstats assigns each team an identification number, and uses this number in their webpage urls.  We've created 2-4 letter abreviations for each team, and named them by their ID numbers.
+
+```{r teams-and-urls}
+teams <- c("BC","GOC","GRC","HU","INWU","MAR","MVNU","SAU","SFIN","TAYL")
+names(teams) <- c(1629, 1678, 1679, 1688, 1694, 1717, 1736, 1780, 1805, 1784)
+urls <- paste0("http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=",names(teams),"&sea=NAIMBA_2019")
+```
+## Scraping the tables using the `rvest` package
+
+Then we created functions to retrieve only the batting, pitching, and fielding tables, which we turned into data frames in R.
+
+```{r retrieval-functions}
+get_batting <- function(url) {
+  bpf <- url %>%
+    read_html() %>%
+    html_nodes("table") %>%
+    .[[37]] %>%
+    html_table(fill = TRUE)
+}
+
+get_pitching <- function(url) {
+  bpf <- url %>%
+    read_html() %>%
+    html_nodes("table") %>%
+    .[[38]] %>%
+    html_table(fill = TRUE)
+}
+
+get_fielding <- function(url) {
+  bpf <- url %>%
+    read_html() %>%
+    html_nodes("table") %>%
+    .[[39]] %>%
+    html_table(fill = TRUE)
+}
+```
+
+We used the `lapply` R function with these functions to get our data.
+
+```{r lapply-it}
+batting <- lapply(urls, get_batting)
+names(batting) <- teams
+pitching <- lapply(urls, get_pitching)
+names(pitching) <- teams
+fielding <- lapply(urls, get_fielding)
+names(fielding) <- teams
+```
+
+## Saving the data
+
+And put all of our data into one list.
+
+```{r}
+baseball <- list(batting, pitching, fielding)
+names(baseball) <- c("Batting", "Pitching", "Fielding")
+```
+Then we wrote a function to write all of the tables into csv files,
+
+```{r writeit}
+#A function to write the data to csv files
+writeit <- function(x) {
+  #Batting
+  write.csv(batting[[x]], file = paste0("Data/Batting", "/", x, ".csv"))
+  #Pitching
+  write.csv(pitching[[x]], file = paste0("Data/Pitching", "/", x, ".csv"))
+  #Fielding
+  write.csv(fielding[[x]], file = paste0("Data/Fielding", "/", x, ".csv"))
+}
+```
+and used `lapply` to write the csv's all at once.
+
+```{r write-to-csv}
+invisible(lapply(teams, writeit))
+```
+Lastly, we also saved our data to an Rdata file for our own convenience.
+
+```{r saved}
+save(baseball, file = "Data/stats_by_type.Rdata")
