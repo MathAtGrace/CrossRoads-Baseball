@@ -3,7 +3,10 @@ title: "Scraping the Website"
 author: "Ryan Johnson"
 output:
   html_document:
-    df_print: paged
+    toc: true
+    numbered_sections: true
+    theme: united
+    highlight: tango
 ---
 
 For this project we used the NAIA statistics posted on the website [dakstats](http://www.dakstats.com/websync/Pages/Association.aspx?association=10).  They have batting, pitching, and fielding statitistics for each baseball team in the Crossroads league, of which Grace College is a member.
