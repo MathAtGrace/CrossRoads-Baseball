@@ -8,17 +8,6 @@ Fielding <- baseball[["Fielding"]]
 teams <- names(batting)
 
 
-pitch_stats <- function(y){
-  x <- Pitching[[y]]
-  #FIP (still need to add constant)
-  x$FIP <- ((13*x$HR)+3*(x$BB+x$HBP)-(2*x$SO))/(x$IP)
-  x
-}
-
-Pitching <- teams %>%
-  lapply(pitch_stats)
-names(Pitching) <- teams
-
 #Calculate League Average for FIP
 
 FIP_stats <- c("ERA", "HR", "SO", "HBP", "BB", "IP")
@@ -60,3 +49,19 @@ tbls_effects <- p_effects %>%
 
 Team_Schedule <- data.frame(tbls_effects[[1]])
 Team_Schedule <- Team_Schedule[!apply(is.na(Team_Schedule) | Team_Schedule == "", 1, all),]
+
+#FIP
+
+FIP_CL_constant = CL_Avg_P[["ERA"]] - (((13*CL_Avg_P[["HR"]])+(3*(CL_Avg_P[["BB"]]+CL_Avg_P[["HBP"]]))-(2*CL_Avg_P[["SO"]]))/(CL_Avg_P[["IP"]]))
+print(FIP_CL_constant)
+
+pitch_stats <- function(y){
+  x <- Pitching[[y]]
+  FIP_team <- ((13*x$HR)+3*(x$BB+x$HBP)-(2*x$SO))/(x$IP)
+  x$FIP <- FIP_team + FIP_CL_constant
+  x
+}
+
+Pitching <- teams %>%
+  lapply(pitch_stats)
+names(Pitching) <- teams
