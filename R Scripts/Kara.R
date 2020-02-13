@@ -12,7 +12,7 @@ teams <- names(batting)
 
 FIP_stats <- c("ER", "HR", "SO", "HBP", "BB", "IP","ERA")
 CL_Avg_P <- c()
-All_stats <- c()
+All_stats_pitching <- c()
 
 w = 0
 
@@ -25,15 +25,15 @@ for (n in seq(length(FIP_stats)-1)){
     
     for (k in seq(length(P[[FIP_stats[[n]]]]))){ 
       
-      All_stats[w+k] <- P[[FIP_stats[[n]]]][k]
+      All_stats_pitching[w+k] <- P[[FIP_stats[[n]]]][k]
       #print(All_stats)
     }
     
     w  = k + w
     
   }
-  CL_Avg_P[n] <- mean(All_stats)
-  All_stats <- c()
+  CL_Avg_P[n] <- mean(All_stats_pitching)
+  All_stats_pitching <- c()
   w = 0
 }
 
@@ -70,33 +70,63 @@ Pitching <- teams %>%
   lapply(pitch_stats)
 names(Pitching) <- teams
 
-#Calculate League Batting Averages for 
+#Calculate League Averages for Batting 
 
-batting_stats <- c("ERA", "HR", "SO", "HBP", "BB", "IP")
+batting_stats <- c("H","AB","BB","HBP","SF","TB")
 CL_Avg_B <- c()
-All_stats <- c()
+All_stats_batting <- c()
 
 w = 0
 
-for (n in FIP_stats){
+for (n in batting_stats){
   
   for (j in teams){
     
-    P <- read.csv(paste("Data/Pitching/",j,".csv",sep=""))
+    P <- read.csv(paste("Data/Batting/",j,".csv",sep=""))
     
     
     for (k in seq(length(P[[n]]))){ 
       
-      All_stats[w+k] <- P[[n]][k]
+      All_stats_batting[w+k] <- P[[n]][k]
       #print(All_stats)
     }
     
     w  = k + w
     
   }
-  CL_Avg_P[n] <- mean(All_stats)
-  All_stats <- c()
+  CL_Avg_B[n] <- sum(All_stats_batting)
+  All_stats_batting <- c()
   w = 0
 }
 
-print(CL_Avg_P)
+print(CL_Avg_B)
+
+CL_OBP <- (CL_Avg_B[[1]]+CL_Avg_B[[3]]+CL_Avg_B[[4]])/(CL_Avg_B[[2]]+CL_Avg_B[[3]]+CL_Avg_B[[4]]+CL_Avg_B[[5]])
+CL_SLG <- (CL_Avg_B[[6]])/(CL_Avg_B[[2]])
+print(CL_OBP)
+print(CL_SLG)
+
+bat_stats <- function(y){
+  x <- Batting[[y]]
+  #Caught Stealing
+  x$CS <- x$SBA - x$SB
+  #Runs Created
+  x$RC <- (x$H + x$BB)*x$TB/(x$AB + x$BB)
+  #OPS
+  x$OPS <- x$OB + x$SLG
+  #OPS+
+  x$OPS_plus <- (100)*(((x$OB/CL_OBP)+(x$SLG/CL_SLG))-1)
+  #POP
+  x$POP <- x$OPS + x$AVG
+  #Total Average
+  x$TA <- (x$TB + x$BB + x$HBP + x$SB)/(x$AB - x$H + x$SH + x$SF + x$CS + x$GDP)
+  #Batting Average on Balls in Play
+  x$BABIP <- (x$H - x$HR)/(x$AB - x$SO - x$HR + x$SF)
+  #Hoban Efficiency Quotient - offense
+  x$HEQO <- x$TB + x$R + x$RBI + x$SB + (0.5*x$BB)
+  x
+}
+
+Batting <- teams %>%
+  lapply(bat_stats)
+names(Batting) <- teams
