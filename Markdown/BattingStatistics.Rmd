@@ -1,0 +1,65 @@
+---
+title: "Batting Statistics"
+author: "Kara Godsey"
+date: "2/14/2020"
+output: html_notebook
+---
+
+```{r setup, echo=FALSE, cache=FALSE}
+suppressWarnings(library(knitr))
+suppressWarnings(library(rmdformats))
+
+## Global options
+options(max.print="75")
+opts_chunk$set(echo=TRUE,
+	             cache=TRUE,
+               prompt=FALSE,
+               tidy=TRUE,
+               comment=NA,
+               message=FALSE,
+               warning=FALSE)
+opts_knit$set(width=75)
+```
+
+# Batting Statistics
+
+First, we loaded the data tables that we previously created.
+
+```{r}
+load("Data/stats_by_type.Rdata")
+Batting <- baseball[["Batting"]]
+teams <- names(batting)
+```
+
+Next, we created a function to calculate advanced statistics using the base data in the tables. The statistics we chose to add to our tables include: Caught Stealing, Runs Created (Basic), OPS, OPS+, POP, Total Average, Batting Average on Balls in Play (BABIP), and the Hoban Efficiency Quotient for offense. The OPS+ stat utilizes a league average, which will be explained later on.
+
+```{r}
+bat_stats <- function(y){
+  x <- Batting[[y]]
+  #Caught Stealing
+  x$CS <- x$SBA - x$SB
+  #Runs Created
+  x$RC <- (x$H + x$BB)*x$TB/(x$AB + x$BB)
+  #OPS
+  x$OPS <- x$OB + x$SLG
+  #OPS+
+  x$OPS_plus <- (100)*(((x$OB/CL_OBP)+(x$SLG/CL_SLG))-1)
+  #POP
+  x$POP <- x$OPS + x$AVG
+  #Total Average
+  x$TA <- (x$TB + x$BB + x$HBP + x$SB)/(x$AB - x$H + x$SH + x$SF + x$CS + x$GDP)
+  #Batting Average on Balls in Play
+  x$BABIP <- (x$H - x$HR)/(x$AB - x$SO - x$HR + x$SF)
+  #Hoban Efficiency Quotient - offense
+  x$HEQO <- x$TB + x$R + x$RBI + x$SB + (0.5*x$BB)
+  x
+}
+```
+
+Then we used the `lapply` R function to apply these statistics to each of the teams, resulting in advanced statistics for every player in the league.
+
+```{r lapply-it}
+Batting <- teams %>%
+  lapply(bat_stats)
+names(Batting) <- teams
+```
