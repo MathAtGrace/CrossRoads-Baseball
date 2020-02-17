@@ -77,15 +77,15 @@ names(teams) <- c(1629, 1678, 1679, 1688, 1694, 1717, 1736, 1780, 1805, 1784)
     c=1
     d=1
     
-      
+      Team_Runs_A <- c()
       Team_Runs_H <- c()
       Opp_Runs_H <- c()
       Opp_Runs_A <- c()
       
       for (x in Scores_H){
         
-        Team_Runs_H[p] <- substr(x, 1, (regexpr(pattern ='-', x)-1))
-        Opp_Runs_H[d] <- substr(x, (regexpr(pattern ='-', x)-1), nchar(x))
+        Team_Runs_H[p] <- as.integer(substr(x, 1, (regexpr(pattern ='-', x)-1)))
+        Opp_Runs_H[d] <- as.integer(substr(x, (regexpr(pattern ='-', x)+1), nchar(x)))
         p = p + 1
         d = d + 1
 
@@ -93,12 +93,15 @@ names(teams) <- c(1629, 1678, 1679, 1688, 1694, 1717, 1736, 1780, 1805, 1784)
       
       for (r in Scores_A){
         
-        Team_Runs_A[q] <- substr(r, 1, (regexpr(pattern ='-', r)-1))
-        Opp_Runs_A[c] <- substr(r, (regexpr(pattern ='-', x)-1), nchar(r))
+        Team_Runs_A[q] <- as.integer(substr(r, 1, (regexpr(pattern ='-', r)-1)))
+        Opp_Runs_A[c] <- as.integer(substr(r, (regexpr(pattern ='-', r)+1), nchar(r)))
         q = q + 1
         c = c + 1
         
       }
      
-  
+
+Park_effect <- ((sum(Team_Runs_H)+sum(Opp_Runs_H))/length(Team_Runs_H))/((sum(Team_Runs_A)+sum(Opp_Runs_A))/length(Team_Runs_A))
+
+print(Park_effect)
 
