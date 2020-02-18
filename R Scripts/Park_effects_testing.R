@@ -58,14 +58,17 @@ p_effects <- read_html("http://www.dakstats.com/WebSync/Pages/Team/TeamSchedule.
   
   Loc <- Conf_Games["Location"]
   
-  w=0
-  z=0
+  w=1
+  z=1
+
   for (k in 1:nrow(Loc)){
     if (is.element("H", Loc[[1]][[k]]) == TRUE){
       Home_Games[w,] <- Conf_Games[k,]
       w = w + 1
+      #print(Home_Games)
     }
     else if (is.element("A", Loc[[1]][[k]]) == TRUE){
+      print(Conf_Games[k,])
       Away_Games[z,] <- Conf_Games[k,]
       z = z + 1
     }
@@ -116,12 +119,13 @@ p_effects <- read_html("http://www.dakstats.com/WebSync/Pages/Team/TeamSchedule.
     Opp_Runs_A[c] <- as.integer(substr(r, (regexpr(pattern ='-', r)+1), nchar(r)))
     
     }
+    
     q = q + 1
     c = c + 1
 
   }
   
-  
+  print(sum(Team_Runs_H))
   Park_effect <- ((sum(Team_Runs_H)+sum(Opp_Runs_H))/length(Team_Runs_H))/((sum(Team_Runs_A)+sum(Opp_Runs_A))/length(Team_Runs_A))
   print(Park_effect)
 

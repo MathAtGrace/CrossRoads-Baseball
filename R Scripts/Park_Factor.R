@@ -62,8 +62,8 @@ names(teams) <- c(1629, 1678, 1679, 1688, 1694, 1717, 1736, 1780, 1805, 1784)
     
     Loc <- Conf_Games["Location"]
   
-    w=0
-    z=0
+    w=1
+    z=1
     for (k in 1:nrow(Loc)){
       if (is.element("H", Loc[[1]][[k]]) == TRUE){
         Home_Games[w,] <- Conf_Games[k,]
@@ -102,6 +102,7 @@ names(teams) <- c(1629, 1678, 1679, 1688, 1694, 1717, 1736, 1780, 1805, 1784)
             Opp_Runs_H[d] <- as.integer(substr(x, (regexpr(pattern ='-', x)+1), nchar(x)))
             
           }
+          
           p = p + 1
           d = d + 1
         }
@@ -131,5 +132,5 @@ names(teams) <- c(1629, 1678, 1679, 1688, 1694, 1717, 1736, 1780, 1805, 1784)
   
   p_factor <- teams %>%
     lapply(Park_effects)
-  names(schedule) <- teams
+  names(p_factor) <- teams
 
