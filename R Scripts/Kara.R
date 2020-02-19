@@ -84,7 +84,7 @@ names(Pitching) <- teams
 
 #Calculate League Averages for Batting 
 
-batting_stats <- c("H","AB","BB","HBP","SF","TB", "2B")
+batting_stats <- c("H","AB","BB","HBP","SF","TB", "2B","3B","HR","X1B")
 CL_Avg_B <- c()
 All_stats_batting <- c()
 print(which( colnames(batting$BC)==batting_stats[7]))
@@ -122,6 +122,8 @@ bat_stats <- function(y){
   x <- Batting[[y]]
   #Caught Stealing
   x$CS <- x$SBA - x$SB
+  #Singles
+  x$X1B <- x$H - x[,8] - x[,9] - x$HR
   #Runs Created
   x$RC <- (x$H + x$BB)*x$TB/(x$AB + x$BB)
   #OPS
