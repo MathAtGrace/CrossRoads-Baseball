@@ -63,6 +63,7 @@ pitch_stats <- function(y){
   x <- Pitching[[y]]
   FIP_team <- ((13*x$HR)+3*(x$BB+x$HBP)-(2*x$SO))/(x$IP)
   x$FIP <- FIP_team + FIP_CL_constant
+  x$PR <- (x$IP*(CL_ERA - x$ERA))/9
   x
 }
 
