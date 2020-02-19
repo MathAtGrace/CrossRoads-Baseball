@@ -44,15 +44,26 @@ print(CL_ERA)
 #print(CL_Avg_P)
 
 #get data for park effects
-p_effects <- read_html("http://www.dakstats.com/WebSync/Pages/Team/TeamSchedule.aspx?association=10&sg=MBA&sea=NAIMBA_2019&team=1679")
+p_effects_urls <- paste0("http://www.dakstats.com/WebSync/Pages/Team/TeamSchedule.aspx?association=10&sg=MBA&sea=NAIMBA_2019&team=",names(teams))
 
-tbls_effects <- p_effects %>%
-  html_nodes("table") %>%
-  .[36] %>%
-  html_table(fill = TRUE)
+#function to get the schedule of a team for park effects
+get_schedule <- function(p_effects_urls) {
+  bpf <- p_effects_urls %>%
+    read_html() %>%
+    html_nodes("table") %>%
+    .[[36]] %>%
+    html_table(fill = TRUE)
+}
 
-Team_Schedule <- data.frame(tbls_effects[[1]])
+schedule <- lapply(p_effects_urls, get_schedule)
+names(schedule) <- teams
+
 Team_Schedule <- Team_Schedule[!apply(is.na(Team_Schedule) | Team_Schedule == "", 1, all),]
+
+#Team_Schedule <- data.frame(tbls_effects[[1]])
+
+
+
 
 #FIP
 
@@ -72,22 +83,22 @@ names(Pitching) <- teams
 
 #Calculate League Averages for Batting 
 
-batting_stats <- c("H","AB","BB","HBP","SF","TB")
+batting_stats <- c("H","AB","BB","HBP","SF","TB", "2B")
 CL_Avg_B <- c()
 All_stats_batting <- c()
-
+print(which( colnames(batting$BC)==batting_stats[7]))
 w = 0
 
 for (n in batting_stats){
   
   for (j in teams){
     
-    P <- read.csv(paste("Data/Batting/",j,".csv",sep=""))
+    P <- Batting[[j]]#as.data.frame(read.csv(paste("Data/Batting/",j,".csv",sep="")))
     
-    
+    col_num =  which( colnames(P)==n )
     for (k in seq(length(P[[n]]))){ 
-      
-      All_stats_batting[w+k] <- P[[n]][k]
+      print(col_num)
+      All_stats_batting[w+k] <- P[,col_num][k]
       #print(All_stats)
     }
     
