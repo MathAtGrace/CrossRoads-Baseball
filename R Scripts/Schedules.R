@@ -15,7 +15,7 @@ names(teams) <- c(1629, 1678, 1679, 1688, 1694, 1717, 1736, 1780, 1805, 1784)
 
 #get schedules from dakstats
 schedule_urls <- paste0("http://www.dakstats.com/WebSync/Pages/Team/TeamSchedule.aspx?association=10&sg=MBA&sea=NAIMBA_2019&team=",names(teams))
-View(schedule_urls)
+#View(schedule_urls)
 
 #function to get the schedule of a team
 get_schedule <- function(schedule_urls) {
@@ -32,7 +32,7 @@ get_schedule <- function(schedule_urls) {
 
 schedules <- lapply(schedule_urls, get_schedule)
 names(schedules) <- teams
-View(schedules)
+#View(schedules)
 
 #A function to clean up the tables and show only conference schedule
 conference <- function(x){
@@ -49,6 +49,9 @@ conference <- function(x){
     filter(str_detect(Opponent, "\\*"))
   #remove column with only NA at the end
   CL_schedule <- CL_schedule[-6]
+  #separate score into home and away columns
+  CL_schedule <- CL_schedule %>%
+    separate(Score, c("Team_Score","Opp_Score"),"-")
   #output only the CL schedules
   schedules[[x]] <- CL_schedule
 }
