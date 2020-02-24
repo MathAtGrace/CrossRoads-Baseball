@@ -42,7 +42,8 @@ HomeGames[["Opp_Score"]] <- Opp
 
 
 #for loop modified from the original version found here: https://edomt.github.io/Elo-R-WorldCup/
-for (i in nrow(HomeGames)) {
+for (i in seq(1, nrow(HomeGames))) {
+  
   match <- HomeGames[i,]
   
   View(match)
