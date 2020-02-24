@@ -98,7 +98,7 @@ for (n in batting_stats){
     
     col_num =  which( colnames(P)==n )
     for (k in seq(length(P[[n]]))){ 
-      print(col_num)
+      
       All_stats_batting[w+k] <- P[,col_num][k]
       #print(All_stats)
     }
@@ -117,6 +117,9 @@ CL_OBP <- (CL_Avg_B[[1]]+CL_Avg_B[[3]]+CL_Avg_B[[4]])/(CL_Avg_B[[2]]+CL_Avg_B[[3
 CL_SLG <- (CL_Avg_B[[6]])/(CL_Avg_B[[2]])
 print(CL_OBP)
 print(CL_SLG)
+
+ABF <- ((0.47 * CL_Avg_B[["X1B"]]) + (0.38*CL_Avg_B[["2B"]]) + (0.55*CL_Avg_B[["3B"]]) + (0.93*CL_Avg_B[["HR"]]) +(0.33*(CL_Avg_B[["BB"]]+CL_Avg_B[["HBP"]]))/(CL_Avg_B[["AB"]]-CL_Avg_B[["H"]]))
+        
 
 bat_stats <- function(y){
   x <- Batting[[y]]
@@ -138,6 +141,8 @@ bat_stats <- function(y){
   x$BABIP <- (x$H - x$HR)/(x$AB - x$SO - x$HR + x$SF)
   #Hoban Efficiency Quotient - offense
   x$HEQO <- x$TB + x$R + x$RBI + x$SB + (0.5*x$BB)
+  #Batting Runs
+  x$Bat_Runs <- ((0.47*x$X1B) + (0.38*x[["2B"]]) + (0.55*x[["3B"]]) + (0.93*x$HR) + ((0.33)*x$BB + x$HBP)/(ABF *(x$AB - x$H)))
   x
 }
 
