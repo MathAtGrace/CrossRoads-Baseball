@@ -27,6 +27,18 @@ HomeGames <- AllGames %>%
 View(HomeGames)
 
 
+#Fix extra innings issue
+Opp <- HomeGames[["Opp_Score"]]
+
+for (x in seq(length(Opp))){
+  if (grepl("(", Opp[x], fixed = TRUE) == TRUE){
+     Opp[x] <- as.integer(substr(Opp[x], 1, nchar(Opp[x])-4))
+    
+    }
+}
+
+
+
 #for loop modified from the original version found here: https://edomt.github.io/Elo-R-WorldCup/
 for (i in seq(length(nrow(HomeGames)))) {
   match <- HomeGames %>%
