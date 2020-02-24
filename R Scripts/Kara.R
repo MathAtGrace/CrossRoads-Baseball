@@ -143,6 +143,8 @@ bat_stats <- function(y){
   x$HEQO <- x$TB + x$R + x$RBI + x$SB + (0.5*x$BB)
   #Batting Runs
   x$Bat_Runs <- ((0.47*x$X1B) + (0.38*x[["2B"]]) + (0.55*x[["3B"]]) + (0.93*x$HR) + ((0.33)*x$BB + x$HBP)/(ABF *(x$AB - x$H)))
+  #Base Stealing Runs
+  x$Steal_Runs <- ((x$H + x$BB - x$CS)*(x$TB + (0.7 * x$SB)))/(x$AB + x$BB + x$CS)
   x
 }
 
