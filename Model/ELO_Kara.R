@@ -39,6 +39,13 @@ for (x in seq(length(Opp))){
 
 HomeGames[["Opp_Score"]] <- Opp
 
+#Add margin of victory column
+
+HomeGames$Team_Score <- as.integer(HomeGames$Team_Score)
+HomeGames$Opp_Score <- as.integer(HomeGames$Opp_Score)
+
+HomeGames$Vict_Margin <- (HomeGames$Team_Score - HomeGames$Opp_Score)
+
 
 
 #for loop modified from the original version found here: https://edomt.github.io/Elo-R-WorldCup/
@@ -46,20 +53,18 @@ for (i in seq(1, nrow(HomeGames))) {
   
   match <- HomeGames[i,]
   
-  View(match)
+  #View(match)
   
   # Pre-match ratings
   teamA_elo <- subset(ratings, team == match$Team)$elo
   teamB_elo <- subset(ratings, team == match$Opp)$elo
   
-  #print(teamA_elo)
-  
   # Let's update our ratings
+  
   new_elo <- elo.calc(wins.A = match$result,
-                      elo.A = teamA_elo,
-                      elo.B = teamB_elo,
-                      k = 30)
-  #print(new_elo)
+                     elo.A = teamA_elo,
+                    elo.B = teamB_elo,
+                   k = 30)
   
   # The results come back as a data.frame
   # with team A's new rating in row 1 / column 1
@@ -70,12 +75,23 @@ for (i in seq(1, nrow(HomeGames))) {
   # We then update the ratings for teams A and B
   # and leave the other teams as they were
   ratings <- ratings %>%
-    mutate(elo = if_else(team == match$Team, teamA_new_elo,
-                         if_else(team == match$Opp, teamB_new_elo, elo)))
+    mutate(elo = if_else(team == match[["Team"]], teamA_new_elo,
+                         if_else(team == match[["Opp"]], teamB_new_elo, elo)))
 }
 
 
 #schedules <- lapply(teams, update_elo)
 #names(schedules) <- teams
 View(ratings)
+
+#Way to run elo that includes margin of victory using log
+
+#Run elo
+e <- elo.run(score(HomeGames[["Team_Score"]], HomeGames[["Opp_Score"]]) ~ HomeGames$Team + HomeGames$Opp +
+               k(20*log(abs(HomeGames[["Team_Score"]] - HomeGames[["Opp_Score"]]) + 1)), data = HomeGames)
+
+
+#print results
+f <- final.elos(e)
+print(f)
 
