@@ -94,4 +94,6 @@ e <- elo.run(score(HomeGames[["Team_Score"]], HomeGames[["Opp_Score"]]) ~ HomeGa
 #print results
 f <- final.elos(e)
 print(f)
+f <- sort(f,decreasing = TRUE)
+View(f)
 
