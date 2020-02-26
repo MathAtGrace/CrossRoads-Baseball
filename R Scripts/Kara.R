@@ -118,6 +118,7 @@ CL_SLG <- (CL_Avg_B[[6]])/(CL_Avg_B[[2]])
 print(CL_OBP)
 print(CL_SLG)
 
+#League adjustment for Batting Rusn
 ABF <- ((0.47 * CL_Avg_B[["X1B"]]) + (0.38*CL_Avg_B[["2B"]]) + (0.55*CL_Avg_B[["3B"]]) + (0.93*CL_Avg_B[["HR"]]) +(0.33*(CL_Avg_B[["BB"]]+CL_Avg_B[["HBP"]]))/(CL_Avg_B[["AB"]]-CL_Avg_B[["H"]]))
         
 
