@@ -80,6 +80,8 @@ bat_stats <- function(y){
   x$POP <- x$OPS + x$AVG
   #Total Average
   x$TA <- (x$TB + x$BB + x$HBP + x$SB)/(x$AB - x$H + x$SH + x$SF + x$CS + x$GDP)
+  #Plate Appearances
+  x$PA <- x$AB+x$BB+x$HBP+x$SF
   #Batting Average on Balls in Play
   x$BABIP <- (x$H - x$HR)/(x$AB - x$SO - x$HR + x$SF)
   #Hoban Efficiency Quotient - offense
@@ -93,7 +95,7 @@ Batting <- teams %>%
   lapply(bat_stats)
 names(Batting) <- teams
 
-batting_stats <- c("H","AB","BB","HBP","SF","TB", "2B","3B","HR","X1B")
+batting_stats <- c("H","AB","BB","HBP","SF","TB", "2B","3B","HR","X1B","R")
 CL_Avg_B <- c()
 All_stats_batting <- c()
 print(which( colnames(Batting$BC)==batting_stats[7]))
@@ -124,10 +126,11 @@ print(CL_Avg_B)
 
 CL_OBP <- (CL_Avg_B[[1]]+CL_Avg_B[[3]]+CL_Avg_B[[4]])/(CL_Avg_B[[2]]+CL_Avg_B[[3]]+CL_Avg_B[[4]]+CL_Avg_B[[5]])
 CL_SLG <- (CL_Avg_B[[6]])/(CL_Avg_B[[2]])
-print(CL_OBP)
-print(CL_SLG)
+CL_wOBA <- ((.69)*(CL_Avg_B[["BB"]])+(.72)*(CL_Avg_B[["HBP"]])+(.89)*(CL_Avg_B[["X1B"]])+(1.27)*(CL_Avg_B[["2B"]])+(1.62)*(CL_Avg_B[["3B"]])+(2.10)*(CL_Avg_B[["HR"]]))/(CL_Avg_B[["AB"]]+CL_Avg_B[["BB"]]+CL_Avg_B[["SF"]]+CL_Avg_B[["HBP"]])
+CL_PA <- CL_Avg_B[["AB"]]+CL_Avg_B[["BB"]]+CL_Avg_B[["HBP"]]+CL_Avg_B[["SF"]] 
 
-#League adjustment for Batting Rusn
+
+#League adjustment for Batting Runs
 ABF <- ((0.47 * CL_Avg_B[["X1B"]]) + (0.38*CL_Avg_B[["2B"]]) + (0.55*CL_Avg_B[["3B"]]) + (0.93*CL_Avg_B[["HR"]]) +(0.33*(CL_Avg_B[["BB"]]+CL_Avg_B[["HBP"]]))/(CL_Avg_B[["AB"]]-CL_Avg_B[["H"]]))
         
 
@@ -139,6 +142,10 @@ bat_stats2 <- function(y){
   x$wOBA <- ((.69)*(x$BB)+(.72)*(x$HBP)+(.89)*(x$X1B)+(1.27)*(x[["2B"]])+(1.62)*(x[["3B"]])+(2.10)*(x$HR))/(x$AB+x$BB+x$SF+x$HBP)
   #Batting Runs
   x$Bat_Runs <- round(((0.47*x$X1B) + (0.38*x[["2B"]]) + (0.55*x[["3B"]]) + (0.93*x$HR) + ((0.33)*x$BB + x$HBP)/(ABF *(x$AB - x$H))),digits = 5)
+  #weighted Runs Above Average
+  x$wRAA <- ((x$wOBA-CL_wOBA)/(1.157))*(x$PA)
+  #weighted Runs Created
+  x$wRC <- x$wRAA + (x$PA)*((CL_Avg_B[["R"]])/(CL_PA))
   x
 }
 
