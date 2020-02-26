@@ -54,11 +54,12 @@ conference <- function(x){
     separate(Score, c("Team_Score","Opp_Score"),"-")
   #output only the CL schedules
   schedules[[x]] <- CL_schedule
+  schedules[[x]] <- schedules[[x]] %>%
+    mutate(Team = x)
 }
 
 schedules <- lapply(teams, conference)
 names(schedules) <- teams
-
 
 #A function to write the data to csv files
 writeit <- function(x) {
