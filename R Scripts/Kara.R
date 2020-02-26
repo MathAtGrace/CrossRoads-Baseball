@@ -128,8 +128,10 @@ CL_OBP <- (CL_Avg_B[[1]]+CL_Avg_B[[3]]+CL_Avg_B[[4]])/(CL_Avg_B[[2]]+CL_Avg_B[[3
 CL_SLG <- (CL_Avg_B[[6]])/(CL_Avg_B[[2]])
 CL_wOBA <- ((.69)*(CL_Avg_B[["BB"]])+(.72)*(CL_Avg_B[["HBP"]])+(.89)*(CL_Avg_B[["X1B"]])+(1.27)*(CL_Avg_B[["2B"]])+(1.62)*(CL_Avg_B[["3B"]])+(2.10)*(CL_Avg_B[["HR"]]))/(CL_Avg_B[["AB"]]+CL_Avg_B[["BB"]]+CL_Avg_B[["SF"]]+CL_Avg_B[["HBP"]])
 CL_PA <- CL_Avg_B[["AB"]]+CL_Avg_B[["BB"]]+CL_Avg_B[["HBP"]]+CL_Avg_B[["SF"]] 
-
-
+CL_R_per_PA <- CL_Avg_B[["R"]]/CL_PA
+CL_wRC <- CL_Avg_B[["R"]]
+CL_wRC_per_PA <- CL_R_per_PA
+  
 #League adjustment for Batting Runs
 ABF <- ((0.47 * CL_Avg_B[["X1B"]]) + (0.38*CL_Avg_B[["2B"]]) + (0.55*CL_Avg_B[["3B"]]) + (0.93*CL_Avg_B[["HR"]]) +(0.33*(CL_Avg_B[["BB"]]+CL_Avg_B[["HBP"]]))/(CL_Avg_B[["AB"]]-CL_Avg_B[["H"]]))
         
@@ -146,6 +148,7 @@ bat_stats2 <- function(y){
   x$wRAA <- ((x$wOBA-CL_wOBA)/(1.157))*(x$PA)
   #weighted Runs Created
   x$wRC <- x$wRAA + (x$PA)*((CL_Avg_B[["R"]])/(CL_PA))
+  x$wRC_plus <- (100)*((((x$wRAA/x$PA)+CL_R_per_PA)+(CL_R_per_PA-(p_factor[[y]])*(CL_R_per_PA)))/(CL_wRC_per_PA))
   x
 }
 
