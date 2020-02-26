@@ -7,7 +7,6 @@ Pitching <- baseball[["Pitching"]]
 Fielding <- baseball[["Fielding"]]
 teams <- names(batting)
 
-
 #Calculate League Pitching Averages for FIP
 
 FIP_stats <- c("ER", "HR", "SO", "HBP", "BB", "IP","ERA")
@@ -84,6 +83,35 @@ names(Pitching) <- teams
 
 #Calculate League Averages for Batting 
 
+bat_stats <- function(y){
+  x <- Batting[[y]]
+  #Caught Stealing
+  x$CS <- x$SBA - x$SB
+  #Singles
+  x$X1B <- x$H - x[,8] - x[,9] - x$HR
+  #Runs Created
+  x$RC <- (x$H + x$BB)*x$TB/(x$AB + x$BB)
+  #OPS
+  x$OPS <- x$OB + x$SLG
+  #POP
+  x$POP <- x$OPS + x$AVG
+  #Total Average
+  x$TA <- (x$TB + x$BB + x$HBP + x$SB)/(x$AB - x$H + x$SH + x$SF + x$CS + x$GDP)
+  #Batting Average on Balls in Play
+  x$BABIP <- (x$H - x$HR)/(x$AB - x$SO - x$HR + x$SF)
+  #Hoban Efficiency Quotient - offense
+  x$HEQO <- x$TB + x$R + x$RBI + x$SB + (0.5*x$BB)
+  #Batting Runs
+  x$Bat_Runs <- ((0.47*x$X1B) + (0.38*x[["2B"]]) + (0.55*x[["3B"]]) + (0.93*x$HR) + ((0.33)*x$BB + x$HBP)/(ABF *(x$AB - x$H)))
+  #Base Stealing Runs
+  x$Steal_Runs <- ((x$H + x$BB - x$CS)*(x$TB + (0.7 * x$SB)))/(x$AB + x$BB + x$CS)
+  x
+}
+
+Batting <- teams %>%
+  lapply(bat_stats)
+names(Batting) <- teams
+
 batting_stats <- c("H","AB","BB","HBP","SF","TB", "2B","3B","HR","X1B")
 CL_Avg_B <- c()
 All_stats_batting <- c()
@@ -122,33 +150,15 @@ print(CL_SLG)
 ABF <- ((0.47 * CL_Avg_B[["X1B"]]) + (0.38*CL_Avg_B[["2B"]]) + (0.55*CL_Avg_B[["3B"]]) + (0.93*CL_Avg_B[["HR"]]) +(0.33*(CL_Avg_B[["BB"]]+CL_Avg_B[["HBP"]]))/(CL_Avg_B[["AB"]]-CL_Avg_B[["H"]]))
         
 
-bat_stats <- function(y){
+bat_stats2 <- function(y){
   x <- Batting[[y]]
-  #Caught Stealing
-  x$CS <- x$SBA - x$SB
-  #Singles
-  x$X1B <- x$H - x[,8] - x[,9] - x$HR
-  #Runs Created
-  x$RC <- (x$H + x$BB)*x$TB/(x$AB + x$BB)
-  #OPS
-  x$OPS <- x$OB + x$SLG
   #OPS+
   x$OPS_plus <- (100)*(((x$OB/CL_OBP)+(x$SLG/CL_SLG))-1)
-  #POP
-  x$POP <- x$OPS + x$AVG
-  #Total Average
-  x$TA <- (x$TB + x$BB + x$HBP + x$SB)/(x$AB - x$H + x$SH + x$SF + x$CS + x$GDP)
-  #Batting Average on Balls in Play
-  x$BABIP <- (x$H - x$HR)/(x$AB - x$SO - x$HR + x$SF)
-  #Hoban Efficiency Quotient - offense
-  x$HEQO <- x$TB + x$R + x$RBI + x$SB + (0.5*x$BB)
-  #Batting Runs
-  x$Bat_Runs <- ((0.47*x$X1B) + (0.38*x[["2B"]]) + (0.55*x[["3B"]]) + (0.93*x$HR) + ((0.33)*x$BB + x$HBP)/(ABF *(x$AB - x$H)))
-  #Base Stealing Runs
-  x$Steal_Runs <- ((x$H + x$BB - x$CS)*(x$TB + (0.7 * x$SB)))/(x$AB + x$BB + x$CS)
+  #weighted On-Base Average
+  x$wOBA <- ((.69)*(x$BB)+(.72)*(x$HBP)+(.89)*(x$X1B)+(1.27)*(x[["2B"]])+(1.62)*(x[["3B"]])+(2.10)*(x$HR))/(x$AB+x$BB+x$SF+x$HBP)
   x
 }
 
 Batting <- teams %>%
-  lapply(bat_stats)
+  lapply(bat_stats2)
 names(Batting) <- teams
