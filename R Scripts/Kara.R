@@ -5,7 +5,7 @@ load("Data/stats_by_type.Rdata")
 Batting <- baseball[["Batting"]]
 Pitching <- baseball[["Pitching"]]
 Fielding <- baseball[["Fielding"]]
-teams <- names(batting)
+teams <- names(Batting)
 
 #Calculate League Pitching Averages for FIP
 
@@ -44,23 +44,6 @@ print(CL_ERA)
 
 #get data for park effects
 p_effects_urls <- paste0("http://www.dakstats.com/WebSync/Pages/Team/TeamSchedule.aspx?association=10&sg=MBA&sea=NAIMBA_2019&team=",names(teams))
-
-#function to get the schedule of a team for park effects
-get_schedule <- function(p_effects_urls) {
-  bpf <- p_effects_urls %>%
-    read_html() %>%
-    html_nodes("table") %>%
-    .[[36]] %>%
-    html_table(fill = TRUE)
-}
-
-schedule <- lapply(p_effects_urls, get_schedule)
-names(schedule) <- teams
-
-Team_Schedule <- Team_Schedule[!apply(is.na(Team_Schedule) | Team_Schedule == "", 1, all),]
-
-#Team_Schedule <- data.frame(tbls_effects[[1]])
-
 
 
 
@@ -101,8 +84,6 @@ bat_stats <- function(y){
   x$BABIP <- (x$H - x$HR)/(x$AB - x$SO - x$HR + x$SF)
   #Hoban Efficiency Quotient - offense
   x$HEQO <- x$TB + x$R + x$RBI + x$SB + (0.5*x$BB)
-  #Batting Runs
-  x$Bat_Runs <- ((0.47*x$X1B) + (0.38*x[["2B"]]) + (0.55*x[["3B"]]) + (0.93*x$HR) + ((0.33)*x$BB + x$HBP)/(ABF *(x$AB - x$H)))
   #Base Stealing Runs
   x$Steal_Runs <- ((x$H + x$BB - x$CS)*(x$TB + (0.7 * x$SB)))/(x$AB + x$BB + x$CS)
   x
@@ -115,7 +96,7 @@ names(Batting) <- teams
 batting_stats <- c("H","AB","BB","HBP","SF","TB", "2B","3B","HR","X1B")
 CL_Avg_B <- c()
 All_stats_batting <- c()
-print(which( colnames(batting$BC)==batting_stats[7]))
+print(which( colnames(Batting$BC)==batting_stats[7]))
 w = 0
 
 for (n in batting_stats){
@@ -156,6 +137,8 @@ bat_stats2 <- function(y){
   x$OPS_plus <- (100)*(((x$OB/CL_OBP)+(x$SLG/CL_SLG))-1)
   #weighted On-Base Average
   x$wOBA <- ((.69)*(x$BB)+(.72)*(x$HBP)+(.89)*(x$X1B)+(1.27)*(x[["2B"]])+(1.62)*(x[["3B"]])+(2.10)*(x$HR))/(x$AB+x$BB+x$SF+x$HBP)
+  #Batting Runs
+  x$Bat_Runs <- round(((0.47*x$X1B) + (0.38*x[["2B"]]) + (0.55*x[["3B"]]) + (0.93*x$HR) + ((0.33)*x$BB + x$HBP)/(ABF *(x$AB - x$H))),digits = 5)
   x
 }
 
