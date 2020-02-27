@@ -31,18 +31,16 @@ Welcome to our student research project.  This project is still in its beginning
 ### Update 2/12/2020
 We have scraped data from the website, although the strictly-conference level data is still elluding us.  To view our process go to "Scraping the Data" on the left-hand side of your screen.
 
+---
+
 # Scraping the Data
 
 For this project we used the NAIA statistics posted on the website [dakstats](http://www.dakstats.com/websync/Pages/Association.aspx?association=10).  They have batting, pitching, and fielding statitistics for each baseball team in the Crossroads league, of which Grace College is a member.
 
 We found the `rvest` R package to be very useful for this project.
 
-```{r echo = FALSE}
+```{r}
 suppressWarnings(library(rvest))
-```
-
-```{r eval=FALSE}
-library(rvest)
 ```
 
 ## The Webpage Url's
@@ -125,3 +123,8 @@ Lastly, we also saved our data to an Rdata file for our own convenience.
 
 ```{r saved}
 save(baseball, file = "Data/stats_by_type.Rdata")
+```
+
+---
+
+  

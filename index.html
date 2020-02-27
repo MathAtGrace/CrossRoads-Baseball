@@ -10,7 +10,7 @@
 
 <meta name="author" content="Levi Cain, Kara Godsey, and Dr. Ryan Johnson" />
 
-<meta name="date" content="2020-02-12" />
+<meta name="date" content="2020-02-27" />
 
 <title>Crossroads Baseball Project.</title>
 
@@ -1602,13 +1602,14 @@ $(document).ready(function () {
 <div id="update-2122020" class="section level3">
 <h3>Update 2/12/2020</h3>
 <p>We have scraped data from the website, although the strictly-conference level data is still elluding us. To view our process go to “Scraping the Data” on the left-hand side of your screen.</p>
+<hr />
 </div>
 </div>
 <div id="scraping-the-data" class="section level1">
 <h1>Scraping the Data</h1>
 <p>For this project we used the NAIA statistics posted on the website <a href="http://www.dakstats.com/websync/Pages/Association.aspx?association=10">dakstats</a>. They have batting, pitching, and fielding statitistics for each baseball team in the Crossroads league, of which Grace College is a member.</p>
 <p>We found the <code>rvest</code> R package to be very useful for this project.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(rvest)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">suppressWarnings</span>(<span class="kw">library</span>(rvest))</a></code></pre></div>
 <div id="the-webpage-urls" class="section level2">
 <h2>The Webpage Url’s</h2>
 <p>Dakstats assigns each team an identification number, and uses this number in their webpage urls. We’ve created 2-4 letter abreviations for each team, and named them by their ID numbers.</p>
@@ -1669,6 +1670,7 @@ $(document).ready(function () {
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">invisible</span>(<span class="kw">lapply</span>(teams, writeit))</a></code></pre></div>
 <p>Lastly, we also saved our data to an Rdata file for our own convenience.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">save</span>(baseball, <span class="dt">file =</span> <span class="st">&quot;Data/stats_by_type.Rdata&quot;</span>)</a></code></pre></div>
+<hr />
 </div>
 </div>
 </div>
@@ -1678,7 +1680,7 @@ $(document).ready(function () {
 
 <div id="postamble" data-toggle="wy-nav-shift" class="status">
 <p class="author"><span class="glyphicon glyphicon-user"></span> Levi Cain, Kara Godsey, and Dr. Ryan Johnson</p>
-<p class="date"><span class="glyphicon glyphicon-calendar"></span> 2020-02-12</p>
+<p class="date"><span class="glyphicon glyphicon-calendar"></span> 2020-02-27</p>
 </div>
 
 
