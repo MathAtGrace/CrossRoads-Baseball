@@ -6,10 +6,10 @@ y = 1
 
 for (x in Batting){
   
-  wRC_temp_vec <- c()
+  wRC_plus <- c()
   wRC_name <- c()
   wRC_team <- c()
-  wRC_temp_vec <- x[["wRC_plus"]]
+  wRC_plus <- x[["wRC_plus"]]
   wRC_name <- x[["Batting"]]
   team <- teams[y]
   for (z in wRC_name){
@@ -19,8 +19,16 @@ for (x in Batting){
   
   }
   
-  new.Best_Players <- data.frame(wRC_name, wRC_temp_vec, team)
+  new.Best_Players <- data.frame(wRC_name, wRC_plus, team)
   Best_Players <- rbind(Best_Players, new.Best_Players)
   
   y = y + 1
 }
+
+#remove NaN values
+Best_Players <- Best_Players[complete.cases(Best_Players), ]
+
+#remove Total and Opponents values
+Best_Players <- Best_Players[ !(Best_Players$wRC_name %in% c("Opponents:", "Total:")), ]
+
+Best_Players <- Best_Players[order(-Best_Players$wRC_plus),]
