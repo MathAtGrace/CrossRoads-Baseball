@@ -95,8 +95,10 @@ e <- elo.run(score(HomeGames[["Team_Score"]], HomeGames[["Opp_Score"]]) ~ HomeGa
 f <- final.elos(e)
 f <- sort(f,decreasing = TRUE)
 
-View(f)
-new_f <- c()
+
+
+
+#regress elo values to the mean
 for (g in 1:length(f)){
 
    f[g] <- f[g] * (2/3) + 500
