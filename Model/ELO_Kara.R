@@ -93,7 +93,15 @@ e <- elo.run(score(HomeGames[["Team_Score"]], HomeGames[["Opp_Score"]]) ~ HomeGa
 
 #print results
 f <- final.elos(e)
-print(f)
 f <- sort(f,decreasing = TRUE)
+
+View(f)
+new_f <- c()
+for (g in 1:length(f)){
+
+   f[g] <- f[g] * (2/3) + 500
+  
+}
+
 View(f)
 
