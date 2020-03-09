@@ -1594,6 +1594,7 @@ $(document).ready(function () {
       <li><a href="#creating-the-park-factor-code">Creating the Park Factor Code</a><ul>
       <li><a href="#park-factor-function">Park Factor Function</a></li>
       </ul></li>
+      <li><a href="#finding-the-best-players-in-the-conference">Finding the Best Players in the Conference</a></li>
       </ul>
     </div>
 </div>
@@ -1647,27 +1648,27 @@ $(document).ready(function () {
 <a class="sourceLine" id="cb3-22" data-line-number="22"><span class="st">    </span><span class="kw">html_table</span>(<span class="dt">fill =</span> <span class="ot">TRUE</span>)</a>
 <a class="sourceLine" id="cb3-23" data-line-number="23">}</a></code></pre></div>
 <p>We used the <code>lapply</code> R function with these functions to get our data.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">batting &lt;-<span class="st"> </span><span class="kw">lapply</span>(urls, get_batting)</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">names</span>(batting) &lt;-<span class="st"> </span>teams</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">pitching &lt;-<span class="st"> </span><span class="kw">lapply</span>(urls, get_pitching)</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="kw">names</span>(pitching) &lt;-<span class="st"> </span>teams</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5">fielding &lt;-<span class="st"> </span><span class="kw">lapply</span>(urls, get_fielding)</a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="kw">names</span>(fielding) &lt;-<span class="st"> </span>teams</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">Batting &lt;-<span class="st"> </span><span class="kw">lapply</span>(urls, get_batting)</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">names</span>(Batting) &lt;-<span class="st"> </span>teams</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">Pitching &lt;-<span class="st"> </span><span class="kw">lapply</span>(urls, get_pitching)</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="kw">names</span>(Pitching) &lt;-<span class="st"> </span>teams</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">Fielding &lt;-<span class="st"> </span><span class="kw">lapply</span>(urls, get_fielding)</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="kw">names</span>(Fielding) &lt;-<span class="st"> </span>teams</a></code></pre></div>
 </div>
 <div id="saving-the-data" class="section level2">
 <h2>Saving the data</h2>
 <p>And put all of our data into one list.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">baseball &lt;-<span class="st"> </span><span class="kw">list</span>(batting, pitching, fielding)</a>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">baseball &lt;-<span class="st"> </span><span class="kw">list</span>(Batting, Pitching, Fielding)</a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">names</span>(baseball) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Batting&quot;</span>, <span class="st">&quot;Pitching&quot;</span>, <span class="st">&quot;Fielding&quot;</span>)</a></code></pre></div>
 <p>Then we wrote a function to write all of the tables into csv files,</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co">#A function to write the data to csv files</span></a>
 <a class="sourceLine" id="cb6-2" data-line-number="2">writeit &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
 <a class="sourceLine" id="cb6-3" data-line-number="3">  <span class="co">#Batting</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4">  <span class="kw">write.csv</span>(batting[[x]], <span class="dt">file =</span> <span class="kw">paste0</span>(<span class="st">&quot;Data/Batting&quot;</span>, <span class="st">&quot;/&quot;</span>, x, <span class="st">&quot;.csv&quot;</span>))</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">  <span class="kw">write.csv</span>(Batting[[x]], <span class="dt">file =</span> <span class="kw">paste0</span>(<span class="st">&quot;Data/Batting&quot;</span>, <span class="st">&quot;/&quot;</span>, x, <span class="st">&quot;.csv&quot;</span>))</a>
 <a class="sourceLine" id="cb6-5" data-line-number="5">  <span class="co">#Pitching</span></a>
-<a class="sourceLine" id="cb6-6" data-line-number="6">  <span class="kw">write.csv</span>(pitching[[x]], <span class="dt">file =</span> <span class="kw">paste0</span>(<span class="st">&quot;Data/Pitching&quot;</span>, <span class="st">&quot;/&quot;</span>, x, <span class="st">&quot;.csv&quot;</span>))</a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">  <span class="kw">write.csv</span>(Pitching[[x]], <span class="dt">file =</span> <span class="kw">paste0</span>(<span class="st">&quot;Data/Pitching&quot;</span>, <span class="st">&quot;/&quot;</span>, x, <span class="st">&quot;.csv&quot;</span>))</a>
 <a class="sourceLine" id="cb6-7" data-line-number="7">  <span class="co">#Fielding</span></a>
-<a class="sourceLine" id="cb6-8" data-line-number="8">  <span class="kw">write.csv</span>(fielding[[x]], <span class="dt">file =</span> <span class="kw">paste0</span>(<span class="st">&quot;Data/Fielding&quot;</span>, <span class="st">&quot;/&quot;</span>, x, <span class="st">&quot;.csv&quot;</span>))</a>
+<a class="sourceLine" id="cb6-8" data-line-number="8">  <span class="kw">write.csv</span>(Fielding[[x]], <span class="dt">file =</span> <span class="kw">paste0</span>(<span class="st">&quot;Data/Fielding&quot;</span>, <span class="st">&quot;/&quot;</span>, x, <span class="st">&quot;.csv&quot;</span>))</a>
 <a class="sourceLine" id="cb6-9" data-line-number="9">}</a></code></pre></div>
 <p>and used <code>lapply</code> to write the csv’s all at once.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">invisible</span>(<span class="kw">lapply</span>(teams, writeit))</a></code></pre></div>
@@ -1820,6 +1821,53 @@ $(document).ready(function () {
 <a class="sourceLine" id="cb10-111" data-line-number="111">  <span class="kw">names</span>(p_factor) &lt;-<span class="st"> </span>teams</a></code></pre></div>
 <hr />
 </div>
+</div>
+<div id="finding-the-best-players-in-the-conference" class="section level1">
+<h1>Finding the Best Players in the Conference</h1>
+<p>We decided to use weighted runs created plus to determine the best players in the conference. <!-- add reasons why we used this --></p>
+<p>We started by creating a dataframe that contained only the players with their weighted runs created plus values.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">Best_Players &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">wRC_plus=</span><span class="kw">numeric</span>())</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="co">#counter for teams</span></a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">y =<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb11-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb11-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb11-7" data-line-number="7"><span class="cf">for</span> (x <span class="cf">in</span> Batting){</a>
+<a class="sourceLine" id="cb11-8" data-line-number="8">  </a>
+<a class="sourceLine" id="cb11-9" data-line-number="9">  wRC_plus &lt;-<span class="st"> </span><span class="kw">c</span>()</a>
+<a class="sourceLine" id="cb11-10" data-line-number="10">  wRC_name &lt;-<span class="st"> </span><span class="kw">c</span>()</a>
+<a class="sourceLine" id="cb11-11" data-line-number="11">  wRC_team &lt;-<span class="st"> </span><span class="kw">c</span>()</a>
+<a class="sourceLine" id="cb11-12" data-line-number="12">  PA &lt;-<span class="st"> </span><span class="kw">c</span>()</a>
+<a class="sourceLine" id="cb11-13" data-line-number="13">  wRC_plus &lt;-<span class="st"> </span>x[[<span class="st">&quot;wRC_plus&quot;</span>]]</a>
+<a class="sourceLine" id="cb11-14" data-line-number="14">  wRC_name &lt;-<span class="st"> </span>x[[<span class="st">&quot;Batting&quot;</span>]]</a>
+<a class="sourceLine" id="cb11-15" data-line-number="15">  PA &lt;-<span class="st"> </span>x[[<span class="st">&quot;PA&quot;</span>]]</a>
+<a class="sourceLine" id="cb11-16" data-line-number="16">  team &lt;-<span class="st"> </span>teams[y]</a>
+<a class="sourceLine" id="cb11-17" data-line-number="17">  <span class="cf">for</span> (z <span class="cf">in</span> wRC_name){</a>
+<a class="sourceLine" id="cb11-18" data-line-number="18">  </a>
+<a class="sourceLine" id="cb11-19" data-line-number="19">  wRC_team &lt;-<span class="st"> </span><span class="kw">c</span>(wRC_team, team[z])      </a>
+<a class="sourceLine" id="cb11-20" data-line-number="20">  </a>
+<a class="sourceLine" id="cb11-21" data-line-number="21">  </a>
+<a class="sourceLine" id="cb11-22" data-line-number="22">  }</a>
+<a class="sourceLine" id="cb11-23" data-line-number="23">  </a>
+<a class="sourceLine" id="cb11-24" data-line-number="24">  new.Best_Players &lt;-<span class="st"> </span><span class="kw">data.frame</span>(team, wRC_name,  wRC_plus,  PA)</a>
+<a class="sourceLine" id="cb11-25" data-line-number="25">  Best_Players &lt;-<span class="st"> </span><span class="kw">rbind</span>(Best_Players, new.Best_Players)</a>
+<a class="sourceLine" id="cb11-26" data-line-number="26">  </a>
+<a class="sourceLine" id="cb11-27" data-line-number="27">  y =<span class="st"> </span>y <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb11-28" data-line-number="28">}</a></code></pre></div>
+<pre><code>Error in data.frame(team, wRC_name, wRC_plus, PA): arguments imply differing number of rows: 1, 28, 0</code></pre>
+<p>Next, we removed missing values, values from players with less than 20 plate appearances, and trivial values that were included in our dataset.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="co">#remove NaN values</span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">Best_Players &lt;-<span class="st"> </span>Best_Players[<span class="kw">complete.cases</span>(Best_Players), ]</a>
+<a class="sourceLine" id="cb13-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb13-4" data-line-number="4"><span class="co">#remove Total and Opponents values</span></a>
+<a class="sourceLine" id="cb13-5" data-line-number="5">Best_Players &lt;-<span class="st"> </span>Best_Players[ <span class="op">!</span>(Best_Players<span class="op">$</span>wRC_name <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Opponents:&quot;</span>, <span class="st">&quot;Total:&quot;</span>)), ]</a></code></pre></div>
+<pre><code>Error in Best_Players$wRC_name: $ operator is invalid for atomic vectors</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">Best_Players &lt;-<span class="st"> </span>Best_Players[<span class="kw">order</span>(<span class="op">-</span>Best_Players<span class="op">$</span>wRC_plus),]</a></code></pre></div>
+<pre><code>Error in Best_Players$wRC_plus: $ operator is invalid for atomic vectors</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co">#require players to have at least 20 plate appearances</span></a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">Best_Players &lt;-<span class="st"> </span>Best_Players[<span class="op">!</span>(Best_Players<span class="op">$</span>PA <span class="op">&lt;</span><span class="st"> </span><span class="dv">20</span>),]</a></code></pre></div>
+<pre><code>Error in Best_Players$PA: $ operator is invalid for atomic vectors</code></pre>
+<hr />
 </div>
 </div>
 
