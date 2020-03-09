@@ -1,0 +1,24 @@
+---
+title: "Tables"
+author: "Kara Godsey"
+date: "3/9/2020"
+output: html_notebook
+---
+
+```{r setup, echo=FALSE, cache=FALSE}
+suppressWarnings(library(knitr))
+suppressWarnings(library(rmdformats))
+suppressWarnings(library(kableExtra))
+```
+
+## Top Players in the Crossroads League
+
+After compiling advanced batting statistics for each team, we chose to use weighted runs created plus (wRC+) in order to evaluate a hitter's overall contribution to the team. The following is a list of the top 10 hitters in the Crossroads League in 2019.
+
+
+
+```{r echo=FALSE}
+kable(head(Best_Players,10), row.names = FALSE, col.names=c("Team", "Player","wRC+", "PA")) %>%
+  kable_styling(bootstrap_options = c("striped")) %>%
+    footnote(general = "*min. 20 plate appearances", general_title = "")
+```
