@@ -132,7 +132,7 @@ save(baseball, file = "Data/stats_by_type.Rdata")
 We wanted to be able to adjust our statistics based on the ballpark where the game was played or will be played. We scraped the schedule data from [dakstats](https://www.dakstats.com/WebSync/Pages/Team/TeamSchedule.aspx?association=10&sg=MBA&sea=NAIMBA_2019&team=1679)
 using code similar to the code found in Scraping the Data.
 
-```{r}
+```{r schedule_scrape}
 library(rvest)
 
 
