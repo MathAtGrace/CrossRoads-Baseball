@@ -127,4 +127,34 @@ save(baseball, file = "Data/stats_by_type.Rdata")
 
 ---
 
+# Creating the Park Factor Code
+
+We wanted to be able to adjust our statistics based on the ballpark where the game was played or will be played. We scraped the schedule data from [dakstats](https://www.dakstats.com/WebSync/Pages/Team/TeamSchedule.aspx?association=10&sg=MBA&sea=NAIMBA_2019&team=1679)
+using code similar to the code found in Scraping the Data.
+
+```{r}
+library(rvest)
+
+
+teams <- c("BC","GOC","GRC","HU","INWU","MAR","MVNU","SAU","SFIN","TAYL")
+#R lets us rename the indices of vectors.
+names(teams) <- c(1629, 1678, 1679, 1688, 1694, 1717, 1736, 1780, 1805, 1784)
+  p_effects <- paste0("http://www.dakstats.com/WebSync/Pages/Team/TeamSchedule.aspx?association=10&sg=MBA&sea=NAIMBA_2019&team=", names(teams))
   
+  #Function to get schedule of each team and remove blank rows
+  
+  get_schedule <- function(url){
+  tbls_effects <- url %>%
+    read_html() %>%
+    html_nodes("table") %>%
+    .[36] %>%
+    html_table(fill = TRUE)
+  Team_Schedule <- data.frame(tbls_effects[[1]])
+  Team_Schedule <- Team_Schedule[!apply(is.na(Team_Schedule) | Team_Schedule == "", 1, all),]
+  }
+  
+  schedule <- lapply(p_effects, get_schedule)
+  names(schedule) <- teams
+```
+
+## Sorting by Conference Games
