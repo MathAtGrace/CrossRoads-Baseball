@@ -280,3 +280,7 @@ Finally, we used the lapply to apply the function to each team.
   names(p_factor) <- teams
 ```
 
+---
+
+
+
