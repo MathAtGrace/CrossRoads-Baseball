@@ -21,7 +21,7 @@ for (x in Batting){
   
   }
   
-  new.Best_Players <- data.frame(wRC_name, wRC_plus, team, PA)
+  new.Best_Players <- data.frame(team, wRC_name,  wRC_plus,  PA)
   Best_Players <- rbind(Best_Players, new.Best_Players)
   
   y = y + 1
