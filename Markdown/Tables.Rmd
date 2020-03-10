@@ -11,14 +11,15 @@ suppressWarnings(library(rmdformats))
 suppressWarnings(library(kableExtra))
 ```
 
-## Top Players in the Crossroads League
+# Top Players in the Crossroads League
 
-After compiling advanced batting statistics for each team, we chose to use weighted runs created plus (wRC+) in order to evaluate a hitter's overall contribution to the team. The following is a list of the top 10 hitters in the Crossroads League in 2019.
+After compiling advanced batting statistics for each team, we chose to use weighted runs created plus (wRC+) in order to evaluate a hitter's overall contribution to the team. This statistic takes the park factor into account. Additionally, it adjusts based on a player's performance in comparison to the league average.
 
-
+The following is a list of the top 10 hitters in the Crossroads League in 2019.
 
 ```{r echo=FALSE}
-kable(head(Best_Players,10), row.names = FALSE, col.names=c("Team", "Player","wRC+", "PA")) %>%
-  kable_styling(bootstrap_options = c("striped")) %>%
+Best_Players$wRC_plus <- round(Best_Players$wRC_plus, 2)
+kable(Best_Players[1:10, 1:4], row.names = FALSE, col.names=c("Team", "Player", "wRC+", "PA")) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered"), full_width = FALSE) %>%
     footnote(general = "*min. 20 plate appearances", general_title = "")
 ```
