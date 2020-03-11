@@ -561,15 +561,21 @@ schedules <- lapply(teams, conference)
 names(schedules) <- teams
 
 schedules_19 <- schedules
+```
 
+
+```{r echo=FALSE}
 #A function to write the data to csv files
 writeit <- function(x) {
   write.csv(schedules[[x]], file = paste0("Data/Schedules/2019", "/", x, ".csv"))
 }
 
 #Write to csv
-lapply(teams, writeit)
+#lapply(teams, writeit)
+```
 
+
+```{r sched-20}
 #2020 schedules
 
 load("Data/stats_by_type.Rdata")
@@ -631,14 +637,17 @@ schedules <- lapply(teams, conference)
 names(schedules) <- teams
 
 schedules_20 <- schedules
+```
 
+
+```{r echo=FALSE}
 #A function to write the data to csv files
 writeit <- function(x) {
   write.csv(schedules[[x]], file = paste0("Data/Schedules/2020", "/", x, ".csv"))
 }
 
 #Write to csv
-lapply(teams, writeit)
+#lapply(teams, writeit)
 ```
 
 ---

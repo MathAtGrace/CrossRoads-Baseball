@@ -5488,232 +5488,158 @@ Miller, Kobe
 <a class="sourceLine" id="cb21-62" title="62">schedules &lt;-<span class="st"> </span><span class="kw">lapply</span>(teams, conference)</a>
 <a class="sourceLine" id="cb21-63" title="63"><span class="kw">names</span>(schedules) &lt;-<span class="st"> </span>teams</a>
 <a class="sourceLine" id="cb21-64" title="64"></a>
-<a class="sourceLine" id="cb21-65" title="65">schedules_<span class="dv">19</span> &lt;-<span class="st"> </span>schedules</a>
-<a class="sourceLine" id="cb21-66" title="66"></a>
-<a class="sourceLine" id="cb21-67" title="67"><span class="co">#A function to write the data to csv files</span></a>
-<a class="sourceLine" id="cb21-68" title="68">writeit &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
-<a class="sourceLine" id="cb21-69" title="69">  <span class="kw">write.csv</span>(schedules[[x]], <span class="dt">file =</span> <span class="kw">paste0</span>(<span class="st">&quot;Data/Schedules/2019&quot;</span>, <span class="st">&quot;/&quot;</span>, x, <span class="st">&quot;.csv&quot;</span>))</a>
-<a class="sourceLine" id="cb21-70" title="70">}</a>
-<a class="sourceLine" id="cb21-71" title="71"></a>
-<a class="sourceLine" id="cb21-72" title="72"><span class="co">#Write to csv</span></a>
-<a class="sourceLine" id="cb21-73" title="73"><span class="kw">lapply</span>(teams, writeit)</a></code></pre></div>
-<pre><code>$`1629`
-NULL
-
-$`1678`
-NULL
-
-$`1679`
-NULL
-
-$`1688`
-NULL
-
-$`1694`
-NULL
-
-$`1717`
-NULL
-
-$`1736`
-NULL
-
-$`1780`
-NULL
-
-$`1805`
-NULL
-
-$`1784`
-NULL</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1"><span class="co">#2020 schedules</span></a>
-<a class="sourceLine" id="cb23-2" title="2"></a>
-<a class="sourceLine" id="cb23-3" title="3"><span class="kw">load</span>(<span class="st">&quot;Data/stats_by_type.Rdata&quot;</span>)</a>
-<a class="sourceLine" id="cb23-4" title="4">Batting &lt;-<span class="st"> </span>baseball[[<span class="st">&quot;Batting&quot;</span>]]</a>
-<a class="sourceLine" id="cb23-5" title="5">Pitching &lt;-<span class="st"> </span>baseball[[<span class="st">&quot;Pitching&quot;</span>]]</a>
-<a class="sourceLine" id="cb23-6" title="6">Fielding &lt;-<span class="st"> </span>baseball[[<span class="st">&quot;Fielding&quot;</span>]]</a>
-<a class="sourceLine" id="cb23-7" title="7">teams &lt;-<span class="st"> </span><span class="kw">names</span>(Batting)</a>
-<a class="sourceLine" id="cb23-8" title="8"></a>
-<a class="sourceLine" id="cb23-9" title="9"><span class="co">#General info</span></a>
-<a class="sourceLine" id="cb23-10" title="10">teams &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;BC&quot;</span>,<span class="st">&quot;GOC&quot;</span>,<span class="st">&quot;GRC&quot;</span>,<span class="st">&quot;HU&quot;</span>,<span class="st">&quot;INWU&quot;</span>,<span class="st">&quot;MAR&quot;</span>,<span class="st">&quot;MVNU&quot;</span>,<span class="st">&quot;SAU&quot;</span>,<span class="st">&quot;SFIN&quot;</span>,<span class="st">&quot;TAYL&quot;</span>)</a>
-<a class="sourceLine" id="cb23-11" title="11"><span class="kw">names</span>(teams) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1629</span>, <span class="dv">1678</span>, <span class="dv">1679</span>, <span class="dv">1688</span>, <span class="dv">1694</span>, <span class="dv">1717</span>, <span class="dv">1736</span>, <span class="dv">1780</span>, <span class="dv">1805</span>, <span class="dv">1784</span>) </a>
-<a class="sourceLine" id="cb23-12" title="12"></a>
-<a class="sourceLine" id="cb23-13" title="13"><span class="co">#get schedules from dakstats</span></a>
-<a class="sourceLine" id="cb23-14" title="14">schedule_urls &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;http://www.dakstats.com/WebSync/Pages/Team/TeamSchedule.aspx?association=10&amp;sg=MBA&amp;sea=NAIMBA_2020&amp;team=&quot;</span>,<span class="kw">names</span>(teams))</a>
-<a class="sourceLine" id="cb23-15" title="15"><span class="co">#View(schedule_urls)</span></a>
-<a class="sourceLine" id="cb23-16" title="16"></a>
-<a class="sourceLine" id="cb23-17" title="17"><span class="co">#function to get the schedule of a team</span></a>
-<a class="sourceLine" id="cb23-18" title="18">get_schedule &lt;-<span class="st"> </span><span class="cf">function</span>(schedule_urls) {</a>
-<a class="sourceLine" id="cb23-19" title="19">  bpf &lt;-<span class="st"> </span>schedule_urls <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb23-20" title="20"><span class="st">    </span><span class="kw">read_html</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb23-21" title="21"><span class="st">    </span><span class="kw">html_nodes</span>(<span class="st">&quot;table&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb23-22" title="22"><span class="st">    </span>.[[<span class="dv">36</span>]] <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb23-23" title="23"><span class="st">    </span><span class="kw">html_table</span>(<span class="dt">fill =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb23-24" title="24">}</a>
-<a class="sourceLine" id="cb23-25" title="25"></a>
-<a class="sourceLine" id="cb23-26" title="26"><span class="co">#p_effects_urls &lt;- teams %&gt;%</span></a>
-<a class="sourceLine" id="cb23-27" title="27"><span class="co">#lapply(get_schedule)</span></a>
-<a class="sourceLine" id="cb23-28" title="28"><span class="co">#names(p_effects_urls) &lt;- teams</span></a>
-<a class="sourceLine" id="cb23-29" title="29"></a>
-<a class="sourceLine" id="cb23-30" title="30">schedules &lt;-<span class="st"> </span><span class="kw">lapply</span>(schedule_urls, get_schedule)</a>
-<a class="sourceLine" id="cb23-31" title="31"><span class="kw">names</span>(schedules) &lt;-<span class="st"> </span>teams</a>
-<a class="sourceLine" id="cb23-32" title="32"><span class="co">#View(schedules)</span></a>
-<a class="sourceLine" id="cb23-33" title="33"></a>
-<a class="sourceLine" id="cb23-34" title="34"><span class="co">#A function to clean up the tables and show only conference schedule</span></a>
-<a class="sourceLine" id="cb23-35" title="35">conference &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
-<a class="sourceLine" id="cb23-36" title="36">  <span class="co">#Gets rid of rows containing only NA</span></a>
-<a class="sourceLine" id="cb23-37" title="37">  schedules[[x]] &lt;-<span class="st"> </span>schedules[[x]][<span class="op">!</span><span class="kw">apply</span>(<span class="kw">is.na</span>(schedules[[x]]) <span class="op">|</span><span class="st"> </span>schedules[[x]] <span class="op">==</span><span class="st"> &quot;&quot;</span>, <span class="dv">1</span>, all),]</a>
-<a class="sourceLine" id="cb23-38" title="38">  <span class="co">#Rename columns</span></a>
-<a class="sourceLine" id="cb23-39" title="39">  <span class="kw">names</span>(schedules[[x]])[<span class="dv">1</span>] &lt;-<span class="st"> &quot;Date&quot;</span></a>
-<a class="sourceLine" id="cb23-40" title="40">  <span class="kw">names</span>(schedules[[x]])[<span class="dv">2</span>] &lt;-<span class="st"> &quot;Opponent&quot;</span></a>
-<a class="sourceLine" id="cb23-41" title="41">  <span class="kw">names</span>(schedules[[x]])[<span class="dv">3</span>] &lt;-<span class="st"> &quot;Location&quot;</span></a>
-<a class="sourceLine" id="cb23-42" title="42">  <span class="kw">names</span>(schedules[[x]])[<span class="dv">4</span>] &lt;-<span class="st"> &quot;Score&quot;</span></a>
-<a class="sourceLine" id="cb23-43" title="43">  <span class="kw">names</span>(schedules[[x]])[<span class="dv">5</span>] &lt;-<span class="st"> &quot;Decision&quot;</span></a>
-<a class="sourceLine" id="cb23-44" title="44">  <span class="co">#Grab only the conference games</span></a>
-<a class="sourceLine" id="cb23-45" title="45">  CL_schedule &lt;-<span class="st"> </span>schedules[[x]] <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb23-46" title="46"><span class="st">    </span><span class="kw">filter</span>(<span class="kw">str_detect</span>(Opponent, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">*&quot;</span>))</a>
-<a class="sourceLine" id="cb23-47" title="47">  <span class="co">#remove column with only NA at the end</span></a>
-<a class="sourceLine" id="cb23-48" title="48">  CL_schedule &lt;-<span class="st"> </span>CL_schedule[<span class="op">-</span><span class="dv">6</span>]</a>
-<a class="sourceLine" id="cb23-49" title="49">  <span class="co">#separate score into home and away columns</span></a>
-<a class="sourceLine" id="cb23-50" title="50">  CL_schedule &lt;-<span class="st"> </span>CL_schedule <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb23-51" title="51"><span class="st">    </span><span class="kw">separate</span>(Score, <span class="kw">c</span>(<span class="st">&quot;Team_Score&quot;</span>,<span class="st">&quot;Opp_Score&quot;</span>),<span class="st">&quot;-&quot;</span>)</a>
-<a class="sourceLine" id="cb23-52" title="52">  <span class="co">#output only the CL schedules</span></a>
-<a class="sourceLine" id="cb23-53" title="53">  schedules[[x]] &lt;-<span class="st"> </span>CL_schedule</a>
-<a class="sourceLine" id="cb23-54" title="54">  schedules[[x]] &lt;-<span class="st"> </span>schedules[[x]] <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb23-55" title="55"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">Team =</span> x)</a>
-<a class="sourceLine" id="cb23-56" title="56">}</a>
-<a class="sourceLine" id="cb23-57" title="57"></a>
-<a class="sourceLine" id="cb23-58" title="58">schedules &lt;-<span class="st"> </span><span class="kw">lapply</span>(teams, conference)</a>
-<a class="sourceLine" id="cb23-59" title="59"><span class="kw">names</span>(schedules) &lt;-<span class="st"> </span>teams</a>
-<a class="sourceLine" id="cb23-60" title="60"></a>
-<a class="sourceLine" id="cb23-61" title="61">schedules_<span class="dv">20</span> &lt;-<span class="st"> </span>schedules</a>
-<a class="sourceLine" id="cb23-62" title="62"></a>
-<a class="sourceLine" id="cb23-63" title="63"><span class="co">#A function to write the data to csv files</span></a>
-<a class="sourceLine" id="cb23-64" title="64">writeit &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
-<a class="sourceLine" id="cb23-65" title="65">  <span class="kw">write.csv</span>(schedules[[x]], <span class="dt">file =</span> <span class="kw">paste0</span>(<span class="st">&quot;Data/Schedules/2020&quot;</span>, <span class="st">&quot;/&quot;</span>, x, <span class="st">&quot;.csv&quot;</span>))</a>
-<a class="sourceLine" id="cb23-66" title="66">}</a>
-<a class="sourceLine" id="cb23-67" title="67"></a>
-<a class="sourceLine" id="cb23-68" title="68"><span class="co">#Write to csv</span></a>
-<a class="sourceLine" id="cb23-69" title="69"><span class="kw">lapply</span>(teams, writeit)</a></code></pre></div>
-<pre><code>$`1629`
-NULL
-
-$`1678`
-NULL
-
-$`1679`
-NULL
-
-$`1688`
-NULL
-
-$`1694`
-NULL
-
-$`1717`
-NULL
-
-$`1736`
-NULL
-
-$`1780`
-NULL
-
-$`1805`
-NULL
-
-$`1784`
-NULL</code></pre>
+<a class="sourceLine" id="cb21-65" title="65">schedules_<span class="dv">19</span> &lt;-<span class="st"> </span>schedules</a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1"><span class="co">#2020 schedules</span></a>
+<a class="sourceLine" id="cb22-2" title="2"></a>
+<a class="sourceLine" id="cb22-3" title="3"><span class="kw">load</span>(<span class="st">&quot;Data/stats_by_type.Rdata&quot;</span>)</a>
+<a class="sourceLine" id="cb22-4" title="4">Batting &lt;-<span class="st"> </span>baseball[[<span class="st">&quot;Batting&quot;</span>]]</a>
+<a class="sourceLine" id="cb22-5" title="5">Pitching &lt;-<span class="st"> </span>baseball[[<span class="st">&quot;Pitching&quot;</span>]]</a>
+<a class="sourceLine" id="cb22-6" title="6">Fielding &lt;-<span class="st"> </span>baseball[[<span class="st">&quot;Fielding&quot;</span>]]</a>
+<a class="sourceLine" id="cb22-7" title="7">teams &lt;-<span class="st"> </span><span class="kw">names</span>(Batting)</a>
+<a class="sourceLine" id="cb22-8" title="8"></a>
+<a class="sourceLine" id="cb22-9" title="9"><span class="co">#General info</span></a>
+<a class="sourceLine" id="cb22-10" title="10">teams &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;BC&quot;</span>,<span class="st">&quot;GOC&quot;</span>,<span class="st">&quot;GRC&quot;</span>,<span class="st">&quot;HU&quot;</span>,<span class="st">&quot;INWU&quot;</span>,<span class="st">&quot;MAR&quot;</span>,<span class="st">&quot;MVNU&quot;</span>,<span class="st">&quot;SAU&quot;</span>,<span class="st">&quot;SFIN&quot;</span>,<span class="st">&quot;TAYL&quot;</span>)</a>
+<a class="sourceLine" id="cb22-11" title="11"><span class="kw">names</span>(teams) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1629</span>, <span class="dv">1678</span>, <span class="dv">1679</span>, <span class="dv">1688</span>, <span class="dv">1694</span>, <span class="dv">1717</span>, <span class="dv">1736</span>, <span class="dv">1780</span>, <span class="dv">1805</span>, <span class="dv">1784</span>) </a>
+<a class="sourceLine" id="cb22-12" title="12"></a>
+<a class="sourceLine" id="cb22-13" title="13"><span class="co">#get schedules from dakstats</span></a>
+<a class="sourceLine" id="cb22-14" title="14">schedule_urls &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;http://www.dakstats.com/WebSync/Pages/Team/TeamSchedule.aspx?association=10&amp;sg=MBA&amp;sea=NAIMBA_2020&amp;team=&quot;</span>,<span class="kw">names</span>(teams))</a>
+<a class="sourceLine" id="cb22-15" title="15"><span class="co">#View(schedule_urls)</span></a>
+<a class="sourceLine" id="cb22-16" title="16"></a>
+<a class="sourceLine" id="cb22-17" title="17"><span class="co">#function to get the schedule of a team</span></a>
+<a class="sourceLine" id="cb22-18" title="18">get_schedule &lt;-<span class="st"> </span><span class="cf">function</span>(schedule_urls) {</a>
+<a class="sourceLine" id="cb22-19" title="19">  bpf &lt;-<span class="st"> </span>schedule_urls <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb22-20" title="20"><span class="st">    </span><span class="kw">read_html</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb22-21" title="21"><span class="st">    </span><span class="kw">html_nodes</span>(<span class="st">&quot;table&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb22-22" title="22"><span class="st">    </span>.[[<span class="dv">36</span>]] <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb22-23" title="23"><span class="st">    </span><span class="kw">html_table</span>(<span class="dt">fill =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb22-24" title="24">}</a>
+<a class="sourceLine" id="cb22-25" title="25"></a>
+<a class="sourceLine" id="cb22-26" title="26"><span class="co">#p_effects_urls &lt;- teams %&gt;%</span></a>
+<a class="sourceLine" id="cb22-27" title="27"><span class="co">#lapply(get_schedule)</span></a>
+<a class="sourceLine" id="cb22-28" title="28"><span class="co">#names(p_effects_urls) &lt;- teams</span></a>
+<a class="sourceLine" id="cb22-29" title="29"></a>
+<a class="sourceLine" id="cb22-30" title="30">schedules &lt;-<span class="st"> </span><span class="kw">lapply</span>(schedule_urls, get_schedule)</a>
+<a class="sourceLine" id="cb22-31" title="31"><span class="kw">names</span>(schedules) &lt;-<span class="st"> </span>teams</a>
+<a class="sourceLine" id="cb22-32" title="32"><span class="co">#View(schedules)</span></a>
+<a class="sourceLine" id="cb22-33" title="33"></a>
+<a class="sourceLine" id="cb22-34" title="34"><span class="co">#A function to clean up the tables and show only conference schedule</span></a>
+<a class="sourceLine" id="cb22-35" title="35">conference &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb22-36" title="36">  <span class="co">#Gets rid of rows containing only NA</span></a>
+<a class="sourceLine" id="cb22-37" title="37">  schedules[[x]] &lt;-<span class="st"> </span>schedules[[x]][<span class="op">!</span><span class="kw">apply</span>(<span class="kw">is.na</span>(schedules[[x]]) <span class="op">|</span><span class="st"> </span>schedules[[x]] <span class="op">==</span><span class="st"> &quot;&quot;</span>, <span class="dv">1</span>, all),]</a>
+<a class="sourceLine" id="cb22-38" title="38">  <span class="co">#Rename columns</span></a>
+<a class="sourceLine" id="cb22-39" title="39">  <span class="kw">names</span>(schedules[[x]])[<span class="dv">1</span>] &lt;-<span class="st"> &quot;Date&quot;</span></a>
+<a class="sourceLine" id="cb22-40" title="40">  <span class="kw">names</span>(schedules[[x]])[<span class="dv">2</span>] &lt;-<span class="st"> &quot;Opponent&quot;</span></a>
+<a class="sourceLine" id="cb22-41" title="41">  <span class="kw">names</span>(schedules[[x]])[<span class="dv">3</span>] &lt;-<span class="st"> &quot;Location&quot;</span></a>
+<a class="sourceLine" id="cb22-42" title="42">  <span class="kw">names</span>(schedules[[x]])[<span class="dv">4</span>] &lt;-<span class="st"> &quot;Score&quot;</span></a>
+<a class="sourceLine" id="cb22-43" title="43">  <span class="kw">names</span>(schedules[[x]])[<span class="dv">5</span>] &lt;-<span class="st"> &quot;Decision&quot;</span></a>
+<a class="sourceLine" id="cb22-44" title="44">  <span class="co">#Grab only the conference games</span></a>
+<a class="sourceLine" id="cb22-45" title="45">  CL_schedule &lt;-<span class="st"> </span>schedules[[x]] <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb22-46" title="46"><span class="st">    </span><span class="kw">filter</span>(<span class="kw">str_detect</span>(Opponent, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">*&quot;</span>))</a>
+<a class="sourceLine" id="cb22-47" title="47">  <span class="co">#remove column with only NA at the end</span></a>
+<a class="sourceLine" id="cb22-48" title="48">  CL_schedule &lt;-<span class="st"> </span>CL_schedule[<span class="op">-</span><span class="dv">6</span>]</a>
+<a class="sourceLine" id="cb22-49" title="49">  <span class="co">#separate score into home and away columns</span></a>
+<a class="sourceLine" id="cb22-50" title="50">  CL_schedule &lt;-<span class="st"> </span>CL_schedule <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb22-51" title="51"><span class="st">    </span><span class="kw">separate</span>(Score, <span class="kw">c</span>(<span class="st">&quot;Team_Score&quot;</span>,<span class="st">&quot;Opp_Score&quot;</span>),<span class="st">&quot;-&quot;</span>)</a>
+<a class="sourceLine" id="cb22-52" title="52">  <span class="co">#output only the CL schedules</span></a>
+<a class="sourceLine" id="cb22-53" title="53">  schedules[[x]] &lt;-<span class="st"> </span>CL_schedule</a>
+<a class="sourceLine" id="cb22-54" title="54">  schedules[[x]] &lt;-<span class="st"> </span>schedules[[x]] <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb22-55" title="55"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">Team =</span> x)</a>
+<a class="sourceLine" id="cb22-56" title="56">}</a>
+<a class="sourceLine" id="cb22-57" title="57"></a>
+<a class="sourceLine" id="cb22-58" title="58">schedules &lt;-<span class="st"> </span><span class="kw">lapply</span>(teams, conference)</a>
+<a class="sourceLine" id="cb22-59" title="59"><span class="kw">names</span>(schedules) &lt;-<span class="st"> </span>teams</a>
+<a class="sourceLine" id="cb22-60" title="60"></a>
+<a class="sourceLine" id="cb22-61" title="61">schedules_<span class="dv">20</span> &lt;-<span class="st"> </span>schedules</a></code></pre></div>
 <hr />
 </div>
 <div id="using-elo-values-to-predict-games" class="section level1">
 <h1>Using Elo values to predict games</h1>
 <p>We are using Elo values to predict the outcome of games. The Elo values are based on who won along with the score differential and are calculated using the Elo package in r. We begin with each teams’ Elo value at 1500.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb25-2" title="2"><span class="kw">library</span>(elo)</a>
-<a class="sourceLine" id="cb25-3" title="3"></a>
-<a class="sourceLine" id="cb25-4" title="4"><span class="co">#place to store each team&#39;s elo rating</span></a>
-<a class="sourceLine" id="cb25-5" title="5">ratings &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">team =</span> teams)</a>
-<a class="sourceLine" id="cb25-6" title="6">ratings &lt;-<span class="st"> </span>ratings <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb25-7" title="7"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">elo =</span> <span class="dv">1500</span>)</a>
-<a class="sourceLine" id="cb25-8" title="8"><span class="co">#View(ratings)</span></a>
-<a class="sourceLine" id="cb25-9" title="9"></a>
-<a class="sourceLine" id="cb25-10" title="10"><span class="co">#function that adds a binary variable</span></a>
-<a class="sourceLine" id="cb25-11" title="11"><span class="co">#1 if home wins/away loses and 0 if home loses/away wins</span></a>
-<a class="sourceLine" id="cb25-12" title="12">add_elo_score &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
-<a class="sourceLine" id="cb25-13" title="13">  schedules_<span class="dv">19</span>[[x]] &lt;-<span class="st"> </span>schedules_<span class="dv">19</span>[[x]] <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb25-14" title="14"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">result =</span> <span class="kw">ifelse</span>(<span class="kw">grepl</span>(<span class="st">&quot;W&quot;</span>,Decision,<span class="dt">fixed=</span><span class="ot">TRUE</span>)<span class="op">&amp;</span><span class="kw">grepl</span>(<span class="st">&quot;H&quot;</span>,Location,<span class="dt">fixed=</span><span class="ot">TRUE</span>),<span class="dv">1</span>,<span class="kw">ifelse</span>(<span class="kw">grepl</span>(<span class="st">&quot;A&quot;</span>,Location,<span class="dt">fixed=</span><span class="ot">TRUE</span>)<span class="op">&amp;</span><span class="kw">grepl</span>(<span class="st">&quot;L&quot;</span>,Decision, <span class="dt">fixed=</span><span class="ot">TRUE</span>),<span class="dv">1</span>,<span class="dv">0</span>)))</a>
-<a class="sourceLine" id="cb25-15" title="15">  <span class="co">#change opponent name to match abbreviations</span></a>
-<a class="sourceLine" id="cb25-16" title="16">  schedules_<span class="dv">19</span>[[x]] &lt;-<span class="st"> </span>schedules_<span class="dv">19</span>[[x]] <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb25-17" title="17"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">Opp =</span> <span class="kw">ifelse</span>(<span class="kw">grepl</span>(<span class="st">&quot;Bethel (Ind.) *&quot;</span>,Opponent,<span class="dt">fixed=</span><span class="ot">TRUE</span>),teams[<span class="dv">1</span>],<span class="kw">ifelse</span>(<span class="kw">grepl</span>(<span class="st">&quot;Goshen (Ind.) *&quot;</span>,Opponent,<span class="dt">fixed=</span><span class="ot">TRUE</span>),teams[<span class="dv">2</span>],<span class="kw">ifelse</span>(<span class="kw">grepl</span>(<span class="st">&quot;Grace (Ind.) *&quot;</span>,Opponent,<span class="dt">fixed=</span><span class="ot">TRUE</span>),teams[<span class="dv">3</span>],<span class="kw">ifelse</span>(<span class="kw">grepl</span>(<span class="st">&quot;Huntington (Ind.) *&quot;</span>,Opponent,<span class="dt">fixed=</span><span class="ot">TRUE</span>),teams[<span class="dv">4</span>],<span class="kw">ifelse</span>(<span class="kw">grepl</span>(<span class="st">&quot;Indiana Wesleyan *&quot;</span>,Opponent,<span class="dt">fixed=</span><span class="ot">TRUE</span>),teams[<span class="dv">5</span>],<span class="kw">ifelse</span>(<span class="kw">grepl</span>(<span class="st">&quot;Marian (Ind.) *&quot;</span>,Opponent,<span class="dt">fixed=</span><span class="ot">TRUE</span>),teams[<span class="dv">6</span>],<span class="kw">ifelse</span>(<span class="kw">grepl</span>(<span class="st">&quot;Mount Vernon Nazarene (Ohio) *&quot;</span>,Opponent,<span class="dt">fixed=</span><span class="ot">TRUE</span>),teams[<span class="dv">7</span>],<span class="kw">ifelse</span>(<span class="kw">grepl</span>(<span class="st">&quot;Spring Arbor (Mich.) *&quot;</span>,Opponent,<span class="dt">fixed=</span><span class="ot">TRUE</span>),teams[<span class="dv">8</span>],<span class="kw">ifelse</span>(<span class="kw">grepl</span>(<span class="st">&quot;St. Francis (Ind.) *&quot;</span>,Opponent,<span class="dt">fixed=</span><span class="ot">TRUE</span>),teams[<span class="dv">9</span>],teams[<span class="dv">10</span>]))))))))))</a>
-<a class="sourceLine" id="cb25-18" title="18">}</a>
-<a class="sourceLine" id="cb25-19" title="19"></a>
-<a class="sourceLine" id="cb25-20" title="20">schedules_<span class="dv">19</span> &lt;-<span class="st"> </span><span class="kw">lapply</span>(teams, add_elo_score)</a>
-<a class="sourceLine" id="cb25-21" title="21"><span class="kw">names</span>(schedules_<span class="dv">19</span>) &lt;-<span class="st"> </span>teams</a></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb23-2" title="2"><span class="kw">library</span>(elo)</a>
+<a class="sourceLine" id="cb23-3" title="3"></a>
+<a class="sourceLine" id="cb23-4" title="4"><span class="co">#place to store each team&#39;s elo rating</span></a>
+<a class="sourceLine" id="cb23-5" title="5">ratings &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">team =</span> teams)</a>
+<a class="sourceLine" id="cb23-6" title="6">ratings &lt;-<span class="st"> </span>ratings <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb23-7" title="7"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">elo =</span> <span class="dv">1500</span>)</a>
+<a class="sourceLine" id="cb23-8" title="8"><span class="co">#View(ratings)</span></a>
+<a class="sourceLine" id="cb23-9" title="9"></a>
+<a class="sourceLine" id="cb23-10" title="10"><span class="co">#function that adds a binary variable</span></a>
+<a class="sourceLine" id="cb23-11" title="11"><span class="co">#1 if home wins/away loses and 0 if home loses/away wins</span></a>
+<a class="sourceLine" id="cb23-12" title="12">add_elo_score &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb23-13" title="13">  schedules_<span class="dv">19</span>[[x]] &lt;-<span class="st"> </span>schedules_<span class="dv">19</span>[[x]] <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb23-14" title="14"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">result =</span> <span class="kw">ifelse</span>(<span class="kw">grepl</span>(<span class="st">&quot;W&quot;</span>,Decision,<span class="dt">fixed=</span><span class="ot">TRUE</span>)<span class="op">&amp;</span><span class="kw">grepl</span>(<span class="st">&quot;H&quot;</span>,Location,<span class="dt">fixed=</span><span class="ot">TRUE</span>),<span class="dv">1</span>,<span class="kw">ifelse</span>(<span class="kw">grepl</span>(<span class="st">&quot;A&quot;</span>,Location,<span class="dt">fixed=</span><span class="ot">TRUE</span>)<span class="op">&amp;</span><span class="kw">grepl</span>(<span class="st">&quot;L&quot;</span>,Decision, <span class="dt">fixed=</span><span class="ot">TRUE</span>),<span class="dv">1</span>,<span class="dv">0</span>)))</a>
+<a class="sourceLine" id="cb23-15" title="15">  <span class="co">#change opponent name to match abbreviations</span></a>
+<a class="sourceLine" id="cb23-16" title="16">  schedules_<span class="dv">19</span>[[x]] &lt;-<span class="st"> </span>schedules_<span class="dv">19</span>[[x]] <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb23-17" title="17"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">Opp =</span> <span class="kw">ifelse</span>(<span class="kw">grepl</span>(<span class="st">&quot;Bethel (Ind.) *&quot;</span>,Opponent,<span class="dt">fixed=</span><span class="ot">TRUE</span>),teams[<span class="dv">1</span>],<span class="kw">ifelse</span>(<span class="kw">grepl</span>(<span class="st">&quot;Goshen (Ind.) *&quot;</span>,Opponent,<span class="dt">fixed=</span><span class="ot">TRUE</span>),teams[<span class="dv">2</span>],<span class="kw">ifelse</span>(<span class="kw">grepl</span>(<span class="st">&quot;Grace (Ind.) *&quot;</span>,Opponent,<span class="dt">fixed=</span><span class="ot">TRUE</span>),teams[<span class="dv">3</span>],<span class="kw">ifelse</span>(<span class="kw">grepl</span>(<span class="st">&quot;Huntington (Ind.) *&quot;</span>,Opponent,<span class="dt">fixed=</span><span class="ot">TRUE</span>),teams[<span class="dv">4</span>],<span class="kw">ifelse</span>(<span class="kw">grepl</span>(<span class="st">&quot;Indiana Wesleyan *&quot;</span>,Opponent,<span class="dt">fixed=</span><span class="ot">TRUE</span>),teams[<span class="dv">5</span>],<span class="kw">ifelse</span>(<span class="kw">grepl</span>(<span class="st">&quot;Marian (Ind.) *&quot;</span>,Opponent,<span class="dt">fixed=</span><span class="ot">TRUE</span>),teams[<span class="dv">6</span>],<span class="kw">ifelse</span>(<span class="kw">grepl</span>(<span class="st">&quot;Mount Vernon Nazarene (Ohio) *&quot;</span>,Opponent,<span class="dt">fixed=</span><span class="ot">TRUE</span>),teams[<span class="dv">7</span>],<span class="kw">ifelse</span>(<span class="kw">grepl</span>(<span class="st">&quot;Spring Arbor (Mich.) *&quot;</span>,Opponent,<span class="dt">fixed=</span><span class="ot">TRUE</span>),teams[<span class="dv">8</span>],<span class="kw">ifelse</span>(<span class="kw">grepl</span>(<span class="st">&quot;St. Francis (Ind.) *&quot;</span>,Opponent,<span class="dt">fixed=</span><span class="ot">TRUE</span>),teams[<span class="dv">9</span>],teams[<span class="dv">10</span>]))))))))))</a>
+<a class="sourceLine" id="cb23-18" title="18">}</a>
+<a class="sourceLine" id="cb23-19" title="19"></a>
+<a class="sourceLine" id="cb23-20" title="20">schedules_<span class="dv">19</span> &lt;-<span class="st"> </span><span class="kw">lapply</span>(teams, add_elo_score)</a>
+<a class="sourceLine" id="cb23-21" title="21"><span class="kw">names</span>(schedules_<span class="dv">19</span>) &lt;-<span class="st"> </span>teams</a></code></pre></div>
 <p>We then take the 2019 schedule and use the outcomes from those games to find our Elo values at the end of the 2019 season.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1"><span class="co">#creating a master schedule with all games</span></a>
-<a class="sourceLine" id="cb26-2" title="2">AllGames &lt;-<span class="st"> </span><span class="kw">do.call</span>(<span class="st">&quot;rbind&quot;</span>,schedules_<span class="dv">19</span>)</a>
-<a class="sourceLine" id="cb26-3" title="3">HomeGames &lt;-<span class="st"> </span>AllGames <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb26-4" title="4"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(<span class="kw">str_detect</span>(Location, <span class="st">&quot;H&quot;</span>))</a>
-<a class="sourceLine" id="cb26-5" title="5"><span class="co">#View(HomeGames)</span></a>
-<a class="sourceLine" id="cb26-6" title="6"></a>
-<a class="sourceLine" id="cb26-7" title="7"></a>
-<a class="sourceLine" id="cb26-8" title="8"><span class="co">#Fix extra innings issue</span></a>
-<a class="sourceLine" id="cb26-9" title="9">Opp &lt;-<span class="st"> </span>HomeGames[[<span class="st">&quot;Opp_Score&quot;</span>]]</a>
-<a class="sourceLine" id="cb26-10" title="10"></a>
-<a class="sourceLine" id="cb26-11" title="11"><span class="cf">for</span> (x <span class="cf">in</span> <span class="kw">seq</span>(<span class="kw">length</span>(Opp))){</a>
-<a class="sourceLine" id="cb26-12" title="12">  <span class="cf">if</span> (<span class="kw">grepl</span>(<span class="st">&quot;(&quot;</span>, Opp[x], <span class="dt">fixed =</span> <span class="ot">TRUE</span>) <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span>){</a>
-<a class="sourceLine" id="cb26-13" title="13">     Opp[x] &lt;-<span class="st"> </span><span class="kw">as.integer</span>(<span class="kw">substr</span>(Opp[x], <span class="dv">1</span>, <span class="kw">nchar</span>(Opp[x])<span class="op">-</span><span class="dv">4</span>))</a>
-<a class="sourceLine" id="cb26-14" title="14">    </a>
-<a class="sourceLine" id="cb26-15" title="15">    }</a>
-<a class="sourceLine" id="cb26-16" title="16">}</a>
-<a class="sourceLine" id="cb26-17" title="17"></a>
-<a class="sourceLine" id="cb26-18" title="18">HomeGames[[<span class="st">&quot;Opp_Score&quot;</span>]] &lt;-<span class="st"> </span>Opp</a>
-<a class="sourceLine" id="cb26-19" title="19"></a>
-<a class="sourceLine" id="cb26-20" title="20"><span class="co">#Add margin of victory column</span></a>
-<a class="sourceLine" id="cb26-21" title="21"></a>
-<a class="sourceLine" id="cb26-22" title="22">HomeGames<span class="op">$</span>Team_Score &lt;-<span class="st"> </span><span class="kw">as.integer</span>(HomeGames<span class="op">$</span>Team_Score)</a>
-<a class="sourceLine" id="cb26-23" title="23">HomeGames<span class="op">$</span>Opp_Score &lt;-<span class="st"> </span><span class="kw">as.integer</span>(HomeGames<span class="op">$</span>Opp_Score)</a>
-<a class="sourceLine" id="cb26-24" title="24"></a>
-<a class="sourceLine" id="cb26-25" title="25">HomeGames<span class="op">$</span>Vict_Margin &lt;-<span class="st"> </span>(HomeGames<span class="op">$</span>Team_Score <span class="op">-</span><span class="st"> </span>HomeGames<span class="op">$</span>Opp_Score)</a>
-<a class="sourceLine" id="cb26-26" title="26"></a>
-<a class="sourceLine" id="cb26-27" title="27"><span class="co">#Way to run elo that includes margin of victory using log</span></a>
-<a class="sourceLine" id="cb26-28" title="28"></a>
-<a class="sourceLine" id="cb26-29" title="29"><span class="co">#Run elo</span></a>
-<a class="sourceLine" id="cb26-30" title="30">e &lt;-<span class="st"> </span><span class="kw">elo.run</span>(<span class="kw">score</span>(HomeGames[[<span class="st">&quot;Team_Score&quot;</span>]], HomeGames[[<span class="st">&quot;Opp_Score&quot;</span>]]) <span class="op">~</span><span class="st"> </span>HomeGames<span class="op">$</span>Team <span class="op">+</span><span class="st"> </span>HomeGames<span class="op">$</span>Opp <span class="op">+</span></a>
-<a class="sourceLine" id="cb26-31" title="31"><span class="st">               </span><span class="kw">k</span>(<span class="dv">20</span><span class="op">*</span><span class="kw">log</span>(<span class="kw">abs</span>(HomeGames[[<span class="st">&quot;Team_Score&quot;</span>]] <span class="op">-</span><span class="st"> </span>HomeGames[[<span class="st">&quot;Opp_Score&quot;</span>]]) <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)), <span class="dt">data =</span> HomeGames)</a>
-<a class="sourceLine" id="cb26-32" title="32"></a>
-<a class="sourceLine" id="cb26-33" title="33"></a>
-<a class="sourceLine" id="cb26-34" title="34"><span class="co">#print results</span></a>
-<a class="sourceLine" id="cb26-35" title="35">f &lt;-<span class="st"> </span><span class="kw">final.elos</span>(e)</a>
-<a class="sourceLine" id="cb26-36" title="36">f &lt;-<span class="st"> </span><span class="kw">sort</span>(f,<span class="dt">decreasing =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="co">#creating a master schedule with all games</span></a>
+<a class="sourceLine" id="cb24-2" title="2">AllGames &lt;-<span class="st"> </span><span class="kw">do.call</span>(<span class="st">&quot;rbind&quot;</span>,schedules_<span class="dv">19</span>)</a>
+<a class="sourceLine" id="cb24-3" title="3">HomeGames &lt;-<span class="st"> </span>AllGames <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb24-4" title="4"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(<span class="kw">str_detect</span>(Location, <span class="st">&quot;H&quot;</span>))</a>
+<a class="sourceLine" id="cb24-5" title="5"><span class="co">#View(HomeGames)</span></a>
+<a class="sourceLine" id="cb24-6" title="6"></a>
+<a class="sourceLine" id="cb24-7" title="7"></a>
+<a class="sourceLine" id="cb24-8" title="8"><span class="co">#Fix extra innings issue</span></a>
+<a class="sourceLine" id="cb24-9" title="9">Opp &lt;-<span class="st"> </span>HomeGames[[<span class="st">&quot;Opp_Score&quot;</span>]]</a>
+<a class="sourceLine" id="cb24-10" title="10"></a>
+<a class="sourceLine" id="cb24-11" title="11"><span class="cf">for</span> (x <span class="cf">in</span> <span class="kw">seq</span>(<span class="kw">length</span>(Opp))){</a>
+<a class="sourceLine" id="cb24-12" title="12">  <span class="cf">if</span> (<span class="kw">grepl</span>(<span class="st">&quot;(&quot;</span>, Opp[x], <span class="dt">fixed =</span> <span class="ot">TRUE</span>) <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span>){</a>
+<a class="sourceLine" id="cb24-13" title="13">     Opp[x] &lt;-<span class="st"> </span><span class="kw">as.integer</span>(<span class="kw">substr</span>(Opp[x], <span class="dv">1</span>, <span class="kw">nchar</span>(Opp[x])<span class="op">-</span><span class="dv">4</span>))</a>
+<a class="sourceLine" id="cb24-14" title="14">    </a>
+<a class="sourceLine" id="cb24-15" title="15">    }</a>
+<a class="sourceLine" id="cb24-16" title="16">}</a>
+<a class="sourceLine" id="cb24-17" title="17"></a>
+<a class="sourceLine" id="cb24-18" title="18">HomeGames[[<span class="st">&quot;Opp_Score&quot;</span>]] &lt;-<span class="st"> </span>Opp</a>
+<a class="sourceLine" id="cb24-19" title="19"></a>
+<a class="sourceLine" id="cb24-20" title="20"><span class="co">#Add margin of victory column</span></a>
+<a class="sourceLine" id="cb24-21" title="21"></a>
+<a class="sourceLine" id="cb24-22" title="22">HomeGames<span class="op">$</span>Team_Score &lt;-<span class="st"> </span><span class="kw">as.integer</span>(HomeGames<span class="op">$</span>Team_Score)</a>
+<a class="sourceLine" id="cb24-23" title="23">HomeGames<span class="op">$</span>Opp_Score &lt;-<span class="st"> </span><span class="kw">as.integer</span>(HomeGames<span class="op">$</span>Opp_Score)</a>
+<a class="sourceLine" id="cb24-24" title="24"></a>
+<a class="sourceLine" id="cb24-25" title="25">HomeGames<span class="op">$</span>Vict_Margin &lt;-<span class="st"> </span>(HomeGames<span class="op">$</span>Team_Score <span class="op">-</span><span class="st"> </span>HomeGames<span class="op">$</span>Opp_Score)</a>
+<a class="sourceLine" id="cb24-26" title="26"></a>
+<a class="sourceLine" id="cb24-27" title="27"><span class="co">#Way to run elo that includes margin of victory using log</span></a>
+<a class="sourceLine" id="cb24-28" title="28"></a>
+<a class="sourceLine" id="cb24-29" title="29"><span class="co">#Run elo</span></a>
+<a class="sourceLine" id="cb24-30" title="30">e &lt;-<span class="st"> </span><span class="kw">elo.run</span>(<span class="kw">score</span>(HomeGames[[<span class="st">&quot;Team_Score&quot;</span>]], HomeGames[[<span class="st">&quot;Opp_Score&quot;</span>]]) <span class="op">~</span><span class="st"> </span>HomeGames<span class="op">$</span>Team <span class="op">+</span><span class="st"> </span>HomeGames<span class="op">$</span>Opp <span class="op">+</span></a>
+<a class="sourceLine" id="cb24-31" title="31"><span class="st">               </span><span class="kw">k</span>(<span class="dv">20</span><span class="op">*</span><span class="kw">log</span>(<span class="kw">abs</span>(HomeGames[[<span class="st">&quot;Team_Score&quot;</span>]] <span class="op">-</span><span class="st"> </span>HomeGames[[<span class="st">&quot;Opp_Score&quot;</span>]]) <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)), <span class="dt">data =</span> HomeGames)</a>
+<a class="sourceLine" id="cb24-32" title="32"></a>
+<a class="sourceLine" id="cb24-33" title="33"></a>
+<a class="sourceLine" id="cb24-34" title="34"><span class="co">#print results</span></a>
+<a class="sourceLine" id="cb24-35" title="35">f &lt;-<span class="st"> </span><span class="kw">final.elos</span>(e)</a>
+<a class="sourceLine" id="cb24-36" title="36">f &lt;-<span class="st"> </span><span class="kw">sort</span>(f,<span class="dt">decreasing =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p>Finally, we regressed the elos to the mean for the beginning of the 2020 season.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1"><span class="co">#regress elo values to the mean</span></a>
-<a class="sourceLine" id="cb27-2" title="2"><span class="cf">for</span> (g <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(f)){</a>
-<a class="sourceLine" id="cb27-3" title="3"></a>
-<a class="sourceLine" id="cb27-4" title="4">   f[g] &lt;-<span class="st"> </span>f[g] <span class="op">*</span><span class="st"> </span>(<span class="dv">2</span><span class="op">/</span><span class="dv">3</span>) <span class="op">+</span><span class="st"> </span><span class="dv">500</span></a>
-<a class="sourceLine" id="cb27-5" title="5">  </a>
-<a class="sourceLine" id="cb27-6" title="6">}</a>
-<a class="sourceLine" id="cb27-7" title="7"></a>
-<a class="sourceLine" id="cb27-8" title="8"><span class="co">#View(f)</span></a></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1"><span class="co">#regress elo values to the mean</span></a>
+<a class="sourceLine" id="cb25-2" title="2"><span class="cf">for</span> (g <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(f)){</a>
+<a class="sourceLine" id="cb25-3" title="3"></a>
+<a class="sourceLine" id="cb25-4" title="4">   f[g] &lt;-<span class="st"> </span>f[g] <span class="op">*</span><span class="st"> </span>(<span class="dv">2</span><span class="op">/</span><span class="dv">3</span>) <span class="op">+</span><span class="st"> </span><span class="dv">500</span></a>
+<a class="sourceLine" id="cb25-5" title="5">  </a>
+<a class="sourceLine" id="cb25-6" title="6">}</a>
+<a class="sourceLine" id="cb25-7" title="7"></a>
+<a class="sourceLine" id="cb25-8" title="8"><span class="co">#View(f)</span></a></code></pre></div>
 <hr />
 </div>
 <div id="upcoming-games" class="section level1">
 <h1>Upcoming Games</h1>
 <p>We use the following function to have a prediction for upcoming games and include the park factor.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1">update_web &lt;-<span class="st"> </span><span class="cf">function</span>(team1, team2, game_loc){</a>
-<a class="sourceLine" id="cb28-2" title="2">  </a>
-<a class="sourceLine" id="cb28-3" title="3">  team1_elo &lt;-<span class="st"> </span>f[team1]</a>
-<a class="sourceLine" id="cb28-4" title="4">  team2_elo &lt;-<span class="st"> </span>f[team2]</a>
-<a class="sourceLine" id="cb28-5" title="5">  <span class="kw">print</span>(team1_elo)</a>
-<a class="sourceLine" id="cb28-6" title="6">  <span class="kw">print</span>(team2_elo)</a>
-<a class="sourceLine" id="cb28-7" title="7">  game_park_effect &lt;-<span class="st"> </span>p_factor[game_loc]</a>
-<a class="sourceLine" id="cb28-8" title="8">  <span class="kw">print</span>(game_park_effect)</a>
-<a class="sourceLine" id="cb28-9" title="9">  </a>
-<a class="sourceLine" id="cb28-10" title="10">  </a>
-<a class="sourceLine" id="cb28-11" title="11">}</a></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1">update_web &lt;-<span class="st"> </span><span class="cf">function</span>(team1, team2, game_loc){</a>
+<a class="sourceLine" id="cb26-2" title="2">  </a>
+<a class="sourceLine" id="cb26-3" title="3">  team1_elo &lt;-<span class="st"> </span>f[team1]</a>
+<a class="sourceLine" id="cb26-4" title="4">  team2_elo &lt;-<span class="st"> </span>f[team2]</a>
+<a class="sourceLine" id="cb26-5" title="5">  <span class="kw">print</span>(team1_elo)</a>
+<a class="sourceLine" id="cb26-6" title="6">  <span class="kw">print</span>(team2_elo)</a>
+<a class="sourceLine" id="cb26-7" title="7">  game_park_effect &lt;-<span class="st"> </span>p_factor[game_loc]</a>
+<a class="sourceLine" id="cb26-8" title="8">  <span class="kw">print</span>(game_park_effect)</a>
+<a class="sourceLine" id="cb26-9" title="9">  </a>
+<a class="sourceLine" id="cb26-10" title="10">  </a>
+<a class="sourceLine" id="cb26-11" title="11">}</a></code></pre></div>
 <p>For example, the next game is Indiana Wesleyan vs. Grace at Grace.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1"><span class="kw">update_web</span>(<span class="st">&quot;INWU&quot;</span>, <span class="st">&quot;GRC&quot;</span>, <span class="st">&quot;GRC&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1"><span class="kw">update_web</span>(<span class="st">&quot;INWU&quot;</span>, <span class="st">&quot;GRC&quot;</span>, <span class="st">&quot;GRC&quot;</span>)</a></code></pre></div>
 <pre><code>    INWU 
 1538.178 
      GRC 
