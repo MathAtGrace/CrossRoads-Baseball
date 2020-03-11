@@ -1,6 +1,16 @@
 base
 knitr
 rmdformats
+kableExtra
 xml2
 rvest
-kableExtra
+stringr
+tidyverse
+ggplot2
+tibble
+tidyr
+readr
+purrr
+dplyr
+forcats
+elo
