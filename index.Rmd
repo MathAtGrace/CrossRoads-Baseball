@@ -85,12 +85,12 @@ get_fielding <- function(url) {
 We used the `lapply` R function with these functions to get our data.
 
 ```{r lapply-it}
-Batting <- lapply(urls, get_batting)
-names(Batting) <- teams
-Pitching <- lapply(urls, get_pitching)
-names(Pitching) <- teams
-Fielding <- lapply(urls, get_fielding)
-names(Fielding) <- teams
+batting <- lapply(urls, get_batting)
+names(batting) <- teams
+pitching <- lapply(urls, get_pitching)
+names(pitching) <- teams
+fielding <- lapply(urls, get_fielding)
+names(fielding) <- teams
 ```
 
 ## Saving the data
@@ -98,7 +98,7 @@ names(Fielding) <- teams
 And put all of our data into one list.
 
 ```{r}
-baseball <- list(Batting, Pitching, Fielding)
+baseball <- list(batting, pitching, fielding)
 names(baseball) <- c("Batting", "Pitching", "Fielding")
 ```
 Then we wrote a function to write all of the tables into csv files,
@@ -107,11 +107,11 @@ Then we wrote a function to write all of the tables into csv files,
 #A function to write the data to csv files
 writeit <- function(x) {
   #Batting
-  write.csv(Batting[[x]], file = paste0("Data/Batting", "/", x, ".csv"))
+  write.csv(batting[[x]], file = paste0("Data/Batting", "/", x, ".csv"))
   #Pitching
-  write.csv(Pitching[[x]], file = paste0("Data/Pitching", "/", x, ".csv"))
+  write.csv(pitching[[x]], file = paste0("Data/Pitching", "/", x, ".csv"))
   #Fielding
-  write.csv(Fielding[[x]], file = paste0("Data/Fielding", "/", x, ".csv"))
+  write.csv(fielding[[x]], file = paste0("Data/Fielding", "/", x, ".csv"))
 }
 ```
 and used `lapply` to write the csv's all at once.
@@ -282,55 +282,5 @@ Finally, we used the lapply to apply the function to each team.
 
 ---
 
-# Finding the Best Players in the Conference
-
-We decided to use weighted runs created plus to determine the best players in the conference. <!-- add reasons why we used this --> 
-
-We started by creating a dataframe that contained only the players with their weighted runs created plus values. 
-
-```{r error=TRUE, best_players_dataframe}
-Best_Players <- data.frame(wRC_plus=numeric())
-
-#counter for teams
-y = 1
 
 
-for (x in Batting){
-  
-  wRC_plus <- c()
-  wRC_name <- c()
-  wRC_team <- c()
-  PA <- c()
-  wRC_plus <- x[["wRC_plus"]]
-  wRC_name <- x[["Batting"]]
-  PA <- x[["PA"]]
-  team <- teams[y]
-  for (z in wRC_name){
-  
-  wRC_team <- c(wRC_team, team[z])      
-  
-  
-  }
-  
-  new.Best_Players <- data.frame(team, wRC_name,  wRC_plus,  PA)
-  Best_Players <- rbind(Best_Players, new.Best_Players)
-  
-  y = y + 1
-}
-```
-
-Next, we removed missing values, values from players with less than 20 plate appearances, and trivial values that were included in our dataset.
-
-```{r error=TRUE}
-#remove NaN values
-Best_Players <- Best_Players[complete.cases(Best_Players), ]
-
-#remove Total and Opponents values
-Best_Players <- Best_Players[ !(Best_Players$wRC_name %in% c("Opponents:", "Total:")), ]
-
-Best_Players <- Best_Players[order(-Best_Players$wRC_plus),]
-
-#require players to have at least 20 plate appearances
-Best_Players <- Best_Players[!(Best_Players$PA < 20),]
-```
----
