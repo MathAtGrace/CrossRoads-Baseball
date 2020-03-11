@@ -490,6 +490,7 @@ kable(Best_Players[1:10, 1:4], row.names = FALSE, col.names=c("Team", "Player", 
 ```
 
 ---
+
 # Getting schedules for elo model
 
 In order to run the Elo model, we needed to scrape the schedule of each team from dakstats.
@@ -639,6 +640,7 @@ writeit <- function(x) {
 #Write to csv
 lapply(teams, writeit)
 ```
+
 ---
 
 
