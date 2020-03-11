@@ -61,6 +61,8 @@ conference <- function(x){
 schedules <- lapply(teams, conference)
 names(schedules) <- teams
 
+schedules_19 <- schedules
+
 #A function to write the data to csv files
 writeit <- function(x) {
   write.csv(schedules[[x]], file = paste0("Data/Schedules", "/", x, ".csv"))
