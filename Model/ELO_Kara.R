@@ -48,42 +48,6 @@ HomeGames$Vict_Margin <- (HomeGames$Team_Score - HomeGames$Opp_Score)
 
 
 
-#for loop modified from the original version found here: https://edomt.github.io/Elo-R-WorldCup/
-for (i in seq(1, nrow(HomeGames))) {
-  
-  match <- HomeGames[i,]
-  
-  #View(match)
-  
-  # Pre-match ratings
-  teamA_elo <- subset(ratings, team == match$Team)$elo
-  teamB_elo <- subset(ratings, team == match$Opp)$elo
-  
-  # Let's update our ratings
-  
-  new_elo <- elo.calc(wins.A = match$result,
-                     elo.A = teamA_elo,
-                    elo.B = teamB_elo,
-                   k = 30)
-  
-  # The results come back as a data.frame
-  # with team A's new rating in row 1 / column 1
-  # and team B's new rating in row 1 / column 2
-  teamA_new_elo <- new_elo[1, 1]
-  teamB_new_elo <- new_elo[1, 2]
-  
-  # We then update the ratings for teams A and B
-  # and leave the other teams as they were
-  ratings <- ratings %>%
-    mutate(elo = if_else(team == match[["Team"]], teamA_new_elo,
-                         if_else(team == match[["Opp"]], teamB_new_elo, elo)))
-}
-
-
-#schedules <- lapply(teams, update_elo)
-#names(schedules) <- teams
-View(ratings)
-
 #Way to run elo that includes margin of victory using log
 
 #Run elo
