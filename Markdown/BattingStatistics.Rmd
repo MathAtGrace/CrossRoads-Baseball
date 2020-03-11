@@ -1,24 +1,16 @@
+
 ---
 title: "Batting Statistics"
 author: "Kara Godsey"
-date: "2/14/2020"
+date: "3/10/2020"
 output: html_notebook
 ---
 
 ```{r setup, echo=FALSE, cache=FALSE}
 suppressWarnings(library(knitr))
 suppressWarnings(library(rmdformats))
-
-## Global options
-options(max.print="75")
-opts_chunk$set(echo=TRUE,
-	             cache=TRUE,
-               prompt=FALSE,
-               tidy=TRUE,
-               comment=NA,
-               message=FALSE,
-               warning=FALSE)
-opts_knit$set(width=75)
+suppressWarnings(library(kableExtra))
+suppressWarnings(library(rvest))
 ```
 
 # Batting Statistics
@@ -26,40 +18,129 @@ opts_knit$set(width=75)
 First, we loaded the data tables that we previously created.
 
 ```{r}
-load("Data/stats_by_type.Rdata")
+load("../Data/stats_by_type.Rdata")
 Batting <- baseball[["Batting"]]
-teams <- names(batting)
+teams <- names(Batting)
 ```
 
-Next, we created a function to calculate advanced statistics using the base data in the tables. The statistics we chose to add to our tables include: Caught Stealing, Runs Created (Basic), OPS, OPS+, POP, Total Average, Batting Average on Balls in Play (BABIP), and the Hoban Efficiency Quotient for offense. The OPS+ stat utilizes a league average, which will be explained later on.
+Next, we created a function to calculate advanced statistics using the base data in the tables. The statistics we chose to add to our tables include: Caught Stealing, Runs Created (Basic), OPS, POP, Total Average, Batting Average on Balls in Play (BABIP), and the Hoban Efficiency Quotient for offense.
 
 ```{r}
 bat_stats <- function(y){
   x <- Batting[[y]]
   #Caught Stealing
   x$CS <- x$SBA - x$SB
+  #Singles
+  x$X1B <- x$H - x[,8] - x[,9] - x$HR
   #Runs Created
-  x$RC <- (x$H + x$BB)*x$TB/(x$AB + x$BB)
+  x$RC <- round((x$H + x$BB)*x$TB/(x$AB + x$BB),2)
   #OPS
   x$OPS <- x$OB + x$SLG
-  #OPS+
-  x$OPS_plus <- (100)*(((x$OB/CL_OBP)+(x$SLG/CL_SLG))-1)
   #POP
   x$POP <- x$OPS + x$AVG
   #Total Average
-  x$TA <- (x$TB + x$BB + x$HBP + x$SB)/(x$AB - x$H + x$SH + x$SF + x$CS + x$GDP)
+  x$TA <- round((x$TB + x$BB + x$HBP + x$SB)/(x$AB - x$H + x$SH + x$SF + x$CS + x$GDP), 3)
+  #Plate Appearances
+  x$PA <- x$AB+x$BB+x$HBP+x$SF
   #Batting Average on Balls in Play
-  x$BABIP <- (x$H - x$HR)/(x$AB - x$SO - x$HR + x$SF)
+  x$BABIP <- round((x$H - x$HR)/(x$AB - x$SO - x$HR + x$SF),3)
   #Hoban Efficiency Quotient - offense
   x$HEQO <- x$TB + x$R + x$RBI + x$SB + (0.5*x$BB)
+  #Base Stealing Runs
+  x$Steal_Runs <- round(((x$H + x$BB - x$CS)*(x$TB + (0.7 * x$SB)))/(x$AB + x$BB + x$CS),2)
   x
 }
 ```
 
 Then we used the `lapply` R function to apply these statistics to each of the teams, resulting in advanced statistics for every player in the league.
 
-```{r lapply-it}
+```{r lapplyit}
 Batting <- teams %>%
   lapply(bat_stats)
 names(Batting) <- teams
 ```
+
+Next, we calculated league totals for the basic statistics, for the purpose of calculating more advanced individual statistics later on.
+
+```{r}
+batting_stats <- c("H","AB","BB","HBP","SF","TB", "2B","3B","HR","X1B","R")
+CL_Avg_B <- c()
+All_stats_batting <- c()
+w = 0
+
+for (n in batting_stats){
+  
+  for (j in teams){
+    
+    P <- Batting[[j]]#as.data.frame(read.csv(paste("Data/Batting/",j,".csv",sep="")))
+    
+    col_num =  which( colnames(P)==n )
+    for (k in seq(length(P[[n]]))){ 
+      
+      All_stats_batting[w+k] <- P[,col_num][k]
+      #print(All_stats)
+    }
+    
+    w  = k + w
+    
+  }
+  CL_Avg_B[n] <- sum(All_stats_batting)
+  All_stats_batting <- c()
+  w = 0
+}
+
+print(CL_Avg_B)
+```
+
+Then, we calculated advanced statistics for the Crossroads League as a whole. These included: On-Base Percentage (OBP), Slugging Percentage (SLG), weighted On-Base Percentage (wOBA), Plate Appearances (PA), Runs per Plate Appearance (R/PA), weighted Runs Created (wRC), and weighted Runs Created per Plate Appearance (wRC/PA). Additionally, we calculated ABF, which is a constant that is necessary to caluclate batting runs later on.
+
+```{r}
+CL_OBP <- (CL_Avg_B[[1]]+CL_Avg_B[[3]]+CL_Avg_B[[4]])/(CL_Avg_B[[2]]+CL_Avg_B[[3]]+CL_Avg_B[[4]]+CL_Avg_B[[5]])
+CL_SLG <- (CL_Avg_B[[6]])/(CL_Avg_B[[2]])
+CL_wOBA <- ((.69)*(CL_Avg_B[["BB"]])+(.72)*(CL_Avg_B[["HBP"]])+(.89)*(CL_Avg_B[["X1B"]])+(1.27)*(CL_Avg_B[["2B"]])+(1.62)*(CL_Avg_B[["3B"]])+(2.10)*(CL_Avg_B[["HR"]]))/(CL_Avg_B[["AB"]]+CL_Avg_B[["BB"]]+CL_Avg_B[["SF"]]+CL_Avg_B[["HBP"]])
+CL_PA <- CL_Avg_B[["AB"]]+CL_Avg_B[["BB"]]+CL_Avg_B[["HBP"]]+CL_Avg_B[["SF"]] 
+CL_R_per_PA <- CL_Avg_B[["R"]]/CL_PA
+CL_wRC <- CL_Avg_B[["R"]]
+CL_wRC_per_PA <- CL_R_per_PA
+
+#League adjustment for Batting Runs
+ABF <- ((0.47 * CL_Avg_B[["X1B"]]) + (0.38*CL_Avg_B[["2B"]]) + (0.55*CL_Avg_B[["3B"]]) + (0.93*CL_Avg_B[["HR"]]) +(0.33*(CL_Avg_B[["BB"]]+CL_Avg_B[["HBP"]]))/(CL_Avg_B[["AB"]]-CL_Avg_B[["H"]]))
+
+```
+
+Now that we have these league statistics, we can add more advanced statistics to our tables. The statistics we added were: OPS+, wOBA, Batting Runs, weighted Runs Above Average (wRAA), weighted Runs Created (wRC), and weighted Runs Created plus (wRC+). All of these statistics adjust the individual player's performance to reflect their contribution in comparison to other players in the league.  
+
+```{r}
+bat_stats2 <- function(y){
+  x <- Batting[[y]]
+  #OPS+
+  x$OPS_plus <- round((100)*(((x$OB/CL_OBP)+(x$SLG/CL_SLG))-1),2)
+  #weighted On-Base Average
+  x$wOBA <- round(((.69)*(x$BB)+(.72)*(x$HBP)+(.89)*(x$X1B)+(1.27)*(x[["2B"]])+(1.62)*(x[["3B"]])+(2.10)*(x$HR))/(x$AB+x$BB+x$SF+x$HBP),3)
+  #Batting Runs
+  x$Bat_Runs <- round(((0.47*x$X1B) + (0.38*x[["2B"]]) + (0.55*x[["3B"]]) + (0.93*x$HR) + ((0.33)*x$BB + x$HBP)/(ABF *(x$AB - x$H))),2)
+  #weighted Runs Above Average
+  x$wRAA <- round(((x$wOBA-CL_wOBA)/(1.157))*(x$PA),3)
+  #weighted Runs Created
+  x$wRC <- round(x$wRAA + (x$PA)*((CL_Avg_B[["R"]])/(CL_PA)),2)
+  x$wRC_plus <- round((100)*((((x$wRAA/x$PA)+CL_R_per_PA)+(CL_R_per_PA-(p_factor[[y]])*(CL_R_per_PA)))/(CL_wRC_per_PA)),2)
+  x
+}
+```
+
+Finally, we used the `lapply` R function again to apply these statistics to all the teams in the Crossroads League.
+
+```{r lapply}
+Batting <- teams %>%
+  lapply(bat_stats2)
+names(Batting) <- teams
+```
+
+Here is an example of the resulting tables that we produced.
+
+```{r echo=FALSE}
+kable(Batting[["GRC"]]) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"), full_width = FALSE)
+```
+
+---
