@@ -420,3 +420,73 @@ kable(Batting[["GRC"]]) %>%
 ```
 
 ---
+
+# Top Hitters in the Crossroads League
+
+After compiling advanced batting statistics for each team, we chose to use weighted runs created plus (wRC+) in order to evaluate a hitter's overall contribution to the team. This statistic takes the park factor into account. Additionally, it adjusts based on a player's performance in comparison to the league average.
+
+```{r echo=FALSE}
+Best_Players <- data.frame(wRC_plus=numeric())
+```
+
+## The Process
+
+In order to determine the top hitters in the entire league, we needed to merge all the data into one master dataframe. In order to do this, we created a for loop to collect the players and their stats from each team's dataframes.
+
+```{r}
+#counter for teams
+y = 1
+
+
+for (x in Batting){
+  
+  wRC_plus <- c()
+  wRC_name <- c()
+  wRC_team <- c()
+  PA <- c()
+  wRC_plus <- x[["wRC_plus"]]
+  wRC_name <- x[["Batting"]]
+  PA <- x[["PA"]]
+  team <- teams[y]
+  for (z in wRC_name){
+  
+  wRC_team <- c(wRC_team, team[z])      
+  
+  
+  }
+  
+  new.Best_Players <- data.frame(team, wRC_name,  wRC_plus,  PA)
+  Best_Players <- rbind(Best_Players, new.Best_Players)
+  
+  y = y + 1
+}
+```
+
+Next, we cleaned up the data a bit by removing non-zero values and the rows containing team totals and opponent totals. Finally, we implemented a requirement of at least 20 plate appearances.
+
+```{r}
+#remove NaN values
+Best_Players <- Best_Players[complete.cases(Best_Players), ]
+
+#remove Total and Opponents values
+Best_Players <- Best_Players[ !(Best_Players$wRC_name %in% c("Opponents:", "Total:")), ]
+
+Best_Players <- Best_Players[order(-Best_Players$wRC_plus),]
+
+#require players to have at least 20 plate appearances
+Best_Players <- Best_Players[!(Best_Players$PA < 20),]
+
+```
+
+## Top 10 Hitters
+
+The following is a list of the top 10 hitters in the Crossroads League in 2019.
+
+```{r echo=FALSE}
+Best_Players$wRC_plus <- round(Best_Players$wRC_plus, 2)
+kable(Best_Players[1:10, 1:4], row.names = FALSE, col.names=c("Team", "Player", "wRC+", "PA")) %>%
+  kable_styling(bootstrap_options = c("striped", "bordered"), full_width = FALSE) %>%
+    footnote(general = "*min. 20 plate appearances", general_title = "")
+```
+
+---
