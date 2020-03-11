@@ -490,3 +490,26 @@ kable(Best_Players[1:10, 1:4], row.names = FALSE, col.names=c("Team", "Player", 
 ```
 
 ---
+
+# Upcoming Games
+
+We use the following function to have a prediction for upcoming games and include the park factor.
+
+```{r}
+update_web <- function(team1, team2, game_loc){
+  
+  team1_elo <- f[team1]
+  team2_elo <- f[team2]
+  print(team1_elo)
+  print(team2_elo)
+  game_park_effect <- p_factor[game_loc]
+  print(game_park_effect)
+  
+  
+}
+```
+
+For example, the next game is Indiana Wesleyan vs. Grace at Grace.
+```{r}
+update_web("INWU", "GRC", "GRC")
+```
