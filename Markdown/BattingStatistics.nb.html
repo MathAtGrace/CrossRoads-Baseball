@@ -1804,6 +1804,1236 @@ teams &lt;- names(batting)</code></pre>
 names(Batting) &lt;- teams</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
+<<<<<<< HEAD
+<!-- rnb-text-begin -->
+<p>Next, we calculated league totals for the basic statistics, for the purpose of calculating more advanced individual statistics later on.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYmF0dGluZ19zdGF0cyA8LSBjKFwiSFwiLFwiQUJcIixcIkJCXCIsXCJIQlBcIixcIlNGXCIsXCJUQlwiLCBcIjJCXCIsXCIzQlwiLFwiSFJcIixcIlgxQlwiLFwiUlwiKVxuQ0xfQXZnX0IgPC0gYygpXG5BbGxfc3RhdHNfYmF0dGluZyA8LSBjKClcbncgPSAwXG5cbmZvciAobiBpbiBiYXR0aW5nX3N0YXRzKXtcbiAgXG4gIGZvciAoaiBpbiB0ZWFtcyl7XG4gICAgXG4gICAgUCA8LSBCYXR0aW5nW1tqXV0jYXMuZGF0YS5mcmFtZShyZWFkLmNzdihwYXN0ZShcIkRhdGEvQmF0dGluZy9cIixqLFwiLmNzdlwiLHNlcD1cIlwiKSkpXG4gICAgXG4gICAgY29sX251bSA9ICB3aGljaCggY29sbmFtZXMoUCk9PW4gKVxuICAgIGZvciAoayBpbiBzZXEobGVuZ3RoKFBbW25dXSkpKXsgXG4gICAgICBcbiAgICAgIEFsbF9zdGF0c19iYXR0aW5nW3cra10gPC0gUFssY29sX251bV1ba11cbiAgICAgICNwcmludChBbGxfc3RhdHMpXG4gICAgfVxuICAgIFxuICAgIHcgID0gayArIHdcbiAgICBcbiAgfVxuICBDTF9BdmdfQltuXSA8LSBzdW0oQWxsX3N0YXRzX2JhdHRpbmcpXG4gIEFsbF9zdGF0c19iYXR0aW5nIDwtIGMoKVxuICB3ID0gMFxufVxuXG5wcmludChDTF9BdmdfQilcbmBgYCJ9 -->
+<pre class="r"><code>batting_stats &lt;- c(&quot;H&quot;,&quot;AB&quot;,&quot;BB&quot;,&quot;HBP&quot;,&quot;SF&quot;,&quot;TB&quot;, &quot;2B&quot;,&quot;3B&quot;,&quot;HR&quot;,&quot;X1B&quot;,&quot;R&quot;)
+CL_Avg_B &lt;- c()
+All_stats_batting &lt;- c()
+w = 0
+
+for (n in batting_stats){
+  
+  for (j in teams){
+    
+    P &lt;- Batting[[j]]#as.data.frame(read.csv(paste(&quot;Data/Batting/&quot;,j,&quot;.csv&quot;,sep=&quot;&quot;)))
+    
+    col_num =  which( colnames(P)==n )
+    for (k in seq(length(P[[n]]))){ 
+      
+      All_stats_batting[w+k] &lt;- P[,col_num][k]
+      #print(All_stats)
+    }
+    
+    w  = k + w
+    
+  }
+  CL_Avg_B[n] &lt;- sum(All_stats_batting)
+  All_stats_batting &lt;- c()
+  w = 0
+}
+
+print(CL_Avg_B)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgIEggICAgQUIgICAgQkIgICBIQlAgICAgU0YgICAgVEIgICAgMkIgICAgM0IgXG4xMjU5OCA0NTMxNCAgNTgxNSAgMTM2NCAgIDUyNCAxNzc2MSAgMjI4MCAgIDI1OCBcbiAgIEhSICAgWDFCICAgICBSIFxuICA3ODkgIDkyNzEgIDgwNzIgXG4ifQ== -->
+<pre><code>    H    AB    BB   HBP    SF    TB    2B    3B 
+12598 45314  5815  1364   524 17761  2280   258 
+   HR   X1B     R 
+  789  9271  8072 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Then, we calculated advanced statistics for the Crossroads League as a whole. These included: On-Base Percentage (OBP), Slugging Percentage (SLG), weighted On-Base Percentage (wOBA), Plate Appearances (PA), Runs per Plate Appearance (R/PA), weighted Runs Created (wRC), and weighted Runs Created per Plate Appearance (wRC/PA). Additionally, we calculated ABF, which is a constant that is necessary to caluclate batting runs later on.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuQ0xfT0JQIDwtIChDTF9BdmdfQltbMV1dK0NMX0F2Z19CW1szXV0rQ0xfQXZnX0JbWzRdXSkvKENMX0F2Z19CW1syXV0rQ0xfQXZnX0JbWzNdXStDTF9BdmdfQltbNF1dK0NMX0F2Z19CW1s1XV0pXG5DTF9TTEcgPC0gKENMX0F2Z19CW1s2XV0pLyhDTF9BdmdfQltbMl1dKVxuQ0xfd09CQSA8LSAoKC42OSkqKENMX0F2Z19CW1tcIkJCXCJdXSkrKC43MikqKENMX0F2Z19CW1tcIkhCUFwiXV0pKyguODkpKihDTF9BdmdfQltbXCJYMUJcIl1dKSsoMS4yNykqKENMX0F2Z19CW1tcIjJCXCJdXSkrKDEuNjIpKihDTF9BdmdfQltbXCIzQlwiXV0pKygyLjEwKSooQ0xfQXZnX0JbW1wiSFJcIl1dKSkvKENMX0F2Z19CW1tcIkFCXCJdXStDTF9BdmdfQltbXCJCQlwiXV0rQ0xfQXZnX0JbW1wiU0ZcIl1dK0NMX0F2Z19CW1tcIkhCUFwiXV0pXG5DTF9QQSA8LSBDTF9BdmdfQltbXCJBQlwiXV0rQ0xfQXZnX0JbW1wiQkJcIl1dK0NMX0F2Z19CW1tcIkhCUFwiXV0rQ0xfQXZnX0JbW1wiU0ZcIl1dIFxuQ0xfUl9wZXJfUEEgPC0gQ0xfQXZnX0JbW1wiUlwiXV0vQ0xfUEFcbkNMX3dSQyA8LSBDTF9BdmdfQltbXCJSXCJdXVxuQ0xfd1JDX3Blcl9QQSA8LSBDTF9SX3Blcl9QQVxuXG4jTGVhZ3VlIGFkanVzdG1lbnQgZm9yIEJhdHRpbmcgUnVuc1xuQUJGIDwtICgoMC40NyAqIENMX0F2Z19CW1tcIlgxQlwiXV0pICsgKDAuMzgqQ0xfQXZnX0JbW1wiMkJcIl1dKSArICgwLjU1KkNMX0F2Z19CW1tcIjNCXCJdXSkgKyAoMC45MypDTF9BdmdfQltbXCJIUlwiXV0pICsoMC4zMyooQ0xfQXZnX0JbW1wiQkJcIl1dK0NMX0F2Z19CW1tcIkhCUFwiXV0pKS8oQ0xfQXZnX0JbW1wiQUJcIl1dLUNMX0F2Z19CW1tcIkhcIl1dKSlcblxuYGBgIn0= -->
+<pre class="r"><code>CL_OBP &lt;- (CL_Avg_B[[1]]+CL_Avg_B[[3]]+CL_Avg_B[[4]])/(CL_Avg_B[[2]]+CL_Avg_B[[3]]+CL_Avg_B[[4]]+CL_Avg_B[[5]])
+CL_SLG &lt;- (CL_Avg_B[[6]])/(CL_Avg_B[[2]])
+CL_wOBA &lt;- ((.69)*(CL_Avg_B[[&quot;BB&quot;]])+(.72)*(CL_Avg_B[[&quot;HBP&quot;]])+(.89)*(CL_Avg_B[[&quot;X1B&quot;]])+(1.27)*(CL_Avg_B[[&quot;2B&quot;]])+(1.62)*(CL_Avg_B[[&quot;3B&quot;]])+(2.10)*(CL_Avg_B[[&quot;HR&quot;]]))/(CL_Avg_B[[&quot;AB&quot;]]+CL_Avg_B[[&quot;BB&quot;]]+CL_Avg_B[[&quot;SF&quot;]]+CL_Avg_B[[&quot;HBP&quot;]])
+CL_PA &lt;- CL_Avg_B[[&quot;AB&quot;]]+CL_Avg_B[[&quot;BB&quot;]]+CL_Avg_B[[&quot;HBP&quot;]]+CL_Avg_B[[&quot;SF&quot;]] 
+CL_R_per_PA &lt;- CL_Avg_B[[&quot;R&quot;]]/CL_PA
+CL_wRC &lt;- CL_Avg_B[[&quot;R&quot;]]
+CL_wRC_per_PA &lt;- CL_R_per_PA
+
+#League adjustment for Batting Runs
+ABF &lt;- ((0.47 * CL_Avg_B[[&quot;X1B&quot;]]) + (0.38*CL_Avg_B[[&quot;2B&quot;]]) + (0.55*CL_Avg_B[[&quot;3B&quot;]]) + (0.93*CL_Avg_B[[&quot;HR&quot;]]) +(0.33*(CL_Avg_B[[&quot;BB&quot;]]+CL_Avg_B[[&quot;HBP&quot;]]))/(CL_Avg_B[[&quot;AB&quot;]]-CL_Avg_B[[&quot;H&quot;]]))
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Now that we have these league statistics, we can add more advanced statistics to our tables. The statistics we added were: OPS+, wOBA, Batting Runs, weighted Runs Above Average (wRAA), weighted Runs Created (wRC), and weighted Runs Created plus (wRC+). All of these statistics adjust the individual player’s performance to reflect their contribution in comparison to other players in the league.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYmF0X3N0YXRzMiA8LSBmdW5jdGlvbih5KXtcbiAgeCA8LSBCYXR0aW5nW1t5XV1cbiAgI09QUytcbiAgeCRPUFNfcGx1cyA8LSByb3VuZCgoMTAwKSooKCh4JE9CL0NMX09CUCkrKHgkU0xHL0NMX1NMRykpLTEpLDIpXG4gICN3ZWlnaHRlZCBPbi1CYXNlIEF2ZXJhZ2VcbiAgeCR3T0JBIDwtIHJvdW5kKCgoLjY5KSooeCRCQikrKC43MikqKHgkSEJQKSsoLjg5KSooeCRYMUIpKygxLjI3KSooeFtbXCIyQlwiXV0pKygxLjYyKSooeFtbXCIzQlwiXV0pKygyLjEwKSooeCRIUikpLyh4JEFCK3gkQkIreCRTRit4JEhCUCksMylcbiAgI0JhdHRpbmcgUnVuc1xuICB4JEJhdF9SdW5zIDwtIHJvdW5kKCgoMC40Nyp4JFgxQikgKyAoMC4zOCp4W1tcIjJCXCJdXSkgKyAoMC41NSp4W1tcIjNCXCJdXSkgKyAoMC45Myp4JEhSKSArICgoMC4zMykqeCRCQiArIHgkSEJQKS8oQUJGICooeCRBQiAtIHgkSCkpKSwyKVxuICAjd2VpZ2h0ZWQgUnVucyBBYm92ZSBBdmVyYWdlXG4gIHgkd1JBQSA8LSByb3VuZCgoKHgkd09CQS1DTF93T0JBKS8oMS4xNTcpKSooeCRQQSksMylcbiAgI3dlaWdodGVkIFJ1bnMgQ3JlYXRlZFxuICB4JHdSQyA8LSByb3VuZCh4JHdSQUEgKyAoeCRQQSkqKChDTF9BdmdfQltbXCJSXCJdXSkvKENMX1BBKSksMilcbiAgeCR3UkNfcGx1cyA8LSByb3VuZCgoMTAwKSooKCgoeCR3UkFBL3gkUEEpK0NMX1JfcGVyX1BBKSsoQ0xfUl9wZXJfUEEtKHBfZmFjdG9yW1t5XV0pKihDTF9SX3Blcl9QQSkpKS8oQ0xfd1JDX3Blcl9QQSkpLDIpXG4gIHhcbn1cbmBgYCJ9 -->
+<pre class="r"><code>bat_stats2 &lt;- function(y){
+  x &lt;- Batting[[y]]
+  #OPS+
+  x$OPS_plus &lt;- round((100)*(((x$OB/CL_OBP)+(x$SLG/CL_SLG))-1),2)
+  #weighted On-Base Average
+  x$wOBA &lt;- round(((.69)*(x$BB)+(.72)*(x$HBP)+(.89)*(x$X1B)+(1.27)*(x[[&quot;2B&quot;]])+(1.62)*(x[[&quot;3B&quot;]])+(2.10)*(x$HR))/(x$AB+x$BB+x$SF+x$HBP),3)
+  #Batting Runs
+  x$Bat_Runs &lt;- round(((0.47*x$X1B) + (0.38*x[[&quot;2B&quot;]]) + (0.55*x[[&quot;3B&quot;]]) + (0.93*x$HR) + ((0.33)*x$BB + x$HBP)/(ABF *(x$AB - x$H))),2)
+  #weighted Runs Above Average
+  x$wRAA &lt;- round(((x$wOBA-CL_wOBA)/(1.157))*(x$PA),3)
+  #weighted Runs Created
+  x$wRC &lt;- round(x$wRAA + (x$PA)*((CL_Avg_B[[&quot;R&quot;]])/(CL_PA)),2)
+  x$wRC_plus &lt;- round((100)*((((x$wRAA/x$PA)+CL_R_per_PA)+(CL_R_per_PA-(p_factor[[y]])*(CL_R_per_PA)))/(CL_wRC_per_PA)),2)
+  x
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Finally, we used the <code>lapply</code> R function again to apply these statistics to all the teams in the Crossroads League.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuQmF0dGluZyA8LSB0ZWFtcyAlPiVcbiAgbGFwcGx5KGJhdF9zdGF0czIpXG5uYW1lcyhCYXR0aW5nKSA8LSB0ZWFtc1xuYGBgIn0= -->
+<pre class="r"><code>Batting &lt;- teams %&gt;%
+  lapply(bat_stats2)
+names(Batting) &lt;- teams</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Here is an example of the resulting tables that we produced.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+
+<!-- rnb-htmlwidget-begin eyJkZXBlbmRlbmNpZXMiOlt7ImFsbF9maWxlcyI6dHJ1ZSwiYXR0YWNobWVudCI6W10sImhlYWQiOltdLCJtZXRhIjpbXSwibmFtZSI6ImpxdWVyeSIsInBhY2thZ2UiOltdLCJzY3JpcHQiOiJqcXVlcnkubWluLmpzIiwic3JjIjp7ImZpbGUiOiJDOi9Vc2Vycy9ramdvZC9Eb2N1bWVudHMvUi93aW4tbGlicmFyeS8zLjYvcm1hcmtkb3duL3JtZC9oL2pxdWVyeSJ9LCJzdHlsZXNoZWV0IjpbXSwidmVyc2lvbiI6IjEuMTEuMyJ9LHsiYWxsX2ZpbGVzIjp0cnVlLCJhdHRhY2htZW50IjpbXSwiaGVhZCI6W10sIm1ldGEiOnsidmlld3BvcnQiOiJ3aWR0aD1kZXZpY2Utd2lkdGgsIGluaXRpYWwtc2NhbGU9MSJ9LCJuYW1lIjoiYm9vdHN0cmFwIiwicGFja2FnZSI6W10sInNjcmlwdCI6WyJqcy9ib290c3RyYXAubWluLmpzIiwic2hpbS9odG1sNXNoaXYubWluLmpzIiwic2hpbS9yZXNwb25kLm1pbi5qcyJdLCJzcmMiOnsiZmlsZSI6IkM6L1VzZXJzL2tqZ29kL0RvY3VtZW50cy9SL3dpbi1saWJyYXJ5LzMuNi9ybWFya2Rvd24vcm1kL2gvYm9vdHN0cmFwIn0sInN0eWxlc2hlZXQiOiJjc3Mvc2ltcGxleC5taW4uY3NzIiwidmVyc2lvbiI6IjMuMy41In0seyJhbGxfZmlsZXMiOnRydWUsImF0dGFjaG1lbnQiOltdLCJoZWFkIjpbXSwibWV0YSI6W10sIm5hbWUiOiJrZVByaW50IiwicGFja2FnZSI6W10sInNjcmlwdCI6ImtlUHJpbnQuanMiLCJzcmMiOnsiZmlsZSI6IkM6L1VzZXJzL2tqZ29kL0RvY3VtZW50cy9SL3dpbi1saWJyYXJ5LzMuNi9rYWJsZUV4dHJhL2tlUHJpbnQtMC4wLjEifSwic3R5bGVzaGVldCI6W10sInZlcnNpb24iOiIwLjAuMSJ9XSwibWV0YWRhdGEiOnsiY2xhc3NlcyI6WyJzaGlueS50YWcubGlzdCIsImxpc3QiXSwic2l6aW5nUG9saWN5IjpbXX19 -->
+
+<table class="table table-striped table-bordered table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Batting </th>
+   <th style="text-align:right;"> GP </th>
+   <th style="text-align:right;"> GS </th>
+   <th style="text-align:right;"> AVG </th>
+   <th style="text-align:right;"> AB </th>
+   <th style="text-align:right;"> R </th>
+   <th style="text-align:right;"> H </th>
+   <th style="text-align:right;"> 2B </th>
+   <th style="text-align:right;"> 3B </th>
+   <th style="text-align:right;"> HR </th>
+   <th style="text-align:right;"> RBI </th>
+   <th style="text-align:right;"> TB </th>
+   <th style="text-align:right;"> SLG% </th>
+   <th style="text-align:right;"> BB </th>
+   <th style="text-align:right;"> HBP </th>
+   <th style="text-align:right;"> SO </th>
+   <th style="text-align:right;"> GDP </th>
+   <th style="text-align:right;"> OB% </th>
+   <th style="text-align:right;"> SF </th>
+   <th style="text-align:right;"> SH </th>
+   <th style="text-align:right;"> SB </th>
+   <th style="text-align:right;"> SBA </th>
+   <th style="text-align:right;"> CS </th>
+   <th style="text-align:right;"> X1B </th>
+   <th style="text-align:right;"> RC </th>
+   <th style="text-align:right;"> OPS </th>
+   <th style="text-align:right;"> POP </th>
+   <th style="text-align:right;"> TA </th>
+   <th style="text-align:right;"> PA </th>
+   <th style="text-align:right;"> BABIP </th>
+   <th style="text-align:right;"> HEQO </th>
+   <th style="text-align:right;"> Steal_Runs </th>
+   <th style="text-align:right;"> OPS_plus </th>
+   <th style="text-align:right;"> wOBA </th>
+   <th style="text-align:right;"> Bat_Runs </th>
+   <th style="text-align:right;"> wRAA </th>
+   <th style="text-align:right;"> wRC </th>
+   <th style="text-align:right;"> wRC_plus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Harris, Xavier </td>
+   <td style="text-align:right;"> 44 </td>
+   <td style="text-align:right;"> 44 </td>
+   <td style="text-align:right;"> 0.336 </td>
+   <td style="text-align:right;"> 137 </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 46 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 54 </td>
+   <td style="text-align:right;"> 0.394 </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0.446 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:right;"> 22.90 </td>
+   <td style="text-align:right;"> 0.840 </td>
+   <td style="text-align:right;"> 1.176 </td>
+   <td style="text-align:right;"> 0.879 </td>
+   <td style="text-align:right;"> 168 </td>
+   <td style="text-align:right;"> 0.426 </td>
+   <td style="text-align:right;"> 116.5 </td>
+   <td style="text-align:right;"> 23.07 </td>
+   <td style="text-align:right;"> 120.08 </td>
+   <td style="text-align:right;"> 0.382 </td>
+   <td style="text-align:right;"> 20.90 </td>
+   <td style="text-align:right;"> 5.577 </td>
+   <td style="text-align:right;"> 31.16 </td>
+   <td style="text-align:right;"> 133.09 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Griffin, Chris </td>
+   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 0.333 </td>
+   <td style="text-align:right;"> 132 </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 44 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 77 </td>
+   <td style="text-align:right;"> 0.583 </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 32 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.463 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:right;"> 34.65 </td>
+   <td style="text-align:right;"> 1.046 </td>
+   <td style="text-align:right;"> 1.379 </td>
+   <td style="text-align:right;"> 1.198 </td>
+   <td style="text-align:right;"> 164 </td>
+   <td style="text-align:right;"> 0.411 </td>
+   <td style="text-align:right;"> 146.0 </td>
+   <td style="text-align:right;"> 33.27 </td>
+   <td style="text-align:right;"> 172.86 </td>
+   <td style="text-align:right;"> 0.452 </td>
+   <td style="text-align:right;"> 22.66 </td>
+   <td style="text-align:right;"> 15.367 </td>
+   <td style="text-align:right;"> 40.34 </td>
+   <td style="text-align:right;"> 172.83 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anderson, David </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:right;"> 0.322 </td>
+   <td style="text-align:right;"> 174 </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 68 </td>
+   <td style="text-align:right;"> 0.391 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0.355 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 46 </td>
+   <td style="text-align:right;"> 24.39 </td>
+   <td style="text-align:right;"> 0.746 </td>
+   <td style="text-align:right;"> 1.068 </td>
+   <td style="text-align:right;"> 0.636 </td>
+   <td style="text-align:right;"> 186 </td>
+   <td style="text-align:right;"> 0.348 </td>
+   <td style="text-align:right;"> 120.0 </td>
+   <td style="text-align:right;"> 23.85 </td>
+   <td style="text-align:right;"> 94.92 </td>
+   <td style="text-align:right;"> 0.329 </td>
+   <td style="text-align:right;"> 25.76 </td>
+   <td style="text-align:right;"> -2.345 </td>
+   <td style="text-align:right;"> 25.97 </td>
+   <td style="text-align:right;"> 103.01 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sapp, Jacob </td>
+   <td style="text-align:right;"> 39 </td>
+   <td style="text-align:right;"> 37 </td>
+   <td style="text-align:right;"> 0.302 </td>
+   <td style="text-align:right;"> 106 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 32 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 39 </td>
+   <td style="text-align:right;"> 0.368 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.405 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 14.95 </td>
+   <td style="text-align:right;"> 0.773 </td>
+   <td style="text-align:right;"> 1.075 </td>
+   <td style="text-align:right;"> 0.744 </td>
+   <td style="text-align:right;"> 126 </td>
+   <td style="text-align:right;"> 0.360 </td>
+   <td style="text-align:right;"> 61.0 </td>
+   <td style="text-align:right;"> 14.95 </td>
+   <td style="text-align:right;"> 102.46 </td>
+   <td style="text-align:right;"> 0.353 </td>
+   <td style="text-align:right;"> 15.14 </td>
+   <td style="text-align:right;"> 1.025 </td>
+   <td style="text-align:right;"> 20.21 </td>
+   <td style="text-align:right;"> 116.63 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Enyart, Mitchell </td>
+   <td style="text-align:right;"> 35 </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 0.299 </td>
+   <td style="text-align:right;"> 107 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 32 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 24 </td>
+   <td style="text-align:right;"> 39 </td>
+   <td style="text-align:right;"> 0.364 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.372 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 14.42 </td>
+   <td style="text-align:right;"> 0.736 </td>
+   <td style="text-align:right;"> 1.035 </td>
+   <td style="text-align:right;"> 0.654 </td>
+   <td style="text-align:right;"> 121 </td>
+   <td style="text-align:right;"> 0.356 </td>
+   <td style="text-align:right;"> 85.0 </td>
+   <td style="text-align:right;"> 14.68 </td>
+   <td style="text-align:right;"> 92.59 </td>
+   <td style="text-align:right;"> 0.332 </td>
+   <td style="text-align:right;"> 15.14 </td>
+   <td style="text-align:right;"> -1.212 </td>
+   <td style="text-align:right;"> 17.21 </td>
+   <td style="text-align:right;"> 104.71 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Haney, Houston </td>
+   <td style="text-align:right;"> 40 </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:right;"> 0.289 </td>
+   <td style="text-align:right;"> 128 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 37 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 32 </td>
+   <td style="text-align:right;"> 58 </td>
+   <td style="text-align:right;"> 0.453 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.354 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 24 </td>
+   <td style="text-align:right;"> 19.75 </td>
+   <td style="text-align:right;"> 0.807 </td>
+   <td style="text-align:right;"> 1.096 </td>
+   <td style="text-align:right;"> 0.781 </td>
+   <td style="text-align:right;"> 147 </td>
+   <td style="text-align:right;"> 0.337 </td>
+   <td style="text-align:right;"> 114.0 </td>
+   <td style="text-align:right;"> 20.23 </td>
+   <td style="text-align:right;"> 110.47 </td>
+   <td style="text-align:right;"> 0.352 </td>
+   <td style="text-align:right;"> 18.42 </td>
+   <td style="text-align:right;"> 1.069 </td>
+   <td style="text-align:right;"> 23.45 </td>
+   <td style="text-align:right;"> 116.07 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Scott, Branden </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 0.288 </td>
+   <td style="text-align:right;"> 52 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 0.308 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.383 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 5.61 </td>
+   <td style="text-align:right;"> 0.691 </td>
+   <td style="text-align:right;"> 0.979 </td>
+   <td style="text-align:right;"> 0.658 </td>
+   <td style="text-align:right;"> 60 </td>
+   <td style="text-align:right;"> 0.385 </td>
+   <td style="text-align:right;"> 43.5 </td>
+   <td style="text-align:right;"> 5.86 </td>
+   <td style="text-align:right;"> 81.25 </td>
+   <td style="text-align:right;"> 0.322 </td>
+   <td style="text-align:right;"> 6.96 </td>
+   <td style="text-align:right;"> -1.120 </td>
+   <td style="text-align:right;"> 8.02 </td>
+   <td style="text-align:right;"> 99.03 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Elford, Sid </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 0.283 </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 0.396 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.345 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 7.00 </td>
+   <td style="text-align:right;"> 0.741 </td>
+   <td style="text-align:right;"> 1.024 </td>
+   <td style="text-align:right;"> 0.675 </td>
+   <td style="text-align:right;"> 58 </td>
+   <td style="text-align:right;"> 0.412 </td>
+   <td style="text-align:right;"> 35.0 </td>
+   <td style="text-align:right;"> 7.23 </td>
+   <td style="text-align:right;"> 93.52 </td>
+   <td style="text-align:right;"> 0.331 </td>
+   <td style="text-align:right;"> 7.24 </td>
+   <td style="text-align:right;"> -0.631 </td>
+   <td style="text-align:right;"> 8.20 </td>
+   <td style="text-align:right;"> 104.14 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Snyder, RJ </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 0.265 </td>
+   <td style="text-align:right;"> 102 </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 0.324 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.296 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 9.87 </td>
+   <td style="text-align:right;"> 0.620 </td>
+   <td style="text-align:right;"> 0.885 </td>
+   <td style="text-align:right;"> 0.619 </td>
+   <td style="text-align:right;"> 108 </td>
+   <td style="text-align:right;"> 0.302 </td>
+   <td style="text-align:right;"> 93.5 </td>
+   <td style="text-align:right;"> 10.80 </td>
+   <td style="text-align:right;"> 62.01 </td>
+   <td style="text-align:right;"> 0.276 </td>
+   <td style="text-align:right;"> 12.88 </td>
+   <td style="text-align:right;"> -6.309 </td>
+   <td style="text-align:right;"> 10.13 </td>
+   <td style="text-align:right;"> 72.92 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Newkirk, Sam </td>
+   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 0.259 </td>
+   <td style="text-align:right;"> 147 </td>
+   <td style="text-align:right;"> 24 </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 54 </td>
+   <td style="text-align:right;"> 0.367 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.321 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 15.78 </td>
+   <td style="text-align:right;"> 0.688 </td>
+   <td style="text-align:right;"> 0.947 </td>
+   <td style="text-align:right;"> 0.626 </td>
+   <td style="text-align:right;"> 165 </td>
+   <td style="text-align:right;"> 0.313 </td>
+   <td style="text-align:right;"> 101.5 </td>
+   <td style="text-align:right;"> 15.93 </td>
+   <td style="text-align:right;"> 79.69 </td>
+   <td style="text-align:right;"> 0.306 </td>
+   <td style="text-align:right;"> 18.66 </td>
+   <td style="text-align:right;"> -5.361 </td>
+   <td style="text-align:right;"> 19.76 </td>
+   <td style="text-align:right;"> 89.95 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Brooks, Ethan </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 0.254 </td>
+   <td style="text-align:right;"> 63 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 0.460 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.347 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 9.53 </td>
+   <td style="text-align:right;"> 0.807 </td>
+   <td style="text-align:right;"> 1.061 </td>
+   <td style="text-align:right;"> 0.816 </td>
+   <td style="text-align:right;"> 72 </td>
+   <td style="text-align:right;"> 0.317 </td>
+   <td style="text-align:right;"> 54.5 </td>
+   <td style="text-align:right;"> 9.42 </td>
+   <td style="text-align:right;"> 110.38 </td>
+   <td style="text-align:right;"> 0.356 </td>
+   <td style="text-align:right;"> 9.06 </td>
+   <td style="text-align:right;"> 0.772 </td>
+   <td style="text-align:right;"> 11.73 </td>
+   <td style="text-align:right;"> 118.33 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mullett, Jaron </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 0.254 </td>
+   <td style="text-align:right;"> 67 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 0.373 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.329 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 7.88 </td>
+   <td style="text-align:right;"> 0.702 </td>
+   <td style="text-align:right;"> 0.956 </td>
+   <td style="text-align:right;"> 0.642 </td>
+   <td style="text-align:right;"> 76 </td>
+   <td style="text-align:right;"> 0.327 </td>
+   <td style="text-align:right;"> 61.0 </td>
+   <td style="text-align:right;"> 7.64 </td>
+   <td style="text-align:right;"> 83.36 </td>
+   <td style="text-align:right;"> 0.313 </td>
+   <td style="text-align:right;"> 8.26 </td>
+   <td style="text-align:right;"> -2.009 </td>
+   <td style="text-align:right;"> 9.56 </td>
+   <td style="text-align:right;"> 93.93 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Ackerman, Hunter </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 0.247 </td>
+   <td style="text-align:right;"> 89 </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:right;"> 0.292 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.364 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 9.09 </td>
+   <td style="text-align:right;"> 0.656 </td>
+   <td style="text-align:right;"> 0.903 </td>
+   <td style="text-align:right;"> 0.662 </td>
+   <td style="text-align:right;"> 107 </td>
+   <td style="text-align:right;"> 0.297 </td>
+   <td style="text-align:right;"> 73.0 </td>
+   <td style="text-align:right;"> 9.40 </td>
+   <td style="text-align:right;"> 72.08 </td>
+   <td style="text-align:right;"> 0.308 </td>
+   <td style="text-align:right;"> 9.98 </td>
+   <td style="text-align:right;"> -3.291 </td>
+   <td style="text-align:right;"> 13.00 </td>
+   <td style="text-align:right;"> 91.09 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Harmon, Beach </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.167 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0.333 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.231 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.92 </td>
+   <td style="text-align:right;"> 0.564 </td>
+   <td style="text-align:right;"> 0.731 </td>
+   <td style="text-align:right;"> 0.545 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 0.250 </td>
+   <td style="text-align:right;"> 11.5 </td>
+   <td style="text-align:right;"> 1.08 </td>
+   <td style="text-align:right;"> 46.88 </td>
+   <td style="text-align:right;"> 0.246 </td>
+   <td style="text-align:right;"> 1.02 </td>
+   <td style="text-align:right;"> -1.097 </td>
+   <td style="text-align:right;"> 0.88 </td>
+   <td style="text-align:right;"> 55.87 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Buzbee, Wyatt </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.125 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.125 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.125 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.12 </td>
+   <td style="text-align:right;"> 0.250 </td>
+   <td style="text-align:right;"> 0.375 </td>
+   <td style="text-align:right;"> 0.556 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 0.250 </td>
+   <td style="text-align:right;"> 24.0 </td>
+   <td style="text-align:right;"> -0.38 </td>
+   <td style="text-align:right;"> -34.60 </td>
+   <td style="text-align:right;"> 0.111 </td>
+   <td style="text-align:right;"> 0.47 </td>
+   <td style="text-align:right;"> -1.608 </td>
+   <td style="text-align:right;"> -0.39 </td>
+   <td style="text-align:right;"> -20.73 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Wertz, Philip </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0.100 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.100 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.308 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.31 </td>
+   <td style="text-align:right;"> 0.408 </td>
+   <td style="text-align:right;"> 0.508 </td>
+   <td style="text-align:right;"> 0.556 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 0.143 </td>
+   <td style="text-align:right;"> 4.5 </td>
+   <td style="text-align:right;"> 0.52 </td>
+   <td style="text-align:right;"> 8.08 </td>
+   <td style="text-align:right;"> 0.228 </td>
+   <td style="text-align:right;"> 0.47 </td>
+   <td style="text-align:right;"> -1.299 </td>
+   <td style="text-align:right;"> 0.68 </td>
+   <td style="text-align:right;"> 45.66 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Wilhelmi, Bret </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0.069 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0.103 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.069 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.21 </td>
+   <td style="text-align:right;"> 0.172 </td>
+   <td style="text-align:right;"> 0.241 </td>
+   <td style="text-align:right;"> 0.111 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 0.182 </td>
+   <td style="text-align:right;"> 6.0 </td>
+   <td style="text-align:right;"> 0.21 </td>
+   <td style="text-align:right;"> -55.22 </td>
+   <td style="text-align:right;"> 0.074 </td>
+   <td style="text-align:right;"> 0.85 </td>
+   <td style="text-align:right;"> -6.757 </td>
+   <td style="text-align:right;"> -2.34 </td>
+   <td style="text-align:right;"> -41.74 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Peebles, Joey </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> 0.0 </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> -100.00 </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> NaN </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hammel, Jacob </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.0 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> -100.00 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> -0.297 </td>
+   <td style="text-align:right;"> -0.14 </td>
+   <td style="text-align:right;"> -83.78 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Noska, Jordan </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1.000 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 1.000 </td>
+   <td style="text-align:right;"> 1.000 </td>
+   <td style="text-align:right;"> Inf </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> 0.5 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 168.07 </td>
+   <td style="text-align:right;"> 0.690 </td>
+   <td style="text-align:right;"> Inf </td>
+   <td style="text-align:right;"> 0.299 </td>
+   <td style="text-align:right;"> 0.45 </td>
+   <td style="text-align:right;"> 307.67 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Voirol, Aaron </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> 0.0 </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> -100.00 </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> NaN </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Swartzentruber, Logan </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> 0.0 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> -100.00 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> -0.297 </td>
+   <td style="text-align:right;"> -0.14 </td>
+   <td style="text-align:right;"> -83.78 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Clark, Scottie </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> 0.0 </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> -100.00 </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> NaN </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Peterson, Ike </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> 0.0 </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> -100.00 </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> NaN </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tew, Josh </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> 0.0 </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> -100.00 </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> NaN </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Total: </td>
+   <td style="text-align:right;"> 44 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 0.284 </td>
+   <td style="text-align:right;"> 1418 </td>
+   <td style="text-align:right;"> 258 </td>
+   <td style="text-align:right;"> 403 </td>
+   <td style="text-align:right;"> 60 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 226 </td>
+   <td style="text-align:right;"> 548 </td>
+   <td style="text-align:right;"> 0.386 </td>
+   <td style="text-align:right;"> 148 </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:right;"> 311 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 0.365 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:right;"> 64 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 310 </td>
+   <td style="text-align:right;"> 192.81 </td>
+   <td style="text-align:right;"> 0.751 </td>
+   <td style="text-align:right;"> 1.035 </td>
+   <td style="text-align:right;"> 0.722 </td>
+   <td style="text-align:right;"> 1624 </td>
+   <td style="text-align:right;"> 0.348 </td>
+   <td style="text-align:right;"> 1151.0 </td>
+   <td style="text-align:right;"> 194.51 </td>
+   <td style="text-align:right;"> 96.33 </td>
+   <td style="text-align:right;"> 0.337 </td>
+   <td style="text-align:right;"> 193.87 </td>
+   <td style="text-align:right;"> -9.249 </td>
+   <td style="text-align:right;"> 238.01 </td>
+   <td style="text-align:right;"> 107.55 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Opponents: </td>
+   <td style="text-align:right;"> 44 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 0.333 </td>
+   <td style="text-align:right;"> 1467 </td>
+   <td style="text-align:right;"> 313 </td>
+   <td style="text-align:right;"> 489 </td>
+   <td style="text-align:right;"> 108 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 277 </td>
+   <td style="text-align:right;"> 720 </td>
+   <td style="text-align:right;"> 0.491 </td>
+   <td style="text-align:right;"> 128 </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:right;"> 280 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 0.397 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 80 </td>
+   <td style="text-align:right;"> 93 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 334 </td>
+   <td style="text-align:right;"> 278.52 </td>
+   <td style="text-align:right;"> 0.888 </td>
+   <td style="text-align:right;"> 1.221 </td>
+   <td style="text-align:right;"> 0.929 </td>
+   <td style="text-align:right;"> 1648 </td>
+   <td style="text-align:right;"> 0.392 </td>
+   <td style="text-align:right;"> 1454.0 </td>
+   <td style="text-align:right;"> 291.48 </td>
+   <td style="text-align:right;"> 131.70 </td>
+   <td style="text-align:right;"> 0.388 </td>
+   <td style="text-align:right;"> 234.89 </td>
+   <td style="text-align:right;"> 63.257 </td>
+   <td style="text-align:right;"> 314.17 </td>
+   <td style="text-align:right;"> 136.50 </td>
+  </tr>
+</tbody>
+</table>
+
+<!-- rnb-htmlwidget-end -->
+
+<!-- rnb-chunk-end -->
+=======
+>>>>>>> 8638c6598b260d23777dccd6477622497d23aa57
 </div>
 
 <div id="rmd-source-code">LS0tDQp0aXRsZTogIkJhdHRpbmcgU3RhdGlzdGljcyINCmF1dGhvcjogIkthcmEgR29kc2V5Ig0KZGF0ZTogIjIvMTQvMjAyMCINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNCmBgYHtyIHNldHVwLCBlY2hvPUZBTFNFLCBjYWNoZT1GQUxTRX0NCnN1cHByZXNzV2FybmluZ3MobGlicmFyeShrbml0cikpDQpzdXBwcmVzc1dhcm5pbmdzKGxpYnJhcnkocm1kZm9ybWF0cykpDQoNCiMjIEdsb2JhbCBvcHRpb25zDQpvcHRpb25zKG1heC5wcmludD0iNzUiKQ0Kb3B0c19jaHVuayRzZXQoZWNobz1UUlVFLA0KCSAgICAgICAgICAgICBjYWNoZT1UUlVFLA0KICAgICAgICAgICAgICAgcHJvbXB0PUZBTFNFLA0KICAgICAgICAgICAgICAgdGlkeT1UUlVFLA0KICAgICAgICAgICAgICAgY29tbWVudD1OQSwNCiAgICAgICAgICAgICAgIG1lc3NhZ2U9RkFMU0UsDQogICAgICAgICAgICAgICB3YXJuaW5nPUZBTFNFKQ0Kb3B0c19rbml0JHNldCh3aWR0aD03NSkNCmBgYA0KDQojIEJhdHRpbmcgU3RhdGlzdGljcw0KDQpGaXJzdCwgd2UgbG9hZGVkIHRoZSBkYXRhIHRhYmxlcyB0aGF0IHdlIHByZXZpb3VzbHkgY3JlYXRlZC4NCg0KYGBge3J9DQpsb2FkKCJEYXRhL3N0YXRzX2J5X3R5cGUuUmRhdGEiKQ0KQmF0dGluZyA8LSBiYXNlYmFsbFtbIkJhdHRpbmciXV0NCnRlYW1zIDwtIG5hbWVzKGJhdHRpbmcpDQpgYGANCg0KTmV4dCwgd2UgY3JlYXRlZCBhIGZ1bmN0aW9uIHRvIGNhbGN1bGF0ZSBhZHZhbmNlZCBzdGF0aXN0aWNzIHVzaW5nIHRoZSBiYXNlIGRhdGEgaW4gdGhlIHRhYmxlcy4gVGhlIHN0YXRpc3RpY3Mgd2UgY2hvc2UgdG8gYWRkIHRvIG91ciB0YWJsZXMgaW5jbHVkZTogQ2F1Z2h0IFN0ZWFsaW5nLCBSdW5zIENyZWF0ZWQgKEJhc2ljKSwgT1BTLCBPUFMrLCBQT1AsIFRvdGFsIEF2ZXJhZ2UsIEJhdHRpbmcgQXZlcmFnZSBvbiBCYWxscyBpbiBQbGF5IChCQUJJUCksIGFuZCB0aGUgSG9iYW4gRWZmaWNpZW5jeSBRdW90aWVudCBmb3Igb2ZmZW5zZS4gVGhlIE9QUysgc3RhdCB1dGlsaXplcyBhIGxlYWd1ZSBhdmVyYWdlLCB3aGljaCB3aWxsIGJlIGV4cGxhaW5lZCBsYXRlciBvbi4NCg0KYGBge3J9DQpiYXRfc3RhdHMgPC0gZnVuY3Rpb24oeSl7DQogIHggPC0gQmF0dGluZ1tbeV1dDQogICNDYXVnaHQgU3RlYWxpbmcNCiAgeCRDUyA8LSB4JFNCQSAtIHgkU0INCiAgI1J1bnMgQ3JlYXRlZA0KICB4JFJDIDwtICh4JEggKyB4JEJCKSp4JFRCLyh4JEFCICsgeCRCQikNCiAgI09QUw0KICB4JE9QUyA8LSB4JE9CICsgeCRTTEcNCiAgI09QUysNCiAgeCRPUFNfcGx1cyA8LSAoMTAwKSooKCh4JE9CL0NMX09CUCkrKHgkU0xHL0NMX1NMRykpLTEpDQogICNQT1ANCiAgeCRQT1AgPC0geCRPUFMgKyB4JEFWRw0KICAjVG90YWwgQXZlcmFnZQ0KICB4JFRBIDwtICh4JFRCICsgeCRCQiArIHgkSEJQICsgeCRTQikvKHgkQUIgLSB4JEggKyB4JFNIICsgeCRTRiArIHgkQ1MgKyB4JEdEUCkNCiAgI0JhdHRpbmcgQXZlcmFnZSBvbiBCYWxscyBpbiBQbGF5DQogIHgkQkFCSVAgPC0gKHgkSCAtIHgkSFIpLyh4JEFCIC0geCRTTyAtIHgkSFIgKyB4JFNGKQ0KICAjSG9iYW4gRWZmaWNpZW5jeSBRdW90aWVudCAtIG9mZmVuc2UNCiAgeCRIRVFPIDwtIHgkVEIgKyB4JFIgKyB4JFJCSSArIHgkU0IgKyAoMC41KngkQkIpDQogIHgNCn0NCmBgYA0KDQpUaGVuIHdlIHVzZWQgdGhlIGBsYXBwbHlgIFIgZnVuY3Rpb24gdG8gYXBwbHkgdGhlc2Ugc3RhdGlzdGljcyB0byBlYWNoIG9mIHRoZSB0ZWFtcywgcmVzdWx0aW5nIGluIGFkdmFuY2VkIHN0YXRpc3RpY3MgZm9yIGV2ZXJ5IHBsYXllciBpbiB0aGUgbGVhZ3VlLg0KDQpgYGB7ciBsYXBwbHktaXR9DQpCYXR0aW5nIDwtIHRlYW1zICU+JQ0KICBsYXBwbHkoYmF0X3N0YXRzKQ0KbmFtZXMoQmF0dGluZykgPC0gdGVhbXMNCmBgYA==</div>
