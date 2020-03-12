@@ -109,19 +109,21 @@ for (g in 1:length(f)){
   
 }
 
-View(f)
-
 #Calculating Win Probability for next game
 
 results <- elo.run(score(Team_Score, Opp_Score) ~ adjust(Team,24) + Opp +
-                     k(20*log(abs(Team_Score - Opp_Score) + 1)), data = HomeGames_20)
+                     k(20*log(abs(Team_Score - Opp_Score) + 1)), data = HomeGames_20, initial.elos = f, na.omit)
+View(results)
 
 #initial.elos = f[cat("\"",Team,"\"", sep=""),], f[cat("\"",Opp,"\"", sep=""),]
 
+home_team <- "BC"
+away_team <- "GRC"
+
 nextup <- data.frame(
-  Team = "MVNU",
-  Opp = "GRC"
+  Team = home_team,
+  Opp = away_team
   )
-prob_home_win <- predict(results, nextup)
-print(prob_home_win)
-print(1-prob_home_win)
+home_win <- predict(results, nextup)
+away_win <- (1-home_win)
+ifelse(home_team == "GRC", print(home_win), print(away_win))
