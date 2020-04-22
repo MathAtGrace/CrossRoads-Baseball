@@ -12,6 +12,7 @@ output:
 suppressWarnings(library(knitr))
 suppressWarnings(library(rmdformats))
 suppressWarnings(library(kableExtra))
+suppressWarnings(library(ggplot2))
 
 ## Global options
 options(max.print="75")
@@ -751,6 +752,23 @@ update_web <- function(team1, team2, game_loc){
   game_park_effect <- p_factor[game_loc]
   print(game_park_effect)
   
+  elos <- c(f[team1], f[team2])
+  teams <- names(elos)
+  elo_data = data.frame(teams, elos)
+  elo_data <- elo_data %>% 
+    mutate(Game = paste0(teams[1], " vs ", teams[2])) %>%
+    mutate(elo_label = paste0(teams, " has elo score of ", round(elos)))
+  ggplot(elo_data, aes(x = teams, y = elos, fill = teams)) +
+    geom_col() +
+    geom_text(aes(label = elo_label), position = position_stack(vjust = 0.5)) +
+    scale_fill_brewer(palette = "Set2")
+  
+  #The format below will work well once you have perent chance of winning
+  
+  #ggplot(elo_data, aes(x = Game, y = elos, fill = teams)) +
+  #  geom_col() +
+  #  geom_text(aes(label = elo_label), position = position_stack(vjust = 0.5)) +
+  #  scale_fill_brewer(palette = "Set2")
   
 }
 ```
