@@ -2,11 +2,11 @@ base
 knitr
 rmdformats
 kableExtra
+ggplot2
 xml2
 rvest
 stringr
 tidyverse
-ggplot2
 tibble
 tidyr
 readr
