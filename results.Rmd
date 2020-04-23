@@ -1,0 +1,35 @@
+---
+title: "Crossroads Baseball Project."
+author: "Levi Cain, Kara Godsey, and Dr. Ryan Johnson"
+date: "`r Sys.Date()`"
+output:
+  rmdformats::readthedown:
+    #highlight: kate
+---
+
+
+```{r setup, echo=FALSE, cache=FALSE}
+suppressWarnings(library(knitr))
+suppressWarnings(library(rmdformats))
+suppressWarnings(library(kableExtra))
+suppressWarnings(library(ggplot2))
+
+## Global options
+options(max.print="75")
+opts_chunk$set(echo=TRUE,
+	             cache=TRUE,
+               prompt=FALSE,
+               tidy=TRUE,
+               comment=NA,
+               message=FALSE,
+               warning=FALSE)
+opts_knit$set(width=75)
+```
+
+
+# Welcome!  We'll post results from our project 
+
+These are the results from our project.  You can check out how we did everything here: <li><a href="{{site.baseurl}}">Project</a></li>
+```
+
+---
