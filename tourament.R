@@ -33,6 +33,7 @@ for (i in 1:(length(teams)-1)){
 
 
 
+tourney_probs <- c()
 
 
 #need a loop with win probabilities for each game and adjustment of elo values
@@ -41,17 +42,41 @@ for (games in 1:nrow(tourney_matchups)){
   Home_tourney_temp <- tourney_matchups[games,1]
   Away_tourney_temp <- tourney_matchups[games,2]
  
-  tourney_probs <- elo.prob(f[toString(Home_tourney_temp)], f[toString(Away_tourney_temp)])
+  game_probs <- elo.prob(f[toString(Home_tourney_temp)], f[toString(Away_tourney_temp)])
   #probability that home beats away
-  print(tourney_probs)
+  #print(tourney_probs)
+  tourney_probs <- c(tourney_probs, game_probs)
+
+  
 
 }
 
+
+
+tourney_matchups <- cbind(tourney_matchups, tourney_probs)
+
+#adjust adds to elo value
 
 #In progress
 elo_tourney <- elo.run2(score(Team_Score, Opp_Score) ~ adjust(Team,24) + Opp +
                k(20*log(abs(Team_Score - Opp_Score) + 1)), prob.fun = custom_prob, data = HomeGames_19)
 
 print(final.elos(elo_tourney))
+
+
+
+
+
+
+#predict using already calculated elos
+
+newdat <- data.frame(
+  Team_Score <- tourney_matchups[2,1],
+  Opp_Score <- tourney_matchups[2,2],
+  Team <- tourney_matchups[2,1],
+  Opp <- tourney_matchups[2,2]
+)
+
+predict(results, newdata = newdat)
 
 

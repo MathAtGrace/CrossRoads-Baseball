@@ -89,6 +89,8 @@ HomeGames_20$Vict_Margin <- (HomeGames_20$Team_Score - HomeGames_20$Opp_Score)
 
 
 
+
+
 #Way to run elo that includes margin of victory using log
 
 #Run elo
@@ -114,7 +116,7 @@ for (g in 1:length(f)){
 results <- elo.run(score(Team_Score, Opp_Score) ~ adjust(Team,24) + Opp +
                      k(20*log(abs(Team_Score - Opp_Score) + 1)), data = HomeGames_20, initial.elos = f, na.omit)
 View(results)
-
+View(final.elos(results))
 #initial.elos = f[cat("\"",Team,"\"", sep=""),], f[cat("\"",Opp,"\"", sep=""),]
 
 home_team <- "BC"
