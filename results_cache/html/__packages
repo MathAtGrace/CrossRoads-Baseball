@@ -1,0 +1,17 @@
+base
+knitr
+rmdformats
+kableExtra
+ggplot2
+xml2
+rvest
+stringr
+tidyverse
+tibble
+tidyr
+readr
+purrr
+dplyr
+forcats
+elo
+DT
