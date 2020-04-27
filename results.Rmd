@@ -663,7 +663,7 @@ for (g in 1:length(f)){
 
 # Upcoming Games
 
-```{r}
+```{r update_web}
 update_web <- function(team1, team2, game_loc){
   
   team1_elo <- f[team1]
@@ -677,24 +677,37 @@ update_web <- function(team1, team2, game_loc){
   print(game_prob_team2win)
   game_park_effect <- p_factor[game_loc]
   print(game_park_effect)
-  
+  #print(f[team1])
   elos <- c(f[team1], f[team2])
   teams <- names(elos)
+
   elo_data = data.frame(teams, elos)
   elo_data <- elo_data %>% 
     mutate(Game = paste0(teams[1], " vs ", teams[2])) %>%
     mutate(elo_label = paste0(teams, " has elo score of ", round(elos)))
-  ggplot(elo_data, aes(x = teams, y = elos, fill = teams)) +
+  elo_graph <- ggplot(elo_data, aes(x = teams, y = elos, fill = teams)) +
     geom_col() +
     geom_text(aes(label = elo_label), position = position_stack(vjust = 0.5)) +
     scale_fill_brewer(palette = "Set2")
   
   #The format below will work well once you have perent chance of winning
   
-  #ggplot(elo_data, aes(x = Game, y = elos, fill = teams)) +
-  #  geom_col() +
-  #  geom_text(aes(label = elo_label), position = position_stack(vjust = 0.5)) +
-  #  scale_fill_brewer(palette = "Set2")
+  elos_probs <- c(game_prob_team1win, game_prob_team2win)
+  teams_probs <- c(team1, team2)
+  elo_data_probs = data.frame(teams_probs, elos_probs)
+  
+  elo_data_probs <- elo_data_probs %>% 
+    mutate(Game = paste0(teams[1], " vs ", teams[2])) %>%
+    mutate(elo_label = paste0(teams, " has win probability of ", round(elos_probs, 6)))
+  
+  prob_graph <- ggplot(elo_data_probs, aes(x = Game, y = elos_probs, fill = teams)) +
+    geom_col() +
+    geom_text(aes(label = elo_label), position = position_stack(vjust = 0.5)) +
+    scale_fill_brewer(palette = "Set2")
+  
+  
+  library(ggpubr)
+  ggarrange(elo_graph, prob_graph, ncol=1, nrow=2)
   
 }
 ```
