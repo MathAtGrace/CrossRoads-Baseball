@@ -5,7 +5,7 @@ library(elo)
 ratings <- data.frame(team = teams)
 ratings <- ratings %>%
   mutate(elo = 1500)
-View(ratings)
+#View(ratings)
 
 #function that adds a binary variable
 #1 if home wins/away loses and 0 if home loses/away wins
@@ -24,7 +24,7 @@ names(schedules_19) <- teams
 AllGames_19 <- do.call("rbind",schedules_19)
 HomeGames_19 <- AllGames_19 %>%
   filter(str_detect(Location, "H"))
-View(HomeGames_19)
+#View(HomeGames_19)
 
 
 #Fix extra innings issue
@@ -65,7 +65,7 @@ names(schedules_20) <- teams
 AllGames_20 <- do.call("rbind",schedules_20)
 HomeGames_20 <- AllGames_20 %>%
   filter(str_detect(Location, "H"))
-View(HomeGames_20)
+#View(HomeGames_20)
 
 
 #Fix extra innings issue
@@ -101,7 +101,7 @@ e <- elo.run(score(Team_Score, Opp_Score) ~ adjust(Team,24) + Opp +
 #print results
 f <- final.elos(e)
 f <- sort(f,decreasing = TRUE)
-View(f)
+#View(f)
 
 
 #regress elo values to the mean
@@ -115,7 +115,7 @@ for (g in 1:length(f)){
 
 results <- elo.run(score(Team_Score, Opp_Score) ~ adjust(Team,24) + Opp +
                      k(20*log(abs(Team_Score - Opp_Score) + 1)), data = HomeGames_20, initial.elos = f, na.action = na.omit)
-View(results)
+#View(results)
 
 #create vector with results after 2020 and add Spring Arbor who played no game back
 After_2020_games_elos <- append(final.elos(results), f["SAU"])

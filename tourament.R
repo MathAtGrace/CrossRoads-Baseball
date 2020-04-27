@@ -8,7 +8,7 @@ for (counter in ranks){
   
   adjust_value <- counter*-2
   adjustment[counter] <- adjust_value
-  print(adjustment)
+  #print(adjustment)
 }
 
 
@@ -109,25 +109,7 @@ for (games in 1:nrow(tourney_matchups_randomized)){
 
 tourney_matchups_randomized <- cbind(tourney_matchups_randomized, Home_elos, Away_elos, tourney_probs, winners)
 
+tourney_elos <- sort(tourney_elos,decreasing = TRUE)
 
-#adjust adds to elo value
-
-#In progress
-
-
-
-
-
-
-#predict using already calculated elos
-
-#newdat <- data.frame(
- # Team_Score <- tourney_matchups[2,1],
-  #Opp_Score <- tourney_matchups[2,2],
-  #Team <- tourney_matchups[2,1],
-  #Opp <- tourney_matchups[2,2]
-#)
-
-#predict(results, newdata = newdat)
-
+#tail(tourney_elos, n=1)
 
