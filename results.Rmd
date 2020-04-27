@@ -439,13 +439,14 @@ Best_Players <- Best_Players[!(Best_Players$PA < 20),]
 
 ## Top 10 Hitters
 
-The following is a list of the top 10 hitters in the Crossroads League in 2019.
+The following is a list of the top hitters in the Crossroads League in 2019 based on wRC+.
 
-```{r echo=FALSE}
-Best_Players$wRC_plus <- round(Best_Players$wRC_plus, 2)
-kable(Best_Players[1:10, 1:4], row.names = FALSE, col.names=c("Team", "Player", "wRC+", "PA")) %>%
-  kable_styling(bootstrap_options = c("striped", "bordered"), full_width = FALSE) %>%
-    footnote(general = "*min. 20 plate appearances", general_title = "")
+```{r all_hitters_table}
+num_players <- NROW(Best_Players)
+index <- seq(1,num_players,1)
+rownames(Best_Players) <- index
+
+datatable(Best_Players, options = list(pageLength = 10))
 ```
 
 
@@ -740,11 +741,5 @@ update_web("INWU", "GRC", "GRC")
 ```
 
 ---
-
-# 2019 Batting Stats
-
-```{r all_hitters_table}
-datatable(Best_Players, options = list(pageLength = 5))
-```
 
 ---
