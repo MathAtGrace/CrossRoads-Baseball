@@ -49,7 +49,8 @@ tourney_probs <- c()
 winners <- c()
 Home_elos <- c()
 Away_elos <- c()
-f_copy <- f
+#Use After_2020_games_elos for elos after 2020 games or f for elos after 2019
+tourney_elos <- After_2020_games_elos
 #need a loop with win probabilities for each game and adjustment of elo values
 for (games in 1:nrow(tourney_matchups_randomized)){
   
@@ -58,8 +59,8 @@ for (games in 1:nrow(tourney_matchups_randomized)){
   Home_tourney_temp <- tourney_matchups_randomized[games,1]
   Away_tourney_temp <- tourney_matchups_randomized[games,2]
   #get and adjust elo values
-  Home_tourney_temp_elo <- f_copy[toString(Home_tourney_temp)] + rnorm(1, mean=0, sd=25)#+ coaches_poll[toString(Home_tourney_temp), "adjustment"]
-  Away_tourney_temp_elo <- f_copy[toString(Away_tourney_temp)] + rnorm(1, mean=0, sd=25)#+ coaches_poll[toString(Away_tourney_temp), "adjustment"]
+  Home_tourney_temp_elo <- tourney_elos[toString(Home_tourney_temp)] + rnorm(1, mean=0, sd=25)#+ coaches_poll[toString(Home_tourney_temp), "adjustment"]
+  Away_tourney_temp_elo <- tourney_elos[toString(Away_tourney_temp)] + rnorm(1, mean=0, sd=25)#+ coaches_poll[toString(Away_tourney_temp), "adjustment"]
   
   #add elos to vector for dataframe
   Home_elos[games] <- Home_tourney_temp_elo
@@ -92,8 +93,8 @@ for (games in 1:nrow(tourney_matchups_randomized)){
   run_elo_sim <- elo.calc(win_check, Home_tourney_temp_elo, Away_tourney_temp_elo, k(20*log(abs(Home_team_pred_score - Away_team_pred_score) + 1)))
   
   #change elo values in table f_copy
-  f_copy[toString(Home_tourney_temp)] <- as.double(run_elo_sim["elo.A"])
-  f_copy[toString(Away_tourney_temp)] <- as.double(run_elo_sim["elo.B"])
+  tourney_elos[toString(Home_tourney_temp)] <- as.double(run_elo_sim["elo.A"])
+  tourney_elos[toString(Away_tourney_temp)] <- as.double(run_elo_sim["elo.B"])
   
   
   #probability that home beats away
