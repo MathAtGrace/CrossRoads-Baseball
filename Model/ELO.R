@@ -114,9 +114,11 @@ for (g in 1:length(f)){
 #Calculating Win Probability for next game
 
 results <- elo.run(score(Team_Score, Opp_Score) ~ adjust(Team,24) + Opp +
-                     k(20*log(abs(Team_Score - Opp_Score) + 1)), data = HomeGames_20, initial.elos = f, na.omit)
+                     k(20*log(abs(Team_Score - Opp_Score) + 1)), data = HomeGames_20, initial.elos = f, na.action = na.omit)
 View(results)
-View(final.elos(results))
+
+#create vector with results after 2020 and add Spring Arbor who played no game back
+After_2020_games_elos <- append(final.elos(results), f["SAU"])
 #initial.elos = f[cat("\"",Team,"\"", sep=""),], f[cat("\"",Opp,"\"", sep=""),]
 
 home_team <- "BC"
