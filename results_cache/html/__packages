@@ -15,3 +15,6 @@ dplyr
 forcats
 elo
 DT
+magrittr
+ggpubr
+ggrepel
