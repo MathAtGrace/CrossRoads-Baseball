@@ -263,9 +263,13 @@ tpark <- data.frame(t(park))
 
 ggplot(tpark, aes(x=pf, y=0)) +
   geom_point(size = 8) + 
-  annotate("segment", x = 0.7, xend = 1.4, y=0, yend=0, size = 2) +
-  annotate("segment", x=0.7,xend=0.7,y=-.1,yend=0.1,size=2) +
-  annotate("segment", x=1.4, xend=1.4, y=-0.1, yend=0.1, size=2) + 
+  annotate("segment", x = 0.7, xend = 1.4, y=0, yend=0, size = 1) +
+  annotate("segment", x=0.7,xend=0.7,y=-.1,yend=0.1,size=1) +
+  annotate("text",x=0.75,y=.5,size =4,label = "Pitcher") +
+  annotate("text",x=0.75,y=.35,size=4,label = "friendly") +
+  annotate("segment", x=1.4, xend=1.4, y=-0.1, yend=0.1, size=1) + 
+  annotate("text", x=1.35, y=.5, size=4, label = "Hitter") +
+  annotate("text",x=1.35, y=.35, size=4, label = "friendly") +
   geom_text_repel(aes(label = teams), col="black", vjust = 3) +
   scale_x_continuous(limits = c(.7, 1.4)) + 
   scale_y_continuous(limits = c(-1,1)) + 
