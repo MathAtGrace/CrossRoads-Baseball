@@ -36,7 +36,7 @@ These are the results from our project.  You can check out how we did everything
 
 ## Overview
 
-On this site you will find the top hitters in the conference and projections for upcoming games, as well as a searchable table containing stats for all hitters in the Crossroads League.
+On this site you will find park factors, the top hitters in the conference, projections for upcoming games, and a searchable table containing stats for all hitters in the Crossroads League.
 
 ---
 
@@ -397,7 +397,7 @@ names(Batting) <- teams
 
 # Top Hitters in the Crossroads League
 
-After compiling advanced batting statistics for each team, we chose to use weighted runs created plus (wRC+) in order to evaluate a hitter's overall contribution to the team. This statistic takes the park factor into account. Additionally, it adjusts based on a player's performance in comparison to the league average.
+After compiling advanced batting statistics for each team, we chose to use weighted runs created plus (wRC+) in order to evaluate a hitter's overall contribution to the team. This statistic takes park factor into account, as well as adjusting based on a player's performance in comparison to the league average.
 
 ```{r echo=FALSE}
 Best_Players <- data.frame(wRC_plus=numeric())
