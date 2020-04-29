@@ -509,9 +509,19 @@ datatable(Best_Players, options = list(pageLength = 10))
 
 ---
 
-# Getting schedules for elo model
+# ELO model
 
-In order to run the Elo model, we needed to scrape the schedule of each team from dakstats.
+Having covered our inital goal of ranking players, we turned to the prediction of future games. For this task, we chose to employ the Elo model. This model is commonly used with baseball. The statistics site [FiveThirtyEight](https://fivethirtyeight.com/features/how-our-mlb-predictions-work/) uses this model for their preseason rankings as well as in-season chances of making the postseason.
+
+We used the `elo` R package to implement this model with our data. This greatly simplified the process of calculating Elo ratings.
+
+Each team is given an Elo rating, with the average being 1500. A game is played (or simulated) between two teams, and each team will then gain or lose points depending on whether they won or lost. The number of points won/lost is the same for both teams, and varies with the pregame likelihood of victory as well as margin of victory. So, after every game, the ratings are updated.
+
+The Elo model is handy for baseball because you can adjust the ratings to factor in home field advantage, distance travelled to the game, days of rest before the game, and even starting pitchers.
+
+## Getting Schedules for Elo Model
+
+In order to run the Elo model, we needed to scrape the schedule of each team from dakstats. The process used here is very similar to the initial scraping that provided player stats. We did have to tweak the tables to include only the conference games. 
 
 ```{r schedules}
 library(rvest)
@@ -581,7 +591,6 @@ names(schedules) <- teams
 schedules_19 <- schedules
 ```
 
-
 ```{r echo=FALSE}
 #A function to write the data to csv files
 writeit <- function(x) {
@@ -592,8 +601,9 @@ writeit <- function(x) {
 #lapply(teams, writeit)
 ```
 
+We followed the exact same process to scrape the 2020 schedules, giving us all the data we need for predicting games in the upcoming season. 
 
-```{r sched-20}
+```{r sched-20 echo=FALSE}
 #2020 schedules
 
 load("Data/stats_by_type.Rdata")
@@ -657,7 +667,6 @@ names(schedules) <- teams
 schedules_20 <- schedules
 ```
 
-
 ```{r echo=FALSE}
 #A function to write the data to csv files
 writeit <- function(x) {
@@ -668,12 +677,9 @@ writeit <- function(x) {
 #lapply(teams, writeit)
 ```
 
----
+## Using Elo values to predict games
 
-
-# Using Elo values to predict games
-
-We are using Elo values to predict the outcome of games. The Elo values are based on who won along with the score differential and are calculated using the Elo package in r. We begin with each teams' Elo value at 1500.
+Now that we have the schedules, we can implement the model. We assigned each team an average rating of 1500.
 
 ```{r elo_initial}
 library(tidyverse)
@@ -700,6 +706,7 @@ names(schedules_19) <- teams
 ```
 
 We then take the 2019 schedule and use the outcomes from those games to find our Elo values at the end of the 2019 season.
+
 ```{r end_elos}
 #creating a master schedule with all games
 AllGames <- do.call("rbind",schedules_19)
@@ -752,6 +759,8 @@ for (g in 1:length(f)){
 
 #View(f)
 ```
+
+---
 
 ---
 
@@ -812,5 +821,7 @@ For example, the next game is Indiana Wesleyan vs. Grace at Grace.
 ```{r run}
 update_web("INWU", "GRC", "GRC")
 ```
+
+---
 
 ---
