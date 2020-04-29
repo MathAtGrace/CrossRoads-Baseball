@@ -603,7 +603,7 @@ writeit <- function(x) {
 
 We followed the exact same process to scrape the 2020 schedules, giving us all the data we need for predicting games in the upcoming season. 
 
-```{r sched-20 echo=FALSE}
+```{r echo=FALSE}
 #2020 schedules
 
 load("Data/stats_by_type.Rdata")
