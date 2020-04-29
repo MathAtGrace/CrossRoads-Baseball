@@ -13,6 +13,8 @@ suppressWarnings(library(knitr))
 suppressWarnings(library(rmdformats))
 suppressWarnings(library(kableExtra))
 suppressWarnings(library(ggplot2))
+suppressWarnings(library(DT))
+suppressWarnings(library(ggrepel))
 
 ## Global options
 options(max.print="75")
@@ -35,6 +37,8 @@ We have scraped data from the website, although the strictly-conference level da
 
 ---
 
+---
+
 # Scraping the Data
 
 For this project we used the NAIA statistics posted on the website [dakstats](http://www.dakstats.com/websync/Pages/Association.aspx?association=10).  They have batting, pitching, and fielding statitistics for each baseball team in the Crossroads league, of which Grace College is a member.
@@ -54,6 +58,7 @@ teams <- c("BC","GOC","GRC","HU","INWU","MAR","MVNU","SAU","SFIN","TAYL")
 names(teams) <- c(1629, 1678, 1679, 1688, 1694, 1717, 1736, 1780, 1805, 1784)
 urls <- paste0("http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=",names(teams),"&sea=NAIMBA_2019")
 ```
+
 ## Scraping the tables using the `rvest` package
 
 Then we created functions to retrieve only the batting, pitching, and fielding tables, which we turned into data frames in R.
@@ -103,6 +108,7 @@ And put all of our data into one list.
 baseball <- list(batting, pitching, fielding)
 names(baseball) <- c("Batting", "Pitching", "Fielding")
 ```
+
 Then we wrote a function to write all of the tables into csv files,
 
 ```{r writeit}
@@ -116,16 +122,20 @@ writeit <- function(x) {
   write.csv(fielding[[x]], file = paste0("Data/Fielding", "/", x, ".csv"))
 }
 ```
+
 and used `lapply` to write the csv's all at once.
 
 ```{r write-to-csv}
 invisible(lapply(teams, writeit))
 ```
+
 Lastly, we also saved our data to an Rdata file for our own convenience.
 
 ```{r saved}
 save(baseball, file = "Data/stats_by_type.Rdata")
 ```
+
+---
 
 ---
 
@@ -168,6 +178,7 @@ Next, because park factor ajdusts based on runs scored at home and runs scored a
 We then put the scores specific to home or away games into a vector.
 
 Finally, we used the lapply to apply the function to each team.
+
 ```{r Park_Factor function}
   Park_effects <- function(g){
     
@@ -284,6 +295,8 @@ Finally, we used the lapply to apply the function to each team.
 
 ---
 
+---
+
 # Batting Statistics
 
 ## The Basics
@@ -296,7 +309,7 @@ Batting <- baseball[["Batting"]]
 teams <- names(Batting)
 ```
 
-Next, we created a function to calculate advanced statistics using the base data in the tables. The statistics we chose to add to our tables include: Caught Stealing, Runs Created (Basic), OPS, POP, Total Average, Batting Average on Balls in Play (BABIP), and the Hoban Efficiency Quotient for offense.
+Next, we created a function to calculate advanced statistics using the base data in the tables. The statistics we chose to add to our tables include: Caught Stealing, Runs Created (Basic), OPS (On-Base plus Slugging), POP, Total Average, Batting Average on Balls in Play (BABIP), the Hoban Efficiency Quotient for offense, and Base Stealing Runs.
 
 ```{r}
 bat_stats <- function(y){
@@ -385,7 +398,7 @@ ABF <- ((0.47 * CL_Avg_B[["X1B"]]) + (0.38*CL_Avg_B[["2B"]]) + (0.55*CL_Avg_B[["
 
 ## Advanced Statistics
 
-Now that we have these league statistics, we can add more advanced statistics to our tables. The statistics we added were: OPS+, wOBA, Batting Runs, weighted Runs Above Average (wRAA), weighted Runs Created (wRC), and weighted Runs Created plus (wRC+). All of these statistics adjust the individual player's performance to reflect their contribution in comparison to other players in the league.  
+Now that we have these league statistics, we can add more advanced statistics to our tables. The statistics we added were: OPS+, wOBA, Batting Runs, weighted Runs Above Average (wRAA), weighted Runs Created (wRC), and weighted Runs Created plus (wRC+). All of these statistics adjust the individual player's performance to reflect their value in comparison to other players in the league.
 
 ```{r}
 bat_stats2 <- function(y){
@@ -416,15 +429,16 @@ names(Batting) <- teams
 Here is an example of the resulting tables that we produced.
 
 ```{r echo=FALSE}
-kable(Batting[["GRC"]]) %>%
-  kable_styling(bootstrap_options = c("striped", "bordered", "condensed"), full_width = FALSE)
+datatable(Batting[["GRC"]], options = list(pageLength = 10))
 ```
+
+---
 
 ---
 
 # Top Hitters in the Crossroads League
 
-After compiling advanced batting statistics for each team, we chose to use weighted runs created plus (wRC+) in order to evaluate a hitter's overall contribution to the team. This statistic takes the park factor into account. Additionally, it adjusts based on a player's performance in comparison to the league average.
+After compiling advanced batting statistics for each team, we chose to use weighted runs created plus (wRC+) in order to evaluate a hitter's overall contribution to the team. This statistic takes park factor into account, as well as adjusting based on a player's performance in comparison to the league average.
 
 ```{r echo=FALSE}
 Best_Players <- data.frame(wRC_plus=numeric())
@@ -481,14 +495,17 @@ Best_Players <- Best_Players[!(Best_Players$PA < 20),]
 
 ## Top 10 Hitters
 
-The following is a list of the top 10 hitters in the Crossroads League in 2019.
+The following is a list of the top hitters in the Crossroads League in 2019 based on wRC+.
 
-```{r echo=FALSE}
-Best_Players$wRC_plus <- round(Best_Players$wRC_plus, 2)
-kable(Best_Players[1:10, 1:4], row.names = FALSE, col.names=c("Team", "Player", "wRC+", "PA")) %>%
-  kable_styling(bootstrap_options = c("striped", "bordered"), full_width = FALSE) %>%
-    footnote(general = "*min. 20 plate appearances", general_title = "")
+```{r all_hitters_table}
+num_players <- NROW(Best_Players)
+index <- seq(1,num_players,1)
+rownames(Best_Players) <- index
+
+datatable(Best_Players, options = list(pageLength = 10))
 ```
+
+---
 
 ---
 
