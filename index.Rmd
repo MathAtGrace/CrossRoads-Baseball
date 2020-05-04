@@ -30,10 +30,7 @@ opts_knit$set(width=75)
 
 
 # Welcome
-Welcome to our student research project.  This project is still in its beginning stages.  The current plan is to rank players and predict games.
-
-### Update 2/12/2020
-We have scraped data from the website, although the strictly-conference level data is still elluding us.  To view our process go to "Scraping the Data" on the left-hand side of your screen.
+Welcome to our student research project.  The current plan is to rank players and predict games.
 
 ---
 
