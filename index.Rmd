@@ -508,6 +508,8 @@ datatable(Best_Players, options = list(pageLength = 10))
 
 # Pitching Statistics
 
+## Getting Started
+
 First, we load the previously created pitching tables.
 
 ```{r load pitchstats}
@@ -554,7 +556,11 @@ CL_ERA <- (CL_Avg_P[[1]]*9)/(CL_Avg_P[[6]])
 #print(CL_ERA)
 ```
 
-With league totals, we can now calculate the FIP (Fielding Indepent Pitching) constant. Once we have this constant, we will be able to calculate FIP for each player in the Crossroads League.
+## FIP (Fielding Indepent Pitching)
+
+We chose to measure pitchers using Fielding Indepent Pitching (FIP). This metric attempts to isolate the performance of the pitcher, stripping away the influence of the defense as well as luck. Similar to the wRC+ stat for hitters, FIP also adjusts based on a league constant. The scale for FIP is similar to ERA; a lower FIP is better.
+
+Since we have previously grabbed league totals, we can now calculate the FIP constant. Once we have this constant, we will be able to calculate FIP for each player in the Crossroads League.
 
 ```{r FIP constant}
 FIP_CL_constant = CL_ERA - (((13*CL_Avg_P[[2]])+(3*(CL_Avg_P[[5]]+CL_Avg_P[[4]]))-(2*CL_Avg_P[[3]]))/(CL_Avg_P[[6]]))
@@ -581,6 +587,72 @@ Here is an example of the pitching tables, with the addition of the FIP statisti
 
 ```{r echo=FALSE}
 datatable(Pitching[["GRC"]], options = list(pageLength = 10))
+```
+
+---
+
+---
+
+# Top Pitchers in the Crossroads League
+
+## The Process
+
+In order to determine the top pitchers in the entire league, we needed to merge all the data into one master dataframe. In order to do this, we created a for loop to collect the players and their stats from each team's dataframes.
+
+```{r best_players_calc pitch}
+Best_Pitchers <- data.frame(FIP=numeric())
+
+#counter for teams
+y = 1
+
+
+for (x in Pitching){
+  
+  FIP <- c()
+  FIP_name <- c()
+  FIP_team <- c()
+  IP <- c()
+  FIP <- x[["FIP"]]
+  FIP_name <- x[["Pitching"]]
+  IP <- x[["IP"]]
+  team <- teams[y]
+  for (z in FIP_name){
+  
+  FIP_team <- c(FIP_team, team[z])      
+  
+  
+  }
+  
+  new.Best_Pitchers <- data.frame(team, FIP_name,  FIP,  IP)
+  Best_Pitchers <- rbind(Best_Pitchers, new.Best_Pitchers)
+  
+  y = y + 1
+}
+```
+
+Next, we cleaned up the data a bit by removing non-zero values and the rows containing team totals and opponent totals.
+
+```{r remove_values pitchers}
+#remove NaN values
+Best_Pitchers <- Best_Pitchers[complete.cases(Best_Pitchers), ]
+
+#remove Total and Opponents values
+Best_Pitchers <- Best_Pitchers[ !(Best_Pitchers$FIP_name %in% c("Opponents:", "Total:")), ]
+
+Best_Pitchers <- Best_Pitchers[order(-Best_Pitchers$FIP),]
+
+```
+
+## Top 10 Pitchers
+
+The following is a list of the top pitchers in the Crossroads League in 2019 based on FIP.
+
+```{r all_pitchers_table}
+num_players <- NROW(Best_Pitchers)
+index <- seq(1,num_players,1)
+rownames(Best_Pitchers) <- index
+
+datatable(Best_Pitchers, options = list(pageLength = 10))
 ```
 
 ---
