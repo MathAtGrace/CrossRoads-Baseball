@@ -446,8 +446,6 @@ Best_Players <- Best_Players[!(Best_Players$PA < 20),]
 
 ```
 
-## Top 10 Hitters
-
 The following is a list of the top hitters in the Crossroads League in 2019 based on wRC+.
 
 ```{r all_hitters_table}
@@ -458,6 +456,124 @@ rownames(Best_Players) <- index
 datatable(Best_Players, options = list(pageLength = 10))
 ```
 
+---
+
+---
+
+```{r load pitchstats}
+load("Data/stats_by_type.Rdata")
+Pitching <- baseball[["Pitching"]]
+teams <- names(Pitching)
+```
+
+```{r pitch variables}
+FIP_stats <- c("ER", "HR", "SO", "HBP", "BB", "IP","ERA")
+CL_Avg_P <- c()
+All_stats_pitching <- c()
+```
+
+```{r CL pitch stats}
+w = 0
+
+for (n in seq(length(FIP_stats)-1)){
+  
+  for (j in teams){
+    
+    P <- read.csv(paste("Data/Pitching/",j,".csv",sep=""))
+    
+    
+    for (k in seq(length(P[[FIP_stats[[n]]]]))){ 
+      
+      All_stats_pitching[w+k] <- P[[FIP_stats[[n]]]][k]
+      #print(All_stats)
+    }
+    
+    w  = k + w
+    
+  }
+  CL_Avg_P[n] <- mean(All_stats_pitching)
+  All_stats_pitching <- c()
+  w = 0
+}
+
+CL_ERA <- (CL_Avg_P[[1]]*9)/(CL_Avg_P[[6]])
+#print(CL_ERA)
+```
+
+```{r FIP constant}
+FIP_CL_constant = CL_ERA - (((13*CL_Avg_P[[2]])+(3*(CL_Avg_P[[5]]+CL_Avg_P[[4]]))-(2*CL_Avg_P[[3]]))/(CL_Avg_P[[6]]))
+#print(FIP_CL_constant)
+```
+
+```{r FIP loop}
+pitch_stats <- function(y){
+  x <- Pitching[[y]]
+  FIP_team <- ((13*x$HR)+3*(x$BB+x$HBP)-(2*x$SO))/(x$IP)
+  x$FIP <- FIP_team + FIP_CL_constant
+  x$PR <- (x$IP*(CL_ERA - x$ERA))/9
+  x
+}
+
+Pitching <- teams %>%
+  lapply(pitch_stats)
+names(Pitching) <- teams
+```
+
+```{r best_players_calc pitch}
+Best_Pitchers <- data.frame(FIP=numeric())
+
+#counter for teams
+y = 1
+
+
+for (x in Pitching){
+  
+  FIP <- c()
+  FIP_name <- c()
+  FIP_team <- c()
+  IP <- c()
+  FIP <- x[["FIP"]]
+  FIP_name <- x[["Pitching"]]
+  IP <- x[["IP"]]
+  team <- teams[y]
+  for (z in FIP_name){
+  
+  FIP_team <- c(FIP_team, team[z])      
+  
+  
+  }
+  
+  new.Best_Pitchers <- data.frame(team, FIP_name,  FIP,  IP)
+  Best_Pitchers <- rbind(Best_Pitchers, new.Best_Pitchers)
+  
+  y = y + 1
+}
+```
+
+```{r remove_values pitchers}
+#remove NaN values
+Best_Pitchers <- Best_Pitchers[complete.cases(Best_Pitchers), ]
+
+#remove Total and Opponents values
+Best_Pitchers <- Best_Pitchers[ !(Best_Pitchers$FIP_name %in% c("Opponents:", "Total:")), ]
+
+Best_Pitchers <- Best_Pitchers[order(-Best_Pitchers$FIP),]
+
+```
+
+# Top Pitchers in the Crossroads League
+
+We chose to measure pitchers using Fielding Indepent Pitching (FIP). This metric attempts to isolate the performance of the pitcher, stripping away the influence of the defense as well as luck. Similar to the wRC+ stat for hitters, FIP also adjusts based on a league constant. The scale for FIP is similar to ERA; a lower FIP is better.
+
+The following is a list of the top pitchers in the Crossroads League in 2019 based on FIP.
+
+```{r all_pitchers_table}
+num_players <- NROW(Best_Pitchers)
+index <- seq(1,num_players,1)
+rownames(Best_Pitchers) <- index
+
+datatable(Best_Pitchers, options = list(pageLength = 10))
+```
 
 ```{r schedules}
 library(rvest)
