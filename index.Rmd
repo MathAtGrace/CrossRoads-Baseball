@@ -509,6 +509,87 @@ datatable(Best_Players, options = list(pageLength = 10))
 
 ---
 
+# Pitching Statistics
+
+First, we load the previously created pitching tables.
+
+```{r load pitchstats}
+load("Data/stats_by_type.Rdata")
+Pitching <- baseball[["Pitching"]]
+teams <- names(Pitching)
+```
+
+Next, we create variables to hold the league totals in some key pitching statistics.
+
+```{r pitch variables}
+FIP_stats <- c("ER", "HR", "SO", "HBP", "BB", "IP","ERA")
+CL_Avg_P <- c()
+All_stats_pitching <- c()
+```
+
+In order to fill these variables with data, we created a for loop to calculate totals for the Crossroads League.
+
+```{r CL pitch stats}
+w = 0
+
+for (n in seq(length(FIP_stats)-1)){
+  
+  for (j in teams){
+    
+    P <- read.csv(paste("Data/Pitching/",j,".csv",sep=""))
+    
+    
+    for (k in seq(length(P[[FIP_stats[[n]]]]))){ 
+      
+      All_stats_pitching[w+k] <- P[[FIP_stats[[n]]]][k]
+      #print(All_stats)
+    }
+    
+    w  = k + w
+    
+  }
+  CL_Avg_P[n] <- mean(All_stats_pitching)
+  All_stats_pitching <- c()
+  w = 0
+}
+
+CL_ERA <- (CL_Avg_P[[1]]*9)/(CL_Avg_P[[6]])
+#print(CL_ERA)
+```
+
+With league totals, we can now calculate the FIP (Fielding Indepent Pitching) constant. Once we have this constant, we will be able to calculate FIP for each player in the Crossroads League.
+
+```{r FIP constant}
+FIP_CL_constant = CL_ERA - (((13*CL_Avg_P[[2]])+(3*(CL_Avg_P[[5]]+CL_Avg_P[[4]]))-(2*CL_Avg_P[[3]]))/(CL_Avg_P[[6]]))
+print(FIP_CL_constant)
+```
+
+In order to calculate individual FIP statistics, we followed the same process as the batting statistics. First we created a for loop to add to the pitching tables, and then we used the 'lapply' function to apply the function to all of our teams.
+
+```{r FIP loop}
+pitch_stats <- function(y){
+  x <- Pitching[[y]]
+  FIP_team <- ((13*x$HR)+3*(x$BB+x$HBP)-(2*x$SO))/(x$IP)
+  x$FIP <- FIP_team + FIP_CL_constant
+  x$PR <- (x$IP*(CL_ERA - x$ERA))/9
+  x
+}
+
+Pitching <- teams %>%
+  lapply(pitch_stats)
+names(Pitching) <- teams
+```
+
+Here is an example of the pitching tables, with the addition of the FIP statistic.
+
+```{r echo=FALSE}
+datatable(Pitching[["GRC"]], options = list(pageLength = 10))
+```
+
+---
+
+---
+
 # ELO model
 
 Having covered our inital goal of ranking players, we turned to the prediction of future games. For this task, we chose to employ the Elo model. This model is commonly used with baseball. The statistics site [FiveThirtyEight](https://fivethirtyeight.com/features/how-our-mlb-predictions-work/) uses this model for their preseason rankings as well as in-season chances of making the postseason.
