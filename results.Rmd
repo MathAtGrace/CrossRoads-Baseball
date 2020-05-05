@@ -31,7 +31,7 @@ opts_knit$set(width=75)
 
 # Welcome! 
 
-These are the results from our project.  You can check out how we did everything here: <li><a href="{{site.baseurl}}">Project</a></li>
+These are the results from our project.  You can check out how we did everything here: <li><a href="https://mathatgrace.github.io/CrossRoads-Baseball/">Project</a></li>
 
 
 ## Overview
