@@ -981,7 +981,9 @@ update_web("INWU", "GRC", "GRC")
 Due to the COVID-19 outbreak in 2020, we were unable to compare our predictions to the actual outcome of games. Instead, we have created a tournament simulation that uses the 2019 elo ratings along with the 2020 preseason coaches' poll to simulate what the season might have been like. Since this simulation uses random numbers, each time you refresh or check the website, the results will be slightly different.
 
 ## Adjusting for coaches' poll
+
 We began by assigning each team a value of their coaches poll ranking times -1. This will be used later to adjust how the random number is selected.
+
 ```{r tourney}
 #coaches poll
 ranks <- c(1:10)
@@ -1002,7 +1004,9 @@ coaches_poll <- data.frame(ranks, adjustment, row.names = team_ranks)
 ```
 
 ## Create a randomized schedule
+
 Next, we created a randomized schedule in which every team plays against each other one time.
+
 ```{r randomized_schedule}
 Home_tourney_team <- c()
 Away_tourney_team <- c()
@@ -1026,7 +1030,9 @@ tourney_matchups_randomized <- tourney_matchups[sample(nrow(tourney_matchups)),]
 ```
 
 ## Elos for simulation
+
 The simulation begins with the final elo values calculated using the 2019 season and the few games played in the 2020 season. Much of this code is similar to the code found in the using elo values to predict games section.
+
 ```{r sim_begin}
 tourney_probs <- c()
 winners <- c()
@@ -1080,7 +1086,9 @@ tourney_elos <- After_2020_games_elos
 ```
 
 ## Simulation
+
 The simulation takes the elo values that we started with and adds a random number that differs depending on the adjustment value that was calculated earlier. Next, those elo values are used to calculate a win probability. This win probability that is multiplied by 10 then becomes the score for that game. Finally, the new elo values are calculated using the score and the result of the game. After doing this for all games in the tournament, we have our results.
+
 ```{r sim}
 for (games in 1:nrow(tourney_matchups_randomized)){
   
@@ -1137,7 +1145,9 @@ for (games in 1:nrow(tourney_matchups_randomized)){
 ```
 
 ## Simulation Results
+
 We can then output the records of the teams after the simulation and the final elo values after the simulation both of which are printed below. 
+
 ```{r sim_results}
 tourney_matchups_randomized <- cbind(tourney_matchups_randomized, Home_elos, Away_elos, tourney_probs, winners)
 
