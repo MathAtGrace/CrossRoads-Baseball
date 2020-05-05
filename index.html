@@ -4078,7 +4078,6 @@ $(document).ready(function () {
       <li><a href="#simulation">Simulation</a></li>
       <li><a href="#simulation-results">Simulation Results</a></li>
       </ul></li>
-      <li><a href="#run-your-own-simulation">Run your own simulation!</a></li>
       </ul>
     </div>
     
@@ -4846,7 +4845,7 @@ $GRC
 </div>
 <div id="elos-for-simulation" class="section level2">
 <h2>Elos for simulation</h2>
-<p>The simulation begins with the final elo values calculated using the 2019 season and the few games played in the 2020 season.</p>
+<p>The simulation begins with the final elo values calculated using the 2019 season and the few games played in the 2020 season. Much of this code is similar to the code found in the using elo values to predict games section.</p>
 <div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" title="1">tourney_probs &lt;-<span class="st"> </span><span class="kw">c</span>()</a>
 <a class="sourceLine" id="cb40-2" title="2">winners &lt;-<span class="st"> </span><span class="kw">c</span>()</a>
 <a class="sourceLine" id="cb40-3" title="3">Home_elos &lt;-<span class="st"> </span><span class="kw">c</span>()</a>
@@ -4987,27 +4986,28 @@ $GRC
 <a class="sourceLine" id="cb42-18" title="18">}</a>
 <a class="sourceLine" id="cb42-19" title="19"></a>
 <a class="sourceLine" id="cb42-20" title="20">tourney_results &lt;-<span class="st"> </span><span class="kw">data.frame</span>(team_ranks, tourney_results_vec)</a>
-<a class="sourceLine" id="cb42-21" title="21"><span class="kw">print</span>(tourney_results)</a></code></pre></div>
-<pre><code>   team_ranks tourney_results_vec
-1          HU                 9-0
-2        MVNU                 8-1
-3        INWU                 6-3
-4        TAYL                 7-2
-5         MAR                 5-4
-6         SAU                 4-5
-7          BC                 0-9
-8         GOC                 1-8
-9         GRC                 3-6
-10       SFIN                 2-7</code></pre>
+<a class="sourceLine" id="cb42-21" title="21"><span class="kw">names</span>(tourney_results)[<span class="dv">1</span>] &lt;-<span class="st"> &quot;Team&quot;</span></a>
+<a class="sourceLine" id="cb42-22" title="22"><span class="kw">names</span>(tourney_results)[<span class="dv">2</span>] &lt;-<span class="st"> &quot;Record&quot;</span></a>
+<a class="sourceLine" id="cb42-23" title="23"><span class="kw">print</span>(tourney_results)</a></code></pre></div>
+<pre><code>   Team Record
+1    HU    9-0
+2  MVNU    8-1
+3  INWU    6-3
+4  TAYL    7-2
+5   MAR    5-4
+6   SAU    4-5
+7    BC    0-9
+8   GOC    1-8
+9   GRC    3-6
+10 SFIN    2-7</code></pre>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" title="1"><span class="kw">print</span>(tourney_elos)</a></code></pre></div>
 <pre><code>    MVNU     TAYL       HU      MAR      SAU     INWU       BC      GOC 
 1634.614 1626.275 1619.847 1573.891 1524.941 1506.155 1398.530 1396.735 
      GRC     SFIN 
 1386.211 1374.054 </code></pre>
+<hr />
+<hr />
 </div>
-</div>
-<div id="run-your-own-simulation" class="section level1">
-<h1>Run your own simulation!</h1>
 </div>
 </div>
 

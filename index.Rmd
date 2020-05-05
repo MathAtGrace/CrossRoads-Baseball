@@ -975,6 +975,7 @@ update_web("INWU", "GRC", "GRC")
 ---
 
 ---
+
 # Simulated Tournament
 
 Due to the COVID-19 outbreak in 2020, we were unable to compare our predictions to the actual outcome of games. Instead, we have created a tournament simulation that uses the 2019 elo ratings along with the 2020 preseason coaches' poll to simulate what the season might have been like. Since this simulation uses random numbers, each time you refresh or check the website, the results will be slightly different.
@@ -1025,7 +1026,7 @@ tourney_matchups_randomized <- tourney_matchups[sample(nrow(tourney_matchups)),]
 ```
 
 ## Elos for simulation
-The simulation begins with the final elo values calculated using the 2019 season and the few games played in the 2020 season.
+The simulation begins with the final elo values calculated using the 2019 season and the few games played in the 2020 season. Much of this code is similar to the code found in the using elo values to predict games section.
 ```{r sim_begin}
 tourney_probs <- c()
 winners <- c()
@@ -1157,9 +1158,12 @@ for (sim_x in (1:length(team_ranks))){
 }
 
 tourney_results <- data.frame(team_ranks, tourney_results_vec)
+names(tourney_results)[1] <- "Team"
+names(tourney_results)[2] <- "Record"
 print(tourney_results)
 print(tourney_elos)
 
 ```
+---
 
-# Run your own simulation!
+---

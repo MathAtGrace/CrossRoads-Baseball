@@ -3,6 +3,8 @@ knitr
 rmdformats
 kableExtra
 ggplot2
+DT
+ggrepel
 xml2
 rvest
 stringr
@@ -14,7 +16,5 @@ purrr
 dplyr
 forcats
 elo
-DT
 magrittr
 ggpubr
-ggrepel
