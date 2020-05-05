@@ -1176,4 +1176,3 @@ print(tourney_elos)
 ```
 ---
 
----

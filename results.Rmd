@@ -1053,5 +1053,3 @@ print(tourney_elos)
 #tail(tourney_elos, n=1)
 ```
 ---
-
----
