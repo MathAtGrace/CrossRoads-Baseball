@@ -30,7 +30,9 @@ opts_knit$set(width=75)
 
 
 # Welcome
-Welcome to our student research project.  The current plan is to rank players and predict games.
+Welcome to our student research project.  The current plan is to rank players and predict games.  Below you will find a thorough explanation of the processes and stats that we employed in this project.
+
+For a quick view of our results go here: <li><a href="https://mathatgrace.github.io/CrossRoads-Baseball/results">Results</a></li>
 
 ---
 
