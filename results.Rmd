@@ -509,8 +509,8 @@ FIP_CL_constant = CL_ERA - (((13*CL_Avg_P[[2]])+(3*(CL_Avg_P[[5]]+CL_Avg_P[[4]])
 pitch_stats <- function(y){
   x <- Pitching[[y]]
   FIP_team <- ((13*x$HR)+3*(x$BB+x$HBP)-(2*x$SO))/(x$IP)
-  x$FIP <- FIP_team + FIP_CL_constant
-  x$PR <- (x$IP*(CL_ERA - x$ERA))/9
+  x$FIP <- round(FIP_team + FIP_CL_constant, 2)
+  x$PR <- round((x$IP*(CL_ERA - x$ERA))/9, 2)
   x
 }
 
@@ -557,7 +557,10 @@ Best_Pitchers <- Best_Pitchers[complete.cases(Best_Pitchers), ]
 #remove Total and Opponents values
 Best_Pitchers <- Best_Pitchers[ !(Best_Pitchers$FIP_name %in% c("Opponents:", "Total:")), ]
 
-Best_Pitchers <- Best_Pitchers[order(-Best_Pitchers$FIP),]
+#require players to have at least 25 innings pitched
+Best_Pitchers <- Best_Pitchers[!(Best_Pitchers$IP < 25),]
+
+Best_Pitchers <- Best_Pitchers[order(Best_Pitchers$FIP),]
 
 ```
 
@@ -565,7 +568,7 @@ Best_Pitchers <- Best_Pitchers[order(-Best_Pitchers$FIP),]
 
 We chose to measure pitchers using Fielding Indepent Pitching (FIP). This metric attempts to isolate the performance of the pitcher, stripping away the influence of the defense as well as luck. Similar to the wRC+ stat for hitters, FIP also adjusts based on a league constant. The scale for FIP is similar to ERA; a lower FIP is better.
 
-The following is a list of the top pitchers in the Crossroads League in 2019 based on FIP.
+The following is a list of the top pitchers in the Crossroads League in 2019 based on FIP (minimum 25 IP).
 
 ```{r all_pitchers_table}
 num_players <- NROW(Best_Pitchers)

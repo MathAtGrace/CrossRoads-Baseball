@@ -573,8 +573,8 @@ In order to calculate individual FIP statistics, we followed the same process as
 pitch_stats <- function(y){
   x <- Pitching[[y]]
   FIP_team <- ((13*x$HR)+3*(x$BB+x$HBP)-(2*x$SO))/(x$IP)
-  x$FIP <- FIP_team + FIP_CL_constant
-  x$PR <- (x$IP*(CL_ERA - x$ERA))/9
+  x$FIP <- round(FIP_team + FIP_CL_constant, 2)
+  x$PR <- round((x$IP*(CL_ERA - x$ERA))/9,2)
   x
 }
 
@@ -639,13 +639,16 @@ Best_Pitchers <- Best_Pitchers[complete.cases(Best_Pitchers), ]
 #remove Total and Opponents values
 Best_Pitchers <- Best_Pitchers[ !(Best_Pitchers$FIP_name %in% c("Opponents:", "Total:")), ]
 
-Best_Pitchers <- Best_Pitchers[order(-Best_Pitchers$FIP),]
+#require players to have at least 25 innings pitched
+Best_Pitchers <- Best_Pitchers[!(Best_Pitchers$IP < 25),]
+
+Best_Pitchers <- Best_Pitchers[order(Best_Pitchers$FIP),]
 
 ```
 
 ## Top 10 Pitchers
 
-The following is a list of the top pitchers in the Crossroads League in 2019 based on FIP.
+The following is a list of the top pitchers in the Crossroads League in 2019 based on FIP.  We implemented a requirement of at least 25 innings pitched to be included in this list.
 
 ```{r all_pitchers_table}
 num_players <- NROW(Best_Pitchers)
