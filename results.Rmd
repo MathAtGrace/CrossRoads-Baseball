@@ -532,9 +532,13 @@ for (x in Pitching){
   FIP_name <- c()
   FIP_team <- c()
   IP <- c()
+  SO <- c()
+  ERA <- c()
+  SO <- x[["SO"]]
   FIP <- x[["FIP"]]
   FIP_name <- x[["Pitching"]]
   IP <- x[["IP"]]
+  ERA <- x[["ERA"]]
   team <- teams[y]
   for (z in FIP_name){
   
@@ -543,7 +547,7 @@ for (x in Pitching){
   
   }
   
-  new.Best_Pitchers <- data.frame(team, FIP_name,  FIP,  IP)
+  new.Best_Pitchers <- data.frame(team, FIP_name,  FIP,  IP, SO, ERA)
   Best_Pitchers <- rbind(Best_Pitchers, new.Best_Pitchers)
   
   y = y + 1
@@ -575,7 +579,7 @@ num_players <- NROW(Best_Pitchers)
 index <- seq(1,num_players,1)
 rownames(Best_Pitchers) <- index
 
-datatable(Best_Pitchers, options = list(pageLength = 10))
+datatable(Best_Pitchers, options = list(pageLength = 10), colnames = c('Rank' = 1, 'Team' = 2, 'Player' = 3, 'K' = 6))
 ```
 
 ```{r schedules}
