@@ -458,6 +458,14 @@ for (x in Batting){
   wRC_name <- c()
   wRC_team <- c()
   PA <- c()
+  H <- c()
+  HR <- c()
+  RBI <- c()
+  AVG <- c()
+  H <- x[["H"]]
+  HR <- x[["HR"]]
+  RBI <- x[["RBI"]]
+  AVG <- x[["AVG"]]
   wRC_plus <- x[["wRC_plus"]]
   wRC_name <- x[["Batting"]]
   PA <- x[["PA"]]
@@ -469,7 +477,7 @@ for (x in Batting){
   
   }
   
-  new.Best_Players <- data.frame(team, wRC_name,  wRC_plus,  PA)
+  new.Best_Players <- data.frame(team, wRC_name,  wRC_plus,  PA, H, HR, RBI, AVG)
   Best_Players <- rbind(Best_Players, new.Best_Players)
   
   y = y + 1
@@ -501,7 +509,7 @@ num_players <- NROW(Best_Players)
 index <- seq(1,num_players,1)
 rownames(Best_Players) <- index
 
-datatable(Best_Players, options = list(pageLength = 10))
+datatable(Best_Players, options = list(pageLength = 10), colnames = c('Rank' = 1, 'Team' = 2, 'Player' = 3, 'wRC+' = 4))
 ```
 
 ---
