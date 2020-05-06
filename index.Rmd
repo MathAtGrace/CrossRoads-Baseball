@@ -509,7 +509,7 @@ num_players <- NROW(Best_Players)
 index <- seq(1,num_players,1)
 rownames(Best_Players) <- index
 
-datatable(Best_Players, options = list(pageLength = 10), colnames = c('Rank' = 1, 'Team' = 2, 'Player' = 3, 'wRC+' = 4))
+datatable(Best_Players, options = list(pageLength = 10), colnames = c('Rank', 'Team', 'Player', 'wRC+', 'PA','H','HR','RBI','AVG'))
 ```
 
 ---
