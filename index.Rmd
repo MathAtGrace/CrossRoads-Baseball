@@ -11,6 +11,10 @@ output:
 ```{r setup, echo=FALSE, cache=FALSE}
 suppressWarnings(library(knitr))
 suppressWarnings(library(rmdformats))
+suppressWarnings(library(kableExtra))
+suppressWarnings(library(ggplot2))
+suppressWarnings(library(DT))
+suppressWarnings(library(ggrepel))
 
 ## Global options
 options(max.print="75")
@@ -26,10 +30,13 @@ opts_knit$set(width=75)
 
 
 # Welcome
-Welcome to our student research project.  This project is still in its beginning stages.  The current plan is to rank players and predict games.
+Welcome to our student research project.  The current plan is to rank players and predict games.  Below you will find a thorough explanation of the processes and stats that we employed in this project.
 
-### Update 2/12/2020
-We have scraped data from the website, although the strictly-conference level data is still elluding us.  To view our process go to "Scraping the Data" on the left-hand side of your screen.
+For a quick view of our results go here: <li><a href="https://mathatgrace.github.io/CrossRoads-Baseball/results">Results</a></li>
+
+---
+
+---
 
 # Scraping the Data
 
@@ -37,12 +44,8 @@ For this project we used the NAIA statistics posted on the website [dakstats](ht
 
 We found the `rvest` R package to be very useful for this project.
 
-```{r echo = FALSE}
+```{r}
 suppressWarnings(library(rvest))
-```
-
-```{r eval=FALSE}
-library(rvest)
 ```
 
 ## The Webpage Url's
@@ -54,6 +57,7 @@ teams <- c("BC","GOC","GRC","HU","INWU","MAR","MVNU","SAU","SFIN","TAYL")
 names(teams) <- c(1629, 1678, 1679, 1688, 1694, 1717, 1736, 1780, 1805, 1784)
 urls <- paste0("http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=",names(teams),"&sea=NAIMBA_2019")
 ```
+
 ## Scraping the tables using the `rvest` package
 
 Then we created functions to retrieve only the batting, pitching, and fielding tables, which we turned into data frames in R.
@@ -103,6 +107,7 @@ And put all of our data into one list.
 baseball <- list(batting, pitching, fielding)
 names(baseball) <- c("Batting", "Pitching", "Fielding")
 ```
+
 Then we wrote a function to write all of the tables into csv files,
 
 ```{r writeit}
@@ -116,12 +121,1076 @@ writeit <- function(x) {
   write.csv(fielding[[x]], file = paste0("Data/Fielding", "/", x, ".csv"))
 }
 ```
+
 and used `lapply` to write the csv's all at once.
 
 ```{r write-to-csv}
 invisible(lapply(teams, writeit))
 ```
+
 Lastly, we also saved our data to an Rdata file for our own convenience.
 
 ```{r saved}
 save(baseball, file = "Data/stats_by_type.Rdata")
+```
+
+---
+
+---
+
+# Creating the Park Factor Code
+
+We wanted to be able to adjust our statistics based on the ballpark where the game was played or will be played. We scraped the schedule data from [dakstats](https://www.dakstats.com/WebSync/Pages/Team/TeamSchedule.aspx?association=10&sg=MBA&sea=NAIMBA_2019&team=1679)
+using code similar to the code found in Scraping the Data.
+
+```{r schedule_scrape}
+library(rvest)
+
+
+teams <- c("BC","GOC","GRC","HU","INWU","MAR","MVNU","SAU","SFIN","TAYL")
+#R lets us rename the indices of vectors.
+names(teams) <- c(1629, 1678, 1679, 1688, 1694, 1717, 1736, 1780, 1805, 1784)
+  p_effects <- paste0("http://www.dakstats.com/WebSync/Pages/Team/TeamSchedule.aspx?association=10&sg=MBA&sea=NAIMBA_2019&team=", names(teams))
+  
+  #Function to get schedule of each team and remove blank rows
+  
+  get_schedule <- function(url){
+  tbls_effects <- url %>%
+    read_html() %>%
+    html_nodes("table") %>%
+    .[36] %>%
+    html_table(fill = TRUE)
+  Team_Schedule <- data.frame(tbls_effects[[1]])
+  Team_Schedule <- Team_Schedule[!apply(is.na(Team_Schedule) | Team_Schedule == "", 1, all),]
+  }
+  
+  schedule <- lapply(p_effects, get_schedule)
+  names(schedule) <- teams
+```
+
+## Park Factor Function
+
+Since we were looking specifically at Crossroads League conference statistics, we wanted to calculate park factor using only conference games. Therefore, we created a new dataframe with only conference games.
+
+Next, because park factor ajdusts based on runs scored at home and runs scored away, we separated home and away games. 
+
+We then put the scores specific to home or away games into a vector.
+
+Finally, we used the lapply to apply the function to each team.
+
+```{r Park_Factor function}
+  Park_effects <- function(g){
+    
+    Team_Schedule <- schedule[[g]]
+    Sched <- Team_Schedule["X2"]
+    Scores <- c()
+    Conf_Games <- data.frame(Date=character(),
+                             Opponent=character(), 
+                             Location=character(),
+                             Score=character(),
+                             Result=character(),
+                             stringsAsFactors=FALSE) 
+    j=1
+    for (i in 1:nrow(Sched)){
+    
+      if (grepl("*", Sched[[1]][[i]], fixed = TRUE) == TRUE){
+        Conf_Games[j,] <- Team_Schedule[i,]
+        j = j + 1
+      } 
+    }
+    
+    #print(Conf_Games)
+    
+    #Separate Home games from neutral and away games
+    Home_Games <- data.frame(Date=character(),
+                             Opponent=character(), 
+                             Location=character(),
+                             Score=character(),
+                             Result=character(),
+                             stringsAsFactors=FALSE)
+    
+    Away_Games <- data.frame(Date=character(),
+                             Opponent=character(), 
+                             Location=character(),
+                             Score=character(),
+                             Result=character(),
+                             stringsAsFactors=FALSE)
+    
+    
+    Loc <- Conf_Games["Location"]
+  
+    w=1
+    z=1
+    for (k in 1:nrow(Loc)){
+      if (is.element("H", Loc[[1]][[k]]) == TRUE){
+        Home_Games[w,] <- Conf_Games[k,]
+        w = w + 1
+      }
+      else if (is.element("A", Loc[[1]][[k]]) == TRUE){
+        Away_Games[z,] <- Conf_Games[k,]
+        z = z + 1
+      }
+     
+    }
+    
+    #Put Home team score for each game into a vector
+      
+  
+      Scores_H <- Home_Games[["Score"]]
+      Scores_A <- Away_Games[["Score"]]
+      p=1
+      q=1
+      c=1
+      d=1
+      
+        Team_Runs_A <- c()
+        Team_Runs_H <- c()
+        Opp_Runs_H <- c()
+        Opp_Runs_A <- c()
+        
+        for (x in Scores_H){
+          
+          if (grepl("(", x, fixed = TRUE) == TRUE){
+            Opp_Runs_H[d] <- as.integer(substr(x, (regexpr(pattern ='-', x)+1), nchar(x)-4))
+            Team_Runs_H[p] <- as.integer(substr(x, 1, (regexpr(pattern ='-', x)-1)))
+          }
+          else{
+            Team_Runs_H[p] <- as.integer(substr(x, 1, (regexpr(pattern ='-', x)-1)))
+            Opp_Runs_H[d] <- as.integer(substr(x, (regexpr(pattern ='-', x)+1), nchar(x)))
+            
+          }
+          
+          p = p + 1
+          d = d + 1
+        }
+        
+        for (r in Scores_A){
+          if (grepl("(", r, fixed = TRUE) == TRUE){
+            
+            Opp_Runs_A[c] <- as.integer(substr(r, (regexpr(pattern ='-', r)+1), nchar(r)-4))
+            Team_Runs_A[q] <- as.integer(substr(r, 1, (regexpr(pattern ='-', r)-1)))
+            
+          }
+          else{
+            
+            Team_Runs_A[q] <- as.integer(substr(r, 1, (regexpr(pattern ='-', r)-1)))
+            Opp_Runs_A[c] <- as.integer(substr(r, (regexpr(pattern ='-', r)+1), nchar(r)))
+            
+          }
+          q = q + 1
+          c = c + 1
+          
+        }
+       
+  
+  Park_effect <- ((sum(Team_Runs_H)+sum(Opp_Runs_H))/length(Team_Runs_H))/((sum(Team_Runs_A)+sum(Opp_Runs_A))/length(Team_Runs_A))
+      
+  }
+  
+  p_factor <- teams %>%
+    lapply(Park_effects)
+  names(p_factor) <- teams
+```
+
+---
+
+---
+
+# Batting Statistics
+
+## The Basics
+
+First, we loaded the data tables that we previously created.
+
+```{r}
+load("Data/stats_by_type.Rdata")
+Batting <- baseball[["Batting"]]
+teams <- names(Batting)
+```
+
+Next, we created a function to calculate advanced statistics using the base data in the tables. The statistics we chose to add to our tables include: Caught Stealing, Runs Created (Basic), OPS (On-Base plus Slugging), POP, Total Average, Batting Average on Balls in Play (BABIP), the Hoban Efficiency Quotient for offense, and Base Stealing Runs.
+
+```{r}
+bat_stats <- function(y){
+  x <- Batting[[y]]
+  #Caught Stealing
+  x$CS <- x$SBA - x$SB
+  #Singles
+  x$X1B <- x$H - x[,8] - x[,9] - x$HR
+  #Runs Created
+  x$RC <- round((x$H + x$BB)*x$TB/(x$AB + x$BB),2)
+  #OPS
+  x$OPS <- x$OB + x$SLG
+  #POP
+  x$POP <- x$OPS + x$AVG
+  #Total Average
+  x$TA <- round((x$TB + x$BB + x$HBP + x$SB)/(x$AB - x$H + x$SH + x$SF + x$CS + x$GDP), 3)
+  #Plate Appearances
+  x$PA <- x$AB+x$BB+x$HBP+x$SF
+  #Batting Average on Balls in Play
+  x$BABIP <- round((x$H - x$HR)/(x$AB - x$SO - x$HR + x$SF),3)
+  #Hoban Efficiency Quotient - offense
+  x$HEQO <- x$TB + x$R + x$RBI + x$SB + (0.5*x$BB)
+  #Base Stealing Runs
+  x$Steal_Runs <- round(((x$H + x$BB - x$CS)*(x$TB + (0.7 * x$SB)))/(x$AB + x$BB + x$CS),2)
+  x
+}
+```
+
+Then we used the `lapply` R function to apply these statistics to each of the teams, resulting in advanced statistics for every player in the league.
+
+```{r lapplyit}
+Batting <- teams %>%
+  lapply(bat_stats)
+names(Batting) <- teams
+```
+
+## Crossroads League
+
+Next, we calculated league totals for the basic statistics, for the purpose of calculating more advanced individual statistics later on.
+
+```{r}
+batting_stats <- c("H","AB","BB","HBP","SF","TB", "2B","3B","HR","X1B","R")
+CL_Avg_B <- c()
+All_stats_batting <- c()
+w = 0
+
+for (n in batting_stats){
+  
+  for (j in teams){
+    
+    P <- Batting[[j]]#as.data.frame(read.csv(paste("Data/Batting/",j,".csv",sep="")))
+    
+    col_num =  which( colnames(P)==n )
+    for (k in seq(length(P[[n]]))){ 
+      
+      All_stats_batting[w+k] <- P[,col_num][k]
+      #print(All_stats)
+    }
+    
+    w  = k + w
+    
+  }
+  CL_Avg_B[n] <- sum(All_stats_batting)
+  All_stats_batting <- c()
+  w = 0
+}
+
+print(CL_Avg_B)
+```
+
+Then, we calculated advanced statistics for the Crossroads League as a whole. These included: On-Base Percentage (OBP), Slugging Percentage (SLG), weighted On-Base Percentage (wOBA), Plate Appearances (PA), Runs per Plate Appearance (R/PA), weighted Runs Created (wRC), and weighted Runs Created per Plate Appearance (wRC/PA). Additionally, we calculated ABF, which is a constant that is necessary to caluclate batting runs later on.
+
+```{r}
+CL_OBP <- (CL_Avg_B[[1]]+CL_Avg_B[[3]]+CL_Avg_B[[4]])/(CL_Avg_B[[2]]+CL_Avg_B[[3]]+CL_Avg_B[[4]]+CL_Avg_B[[5]])
+CL_SLG <- (CL_Avg_B[[6]])/(CL_Avg_B[[2]])
+CL_wOBA <- ((.69)*(CL_Avg_B[["BB"]])+(.72)*(CL_Avg_B[["HBP"]])+(.89)*(CL_Avg_B[["X1B"]])+(1.27)*(CL_Avg_B[["2B"]])+(1.62)*(CL_Avg_B[["3B"]])+(2.10)*(CL_Avg_B[["HR"]]))/(CL_Avg_B[["AB"]]+CL_Avg_B[["BB"]]+CL_Avg_B[["SF"]]+CL_Avg_B[["HBP"]])
+CL_PA <- CL_Avg_B[["AB"]]+CL_Avg_B[["BB"]]+CL_Avg_B[["HBP"]]+CL_Avg_B[["SF"]] 
+CL_R_per_PA <- CL_Avg_B[["R"]]/CL_PA
+CL_wRC <- CL_Avg_B[["R"]]
+CL_wRC_per_PA <- CL_R_per_PA
+
+#League adjustment for Batting Runs
+ABF <- ((0.47 * CL_Avg_B[["X1B"]]) + (0.38*CL_Avg_B[["2B"]]) + (0.55*CL_Avg_B[["3B"]]) + (0.93*CL_Avg_B[["HR"]]) +(0.33*(CL_Avg_B[["BB"]]+CL_Avg_B[["HBP"]]))/(CL_Avg_B[["AB"]]-CL_Avg_B[["H"]]))
+
+```
+
+## Advanced Statistics
+
+Now that we have these league statistics, we can add more advanced statistics to our tables. The statistics we added were: OPS+, wOBA, Batting Runs, weighted Runs Above Average (wRAA), weighted Runs Created (wRC), and weighted Runs Created plus (wRC+). All of these statistics adjust the individual player's performance to reflect their value in comparison to other players in the league.
+
+```{r}
+bat_stats2 <- function(y){
+  x <- Batting[[y]]
+  #OPS+
+  x$OPS_plus <- round((100)*(((x$OB/CL_OBP)+(x$SLG/CL_SLG))-1),2)
+  #weighted On-Base Average
+  x$wOBA <- round(((.69)*(x$BB)+(.72)*(x$HBP)+(.89)*(x$X1B)+(1.27)*(x[["2B"]])+(1.62)*(x[["3B"]])+(2.10)*(x$HR))/(x$AB+x$BB+x$SF+x$HBP),3)
+  #Batting Runs
+  x$Bat_Runs <- round(((0.47*x$X1B) + (0.38*x[["2B"]]) + (0.55*x[["3B"]]) + (0.93*x$HR) + ((0.33)*x$BB + x$HBP)/(ABF *(x$AB - x$H))),2)
+  #weighted Runs Above Average
+  x$wRAA <- round(((x$wOBA-CL_wOBA)/(1.157))*(x$PA),3)
+  #weighted Runs Created
+  x$wRC <- round(x$wRAA + (x$PA)*((CL_Avg_B[["R"]])/(CL_PA)),2)
+  x$wRC_plus <- round((100)*((((x$wRAA/x$PA)+CL_R_per_PA)+(CL_R_per_PA-(p_factor[[y]])*(CL_R_per_PA)))/(CL_wRC_per_PA)),2)
+  x
+}
+```
+
+Finally, we used the `lapply` R function again to apply these statistics to all the teams in the Crossroads League.
+
+```{r lapply}
+Batting <- teams %>%
+  lapply(bat_stats2)
+names(Batting) <- teams
+```
+
+Here is an example of the resulting tables that we produced.
+
+```{r echo=FALSE}
+datatable(Batting[["GRC"]], options = list(pageLength = 10))
+```
+
+---
+
+---
+
+# Top Hitters in the Crossroads League
+
+After compiling advanced batting statistics for each team, we chose to use weighted runs created plus (wRC+) in order to evaluate a hitter's overall contribution to the team. This statistic takes park factor into account, as well as adjusting based on a player's performance in comparison to the league average.
+
+```{r echo=FALSE}
+Best_Players <- data.frame(wRC_plus=numeric())
+```
+
+## The Process
+
+In order to determine the top hitters in the entire league, we needed to merge all the data into one master dataframe. In order to do this, we created a for loop to collect the players and their stats from each team's dataframes.
+
+```{r best_players_calc}
+#counter for teams
+y = 1
+
+
+for (x in Batting){
+  
+  wRC_plus <- c()
+  wRC_name <- c()
+  wRC_team <- c()
+  PA <- c()
+  H <- c()
+  HR <- c()
+  RBI <- c()
+  AVG <- c()
+  H <- x[["H"]]
+  HR <- x[["HR"]]
+  RBI <- x[["RBI"]]
+  AVG <- x[["AVG"]]
+  wRC_plus <- x[["wRC_plus"]]
+  wRC_name <- x[["Batting"]]
+  PA <- x[["PA"]]
+  team <- teams[y]
+  for (z in wRC_name){
+  
+  wRC_team <- c(wRC_team, team[z])      
+  
+  
+  }
+  
+  new.Best_Players <- data.frame(team, wRC_name,  wRC_plus,  PA, H, HR, RBI, AVG)
+  Best_Players <- rbind(Best_Players, new.Best_Players)
+  
+  y = y + 1
+}
+```
+
+Next, we cleaned up the data a bit by removing non-zero values and the rows containing team totals and opponent totals. Finally, we implemented a requirement of at least 20 plate appearances.
+
+```{r remove_values}
+#remove NaN values
+Best_Players <- Best_Players[complete.cases(Best_Players), ]
+
+#remove Total and Opponents values
+Best_Players <- Best_Players[ !(Best_Players$wRC_name %in% c("Opponents:", "Total:")), ]
+
+Best_Players <- Best_Players[order(-Best_Players$wRC_plus),]
+
+#require players to have at least 20 plate appearances
+Best_Players <- Best_Players[!(Best_Players$PA < 20),]
+
+```
+
+## Top 10 Hitters
+
+The following is a list of the top hitters in the Crossroads League in 2019 based on wRC+.
+
+```{r all_hitters_table}
+num_players <- NROW(Best_Players)
+index <- seq(1,num_players,1)
+rownames(Best_Players) <- index
+
+datatable(Best_Players, options = list(pageLength = 10), colnames = c('Rank', 'Team', 'Player', 'wRC+', 'PA','H','HR','RBI','AVG'))
+```
+
+---
+
+---
+
+# Pitching Statistics
+
+## Getting Started
+
+First, we load the previously created pitching tables.
+
+```{r load pitchstats}
+load("Data/stats_by_type.Rdata")
+Pitching <- baseball[["Pitching"]]
+teams <- names(Pitching)
+```
+
+Next, we create variables to hold the league totals in some key pitching statistics.
+
+```{r pitch variables}
+FIP_stats <- c("ER", "HR", "SO", "HBP", "BB", "IP","ERA")
+CL_Avg_P <- c()
+All_stats_pitching <- c()
+```
+
+In order to fill these variables with data, we created a for loop to calculate totals for the Crossroads League.
+
+```{r CL pitch stats}
+w = 0
+
+for (n in seq(length(FIP_stats)-1)){
+  
+  for (j in teams){
+    
+    P <- read.csv(paste("Data/Pitching/",j,".csv",sep=""))
+    
+    
+    for (k in seq(length(P[[FIP_stats[[n]]]]))){ 
+      
+      All_stats_pitching[w+k] <- P[[FIP_stats[[n]]]][k]
+      #print(All_stats)
+    }
+    
+    w  = k + w
+    
+  }
+  CL_Avg_P[n] <- mean(All_stats_pitching)
+  All_stats_pitching <- c()
+  w = 0
+}
+
+CL_ERA <- (CL_Avg_P[[1]]*9)/(CL_Avg_P[[6]])
+#print(CL_ERA)
+```
+
+## FIP (Fielding Indepent Pitching)
+
+We chose to measure pitchers using Fielding Indepent Pitching (FIP). This metric attempts to isolate the performance of the pitcher, stripping away the influence of the defense as well as luck. Similar to the wRC+ stat for hitters, FIP also adjusts based on a league constant. The scale for FIP is similar to ERA; a lower FIP is better.
+
+Since we have previously grabbed league totals, we can now calculate the FIP constant. Once we have this constant, we will be able to calculate FIP for each player in the Crossroads League.
+
+```{r FIP constant}
+FIP_CL_constant = CL_ERA - (((13*CL_Avg_P[[2]])+(3*(CL_Avg_P[[5]]+CL_Avg_P[[4]]))-(2*CL_Avg_P[[3]]))/(CL_Avg_P[[6]]))
+print(FIP_CL_constant)
+```
+
+In order to calculate individual FIP statistics, we followed the same process as the batting statistics. First we created a for loop to add to the pitching tables, and then we used the 'lapply' function to apply the function to all of our teams.
+
+```{r FIP loop}
+pitch_stats <- function(y){
+  x <- Pitching[[y]]
+  FIP_team <- ((13*x$HR)+3*(x$BB+x$HBP)-(2*x$SO))/(x$IP)
+  x$FIP <- round(FIP_team + FIP_CL_constant, 2)
+  x$PR <- round((x$IP*(CL_ERA - x$ERA))/9,2)
+  x
+}
+
+Pitching <- teams %>%
+  lapply(pitch_stats)
+names(Pitching) <- teams
+```
+
+Here is an example of the pitching tables, with the addition of the FIP statistic.
+
+```{r echo=FALSE}
+datatable(Pitching[["GRC"]], options = list(pageLength = 10))
+```
+
+---
+
+---
+
+# Top Pitchers in the Crossroads League
+
+## The Process
+
+In order to determine the top pitchers in the entire league, we needed to merge all the data into one master dataframe. In order to do this, we created a for loop to collect the players and their stats from each team's dataframes.
+
+```{r best_players_calc pitch}
+Best_Pitchers <- data.frame(FIP=numeric())
+
+#counter for teams
+y = 1
+
+
+for (x in Pitching){
+  
+  FIP <- c()
+  FIP_name <- c()
+  FIP_team <- c()
+  IP <- c()
+  SO <- c()
+  ERA <- c()
+  SO <- x[["SO"]]
+  FIP <- x[["FIP"]]
+  FIP_name <- x[["Pitching"]]
+  IP <- x[["IP"]]
+  ERA <- x[["ERA"]]
+  team <- teams[y]
+  for (z in FIP_name){
+  
+  FIP_team <- c(FIP_team, team[z])      
+  
+  
+  
+  }
+  
+  new.Best_Pitchers <- data.frame(team, FIP_name,  FIP,  IP, SO, ERA)
+  Best_Pitchers <- rbind(Best_Pitchers, new.Best_Pitchers)
+  
+  y = y + 1
+}
+```
+
+Next, we cleaned up the data a bit by removing non-zero values and the rows containing team totals and opponent totals.
+
+```{r remove_values pitchers}
+#remove NaN values
+Best_Pitchers <- Best_Pitchers[complete.cases(Best_Pitchers), ]
+
+#remove Total and Opponents values
+Best_Pitchers <- Best_Pitchers[ !(Best_Pitchers$FIP_name %in% c("Opponents:", "Total:")), ]
+
+#require players to have at least 25 innings pitched
+Best_Pitchers <- Best_Pitchers[!(Best_Pitchers$IP < 25),]
+
+Best_Pitchers <- Best_Pitchers[order(Best_Pitchers$FIP),]
+
+```
+
+## Top 10 Pitchers
+
+The following is a list of the top pitchers in the Crossroads League in 2019 based on FIP.  We implemented a requirement of at least 25 innings pitched to be included in this list.
+
+```{r all_pitchers_table}
+num_players <- NROW(Best_Pitchers)
+index <- seq(1,num_players,1)
+rownames(Best_Pitchers) <- index
+
+datatable(Best_Pitchers, options = list(pageLength = 10), colnames = c('Rank' = 1, 'Team' = 2, 'Player' = 3, 'K' = 6))
+```
+
+---
+
+---
+
+# ELO model
+
+Having covered our inital goal of ranking players, we turned to the prediction of future games. For this task, we chose to employ the Elo model. This model is commonly used with baseball. The statistics site [FiveThirtyEight](https://fivethirtyeight.com/features/how-our-mlb-predictions-work/) uses this model for their preseason rankings as well as in-season chances of making the postseason.
+
+We used the `elo` R package to implement this model with our data. This greatly simplified the process of calculating Elo ratings.
+
+Each team is given an Elo rating, with the average being 1500. A game is played (or simulated) between two teams, and each team will then gain or lose points depending on whether they won or lost. The number of points won/lost is the same for both teams, and varies with the pregame likelihood of victory as well as margin of victory. So, after every game, the ratings are updated.
+
+The Elo model is handy for baseball because you can adjust the ratings to factor in home field advantage, distance travelled to the game, days of rest before the game, and even starting pitchers.
+
+## Getting Schedules for Elo Model
+
+In order to run the Elo model, we needed to scrape the schedule of each team from dakstats. The process used here is very similar to the initial scraping that provided player stats. We did have to tweak the tables to include only the conference games. 
+
+```{r schedules}
+library(rvest)
+library(stringr)
+library(tidyverse)
+
+#2019 schedules
+
+load("Data/stats_by_type.Rdata")
+Batting <- baseball[["Batting"]]
+Pitching <- baseball[["Pitching"]]
+Fielding <- baseball[["Fielding"]]
+teams <- names(Batting)
+
+#General info
+teams <- c("BC","GOC","GRC","HU","INWU","MAR","MVNU","SAU","SFIN","TAYL")
+names(teams) <- c(1629, 1678, 1679, 1688, 1694, 1717, 1736, 1780, 1805, 1784) 
+
+#get schedules from dakstats
+schedule_urls <- paste0("http://www.dakstats.com/WebSync/Pages/Team/TeamSchedule.aspx?association=10&sg=MBA&sea=NAIMBA_2019&team=",names(teams))
+#View(schedule_urls)
+
+#function to get the schedule of a team
+get_schedule <- function(schedule_urls) {
+  bpf <- schedule_urls %>%
+    read_html() %>%
+    html_nodes("table") %>%
+    .[[36]] %>%
+    html_table(fill = TRUE)
+}
+
+#p_effects_urls <- teams %>%
+  #lapply(get_schedule)
+#names(p_effects_urls) <- teams
+
+schedules <- lapply(schedule_urls, get_schedule)
+names(schedules) <- teams
+#View(schedules)
+
+#A function to clean up the tables and show only conference schedule
+conference <- function(x){
+  #Gets rid of rows containing only NA
+  schedules[[x]] <- schedules[[x]][!apply(is.na(schedules[[x]]) | schedules[[x]] == "", 1, all),]
+  #Rename columns
+  names(schedules[[x]])[1] <- "Date"
+  names(schedules[[x]])[2] <- "Opponent"
+  names(schedules[[x]])[3] <- "Location"
+  names(schedules[[x]])[4] <- "Score"
+  names(schedules[[x]])[5] <- "Decision"
+  #Grab only the conference games
+  CL_schedule <- schedules[[x]] %>%
+    filter(str_detect(Opponent, "\\*"))
+  #remove column with only NA at the end
+  CL_schedule <- CL_schedule[-6]
+  #separate score into home and away columns
+  CL_schedule <- CL_schedule %>%
+    separate(Score, c("Team_Score","Opp_Score"),"-")
+  #output only the CL schedules
+  schedules[[x]] <- CL_schedule
+  schedules[[x]] <- schedules[[x]] %>%
+    mutate(Team = x)
+}
+
+schedules <- lapply(teams, conference)
+names(schedules) <- teams
+
+schedules_19 <- schedules
+```
+
+```{r echo=FALSE}
+#A function to write the data to csv files
+writeit <- function(x) {
+  write.csv(schedules[[x]], file = paste0("Data/Schedules/2019", "/", x, ".csv"))
+}
+
+#Write to csv
+#lapply(teams, writeit)
+```
+
+We followed the exact same process to scrape the 2020 schedules, giving us all the data we need for predicting games in the upcoming season. 
+
+```{r echo=FALSE}
+#2020 schedules
+
+load("Data/stats_by_type.Rdata")
+Batting <- baseball[["Batting"]]
+Pitching <- baseball[["Pitching"]]
+Fielding <- baseball[["Fielding"]]
+teams <- names(Batting)
+
+#General info
+teams <- c("BC","GOC","GRC","HU","INWU","MAR","MVNU","SAU","SFIN","TAYL")
+names(teams) <- c(1629, 1678, 1679, 1688, 1694, 1717, 1736, 1780, 1805, 1784) 
+
+#get schedules from dakstats
+schedule_urls <- paste0("http://www.dakstats.com/WebSync/Pages/Team/TeamSchedule.aspx?association=10&sg=MBA&sea=NAIMBA_2020&team=",names(teams))
+#View(schedule_urls)
+
+#function to get the schedule of a team
+get_schedule <- function(schedule_urls) {
+  bpf <- schedule_urls %>%
+    read_html() %>%
+    html_nodes("table") %>%
+    .[[36]] %>%
+    html_table(fill = TRUE)
+}
+
+#p_effects_urls <- teams %>%
+#lapply(get_schedule)
+#names(p_effects_urls) <- teams
+
+schedules <- lapply(schedule_urls, get_schedule)
+names(schedules) <- teams
+#View(schedules)
+
+#A function to clean up the tables and show only conference schedule
+conference <- function(x){
+  #Gets rid of rows containing only NA
+  schedules[[x]] <- schedules[[x]][!apply(is.na(schedules[[x]]) | schedules[[x]] == "", 1, all),]
+  #Rename columns
+  names(schedules[[x]])[1] <- "Date"
+  names(schedules[[x]])[2] <- "Opponent"
+  names(schedules[[x]])[3] <- "Location"
+  names(schedules[[x]])[4] <- "Score"
+  names(schedules[[x]])[5] <- "Decision"
+  #Grab only the conference games
+  CL_schedule <- schedules[[x]] %>%
+    filter(str_detect(Opponent, "\\*"))
+  #remove column with only NA at the end
+  CL_schedule <- CL_schedule[-6]
+  #separate score into home and away columns
+  CL_schedule <- CL_schedule %>%
+    separate(Score, c("Team_Score","Opp_Score"),"-")
+  #output only the CL schedules
+  schedules[[x]] <- CL_schedule
+  schedules[[x]] <- schedules[[x]] %>%
+    mutate(Team = x)
+}
+
+schedules <- lapply(teams, conference)
+names(schedules) <- teams
+
+schedules_20 <- schedules
+```
+
+```{r echo=FALSE}
+#A function to write the data to csv files
+writeit <- function(x) {
+  write.csv(schedules[[x]], file = paste0("Data/Schedules/2020", "/", x, ".csv"))
+}
+
+#Write to csv
+#lapply(teams, writeit)
+```
+
+## Using Elo values to predict games
+
+Now that we have the schedules, we can implement the model. We assigned each team an average rating of 1500.
+
+```{r elo_initial}
+library(tidyverse)
+library(elo)
+
+#place to store each team's elo rating
+ratings <- data.frame(team = teams)
+ratings <- ratings %>%
+  mutate(elo = 1500)
+#View(ratings)
+
+#function that adds a binary variable
+#1 if home wins/away loses and 0 if home loses/away wins
+add_elo_score <- function(x){
+  schedules_19[[x]] <- schedules_19[[x]] %>%
+    mutate(result = ifelse(grepl("W",Decision,fixed=TRUE)&grepl("H",Location,fixed=TRUE),1,ifelse(grepl("A",Location,fixed=TRUE)&grepl("L",Decision, fixed=TRUE),1,0)))
+  #change opponent name to match abbreviations
+  schedules_19[[x]] <- schedules_19[[x]] %>%
+    mutate(Opp = ifelse(grepl("Bethel (Ind.) *",Opponent,fixed=TRUE),teams[1],ifelse(grepl("Goshen (Ind.) *",Opponent,fixed=TRUE),teams[2],ifelse(grepl("Grace (Ind.) *",Opponent,fixed=TRUE),teams[3],ifelse(grepl("Huntington (Ind.) *",Opponent,fixed=TRUE),teams[4],ifelse(grepl("Indiana Wesleyan *",Opponent,fixed=TRUE),teams[5],ifelse(grepl("Marian (Ind.) *",Opponent,fixed=TRUE),teams[6],ifelse(grepl("Mount Vernon Nazarene (Ohio) *",Opponent,fixed=TRUE),teams[7],ifelse(grepl("Spring Arbor (Mich.) *",Opponent,fixed=TRUE),teams[8],ifelse(grepl("St. Francis (Ind.) *",Opponent,fixed=TRUE),teams[9],teams[10]))))))))))
+}
+
+schedules_19 <- lapply(teams, add_elo_score)
+names(schedules_19) <- teams
+```
+
+We then take the 2019 schedule and use the outcomes from those games to find our Elo values at the end of the 2019 season.
+
+```{r end_elos}
+#creating a master schedule with all games
+AllGames <- do.call("rbind",schedules_19)
+HomeGames <- AllGames %>%
+  dplyr::filter(str_detect(Location, "H"))
+#View(HomeGames)
+
+
+#Fix extra innings issue
+Opp <- HomeGames[["Opp_Score"]]
+
+for (x in seq(length(Opp))){
+  if (grepl("(", Opp[x], fixed = TRUE) == TRUE){
+     Opp[x] <- as.integer(substr(Opp[x], 1, nchar(Opp[x])-4))
+    
+    }
+}
+
+HomeGames[["Opp_Score"]] <- Opp
+
+#Add margin of victory column
+
+HomeGames$Team_Score <- as.integer(HomeGames$Team_Score)
+HomeGames$Opp_Score <- as.integer(HomeGames$Opp_Score)
+
+HomeGames$Vict_Margin <- (HomeGames$Team_Score - HomeGames$Opp_Score)
+
+#Way to run elo that includes margin of victory using log
+
+#Run elo
+e <- elo.run(score(HomeGames[["Team_Score"]], HomeGames[["Opp_Score"]]) ~ HomeGames$Team + HomeGames$Opp +
+               k(20*log(abs(HomeGames[["Team_Score"]] - HomeGames[["Opp_Score"]]) + 1)), data = HomeGames)
+
+
+#print results
+f <- final.elos(e)
+f <- sort(f,decreasing = TRUE)
+
+```
+
+Finally, we regressed the elos to the mean for the beginning of the 2020 season.
+
+```{r regress_elo}
+#regress elo values to the mean
+for (g in 1:length(f)){
+
+   f[g] <- f[g] * (2/3) + 500
+  
+}
+
+#View(f)
+```
+
+---
+
+---
+
+# Upcoming Games
+
+We use the following function to have a prediction for upcoming games and include the park factor.
+
+```{r update_web}
+update_web <- function(team1, team2, game_loc){
+  
+  team1_elo <- f[team1]
+  team2_elo <- f[team2]
+  #print(team1_elo)
+  #print(team2_elo)
+  game_prob_team1win <- elo.prob(team1_elo, team2_elo)
+  game_prob_team2win <- 1-game_prob_team1win
+  
+  print(game_prob_team1win)
+  print(game_prob_team2win)
+  game_park_effect <- p_factor[game_loc]
+  print(game_park_effect)
+  #print(f[team1])
+  elos <- c(f[team1], f[team2])
+  teams <- names(elos)
+
+  elo_data = data.frame(teams, elos)
+  elo_data <- elo_data %>% 
+    mutate(Game = paste0(teams[1], " vs ", teams[2])) %>%
+    mutate(elo_label = paste0(teams, " has elo score of ", round(elos)))
+  elo_graph <- ggplot(elo_data, aes(x = teams, y = elos, fill = teams)) +
+    geom_col() +
+    geom_text(aes(label = elo_label), position = position_stack(vjust = 0.5)) +
+    scale_fill_brewer(palette = "Set2")
+  
+  #The format below will work well once you have perent chance of winning
+  
+  elos_probs <- c(game_prob_team1win, game_prob_team2win)
+  teams_probs <- c(team1, team2)
+  elo_data_probs = data.frame(teams_probs, elos_probs)
+  
+  elo_data_probs <- elo_data_probs %>% 
+    mutate(Game = paste0(teams[1], " vs ", teams[2])) %>%
+    mutate(elo_label = paste0(teams, " has win probability of ", round(elos_probs, 6)))
+  
+  prob_graph <- ggplot(elo_data_probs, aes(x = Game, y = elos_probs, fill = teams)) +
+    geom_col() +
+    geom_text(aes(label = elo_label), position = position_stack(vjust = 0.5)) +
+    scale_fill_brewer(palette = "Set2")
+  
+  
+  library(ggpubr)
+  ggarrange(elo_graph, prob_graph, ncol=1, nrow=2)
+  
+}
+```
+
+For example, the next game is Indiana Wesleyan vs. Grace at Grace.
+```{r run}
+update_web("INWU", "GRC", "GRC")
+```
+
+---
+
+---
+
+# Simulated Tournament
+
+Due to the COVID-19 outbreak in 2020, we were unable to compare our predictions to the actual outcome of games. Instead, we have created a tournament simulation that uses the 2019 elo ratings along with the 2020 preseason coaches' poll to simulate what the season might have been like. Since this simulation uses random numbers, each time you refresh or check the website, the results will be slightly different.
+
+## Adjusting for coaches' poll
+
+We began by assigning each team a value of their coaches poll ranking times -1. This will be used later to adjust how the random number is selected.
+
+```{r tourney}
+#coaches poll
+ranks <- c(1:10)
+team_ranks <- c("HU", "MVNU", "INWU", "TAYL", "MAR", "SAU", "BC", "GOC", "GRC", "SFIN")
+adjustment <- c()
+
+#adjustment for coaches poll (function can be changed)
+for (counter in ranks){
+  
+  adjust_value <- counter*-1
+  adjustment[counter] <- adjust_value
+  #print(adjustment)
+}
+
+
+
+coaches_poll <- data.frame(ranks, adjustment, row.names = team_ranks)
+```
+
+## Create a randomized schedule
+
+Next, we created a randomized schedule in which every team plays against each other one time.
+
+```{r randomized_schedule}
+Home_tourney_team <- c()
+Away_tourney_team <- c()
+tourney_matchups <- data.frame(Home_tourney_team, Away_tourney_team)
+
+
+for (i in 1:(length(teams)-1)){
+  for (j in 1:(length(teams)-i)){
+    matchup <- data.frame(
+      Home_tourney_team = teams[i],
+      Away_tourney_team = teams[i+j]
+    )
+    #names(matchup) <- c("Home", "Away")
+    tourney_matchups <- rbind(tourney_matchups, matchup)
+    
+  }
+  
+}
+
+tourney_matchups_randomized <- tourney_matchups[sample(nrow(tourney_matchups)),]
+```
+
+## Elos for simulation
+
+The simulation begins with the final elo values calculated using the 2019 season and the few games played in the 2020 season. Much of this code is similar to the code found in the using elo values to predict games section.
+
+```{r sim_begin}
+tourney_probs <- c()
+winners <- c()
+Home_elos <- c()
+Away_elos <- c()
+add_elo_score <- function(x){
+  schedules_20[[x]] <- schedules_20[[x]] %>%
+    mutate(result = ifelse(grepl("W",Decision,fixed=TRUE)&grepl("H",Location,fixed=TRUE),1,ifelse(grepl("A",Location,fixed=TRUE)&grepl("L",Decision, fixed=TRUE),1,0)))
+  #change opponent name to match abbreviations
+  schedules_20[[x]] <- schedules_20[[x]] %>%
+    mutate(Opp = ifelse(grepl("Bethel (Ind.) *",Opponent,fixed=TRUE),teams[1],ifelse(grepl("Goshen (Ind.) *",Opponent,fixed=TRUE),teams[2],ifelse(grepl("Grace (Ind.) *",Opponent,fixed=TRUE),teams[3],ifelse(grepl("Huntington (Ind.) *",Opponent,fixed=TRUE),teams[4],ifelse(grepl("Indiana Wesleyan *",Opponent,fixed=TRUE),teams[5],ifelse(grepl("Marian (Ind.) *",Opponent,fixed=TRUE),teams[6],ifelse(grepl("Mount Vernon Nazarene (Ohio) *",Opponent,fixed=TRUE),teams[7],ifelse(grepl("Spring Arbor (Mich.) *",Opponent,fixed=TRUE),teams[8],ifelse(grepl("St. Francis (Ind.) *",Opponent,fixed=TRUE),teams[9],teams[10]))))))))))
+}
+
+schedules_20 <- lapply(teams, add_elo_score)
+names(schedules_20) <- teams
+
+#creating a master schedule with all games
+AllGames_20 <- do.call("rbind",schedules_20)
+HomeGames_20 <- AllGames_20 %>%
+  filter(str_detect(Location, "H"))
+#View(HomeGames_20)
+
+
+#Fix extra innings issue
+Opp <- HomeGames_20[["Opp_Score"]]
+
+for (x in seq(length(Opp))){
+  if (grepl("(", Opp[x], fixed = TRUE) == TRUE){
+    Opp[x] <- as.integer(substr(Opp[x], 1, nchar(Opp[x])-4))
+    
+  }
+}
+
+HomeGames_20[["Opp_Score"]] <- Opp
+
+#Add margin of victory column
+
+HomeGames_20$Team_Score <- as.integer(HomeGames_20$Team_Score)
+HomeGames_20$Opp_Score <- as.integer(HomeGames_20$Opp_Score)
+
+HomeGames_20$Vict_Margin <- (HomeGames_20$Team_Score - HomeGames_20$Opp_Score)
+
+results <- elo.run(score(Team_Score, Opp_Score) ~ adjust(Team,24) + Opp +
+                     k(20*log(abs(Team_Score - Opp_Score) + 1)), data = HomeGames_20, initial.elos = f, na.action = na.omit)
+#View(results)
+
+#create vector with results after 2020 and add Spring Arbor who played no games back
+After_2020_games_elos <- append(final.elos(results), f["SAU"])
+#Use After_2020_games_elos for elos after 2020 games or f for elos after 2019
+tourney_elos <- After_2020_games_elos
+```
+
+## Simulation
+
+The simulation takes the elo values that we started with and adds a random number that differs depending on the adjustment value that was calculated earlier. Next, those elo values are used to calculate a win probability. This win probability that is multiplied by 10 then becomes the score for that game. Finally, the new elo values are calculated using the score and the result of the game. After doing this for all games in the tournament, we have our results.
+
+```{r sim}
+for (games in 1:nrow(tourney_matchups_randomized)){
+  
+  
+  #get teams for game
+  Home_tourney_temp <- tourney_matchups_randomized[games,1]
+  Away_tourney_temp <- tourney_matchups_randomized[games,2]
+  #get and adjust elo values
+  Home_tourney_temp_elo <- tourney_elos[toString(Home_tourney_temp)] + rnorm(1, mean=1+coaches_poll[Home_tourney_temp,]$adjustment, sd=25)#+ coaches_poll[toString(Home_tourney_temp), "adjustment"]
+  Away_tourney_temp_elo <- tourney_elos[toString(Away_tourney_temp)] + rnorm(1, mean=1+coaches_poll[Away_tourney_temp,]$adjustment, sd=25)#+ coaches_poll[toString(Away_tourney_temp), "adjustment"]
+  
+  #add elos to vector for dataframe
+  Home_elos[games] <- Home_tourney_temp_elo
+  Away_elos[games] <- Away_tourney_temp_elo
+  
+  #get home team win probability
+  game_probs <- elo.prob(Home_tourney_temp_elo, Away_tourney_temp_elo)#elo.prob(f[toString(Home_tourney_temp)], f[toString(Away_tourney_temp)])
+  
+  #keep track of winners
+  if (game_probs > 0.5){
+    
+    winners[games] <- toString(Home_tourney_temp)
+    win_check <- 1
+    
+  }
+  else{
+    
+    winners[games] <- toString(Away_tourney_temp)
+    win_check <- 0
+    
+  }
+  
+  
+  
+  
+  Home_team_pred_score <- round(10*game_probs)
+  Away_team_pred_score <- round(10*(1-game_probs))
+  
+  #caculate new elo values based on predicted score
+  run_elo_sim <- elo.calc(win_check, Home_tourney_temp_elo, Away_tourney_temp_elo, k(20*log(abs(Home_team_pred_score - Away_team_pred_score) + 1)))
+  
+  #change elo values in table f_copy
+  tourney_elos[toString(Home_tourney_temp)] <- as.double(run_elo_sim["elo.A"])
+  tourney_elos[toString(Away_tourney_temp)] <- as.double(run_elo_sim["elo.B"])
+  
+  
+  #probability that home beats away
+  #print(tourney_probs)
+  tourney_probs <- c(tourney_probs, game_probs)
+
+  
+
+}
+```
+
+## Simulation Results
+
+We can then output the records of the teams after the simulation and the final elo values after the simulation both of which are printed below. 
+
+```{r sim_results}
+tourney_matchups_randomized <- cbind(tourney_matchups_randomized, Home_elos, Away_elos, tourney_probs, winners)
+
+tourney_elos <- sort(tourney_elos,decreasing = TRUE)
+
+
+tourney_results_vec <- c()
+for (sim_x in (1:length(team_ranks))){
+  #print(team_ranks[sim_x])
+  games_won_sim <- length(winners[winners==team_ranks[sim_x]])
+  games_lost_sim <- 9-games_won_sim
+  #print(games_lost_sim)
+  sim_record <- paste(games_won_sim,games_lost_sim, sep="-")
+  tourney_results_vec[sim_x] <- sim_record
+  #print(tourney_results_vec)
+  
+  
+}
+
+tourney_results <- data.frame(team_ranks, tourney_results_vec)
+names(tourney_results)[1] <- "Team"
+names(tourney_results)[2] <- "Record"
+print(tourney_results)
+print(tourney_elos)
+
+```
+---
+
