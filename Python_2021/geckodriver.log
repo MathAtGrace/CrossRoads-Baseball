@@ -78,3 +78,27 @@ JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEven
 JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
 JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
 console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+1613672238037	Marionette	INFO	Stopped listening on port 55532
+3672204037	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\johnsor\\AppData\\Local\\Temp\\rust_mozprofileUUI0PJ"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1613672207566	Marionette	INFO	Listening on port 54259
+1613672207878	Marionette	WARN	TLS certificate errors will be ignored for this session
+1613672207892	Marionette	ERROR	[18] No reply from Marionette:Register
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+1613672229178	Marionette	INFO	Stopped listening on port 54259
+1613672240665	geckodriver	INFO	Listening on 127.0.0.1:54342
+1613672243722	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\johnsor\\AppData\\Local\\Temp\\rust_mozprofileDZrKTH"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1613672246892	Marionette	INFO	Listening on port 54350
+1613672246980	Marionette	WARN	TLS certificate errors will be ignored for this session
+1613672246996	Marionette	ERROR	[18] No reply from Marionette:Register
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+1613682951967	Marionette	INFO	Stopped listening on port 54350
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
