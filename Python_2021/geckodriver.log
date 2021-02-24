@@ -102,3 +102,38 @@ console.log: WebExtensions: reset-default-search: No addons in our list are inst
 
 ###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 
+1614191891812	geckodriver	INFO	Listening on 127.0.0.1:58232
+1614191894883	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\johnsor\\AppData\\Local\\Temp\\rust_mozprofileb9znT7"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1614191898905	Marionette	INFO	Listening on port 58240
+1614191899249	Marionette	WARN	TLS certificate errors will be ignored for this session
+1614191899266	Marionette	ERROR	[15] No reply from Marionette:Register
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+ner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\johnsor\\AppData\\Local\\Temp\\rust_mozprofileMXyvQZ"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1614192098168	Marionette	INFO	Listening on port 58348
+1614192098446	Marionette	WARN	TLS certificate errors will be ignored for this session
+1614192098459	Marionette	ERROR	[18] No reply from Marionette:Register
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+ner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\johnsor\\AppData\\Local\\Temp\\rust_mozprofileG5zWCY"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1614192268104	Marionette	INFO	Listening on port 58424
+1614192268403	Marionette	WARN	TLS certificate errors will be ignored for this session
+1614192268417	Marionette	ERROR	[18] No reply from Marionette:Register
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+1614193252615	geckodriver	INFO	Listening on 127.0.0.1:58570
+1614193255657	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\johnsor\\AppData\\Local\\Temp\\rust_mozprofile5pIHaC"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1614193258433	Marionette	INFO	Listening on port 58578
+1614193258896	Marionette	WARN	TLS certificate errors will be ignored for this session
+1614193258915	Marionette	ERROR	[19] No reply from Marionette:Register
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 3036 > eval line 1 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 4832 > eval line 1 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
