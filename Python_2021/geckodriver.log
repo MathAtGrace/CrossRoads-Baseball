@@ -502,3 +502,163 @@ console.error: BroadcastService:
   Stack:
     remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:711:13
 
+1614262670671	geckodriver	INFO	Listening on 127.0.0.1:49556
+1614262673730	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\johnsor\\AppData\\Local\\Temp\\rust_mozprofileVlob5Z"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1614262677491	Marionette	INFO	Listening on port 49564
+1614262677601	Marionette	WARN	TLS certificate errors will be ignored for this session
+1614262677619	Marionette	ERROR	[15] No reply from Marionette:Register
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+1614271170851	Marionette	INFO	Stopped listening on port 49564
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+\\Temp\\rust_mozprofileh4U8k8"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1614263000969	Marionette	INFO	Listening on port 49671
+1614263001405	Marionette	WARN	TLS certificate errors will be ignored for this session
+1614263001421	Marionette	ERROR	[15] No reply from Marionette:Register
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: uncaught exception: undefined
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+1614271170013	Marionette	INFO	Stopped listening on port 49671
+4267023242	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\johnsor\\AppData\\Local\\Temp\\rust_mozprofileCF9BWF"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1614267026306	Marionette	INFO	Listening on port 62585
+1614267026493	Marionette	WARN	TLS certificate errors will be ignored for this session
+1614267026506	Marionette	ERROR	[19] No reply from Marionette:Register
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 2173 > eval line 1 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 728 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 2352 > eval line 1 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 4768 > eval line 1 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 4064 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 1051 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 2009 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 4439 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 4231 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 6132 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 6035 > eval line 1 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 1406 > eval line 1 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 6493 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 1728 > eval line 1 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+1614267063863	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1614267063890	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 775 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 4937 > eval line 1 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 2093 > eval line 1 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 4353 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 2883 > eval line 1 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+1614271168795	Marionette	INFO	Stopped listening on port 62585
+4269204986	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\johnsor\\AppData\\Local\\Temp\\rust_mozprofilep8L3vz"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1614269207952	Marionette	INFO	Listening on port 60270
+1614269208242	Marionette	WARN	TLS certificate errors will be ignored for this session
+1614269208261	Marionette	ERROR	[19] No reply from Marionette:Register
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 5359 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 3946 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 4899 > eval line 1 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 4841 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 6740 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 7206 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 1911 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 4967 > eval line 1 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 5721 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 639 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://z.moatads.com/activisionblizzarddcmdisplay468075749451/moatad.js#moatClientLevel1=24706718&moatClientLevel2=6316677&moatClientLevel3=283988988&moatClientLevel4=139235572&zMoatG=ct=US&st=IN&city=16466&dma=81&zp=46590&bw=4&zMoatEXCH=1&zMoatENV=j&zMoatADV=10212566, line 262: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://z.moatads.com/activisionblizzarddcmdisplay468075749451/moatad.js#moatClientLevel1=24706718&moatClientLevel2=6316677&moatClientLevel3=283988988&moatClientLevel4=139235572&zMoatG=ct=US&st=IN&city=16466&dma=81&zp=46590&bw=4&zMoatEXCH=1&zMoatENV=j&zMoatADV=10212566, line 262: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 4767 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 1578 > eval line 1 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 136 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 5341 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 6238 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 7354 > eval line 1 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 5954 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/gYCzj-4M8Ect_HrGpifqy4m-MJzktZmRntqmlBTHKuc.js line 1 > eval line 3394 > eval, line 1: Failed to create WebGL context: WebGL is currently disabled.
+1614271167918	Marionette	INFO	Stopped listening on port 60270
+4270392015	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\johnsor\\AppData\\Local\\Temp\\rust_mozprofile26EOY7"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1614270395776	Marionette	INFO	Listening on port 60869
+1614270395863	Marionette	WARN	TLS certificate errors will be ignored for this session
+1614270395877	Marionette	ERROR	[15] No reply from Marionette:Register
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: uncaught exception: undefined
+1614270421726	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: uncaught exception: undefined
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1614271166802	Marionette	INFO	Stopped listening on port 60869
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+mozprofileeJEauP"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1614271097660	Marionette	INFO	Listening on port 61208
+1614271097948	Marionette	WARN	TLS certificate errors will be ignored for this session
+1614271097972	Marionette	ERROR	[15] No reply from Marionette:Register
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+1614271165764	Marionette	INFO	Stopped listening on port 61208
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1614271350769	geckodriver	INFO	Listening on 127.0.0.1:61425
+1614271353813	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\johnsor\\AppData\\Local\\Temp\\rust_mozprofileAdSPtn"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1614271357180	Marionette	INFO	Listening on port 61433
+1614271357667	Marionette	WARN	TLS certificate errors will be ignored for this session
+1614271357681	Marionette	ERROR	[15] No reply from Marionette:Register
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+1614271394401	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
