@@ -147,3 +147,586 @@
 2021-02-25 12:16:32,485 [8604] DEBUG    root:195: [JupyterRequire] Configuration requested: {'paths': {'d3-array': 'https://d3js.org/d3-array.v2.min'}, 'shim': {}}
 2021-02-25 12:16:32,486 [8604] DEBUG    root:195: [JupyterRequire] Configuration requested: {'paths': {'moment': 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.0/moment', 'chartjs': 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart'}, 'shim': {'chartjs': {'deps': ['moment']}}}
 2021-02-25 12:16:32,488 [8604] DEBUG    root:195: [JupyterRequire] Configuration requested: {'paths': OrderedDict([('datatables.net', 'https://cdn.datatables.net/1.10.18/js/jquery.dataTables'), ('datatables.net-buttons', 'https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min'), ('jszip', 'https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min'), ('buttons.colvis', 'https://cdn.datatables.net/buttons/1.5.6/js/buttons.colVis.min'), ('buttons.flash', 'https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min'), ('buttons.html5', 'https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min'), ('buttons.print', 'https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min'), ('pdfmake', 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min'), ('vfsfonts', 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts'), ('datatables.responsive', 'https://cdn.datatables.net/responsive/2.2.2/js/dataTables.responsive.min'), ('datatables.scroller', 'https://cdn.datatables.net/scroller/2.0.0/js/dataTables.scroller.min'), ('datatables.select', 'https://cdn.datatables.net/select/1.3.0/js/dataTables.select.min')]), 'shim': OrderedDict([('datatables.net', {'exports': '$.fn.dataTable'}), ('datatables.net-buttons', {'deps': ['datatables.net']}), ('buttons.colvis', {'deps': ['jszip', 'datatables.net-buttons']}), ('buttons.flash', {'deps': ['jszip', 'datatables.net-buttons']}), ('buttons.html5', {'deps': ['jszip', 'datatables.net-buttons']}), ('buttons.print', {'deps': ['jszip', 'datatables.net-buttons']}), ('pdfmake', {'deps': ['datatables.net']}), ('vfsfonts', {'deps': ['datatables.net']})])}
+2021-03-03 13:17:20,682 [12416] DEBUG    root:75: [JupyterRequire] Loading Jupyter Require extension.
+2021-03-03 13:17:20,683 [12416] DEBUG    root:93: [JupyterRequire] Initializing comms.
+2021-03-03 13:17:20,684 [12416] INFO     root:247: [JupyterRequire] Initializing comms.
+2021-03-03 13:17:20,687 [12416] DEBUG    root:195: [JupyterRequire] Configuration requested: {'paths': {}, 'shim': None}
+2021-03-03 13:17:20,689 [12416] INFO     root:271: [JupyterRequire] Comms have been successfully initialized.
+2021-03-03 13:17:20,690 [12416] DEBUG    root:97: [JupyterRequire] Registering comm targets.
+2021-03-03 13:17:21,261 [12416] DEBUG    root:75: [JupyterRequire] Loading Jupyter Require extension.
+2021-03-03 13:17:21,261 [12416] DEBUG    root:93: [JupyterRequire] Initializing comms.
+2021-03-03 13:17:21,261 [12416] INFO     root:247: [JupyterRequire] Initializing comms.
+2021-03-03 13:17:21,265 [12416] DEBUG    root:195: [JupyterRequire] Configuration requested: {'paths': {}, 'shim': None}
+2021-03-03 13:17:21,267 [12416] INFO     root:271: [JupyterRequire] Comms have been successfully initialized.
+2021-03-03 13:17:21,267 [12416] DEBUG    root:97: [JupyterRequire] Registering comm targets.
+2021-03-03 13:21:35,304 [3224] DEBUG    root:75: [JupyterRequire] Loading Jupyter Require extension.
+2021-03-03 13:21:35,304 [3224] DEBUG    root:93: [JupyterRequire] Initializing comms.
+2021-03-03 13:21:35,305 [3224] INFO     root:247: [JupyterRequire] Initializing comms.
+2021-03-03 13:21:35,307 [3224] DEBUG    root:195: [JupyterRequire] Configuration requested: {'paths': {}, 'shim': None}
+2021-03-03 13:21:35,308 [3224] INFO     root:271: [JupyterRequire] Comms have been successfully initialized.
+2021-03-03 13:21:35,309 [3224] DEBUG    root:97: [JupyterRequire] Registering comm targets.
+2021-03-03 13:21:40,382 [6004] DEBUG    root:75: [JupyterRequire] Loading Jupyter Require extension.
+2021-03-03 13:21:40,383 [6004] DEBUG    root:93: [JupyterRequire] Initializing comms.
+2021-03-03 13:21:40,383 [6004] INFO     root:247: [JupyterRequire] Initializing comms.
+2021-03-03 13:21:40,397 [6004] DEBUG    root:195: [JupyterRequire] Configuration requested: {'paths': {}, 'shim': None}
+2021-03-03 13:21:40,398 [6004] INFO     root:271: [JupyterRequire] Comms have been successfully initialized.
+2021-03-03 13:21:40,399 [6004] DEBUG    root:97: [JupyterRequire] Registering comm targets.
+2021-03-03 13:21:41,262 [6004] DEBUG    root:75: [JupyterRequire] Loading Jupyter Require extension.
+2021-03-03 13:21:41,263 [6004] DEBUG    root:93: [JupyterRequire] Initializing comms.
+2021-03-03 13:21:41,264 [6004] INFO     root:247: [JupyterRequire] Initializing comms.
+2021-03-03 13:21:41,270 [6004] DEBUG    root:195: [JupyterRequire] Configuration requested: {'paths': {}, 'shim': None}
+2021-03-03 13:21:41,272 [6004] INFO     root:271: [JupyterRequire] Comms have been successfully initialized.
+2021-03-03 13:21:41,272 [6004] DEBUG    root:97: [JupyterRequire] Registering comm targets.
+2021-03-03 13:21:41,524 [1636] DEBUG    root:75: [JupyterRequire] Loading Jupyter Require extension.
+2021-03-03 13:21:41,525 [1636] DEBUG    root:93: [JupyterRequire] Initializing comms.
+2021-03-03 13:21:41,525 [1636] INFO     root:247: [JupyterRequire] Initializing comms.
+2021-03-03 13:21:41,528 [1636] DEBUG    root:195: [JupyterRequire] Configuration requested: {'paths': {}, 'shim': None}
+2021-03-03 13:21:41,528 [1636] INFO     root:271: [JupyterRequire] Comms have been successfully initialized.
+2021-03-03 13:21:41,529 [1636] DEBUG    root:97: [JupyterRequire] Registering comm targets.
+2021-03-03 13:21:42,044 [1636] DEBUG    root:75: [JupyterRequire] Loading Jupyter Require extension.
+2021-03-03 13:21:42,044 [1636] DEBUG    root:93: [JupyterRequire] Initializing comms.
+2021-03-03 13:21:42,044 [1636] INFO     root:247: [JupyterRequire] Initializing comms.
+2021-03-03 13:21:42,048 [1636] DEBUG    root:195: [JupyterRequire] Configuration requested: {'paths': {}, 'shim': None}
+2021-03-03 13:21:42,049 [1636] INFO     root:271: [JupyterRequire] Comms have been successfully initialized.
+2021-03-03 13:21:42,050 [1636] DEBUG    root:97: [JupyterRequire] Registering comm targets.
+2021-03-03 13:24:04,280 [7136] DEBUG    root:75: [JupyterRequire] Loading Jupyter Require extension.
+2021-03-03 13:24:04,281 [7136] DEBUG    root:93: [JupyterRequire] Initializing comms.
+2021-03-03 13:24:04,281 [7136] INFO     root:247: [JupyterRequire] Initializing comms.
+2021-03-03 13:24:04,284 [7136] DEBUG    root:195: [JupyterRequire] Configuration requested: {'paths': {}, 'shim': None}
+2021-03-03 13:24:04,285 [7136] INFO     root:271: [JupyterRequire] Comms have been successfully initialized.
+2021-03-03 13:24:04,286 [7136] DEBUG    root:97: [JupyterRequire] Registering comm targets.
+2021-03-03 13:24:04,798 [7136] DEBUG    root:75: [JupyterRequire] Loading Jupyter Require extension.
+2021-03-03 13:24:04,798 [7136] DEBUG    root:93: [JupyterRequire] Initializing comms.
+2021-03-03 13:24:04,799 [7136] INFO     root:247: [JupyterRequire] Initializing comms.
+2021-03-03 13:24:04,801 [7136] DEBUG    root:195: [JupyterRequire] Configuration requested: {'paths': {}, 'shim': None}
+2021-03-03 13:24:04,802 [7136] INFO     root:271: [JupyterRequire] Comms have been successfully initialized.
+2021-03-03 13:24:04,803 [7136] DEBUG    root:97: [JupyterRequire] Registering comm targets.
+2021-03-03 13:45:30,419 [3924] DEBUG    root:75: [JupyterRequire] Loading Jupyter Require extension.
+2021-03-03 13:45:30,420 [3924] DEBUG    root:93: [JupyterRequire] Initializing comms.
+2021-03-03 13:45:30,421 [3924] INFO     root:247: [JupyterRequire] Initializing comms.
+2021-03-03 13:45:30,428 [3924] DEBUG    root:195: [JupyterRequire] Configuration requested: {'paths': {}, 'shim': None}
+2021-03-03 13:45:30,430 [3924] INFO     root:271: [JupyterRequire] Comms have been successfully initialized.
+2021-03-03 13:45:30,431 [3924] DEBUG    root:97: [JupyterRequire] Registering comm targets.
+2021-03-03 13:45:30,949 [3924] DEBUG    root:75: [JupyterRequire] Loading Jupyter Require extension.
+2021-03-03 13:45:30,950 [3924] DEBUG    root:93: [JupyterRequire] Initializing comms.
+2021-03-03 13:45:30,951 [3924] INFO     root:247: [JupyterRequire] Initializing comms.
+2021-03-03 13:45:30,954 [3924] DEBUG    root:195: [JupyterRequire] Configuration requested: {'paths': {}, 'shim': None}
+2021-03-03 13:45:30,956 [3924] INFO     root:271: [JupyterRequire] Comms have been successfully initialized.
+2021-03-03 13:45:30,957 [3924] DEBUG    root:97: [JupyterRequire] Registering comm targets.
+2021-03-03 13:46:07,493 [3924] DEBUG    urllib3.connectionpool:226: [JupyterRequire] Starting new HTTP connection (1): www.dakstats.com:80
+2021-03-03 13:46:08,374 [3924] DEBUG    urllib3.connectionpool:433: [JupyterRequire] http://www.dakstats.com:80 "GET /WebSync/Pages/Team/TeamSchedule.aspx?association=10&sg=MBA&sea=NAIMBA_2019&team=1629 HTTP/1.1" 200 147956
+2021-03-03 13:46:08,456 [3924] DEBUG    urllib3.connectionpool:226: [JupyterRequire] Starting new HTTP connection (1): www.dakstats.com:80
+2021-03-03 13:46:09,241 [3924] DEBUG    urllib3.connectionpool:433: [JupyterRequire] http://www.dakstats.com:80 "GET /WebSync/Pages/Team/TeamSchedule.aspx?association=10&sg=MBA&sea=NAIMBA_2019&team=1678 HTTP/1.1" 200 171688
+2021-03-03 13:46:09,352 [3924] DEBUG    urllib3.connectionpool:226: [JupyterRequire] Starting new HTTP connection (1): www.dakstats.com:80
+2021-03-03 13:46:10,096 [3924] DEBUG    urllib3.connectionpool:433: [JupyterRequire] http://www.dakstats.com:80 "GET /WebSync/Pages/Team/TeamSchedule.aspx?association=10&sg=MBA&sea=NAIMBA_2019&team=1679 HTTP/1.1" 200 160649
+2021-03-03 13:46:10,199 [3924] DEBUG    urllib3.connectionpool:226: [JupyterRequire] Starting new HTTP connection (1): www.dakstats.com:80
+2021-03-03 13:46:11,082 [3924] DEBUG    urllib3.connectionpool:433: [JupyterRequire] http://www.dakstats.com:80 "GET /WebSync/Pages/Team/TeamSchedule.aspx?association=10&sg=MBA&sea=NAIMBA_2019&team=1688 HTTP/1.1" 200 157164
+2021-03-03 13:46:11,191 [3924] DEBUG    urllib3.connectionpool:226: [JupyterRequire] Starting new HTTP connection (1): www.dakstats.com:80
+2021-03-03 13:46:12,056 [3924] DEBUG    urllib3.connectionpool:433: [JupyterRequire] http://www.dakstats.com:80 "GET /WebSync/Pages/Team/TeamSchedule.aspx?association=10&sg=MBA&sea=NAIMBA_2019&team=1694 HTTP/1.1" 200 178675
+2021-03-03 13:46:12,164 [3924] DEBUG    urllib3.connectionpool:226: [JupyterRequire] Starting new HTTP connection (1): www.dakstats.com:80
+2021-03-03 13:46:13,260 [3924] DEBUG    urllib3.connectionpool:433: [JupyterRequire] http://www.dakstats.com:80 "GET /WebSync/Pages/Team/TeamSchedule.aspx?association=10&sg=MBA&sea=NAIMBA_2019&team=1717 HTTP/1.1" 200 175201
+2021-03-03 13:46:13,370 [3924] DEBUG    urllib3.connectionpool:226: [JupyterRequire] Starting new HTTP connection (1): www.dakstats.com:80
+2021-03-03 13:46:14,218 [3924] DEBUG    urllib3.connectionpool:433: [JupyterRequire] http://www.dakstats.com:80 "GET /WebSync/Pages/Team/TeamSchedule.aspx?association=10&sg=MBA&sea=NAIMBA_2019&team=1736 HTTP/1.1" 200 180250
+2021-03-03 13:46:14,326 [3924] DEBUG    urllib3.connectionpool:226: [JupyterRequire] Starting new HTTP connection (1): www.dakstats.com:80
+2021-03-03 13:46:15,142 [3924] DEBUG    urllib3.connectionpool:433: [JupyterRequire] http://www.dakstats.com:80 "GET /WebSync/Pages/Team/TeamSchedule.aspx?association=10&sg=MBA&sea=NAIMBA_2019&team=1780 HTTP/1.1" 200 178303
+2021-03-03 13:46:15,251 [3924] DEBUG    urllib3.connectionpool:226: [JupyterRequire] Starting new HTTP connection (1): www.dakstats.com:80
+2021-03-03 13:46:16,324 [3924] DEBUG    urllib3.connectionpool:433: [JupyterRequire] http://www.dakstats.com:80 "GET /WebSync/Pages/Team/TeamSchedule.aspx?association=10&sg=MBA&sea=NAIMBA_2019&team=1805 HTTP/1.1" 200 177850
+2021-03-03 13:46:16,433 [3924] DEBUG    urllib3.connectionpool:226: [JupyterRequire] Starting new HTTP connection (1): www.dakstats.com:80
+2021-03-03 13:46:17,357 [3924] DEBUG    urllib3.connectionpool:433: [JupyterRequire] http://www.dakstats.com:80 "GET /WebSync/Pages/Team/TeamSchedule.aspx?association=10&sg=MBA&sea=NAIMBA_2019&team=1784 HTTP/1.1" 200 188030
+2021-03-03 13:46:20,097 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] utf-8  confidence = 0.505
+2021-03-03 13:46:20,097 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] SHIFT_JIS Japanese confidence = 0.01
+2021-03-03 13:46:20,097 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-JP Japanese confidence = 0.01
+2021-03-03 13:46:20,098 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] GB2312 Chinese confidence = 0.01
+2021-03-03 13:46:20,098 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-KR Korean confidence = 0.01
+2021-03-03 13:46:20,098 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] CP949 Korean confidence = 0.01
+2021-03-03 13:46:20,098 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] Big5 Chinese confidence = 0.01
+2021-03-03 13:46:20,098 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-TW Taiwan confidence = 0.01
+2021-03-03 13:46:20,098 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Russian confidence = 0.01
+2021-03-03 13:46:20,099 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] KOI8-R Russian confidence = 0.01
+2021-03-03 13:46:20,099 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Russian confidence = 0.01
+2021-03-03 13:46:20,099 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] MacCyrillic Russian confidence = 0.01
+2021-03-03 13:46:20,099 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM866 Russian confidence = 0.01
+2021-03-03 13:46:20,099 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM855 Russian confidence = 0.01
+2021-03-03 13:46:20,099 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-7 Greek confidence = 0.01
+2021-03-03 13:46:20,100 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1253 Greek confidence = 0.01
+2021-03-03 13:46:20,100 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Bulgairan confidence = 0.01
+2021-03-03 13:46:20,100 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Bulgarian confidence = 0.01
+2021-03-03 13:46:20,100 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] TIS-620 Thai confidence = 0.0
+2021-03-03 13:46:20,100 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-9 Turkish confidence = 0.45666080759107475
+2021-03-03 13:46:20,100 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.0
+2021-03-03 13:46:20,101 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 13:46:20,101 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 13:46:23,230 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] utf-8  confidence = 0.505
+2021-03-03 13:46:23,231 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] SHIFT_JIS Japanese confidence = 0.01
+2021-03-03 13:46:23,231 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-JP Japanese confidence = 0.01
+2021-03-03 13:46:23,231 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] GB2312 Chinese confidence = 0.01
+2021-03-03 13:46:23,231 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-KR Korean confidence = 0.01
+2021-03-03 13:46:23,231 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] CP949 Korean confidence = 0.01
+2021-03-03 13:46:23,232 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] Big5 Chinese confidence = 0.01
+2021-03-03 13:46:23,232 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-TW Taiwan confidence = 0.01
+2021-03-03 13:46:23,232 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Russian confidence = 0.01
+2021-03-03 13:46:23,232 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] KOI8-R Russian confidence = 0.01
+2021-03-03 13:46:23,232 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Russian confidence = 0.01
+2021-03-03 13:46:23,232 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] MacCyrillic Russian confidence = 0.01
+2021-03-03 13:46:23,233 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM866 Russian confidence = 0.01
+2021-03-03 13:46:23,233 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM855 Russian confidence = 0.01
+2021-03-03 13:46:23,233 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-7 Greek confidence = 0.01
+2021-03-03 13:46:23,233 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1253 Greek confidence = 0.01
+2021-03-03 13:46:23,233 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Bulgairan confidence = 0.01
+2021-03-03 13:46:23,233 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Bulgarian confidence = 0.01
+2021-03-03 13:46:23,234 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] TIS-620 Thai confidence = 0.0
+2021-03-03 13:46:23,234 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-9 Turkish confidence = 0.4490686910680334
+2021-03-03 13:46:23,235 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.0
+2021-03-03 13:46:23,235 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 13:46:23,235 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 13:46:26,123 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] utf-8  confidence = 0.505
+2021-03-03 13:46:26,124 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] SHIFT_JIS Japanese confidence = 0.01
+2021-03-03 13:46:26,124 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-JP Japanese confidence = 0.01
+2021-03-03 13:46:26,124 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] GB2312 Chinese confidence = 0.01
+2021-03-03 13:46:26,124 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-KR Korean confidence = 0.01
+2021-03-03 13:46:26,124 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] CP949 Korean confidence = 0.01
+2021-03-03 13:46:26,124 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] Big5 Chinese confidence = 0.01
+2021-03-03 13:46:26,125 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-TW Taiwan confidence = 0.01
+2021-03-03 13:46:26,125 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Russian confidence = 0.01
+2021-03-03 13:46:26,125 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] KOI8-R Russian confidence = 0.01
+2021-03-03 13:46:26,125 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Russian confidence = 0.01
+2021-03-03 13:46:26,125 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] MacCyrillic Russian confidence = 0.01
+2021-03-03 13:46:26,125 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM866 Russian confidence = 0.01
+2021-03-03 13:46:26,126 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM855 Russian confidence = 0.01
+2021-03-03 13:46:26,126 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-7 Greek confidence = 0.01
+2021-03-03 13:46:26,126 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1253 Greek confidence = 0.01
+2021-03-03 13:46:26,126 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Bulgairan confidence = 0.01
+2021-03-03 13:46:26,126 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Bulgarian confidence = 0.01
+2021-03-03 13:46:26,126 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] TIS-620 Thai confidence = 0.0
+2021-03-03 13:46:26,127 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-9 Turkish confidence = 0.4523486232673796
+2021-03-03 13:46:26,127 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.0
+2021-03-03 13:46:26,127 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 13:46:26,127 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 13:46:28,938 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] utf-8  confidence = 0.505
+2021-03-03 13:46:28,938 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] SHIFT_JIS Japanese confidence = 0.01
+2021-03-03 13:46:28,938 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-JP Japanese confidence = 0.01
+2021-03-03 13:46:28,939 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] GB2312 Chinese confidence = 0.01
+2021-03-03 13:46:28,939 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-KR Korean confidence = 0.01
+2021-03-03 13:46:28,939 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] CP949 Korean confidence = 0.01
+2021-03-03 13:46:28,939 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] Big5 Chinese confidence = 0.01
+2021-03-03 13:46:28,939 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-TW Taiwan confidence = 0.01
+2021-03-03 13:46:28,940 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Russian confidence = 0.01
+2021-03-03 13:46:28,940 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] KOI8-R Russian confidence = 0.01
+2021-03-03 13:46:28,940 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Russian confidence = 0.01
+2021-03-03 13:46:28,940 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] MacCyrillic Russian confidence = 0.01
+2021-03-03 13:46:28,941 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM866 Russian confidence = 0.01
+2021-03-03 13:46:28,941 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM855 Russian confidence = 0.01
+2021-03-03 13:46:28,941 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-7 Greek confidence = 0.01
+2021-03-03 13:46:28,941 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1253 Greek confidence = 0.01
+2021-03-03 13:46:28,941 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Bulgairan confidence = 0.01
+2021-03-03 13:46:28,941 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Bulgarian confidence = 0.01
+2021-03-03 13:46:28,942 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] TIS-620 Thai confidence = 0.0
+2021-03-03 13:46:28,942 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-9 Turkish confidence = 0.45339495001080077
+2021-03-03 13:46:28,942 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.0
+2021-03-03 13:46:28,942 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 13:46:28,942 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 13:46:32,109 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] utf-8  confidence = 0.505
+2021-03-03 13:46:32,110 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] SHIFT_JIS Japanese confidence = 0.01
+2021-03-03 13:46:32,110 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-JP Japanese confidence = 0.01
+2021-03-03 13:46:32,110 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] GB2312 Chinese confidence = 0.01
+2021-03-03 13:46:32,110 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-KR Korean confidence = 0.01
+2021-03-03 13:46:32,110 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] CP949 Korean confidence = 0.01
+2021-03-03 13:46:32,111 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] Big5 Chinese confidence = 0.01
+2021-03-03 13:46:32,111 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-TW Taiwan confidence = 0.01
+2021-03-03 13:46:32,111 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Russian confidence = 0.01
+2021-03-03 13:46:32,111 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] KOI8-R Russian confidence = 0.01
+2021-03-03 13:46:32,111 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Russian confidence = 0.01
+2021-03-03 13:46:32,111 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] MacCyrillic Russian confidence = 0.01
+2021-03-03 13:46:32,112 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM866 Russian confidence = 0.01
+2021-03-03 13:46:32,112 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM855 Russian confidence = 0.01
+2021-03-03 13:46:32,112 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-7 Greek confidence = 0.01
+2021-03-03 13:46:32,112 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1253 Greek confidence = 0.01
+2021-03-03 13:46:32,112 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Bulgairan confidence = 0.01
+2021-03-03 13:46:32,112 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Bulgarian confidence = 0.01
+2021-03-03 13:46:32,113 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] TIS-620 Thai confidence = 0.0
+2021-03-03 13:46:32,113 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-9 Turkish confidence = 0.4488537017700263
+2021-03-03 13:46:32,113 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.0
+2021-03-03 13:46:32,113 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 13:46:32,113 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 13:46:36,863 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] utf-8  confidence = 0.505
+2021-03-03 13:46:36,863 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] SHIFT_JIS Japanese confidence = 0.01
+2021-03-03 13:46:36,863 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-JP Japanese confidence = 0.01
+2021-03-03 13:46:36,863 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] GB2312 Chinese confidence = 0.01
+2021-03-03 13:46:36,863 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-KR Korean confidence = 0.01
+2021-03-03 13:46:36,864 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] CP949 Korean confidence = 0.01
+2021-03-03 13:46:36,864 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] Big5 Chinese confidence = 0.01
+2021-03-03 13:46:36,864 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-TW Taiwan confidence = 0.01
+2021-03-03 13:46:36,864 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Russian confidence = 0.01
+2021-03-03 13:46:36,864 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] KOI8-R Russian confidence = 0.01
+2021-03-03 13:46:36,865 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Russian confidence = 0.01
+2021-03-03 13:46:36,865 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] MacCyrillic Russian confidence = 0.01
+2021-03-03 13:46:36,865 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM866 Russian confidence = 0.01
+2021-03-03 13:46:36,865 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM855 Russian confidence = 0.01
+2021-03-03 13:46:36,865 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-7 Greek confidence = 0.01
+2021-03-03 13:46:36,865 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1253 Greek confidence = 0.01
+2021-03-03 13:46:36,866 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Bulgairan confidence = 0.01
+2021-03-03 13:46:36,866 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Bulgarian confidence = 0.01
+2021-03-03 13:46:36,866 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] TIS-620 Thai confidence = 0.0
+2021-03-03 13:46:36,866 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-9 Turkish confidence = 0.44886627515700495
+2021-03-03 13:46:36,866 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.0
+2021-03-03 13:46:36,866 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 13:46:36,867 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 13:46:40,647 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] utf-8  confidence = 0.505
+2021-03-03 13:46:40,647 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] SHIFT_JIS Japanese confidence = 0.01
+2021-03-03 13:46:40,648 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-JP Japanese confidence = 0.01
+2021-03-03 13:46:40,648 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] GB2312 Chinese confidence = 0.01
+2021-03-03 13:46:40,648 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-KR Korean confidence = 0.01
+2021-03-03 13:46:40,648 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] CP949 Korean confidence = 0.01
+2021-03-03 13:46:40,648 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] Big5 Chinese confidence = 0.01
+2021-03-03 13:46:40,648 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-TW Taiwan confidence = 0.01
+2021-03-03 13:46:40,649 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Russian confidence = 0.01
+2021-03-03 13:46:40,649 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] KOI8-R Russian confidence = 0.01
+2021-03-03 13:46:40,649 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Russian confidence = 0.01
+2021-03-03 13:46:40,649 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] MacCyrillic Russian confidence = 0.01
+2021-03-03 13:46:40,649 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM866 Russian confidence = 0.01
+2021-03-03 13:46:40,650 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM855 Russian confidence = 0.01
+2021-03-03 13:46:40,650 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-7 Greek confidence = 0.01
+2021-03-03 13:46:40,650 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1253 Greek confidence = 0.01
+2021-03-03 13:46:40,650 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Bulgairan confidence = 0.01
+2021-03-03 13:46:40,650 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Bulgarian confidence = 0.01
+2021-03-03 13:46:40,650 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] TIS-620 Thai confidence = 0.0
+2021-03-03 13:46:40,651 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-9 Turkish confidence = 0.44783656729544186
+2021-03-03 13:46:40,651 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.0
+2021-03-03 13:46:40,651 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 13:46:40,651 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 13:46:43,865 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] utf-8  confidence = 0.505
+2021-03-03 13:46:43,865 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] SHIFT_JIS Japanese confidence = 0.01
+2021-03-03 13:46:43,865 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-JP Japanese confidence = 0.01
+2021-03-03 13:46:43,866 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] GB2312 Chinese confidence = 0.01
+2021-03-03 13:46:43,866 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-KR Korean confidence = 0.01
+2021-03-03 13:46:43,866 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] CP949 Korean confidence = 0.01
+2021-03-03 13:46:43,866 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] Big5 Chinese confidence = 0.01
+2021-03-03 13:46:43,866 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-TW Taiwan confidence = 0.01
+2021-03-03 13:46:43,866 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Russian confidence = 0.01
+2021-03-03 13:46:43,867 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] KOI8-R Russian confidence = 0.01
+2021-03-03 13:46:43,867 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Russian confidence = 0.01
+2021-03-03 13:46:43,867 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] MacCyrillic Russian confidence = 0.01
+2021-03-03 13:46:43,867 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM866 Russian confidence = 0.01
+2021-03-03 13:46:43,867 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM855 Russian confidence = 0.01
+2021-03-03 13:46:43,867 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-7 Greek confidence = 0.01
+2021-03-03 13:46:43,868 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1253 Greek confidence = 0.01
+2021-03-03 13:46:43,868 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Bulgairan confidence = 0.01
+2021-03-03 13:46:43,868 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Bulgarian confidence = 0.01
+2021-03-03 13:46:43,868 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] TIS-620 Thai confidence = 0.0
+2021-03-03 13:46:43,868 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-9 Turkish confidence = 0.44890073115716916
+2021-03-03 13:46:43,868 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.0
+2021-03-03 13:46:43,869 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 13:46:43,869 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 13:46:47,961 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] utf-8  confidence = 0.505
+2021-03-03 13:46:47,962 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] SHIFT_JIS Japanese confidence = 0.01
+2021-03-03 13:46:47,962 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-JP Japanese confidence = 0.01
+2021-03-03 13:46:47,962 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] GB2312 Chinese confidence = 0.01
+2021-03-03 13:46:47,962 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-KR Korean confidence = 0.01
+2021-03-03 13:46:47,962 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] CP949 Korean confidence = 0.01
+2021-03-03 13:46:47,963 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] Big5 Chinese confidence = 0.01
+2021-03-03 13:46:47,963 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-TW Taiwan confidence = 0.01
+2021-03-03 13:46:47,963 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Russian confidence = 0.01
+2021-03-03 13:46:47,963 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] KOI8-R Russian confidence = 0.01
+2021-03-03 13:46:47,963 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Russian confidence = 0.01
+2021-03-03 13:46:47,964 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] MacCyrillic Russian confidence = 0.01
+2021-03-03 13:46:47,964 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM866 Russian confidence = 0.01
+2021-03-03 13:46:47,964 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM855 Russian confidence = 0.01
+2021-03-03 13:46:47,964 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-7 Greek confidence = 0.01
+2021-03-03 13:46:47,964 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1253 Greek confidence = 0.01
+2021-03-03 13:46:47,964 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Bulgairan confidence = 0.01
+2021-03-03 13:46:47,965 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Bulgarian confidence = 0.01
+2021-03-03 13:46:47,965 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] TIS-620 Thai confidence = 0.0
+2021-03-03 13:46:47,965 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-9 Turkish confidence = 0.44921945718109163
+2021-03-03 13:46:47,965 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.0
+2021-03-03 13:46:47,965 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 13:46:47,965 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 13:46:51,714 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] utf-8  confidence = 0.505
+2021-03-03 13:46:51,715 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] SHIFT_JIS Japanese confidence = 0.01
+2021-03-03 13:46:51,715 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-JP Japanese confidence = 0.01
+2021-03-03 13:46:51,715 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] GB2312 Chinese confidence = 0.01
+2021-03-03 13:46:51,715 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-KR Korean confidence = 0.01
+2021-03-03 13:46:51,715 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] CP949 Korean confidence = 0.01
+2021-03-03 13:46:51,716 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] Big5 Chinese confidence = 0.01
+2021-03-03 13:46:51,716 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-TW Taiwan confidence = 0.01
+2021-03-03 13:46:51,716 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Russian confidence = 0.01
+2021-03-03 13:46:51,716 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] KOI8-R Russian confidence = 0.01
+2021-03-03 13:46:51,716 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Russian confidence = 0.01
+2021-03-03 13:46:51,717 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] MacCyrillic Russian confidence = 0.01
+2021-03-03 13:46:51,717 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM866 Russian confidence = 0.01
+2021-03-03 13:46:51,717 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM855 Russian confidence = 0.01
+2021-03-03 13:46:51,717 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-7 Greek confidence = 0.01
+2021-03-03 13:46:51,717 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1253 Greek confidence = 0.01
+2021-03-03 13:46:51,717 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Bulgairan confidence = 0.01
+2021-03-03 13:46:51,718 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Bulgarian confidence = 0.01
+2021-03-03 13:46:51,718 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] TIS-620 Thai confidence = 0.0
+2021-03-03 13:46:51,718 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-9 Turkish confidence = 0.4465776894031252
+2021-03-03 13:46:51,718 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.0
+2021-03-03 13:46:51,718 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 13:46:51,718 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 14:04:41,179 [3924] DEBUG    parso.python.diff:282: [JupyterRequire] diff parser start
+2021-03-03 14:04:41,181 [3924] DEBUG    parso.python.diff:293: [JupyterRequire] line_lengths old: 1; new: 1
+2021-03-03 14:04:41,182 [3924] DEBUG    parso.python.diff:296: [JupyterRequire] -> code[replace] old[1:1] new[1:1]
+2021-03-03 14:04:41,184 [3924] DEBUG    parso.python.diff:421: [JupyterRequire] parse_part from 1 to 1 (to 0 in part parser)
+2021-03-03 14:04:41,186 [3924] DEBUG    parso.python.diff:339: [JupyterRequire] diff parser end
+2021-03-03 14:04:54,088 [3924] DEBUG    urllib3.connectionpool:226: [JupyterRequire] Starting new HTTP connection (1): www.dakstats.com:80
+2021-03-03 14:04:55,042 [3924] DEBUG    urllib3.connectionpool:433: [JupyterRequire] http://www.dakstats.com:80 "GET /WebSync/Pages/Team/TeamSchedule.aspx?association=10&sg=MBA&sea=NAIMBA_2019&team=1629 HTTP/1.1" 200 147955
+2021-03-03 14:04:55,126 [3924] DEBUG    urllib3.connectionpool:226: [JupyterRequire] Starting new HTTP connection (1): www.dakstats.com:80
+2021-03-03 14:04:55,892 [3924] DEBUG    urllib3.connectionpool:433: [JupyterRequire] http://www.dakstats.com:80 "GET /WebSync/Pages/Team/TeamSchedule.aspx?association=10&sg=MBA&sea=NAIMBA_2019&team=1678 HTTP/1.1" 200 171687
+2021-03-03 14:04:56,003 [3924] DEBUG    urllib3.connectionpool:226: [JupyterRequire] Starting new HTTP connection (1): www.dakstats.com:80
+2021-03-03 14:04:56,996 [3924] DEBUG    urllib3.connectionpool:433: [JupyterRequire] http://www.dakstats.com:80 "GET /WebSync/Pages/Team/TeamSchedule.aspx?association=10&sg=MBA&sea=NAIMBA_2019&team=1679 HTTP/1.1" 200 160648
+2021-03-03 14:04:57,105 [3924] DEBUG    urllib3.connectionpool:226: [JupyterRequire] Starting new HTTP connection (1): www.dakstats.com:80
+2021-03-03 14:04:57,956 [3924] DEBUG    urllib3.connectionpool:433: [JupyterRequire] http://www.dakstats.com:80 "GET /WebSync/Pages/Team/TeamSchedule.aspx?association=10&sg=MBA&sea=NAIMBA_2019&team=1688 HTTP/1.1" 200 157163
+2021-03-03 14:04:58,067 [3924] DEBUG    urllib3.connectionpool:226: [JupyterRequire] Starting new HTTP connection (1): www.dakstats.com:80
+2021-03-03 14:04:58,821 [3924] DEBUG    urllib3.connectionpool:433: [JupyterRequire] http://www.dakstats.com:80 "GET /WebSync/Pages/Team/TeamSchedule.aspx?association=10&sg=MBA&sea=NAIMBA_2019&team=1694 HTTP/1.1" 200 178674
+2021-03-03 14:04:58,929 [3924] DEBUG    urllib3.connectionpool:226: [JupyterRequire] Starting new HTTP connection (1): www.dakstats.com:80
+2021-03-03 14:04:59,699 [3924] DEBUG    urllib3.connectionpool:433: [JupyterRequire] http://www.dakstats.com:80 "GET /WebSync/Pages/Team/TeamSchedule.aspx?association=10&sg=MBA&sea=NAIMBA_2019&team=1717 HTTP/1.1" 200 175200
+2021-03-03 14:04:59,812 [3924] DEBUG    urllib3.connectionpool:226: [JupyterRequire] Starting new HTTP connection (1): www.dakstats.com:80
+2021-03-03 14:05:00,705 [3924] DEBUG    urllib3.connectionpool:433: [JupyterRequire] http://www.dakstats.com:80 "GET /WebSync/Pages/Team/TeamSchedule.aspx?association=10&sg=MBA&sea=NAIMBA_2019&team=1736 HTTP/1.1" 200 180249
+2021-03-03 14:05:00,812 [3924] DEBUG    urllib3.connectionpool:226: [JupyterRequire] Starting new HTTP connection (1): www.dakstats.com:80
+2021-03-03 14:05:01,747 [3924] DEBUG    urllib3.connectionpool:433: [JupyterRequire] http://www.dakstats.com:80 "GET /WebSync/Pages/Team/TeamSchedule.aspx?association=10&sg=MBA&sea=NAIMBA_2019&team=1780 HTTP/1.1" 200 178302
+2021-03-03 14:05:01,856 [3924] DEBUG    urllib3.connectionpool:226: [JupyterRequire] Starting new HTTP connection (1): www.dakstats.com:80
+2021-03-03 14:05:02,697 [3924] DEBUG    urllib3.connectionpool:433: [JupyterRequire] http://www.dakstats.com:80 "GET /WebSync/Pages/Team/TeamSchedule.aspx?association=10&sg=MBA&sea=NAIMBA_2019&team=1805 HTTP/1.1" 200 177849
+2021-03-03 14:05:02,807 [3924] DEBUG    urllib3.connectionpool:226: [JupyterRequire] Starting new HTTP connection (1): www.dakstats.com:80
+2021-03-03 14:05:03,728 [3924] DEBUG    urllib3.connectionpool:433: [JupyterRequire] http://www.dakstats.com:80 "GET /WebSync/Pages/Team/TeamSchedule.aspx?association=10&sg=MBA&sea=NAIMBA_2019&team=1784 HTTP/1.1" 200 188029
+2021-03-03 14:05:06,669 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] utf-8  confidence = 0.505
+2021-03-03 14:05:06,670 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] SHIFT_JIS Japanese confidence = 0.01
+2021-03-03 14:05:06,670 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-JP Japanese confidence = 0.01
+2021-03-03 14:05:06,670 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] GB2312 Chinese confidence = 0.01
+2021-03-03 14:05:06,670 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-KR Korean confidence = 0.01
+2021-03-03 14:05:06,671 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] CP949 Korean confidence = 0.01
+2021-03-03 14:05:06,671 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] Big5 Chinese confidence = 0.01
+2021-03-03 14:05:06,671 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-TW Taiwan confidence = 0.01
+2021-03-03 14:05:06,671 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Russian confidence = 0.01
+2021-03-03 14:05:06,671 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] KOI8-R Russian confidence = 0.01
+2021-03-03 14:05:06,671 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Russian confidence = 0.01
+2021-03-03 14:05:06,672 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] MacCyrillic Russian confidence = 0.01
+2021-03-03 14:05:06,672 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM866 Russian confidence = 0.01
+2021-03-03 14:05:06,672 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM855 Russian confidence = 0.01
+2021-03-03 14:05:06,672 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-7 Greek confidence = 0.01
+2021-03-03 14:05:06,672 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1253 Greek confidence = 0.01
+2021-03-03 14:05:06,672 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Bulgairan confidence = 0.01
+2021-03-03 14:05:06,673 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Bulgarian confidence = 0.01
+2021-03-03 14:05:06,673 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] TIS-620 Thai confidence = 0.0
+2021-03-03 14:05:06,673 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-9 Turkish confidence = 0.45666080759107475
+2021-03-03 14:05:06,673 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.0
+2021-03-03 14:05:06,673 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 14:05:06,673 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 14:05:09,762 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] utf-8  confidence = 0.505
+2021-03-03 14:05:09,762 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] SHIFT_JIS Japanese confidence = 0.01
+2021-03-03 14:05:09,763 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-JP Japanese confidence = 0.01
+2021-03-03 14:05:09,763 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] GB2312 Chinese confidence = 0.01
+2021-03-03 14:05:09,763 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-KR Korean confidence = 0.01
+2021-03-03 14:05:09,763 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] CP949 Korean confidence = 0.01
+2021-03-03 14:05:09,763 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] Big5 Chinese confidence = 0.01
+2021-03-03 14:05:09,763 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-TW Taiwan confidence = 0.01
+2021-03-03 14:05:09,764 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Russian confidence = 0.01
+2021-03-03 14:05:09,764 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] KOI8-R Russian confidence = 0.01
+2021-03-03 14:05:09,764 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Russian confidence = 0.01
+2021-03-03 14:05:09,764 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] MacCyrillic Russian confidence = 0.01
+2021-03-03 14:05:09,764 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM866 Russian confidence = 0.01
+2021-03-03 14:05:09,765 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM855 Russian confidence = 0.01
+2021-03-03 14:05:09,765 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-7 Greek confidence = 0.01
+2021-03-03 14:05:09,765 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1253 Greek confidence = 0.01
+2021-03-03 14:05:09,765 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Bulgairan confidence = 0.01
+2021-03-03 14:05:09,765 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Bulgarian confidence = 0.01
+2021-03-03 14:05:09,765 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] TIS-620 Thai confidence = 0.0
+2021-03-03 14:05:09,765 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-9 Turkish confidence = 0.4490686910680334
+2021-03-03 14:05:09,766 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.0
+2021-03-03 14:05:09,766 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 14:05:09,766 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 14:05:12,621 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] utf-8  confidence = 0.505
+2021-03-03 14:05:12,622 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] SHIFT_JIS Japanese confidence = 0.01
+2021-03-03 14:05:12,622 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-JP Japanese confidence = 0.01
+2021-03-03 14:05:12,622 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] GB2312 Chinese confidence = 0.01
+2021-03-03 14:05:12,622 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-KR Korean confidence = 0.01
+2021-03-03 14:05:12,623 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] CP949 Korean confidence = 0.01
+2021-03-03 14:05:12,623 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] Big5 Chinese confidence = 0.01
+2021-03-03 14:05:12,623 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-TW Taiwan confidence = 0.01
+2021-03-03 14:05:12,623 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Russian confidence = 0.01
+2021-03-03 14:05:12,623 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] KOI8-R Russian confidence = 0.01
+2021-03-03 14:05:12,623 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Russian confidence = 0.01
+2021-03-03 14:05:12,624 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] MacCyrillic Russian confidence = 0.01
+2021-03-03 14:05:12,624 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM866 Russian confidence = 0.01
+2021-03-03 14:05:12,624 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM855 Russian confidence = 0.01
+2021-03-03 14:05:12,624 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-7 Greek confidence = 0.01
+2021-03-03 14:05:12,624 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1253 Greek confidence = 0.01
+2021-03-03 14:05:12,624 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Bulgairan confidence = 0.01
+2021-03-03 14:05:12,625 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Bulgarian confidence = 0.01
+2021-03-03 14:05:12,625 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] TIS-620 Thai confidence = 0.0
+2021-03-03 14:05:12,625 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-9 Turkish confidence = 0.4523486232673796
+2021-03-03 14:05:12,625 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.0
+2021-03-03 14:05:12,625 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 14:05:12,625 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 14:05:15,443 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] utf-8  confidence = 0.505
+2021-03-03 14:05:15,444 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] SHIFT_JIS Japanese confidence = 0.01
+2021-03-03 14:05:15,444 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-JP Japanese confidence = 0.01
+2021-03-03 14:05:15,444 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] GB2312 Chinese confidence = 0.01
+2021-03-03 14:05:15,444 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-KR Korean confidence = 0.01
+2021-03-03 14:05:15,445 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] CP949 Korean confidence = 0.01
+2021-03-03 14:05:15,445 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] Big5 Chinese confidence = 0.01
+2021-03-03 14:05:15,445 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-TW Taiwan confidence = 0.01
+2021-03-03 14:05:15,445 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Russian confidence = 0.01
+2021-03-03 14:05:15,445 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] KOI8-R Russian confidence = 0.01
+2021-03-03 14:05:15,445 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Russian confidence = 0.01
+2021-03-03 14:05:15,446 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] MacCyrillic Russian confidence = 0.01
+2021-03-03 14:05:15,446 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM866 Russian confidence = 0.01
+2021-03-03 14:05:15,446 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM855 Russian confidence = 0.01
+2021-03-03 14:05:15,446 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-7 Greek confidence = 0.01
+2021-03-03 14:05:15,446 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1253 Greek confidence = 0.01
+2021-03-03 14:05:15,446 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Bulgairan confidence = 0.01
+2021-03-03 14:05:15,446 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Bulgarian confidence = 0.01
+2021-03-03 14:05:15,447 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] TIS-620 Thai confidence = 0.0
+2021-03-03 14:05:15,447 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-9 Turkish confidence = 0.45339495001080077
+2021-03-03 14:05:15,447 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.0
+2021-03-03 14:05:15,447 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 14:05:15,447 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 14:05:18,605 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] utf-8  confidence = 0.505
+2021-03-03 14:05:18,606 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] SHIFT_JIS Japanese confidence = 0.01
+2021-03-03 14:05:18,606 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-JP Japanese confidence = 0.01
+2021-03-03 14:05:18,606 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] GB2312 Chinese confidence = 0.01
+2021-03-03 14:05:18,606 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-KR Korean confidence = 0.01
+2021-03-03 14:05:18,606 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] CP949 Korean confidence = 0.01
+2021-03-03 14:05:18,607 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] Big5 Chinese confidence = 0.01
+2021-03-03 14:05:18,607 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-TW Taiwan confidence = 0.01
+2021-03-03 14:05:18,607 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Russian confidence = 0.01
+2021-03-03 14:05:18,607 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] KOI8-R Russian confidence = 0.01
+2021-03-03 14:05:18,607 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Russian confidence = 0.01
+2021-03-03 14:05:18,607 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] MacCyrillic Russian confidence = 0.01
+2021-03-03 14:05:18,608 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM866 Russian confidence = 0.01
+2021-03-03 14:05:18,608 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM855 Russian confidence = 0.01
+2021-03-03 14:05:18,608 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-7 Greek confidence = 0.01
+2021-03-03 14:05:18,608 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1253 Greek confidence = 0.01
+2021-03-03 14:05:18,608 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Bulgairan confidence = 0.01
+2021-03-03 14:05:18,608 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Bulgarian confidence = 0.01
+2021-03-03 14:05:18,609 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] TIS-620 Thai confidence = 0.0
+2021-03-03 14:05:18,609 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-9 Turkish confidence = 0.4488537017700263
+2021-03-03 14:05:18,609 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.0
+2021-03-03 14:05:18,609 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 14:05:18,609 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 14:05:21,782 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] utf-8  confidence = 0.505
+2021-03-03 14:05:21,783 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] SHIFT_JIS Japanese confidence = 0.01
+2021-03-03 14:05:21,783 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-JP Japanese confidence = 0.01
+2021-03-03 14:05:21,783 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] GB2312 Chinese confidence = 0.01
+2021-03-03 14:05:21,783 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-KR Korean confidence = 0.01
+2021-03-03 14:05:21,784 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] CP949 Korean confidence = 0.01
+2021-03-03 14:05:21,784 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] Big5 Chinese confidence = 0.01
+2021-03-03 14:05:21,784 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-TW Taiwan confidence = 0.01
+2021-03-03 14:05:21,784 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Russian confidence = 0.01
+2021-03-03 14:05:21,784 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] KOI8-R Russian confidence = 0.01
+2021-03-03 14:05:21,784 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Russian confidence = 0.01
+2021-03-03 14:05:21,785 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] MacCyrillic Russian confidence = 0.01
+2021-03-03 14:05:21,785 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM866 Russian confidence = 0.01
+2021-03-03 14:05:21,785 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM855 Russian confidence = 0.01
+2021-03-03 14:05:21,785 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-7 Greek confidence = 0.01
+2021-03-03 14:05:21,785 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1253 Greek confidence = 0.01
+2021-03-03 14:05:21,786 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Bulgairan confidence = 0.01
+2021-03-03 14:05:21,786 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Bulgarian confidence = 0.01
+2021-03-03 14:05:21,787 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] TIS-620 Thai confidence = 0.0
+2021-03-03 14:05:21,787 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-9 Turkish confidence = 0.44886627515700495
+2021-03-03 14:05:21,787 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.0
+2021-03-03 14:05:21,787 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 14:05:21,787 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 14:05:24,964 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] utf-8  confidence = 0.505
+2021-03-03 14:05:24,964 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] SHIFT_JIS Japanese confidence = 0.01
+2021-03-03 14:05:24,964 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-JP Japanese confidence = 0.01
+2021-03-03 14:05:24,964 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] GB2312 Chinese confidence = 0.01
+2021-03-03 14:05:24,965 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-KR Korean confidence = 0.01
+2021-03-03 14:05:24,965 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] CP949 Korean confidence = 0.01
+2021-03-03 14:05:24,965 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] Big5 Chinese confidence = 0.01
+2021-03-03 14:05:24,965 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-TW Taiwan confidence = 0.01
+2021-03-03 14:05:24,965 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Russian confidence = 0.01
+2021-03-03 14:05:24,966 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] KOI8-R Russian confidence = 0.01
+2021-03-03 14:05:24,966 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Russian confidence = 0.01
+2021-03-03 14:05:24,966 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] MacCyrillic Russian confidence = 0.01
+2021-03-03 14:05:24,966 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM866 Russian confidence = 0.01
+2021-03-03 14:05:24,966 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM855 Russian confidence = 0.01
+2021-03-03 14:05:24,966 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-7 Greek confidence = 0.01
+2021-03-03 14:05:24,966 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1253 Greek confidence = 0.01
+2021-03-03 14:05:24,967 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Bulgairan confidence = 0.01
+2021-03-03 14:05:24,967 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Bulgarian confidence = 0.01
+2021-03-03 14:05:24,967 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] TIS-620 Thai confidence = 0.0
+2021-03-03 14:05:24,967 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-9 Turkish confidence = 0.44783656729544186
+2021-03-03 14:05:24,967 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.0
+2021-03-03 14:05:24,967 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 14:05:24,968 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 14:05:28,151 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] utf-8  confidence = 0.505
+2021-03-03 14:05:28,151 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] SHIFT_JIS Japanese confidence = 0.01
+2021-03-03 14:05:28,151 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-JP Japanese confidence = 0.01
+2021-03-03 14:05:28,152 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] GB2312 Chinese confidence = 0.01
+2021-03-03 14:05:28,152 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-KR Korean confidence = 0.01
+2021-03-03 14:05:28,152 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] CP949 Korean confidence = 0.01
+2021-03-03 14:05:28,152 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] Big5 Chinese confidence = 0.01
+2021-03-03 14:05:28,152 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-TW Taiwan confidence = 0.01
+2021-03-03 14:05:28,153 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Russian confidence = 0.01
+2021-03-03 14:05:28,153 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] KOI8-R Russian confidence = 0.01
+2021-03-03 14:05:28,153 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Russian confidence = 0.01
+2021-03-03 14:05:28,153 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] MacCyrillic Russian confidence = 0.01
+2021-03-03 14:05:28,154 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM866 Russian confidence = 0.01
+2021-03-03 14:05:28,154 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM855 Russian confidence = 0.01
+2021-03-03 14:05:28,154 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-7 Greek confidence = 0.01
+2021-03-03 14:05:28,154 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1253 Greek confidence = 0.01
+2021-03-03 14:05:28,154 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Bulgairan confidence = 0.01
+2021-03-03 14:05:28,154 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Bulgarian confidence = 0.01
+2021-03-03 14:05:28,155 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] TIS-620 Thai confidence = 0.0
+2021-03-03 14:05:28,155 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-9 Turkish confidence = 0.44890073115716916
+2021-03-03 14:05:28,155 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.0
+2021-03-03 14:05:28,155 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 14:05:28,155 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 14:05:31,397 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] utf-8  confidence = 0.505
+2021-03-03 14:05:31,397 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] SHIFT_JIS Japanese confidence = 0.01
+2021-03-03 14:05:31,398 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-JP Japanese confidence = 0.01
+2021-03-03 14:05:31,398 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] GB2312 Chinese confidence = 0.01
+2021-03-03 14:05:31,398 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-KR Korean confidence = 0.01
+2021-03-03 14:05:31,398 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] CP949 Korean confidence = 0.01
+2021-03-03 14:05:31,398 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] Big5 Chinese confidence = 0.01
+2021-03-03 14:05:31,398 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-TW Taiwan confidence = 0.01
+2021-03-03 14:05:31,399 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Russian confidence = 0.01
+2021-03-03 14:05:31,399 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] KOI8-R Russian confidence = 0.01
+2021-03-03 14:05:31,399 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Russian confidence = 0.01
+2021-03-03 14:05:31,399 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] MacCyrillic Russian confidence = 0.01
+2021-03-03 14:05:31,399 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM866 Russian confidence = 0.01
+2021-03-03 14:05:31,400 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM855 Russian confidence = 0.01
+2021-03-03 14:05:31,400 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-7 Greek confidence = 0.01
+2021-03-03 14:05:31,400 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1253 Greek confidence = 0.01
+2021-03-03 14:05:31,400 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Bulgairan confidence = 0.01
+2021-03-03 14:05:31,400 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Bulgarian confidence = 0.01
+2021-03-03 14:05:31,400 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] TIS-620 Thai confidence = 0.0
+2021-03-03 14:05:31,401 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-9 Turkish confidence = 0.44921945718109163
+2021-03-03 14:05:31,401 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.0
+2021-03-03 14:05:31,401 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 14:05:31,401 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 14:05:34,832 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] utf-8  confidence = 0.505
+2021-03-03 14:05:34,832 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] SHIFT_JIS Japanese confidence = 0.01
+2021-03-03 14:05:34,833 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-JP Japanese confidence = 0.01
+2021-03-03 14:05:34,833 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] GB2312 Chinese confidence = 0.01
+2021-03-03 14:05:34,833 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-KR Korean confidence = 0.01
+2021-03-03 14:05:34,833 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] CP949 Korean confidence = 0.01
+2021-03-03 14:05:34,833 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] Big5 Chinese confidence = 0.01
+2021-03-03 14:05:34,834 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] EUC-TW Taiwan confidence = 0.01
+2021-03-03 14:05:34,834 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Russian confidence = 0.01
+2021-03-03 14:05:34,834 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] KOI8-R Russian confidence = 0.01
+2021-03-03 14:05:34,834 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Russian confidence = 0.01
+2021-03-03 14:05:34,834 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] MacCyrillic Russian confidence = 0.01
+2021-03-03 14:05:34,834 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM866 Russian confidence = 0.01
+2021-03-03 14:05:34,835 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] IBM855 Russian confidence = 0.01
+2021-03-03 14:05:34,835 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-7 Greek confidence = 0.01
+2021-03-03 14:05:34,835 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1253 Greek confidence = 0.01
+2021-03-03 14:05:34,835 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-5 Bulgairan confidence = 0.01
+2021-03-03 14:05:34,835 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1251 Bulgarian confidence = 0.01
+2021-03-03 14:05:34,835 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] TIS-620 Thai confidence = 0.0
+2021-03-03 14:05:34,836 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] ISO-8859-9 Turkish confidence = 0.4465776894031252
+2021-03-03 14:05:34,836 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.0
+2021-03-03 14:05:34,836 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-03 14:05:34,836 [3924] DEBUG    chardet.charsetprober:100: [JupyterRequire] windows-1255 Hebrew confidence = 0.01
+2021-03-05 11:48:33,014 [10160] DEBUG    root:75: [JupyterRequire] Loading Jupyter Require extension.
+2021-03-05 11:48:33,015 [10160] DEBUG    root:93: [JupyterRequire] Initializing comms.
+2021-03-05 11:48:33,015 [10160] INFO     root:247: [JupyterRequire] Initializing comms.
+2021-03-05 11:48:33,021 [10160] DEBUG    root:195: [JupyterRequire] Configuration requested: {'paths': {}, 'shim': None}
+2021-03-05 11:48:33,022 [10160] INFO     root:271: [JupyterRequire] Comms have been successfully initialized.
+2021-03-05 11:48:33,023 [10160] DEBUG    root:97: [JupyterRequire] Registering comm targets.
+2021-03-05 11:48:33,543 [10160] DEBUG    root:75: [JupyterRequire] Loading Jupyter Require extension.
+2021-03-05 11:48:33,544 [10160] DEBUG    root:93: [JupyterRequire] Initializing comms.
+2021-03-05 11:48:33,544 [10160] INFO     root:247: [JupyterRequire] Initializing comms.
+2021-03-05 11:48:33,548 [10160] DEBUG    root:195: [JupyterRequire] Configuration requested: {'paths': {}, 'shim': None}
+2021-03-05 11:48:33,549 [10160] INFO     root:271: [JupyterRequire] Comms have been successfully initialized.
+2021-03-05 11:48:33,550 [10160] DEBUG    root:97: [JupyterRequire] Registering comm targets.
