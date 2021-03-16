@@ -1778,3 +1778,797 @@ IPDL protocol error: Handler returned error code!
 
 ###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
 
+1615872464070	geckodriver	INFO	Listening on 127.0.0.1:62411
+1615872467142	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\baseb\\AppData\\Local\\Temp\\rust_mozprofileI5nzKr"
+1615872470029	Marionette	INFO	Listening on port 62419
+JavaScript error: jar:file:///C:/Program%20Files/Mozilla%20Firefox/omni.ja!/components/nsUrlClassifierListManager.js, line 65: NS_ERROR_XPC_GS_RETURNED_FAILURE: Component returned failure code: 0x80570016 (NS_ERROR_XPC_GS_RETURNED_FAILURE) [nsIJSCID.getService]
+JavaScript error: jar:file:///C:/Program%20Files/Mozilla%20Firefox/omni.ja!/components/nsUrlClassifierListManager.js, line 65: NS_ERROR_XPC_GS_RETURNED_FAILURE: Component returned failure code: 0x80570016 (NS_ERROR_XPC_GS_RETURNED_FAILURE) [nsIJSCID.getService]
+1615872470317	Marionette	WARN	TLS certificate errors will be ignored for this session
+1615872470364	Marionette	DEBUG	[6442450945] Frame script loaded
+1615872470365	Marionette	DEBUG	[6442450945] Frame script registered
+1615872470379	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for about:blank
+1615872470900	Marionette	DEBUG	[6442450945] Received DOM event pagehide for about:blank
+1615872471656	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1629&sea=NAIMBA_2019
+1615872473259	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1629&sea=NAIMBA_2019
+1615872473334	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1629&sea=NAIMBA_2019
+1615872473705	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1629&sea=NAIMBA_2019
+1615872473729	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1629&sea=NAIMBA_2019
+1615872473942	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450949
+1615872473943	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450950
+1615872473943	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450951
+1615872473943	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450952
+1615872473943	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450953
+1615872473943	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450954
+1615872473944	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450969
+1615872473944	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450964
+1615872473944	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450966
+1615872473944	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450961
+1615872473976	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1629&sea=NAIMBA_2019
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+1615872476053	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1629&sea=NAIMBA_2019
+1615872476112	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1629&sea=NAIMBA_2019
+JavaScript warning: https://pagead2.googlesyndication.com/bg/OqSalp92o-4AtfYt583RauVJYevBmhjij2pcg0zPe10.js line 1 > eval line 5784 > eval, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+1615872476190	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451000
+1615872476515	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1629&sea=NAIMBA_2019
+1615872476534	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1629&sea=NAIMBA_2019
+1615872476724	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450972
+1615872476724	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450973
+1615872476725	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450974
+1615872476725	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450975
+1615872476725	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450976
+1615872476725	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450977
+1615872476726	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450992
+1615872476726	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451002
+1615872476726	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450994
+1615872476726	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450997
+1615872476727	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450987
+1615872476727	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450989
+1615872476727	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451005
+1615872476728	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450984
+1615872477005	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1678&sea=NAIMBA_2019
+1615872478445	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1678&sea=NAIMBA_2019
+1615872478690	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1678&sea=NAIMBA_2019
+1615872478696	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451034
+JavaScript error: , line 0: uncaught exception: undefined
+1615872479249	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1678&sea=NAIMBA_2019
+1615872479274	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1678&sea=NAIMBA_2019
+1615872479556	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451009
+1615872479556	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451010
+1615872479556	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451011
+1615872479556	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451012
+1615872479557	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451013
+1615872479557	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451014
+1615872479558	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451029
+1615872479558	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451032
+1615872479558	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451024
+1615872479559	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451026
+1615872479559	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451036
+1615872479560	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451021
+1615872479617	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1678&sea=NAIMBA_2019
+1615872481449	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1678&sea=NAIMBA_2019
+1615872481573	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1678&sea=NAIMBA_2019
+JavaScript error: , line 0: uncaught exception: undefined
+1615872481985	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1678&sea=NAIMBA_2019
+1615872481999	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1678&sea=NAIMBA_2019
+1615872482395	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451040
+1615872482396	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451041
+1615872482397	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451042
+1615872482398	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451043
+1615872482398	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451044
+1615872482399	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451045
+1615872482399	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451060
+1615872482399	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451063
+1615872482400	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451055
+1615872482400	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451057
+1615872482400	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451065
+1615872482400	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451052
+1615872482639	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1679&sea=NAIMBA_2019
+1615872484141	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1679&sea=NAIMBA_2019
+1615872484256	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1679&sea=NAIMBA_2019
+1615872484746	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1679&sea=NAIMBA_2019
+1615872484754	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1679&sea=NAIMBA_2019
+1615872484940	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451069
+1615872484940	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451070
+1615872484940	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451071
+1615872484940	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451072
+1615872484940	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451073
+1615872484940	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451074
+1615872484941	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451089
+1615872484941	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451092
+1615872484941	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451084
+1615872484941	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451086
+1615872484941	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451094
+1615872484942	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451081
+1615872485156	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1679&sea=NAIMBA_2019
+1615872486642	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1679&sea=NAIMBA_2019
+1615872486789	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1679&sea=NAIMBA_2019
+1615872487199	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1679&sea=NAIMBA_2019
+1615872487224	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1679&sea=NAIMBA_2019
+1615872487613	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451098
+1615872487614	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451099
+1615872487614	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451100
+1615872487615	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451101
+1615872487615	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451102
+1615872487615	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451103
+1615872487615	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451118
+1615872487616	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451121
+1615872487616	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451113
+1615872487616	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451115
+1615872487616	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451123
+1615872487617	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451110
+1615872487752	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1688&sea=NAIMBA_2019
+1615872489211	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1688&sea=NAIMBA_2019
+1615872489352	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1688&sea=NAIMBA_2019
+JavaScript error: , line 0: uncaught exception: undefined
+1615872489780	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1688&sea=NAIMBA_2019
+1615872489793	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1688&sea=NAIMBA_2019
+1615872490143	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1688&sea=NAIMBA_2019
+1615872490152	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451127
+1615872490152	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451128
+1615872490153	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451129
+1615872490153	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451130
+1615872490153	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451131
+1615872490154	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451132
+1615872490154	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451147
+1615872490154	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451148
+1615872490155	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451149
+1615872490155	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451157
+1615872490155	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451142
+1615872490156	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451144
+1615872490156	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451159
+1615872490156	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451139
+1615872491240	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1688&sea=NAIMBA_2019
+1615872491306	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1688&sea=NAIMBA_2019
+1615872491778	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1688&sea=NAIMBA_2019
+1615872491794	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1688&sea=NAIMBA_2019
+1615872492180	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451162
+1615872492181	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451163
+1615872492181	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451164
+1615872492181	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451165
+1615872492182	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451166
+1615872492182	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451167
+1615872492182	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451182
+1615872492182	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451185
+1615872492182	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451177
+1615872492183	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451179
+1615872492183	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451187
+1615872492183	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451174
+1615872492352	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1694&sea=NAIMBA_2019
+1615872493819	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1694&sea=NAIMBA_2019
+1615872493947	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1694&sea=NAIMBA_2019
+JavaScript error: , line 0: uncaught exception: undefined
+1615872494475	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1694&sea=NAIMBA_2019
+1615872494500	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1694&sea=NAIMBA_2019
+1615872494898	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451191
+1615872494898	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451192
+1615872494898	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451193
+1615872494898	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451194
+1615872494899	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451195
+1615872494899	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451196
+1615872494899	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451211
+1615872494899	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451212
+1615872494899	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451218
+1615872494900	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451206
+1615872494900	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451208
+1615872494900	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451220
+1615872494900	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451203
+1615872495034	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1694&sea=NAIMBA_2019
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+1615872496760	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1694&sea=NAIMBA_2019
+1615872496832	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1694&sea=NAIMBA_2019
+1615872497242	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1694&sea=NAIMBA_2019
+1615872497258	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1694&sea=NAIMBA_2019
+JavaScript warning: https://pagead2.googlesyndication.com/bg/OqSalp92o-4AtfYt583RauVJYevBmhjij2pcg0zPe10.js line 1 > eval line 4013 > eval line 1 > eval, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+1615872497468	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451251
+1615872497820	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1717&sea=NAIMBA_2019
+1615872497826	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451223
+1615872497826	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451224
+1615872497827	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451225
+1615872497827	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451226
+1615872497827	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451227
+1615872497828	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451228
+1615872497828	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451243
+1615872497829	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451253
+1615872497829	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451245
+1615872497829	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451248
+1615872497830	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451238
+1615872497830	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451240
+1615872497830	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451256
+1615872497831	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451235
+1615872499304	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1717&sea=NAIMBA_2019
+1615872499430	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1717&sea=NAIMBA_2019
+1615872499685	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451287
+JavaScript error: , line 0: uncaught exception: undefined
+1615872500059	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1717&sea=NAIMBA_2019
+1615872500081	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1717&sea=NAIMBA_2019
+1615872500458	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1717&sea=NAIMBA_2019
+1615872500494	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451260
+1615872500494	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451261
+1615872500495	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451262
+1615872500495	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451263
+1615872500495	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451264
+1615872500496	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451265
+1615872500496	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451280
+1615872500496	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451283
+1615872500496	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451275
+1615872500497	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451277
+1615872500497	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451285
+1615872500497	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451272
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+1615872502131	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1717&sea=NAIMBA_2019
+1615872502228	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1717&sea=NAIMBA_2019
+1615872502673	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1717&sea=NAIMBA_2019
+1615872502694	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1717&sea=NAIMBA_2019
+JavaScript warning: https://pagead2.googlesyndication.com/bg/OqSalp92o-4AtfYt583RauVJYevBmhjij2pcg0zPe10.js line 1 > eval line 482 > eval line 1 > eval, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+1615872502955	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451321
+1615872503272	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1736&sea=NAIMBA_2019
+1615872503280	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451290
+1615872503280	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451291
+1615872503280	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451292
+1615872503280	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451293
+1615872503281	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451294
+1615872503281	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451295
+1615872503281	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451310
+1615872503282	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451318
+1615872503282	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451312
+1615872503282	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451315
+1615872503283	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451305
+1615872503283	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451307
+1615872503283	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451323
+1615872503284	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451302
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+1615872505316	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1736&sea=NAIMBA_2019
+1615872505465	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1736&sea=NAIMBA_2019
+JavaScript error: , line 0: uncaught exception: undefined
+1615872505901	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1736&sea=NAIMBA_2019
+1615872505911	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1736&sea=NAIMBA_2019
+JavaScript warning: https://pagead2.googlesyndication.com/bg/OqSalp92o-4AtfYt583RauVJYevBmhjij2pcg0zPe10.js line 1 > eval line 3200 > eval, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+1615872506115	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451357
+1615872506415	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1736&sea=NAIMBA_2019
+1615872506440	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451326
+1615872506441	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451327
+1615872506441	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451328
+1615872506441	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451329
+1615872506442	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451330
+1615872506442	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451331
+1615872506443	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451346
+1615872506443	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451354
+1615872506443	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451348
+1615872506444	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451351
+1615872506444	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451341
+1615872506444	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451343
+1615872506445	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451359
+1615872506445	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451338
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/OqSalp92o-4AtfYt583RauVJYevBmhjij2pcg0zPe10.js line 1 > eval line 7610 > eval line 1 > eval, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+1615872508847	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451393
+1615872510145	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1736&sea=NAIMBA_2019
+1615872510236	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1736&sea=NAIMBA_2019
+1615872510668	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1736&sea=NAIMBA_2019
+1615872510686	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1736&sea=NAIMBA_2019
+1615872510925	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451362
+1615872510926	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451363
+1615872510926	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451364
+1615872510926	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451365
+1615872510927	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451366
+1615872510927	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451367
+1615872510927	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451382
+1615872510927	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451390
+1615872510928	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451384
+1615872510928	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451387
+1615872510928	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451377
+1615872510929	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451379
+1615872510929	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451395
+1615872510929	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451374
+1615872511132	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1780&sea=NAIMBA_2019
+1615872513066	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1780&sea=NAIMBA_2019
+1615872513186	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1780&sea=NAIMBA_2019
+JavaScript error: https://tpc.googlesyndication.com/sodar/sodar2.js, line 25: NotFoundError: Node was not found
+1615872513679	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1780&sea=NAIMBA_2019
+1615872513688	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1780&sea=NAIMBA_2019
+JavaScript warning: https://pagead2.googlesyndication.com/bg/OqSalp92o-4AtfYt583RauVJYevBmhjij2pcg0zPe10.js line 1 > eval line 1993 > eval line 1 > eval, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+1615872513782	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451427
+1615872514096	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1780&sea=NAIMBA_2019
+1615872514103	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451398
+1615872514104	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451399
+1615872514104	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451400
+1615872514104	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451401
+1615872514105	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451402
+1615872514105	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451403
+1615872514106	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451429
+1615872514106	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451424
+1615872514106	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451418
+1615872514107	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451420
+1615872514107	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451413
+1615872514107	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451415
+1615872514107	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451431
+1615872514108	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451410
+JavaScript error: https://pagead2.googlesyndication.com/pagead/js/r20210310/r20190131/show_ads_impl.js, line 327: Error: XHR error: https://partner.googleadservices.com/gampad/cookie.js?domain=www.dakstats.com&client=ca-pub-2777870302657841&cookie=ID=403b2e787d4d3296-2207c7fce8c600b0:T=1615872471:RT=1615872471:S=ALNI_MZlaO13CA7MT80Lps-SIZmtyk-szg
+1615872515546	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1780&sea=NAIMBA_2019
+1615872515607	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1780&sea=NAIMBA_2019
+1615872515920	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451462
+1615872516212	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1780&sea=NAIMBA_2019
+1615872516242	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1780&sea=NAIMBA_2019
+1615872516529	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451435
+1615872516529	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451436
+1615872516529	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451437
+1615872516530	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451438
+1615872516530	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451439
+1615872516530	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451440
+1615872516530	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451455
+1615872516531	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451458
+1615872516531	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451450
+1615872516531	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451452
+1615872516531	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451460
+1615872516532	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451447
+1615872516801	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1805&sea=NAIMBA_2019
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+1615872518852	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1805&sea=NAIMBA_2019
+1615872519043	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1805&sea=NAIMBA_2019
+JavaScript error: , line 0: uncaught exception: undefined
+1615872519769	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1805&sea=NAIMBA_2019
+1615872519788	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1805&sea=NAIMBA_2019
+JavaScript warning: https://pagead2.googlesyndication.com/bg/OqSalp92o-4AtfYt583RauVJYevBmhjij2pcg0zPe10.js line 1 > eval line 2448 > eval, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+1615872520006	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451497
+1615872520378	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1805&sea=NAIMBA_2019
+1615872520388	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451466
+1615872520388	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451467
+1615872520388	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451468
+1615872520389	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451469
+1615872520389	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451470
+1615872520390	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451471
+1615872520391	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451486
+1615872520391	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451494
+1615872520392	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451488
+1615872520392	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451491
+1615872520392	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451481
+1615872520393	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451483
+1615872520393	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451499
+1615872520393	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451478
+1615872522019	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1805&sea=NAIMBA_2019
+1615872522098	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1805&sea=NAIMBA_2019
+1615872522406	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451529
+1615872522700	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1805&sea=NAIMBA_2019
+1615872522711	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1805&sea=NAIMBA_2019
+1615872523145	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1784&sea=NAIMBA_2019
+1615872523158	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451502
+1615872523159	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451503
+1615872523159	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451504
+1615872523160	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451505
+1615872523160	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451506
+1615872523161	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451507
+1615872523161	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451522
+1615872523161	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451525
+1615872523162	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451517
+1615872523162	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451519
+1615872523163	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451527
+1615872523163	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451514
+1615872524520	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1784&sea=NAIMBA_2019
+1615872524917	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1784&sea=NAIMBA_2019
+1615872524925	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451560
+JavaScript error: , line 0: uncaught exception: undefined
+1615872525319	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1784&sea=NAIMBA_2019
+1615872525338	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1784&sea=NAIMBA_2019
+1615872525574	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451533
+1615872525574	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451534
+1615872525575	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451535
+1615872525575	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451536
+1615872525575	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451537
+1615872525575	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451538
+1615872525576	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451553
+1615872525576	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451556
+1615872525577	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451548
+1615872525578	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451550
+1615872525578	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451558
+1615872525579	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451545
+1615872525790	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1784&sea=NAIMBA_2019
+1615872527202	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1784&sea=NAIMBA_2019
+JavaScript warning: https://pagead2.googlesyndication.com/bg/OqSalp92o-4AtfYt583RauVJYevBmhjij2pcg0zPe10.js line 1 > eval line 1360 > eval line 1 > eval, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+[Child 14992, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 14992, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 2608, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 11128, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 11128, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1615872713397	Marionette	INFO	Stopped listening on port 62419
+gram%20Files/Mozilla%20Firefox/omni.ja!/components/nsUrlClassifierListManager.js, line 65: NS_ERROR_XPC_GS_RETURNED_FAILURE: Component returned failure code: 0x80570016 (NS_ERROR_XPC_GS_RETURNED_FAILURE) [nsIJSCID.getService]
+1615872665355	Marionette	DEBUG	[6442450945] Frame script registered
+1615872665382	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for about:blank
+1615872666251	Marionette	DEBUG	[6442450945] Received DOM event pagehide for about:blank
+1615872667121	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1629&sea=NAIMBA_2019
+1615872668774	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1629&sea=NAIMBA_2019
+1615872668844	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1629&sea=NAIMBA_2019
+1615872669214	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1629&sea=NAIMBA_2019
+1615872669223	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1629&sea=NAIMBA_2019
+1615872669335	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450949
+1615872669335	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450950
+1615872669336	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450951
+1615872669336	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450952
+1615872669336	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450953
+1615872669336	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450954
+1615872669337	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450969
+1615872669337	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450972
+1615872669337	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450964
+1615872669337	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450966
+1615872669338	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450961
+1615872669911	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1629&sea=NAIMBA_2019
+JavaScript warning: https://pagead2.googlesyndication.com/bg/OqSalp92o-4AtfYt583RauVJYevBmhjij2pcg0zPe10.js line 1 > eval line 1286 > eval, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+1615872671546	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451003
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+1615872672971	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1629&sea=NAIMBA_2019
+1615872673019	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1629&sea=NAIMBA_2019
+1615872673425	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1629&sea=NAIMBA_2019
+1615872673445	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1629&sea=NAIMBA_2019
+1615872673559	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450975
+1615872673559	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450976
+1615872673559	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450977
+1615872673559	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450978
+1615872673559	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450979
+1615872673560	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450980
+1615872673560	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450995
+1615872673560	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451005
+1615872673560	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450997
+1615872673560	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451000
+1615872673561	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450990
+1615872673561	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450992
+1615872673561	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451008
+1615872673561	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442450987
+1615872674049	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1678&sea=NAIMBA_2019
+1615872676320	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1678&sea=NAIMBA_2019
+1615872676437	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1678&sea=NAIMBA_2019
+1615872676725	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451039
+JavaScript error: , line 0: uncaught exception: undefined
+1615872677266	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1678&sea=NAIMBA_2019
+1615872677288	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1678&sea=NAIMBA_2019
+1615872677509	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451012
+1615872677509	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451013
+1615872677509	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451014
+1615872677510	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451015
+1615872677510	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451016
+1615872677510	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451017
+1615872677510	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451032
+1615872677511	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451035
+1615872677511	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451027
+1615872677511	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451029
+1615872677512	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451037
+1615872677512	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451024
+1615872678114	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1678&sea=NAIMBA_2019
+1615872679328	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1678&sea=NAIMBA_2019
+1615872679427	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1678&sea=NAIMBA_2019
+1615872680037	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1678&sea=NAIMBA_2019
+1615872680047	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1678&sea=NAIMBA_2019
+1615872680259	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451043
+1615872680260	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451044
+1615872680260	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451045
+1615872680260	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451046
+1615872680261	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451047
+1615872680261	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451048
+1615872680261	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451063
+1615872680261	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451058
+1615872680262	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451060
+1615872680262	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451066
+1615872680262	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451055
+1615872680860	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1679&sea=NAIMBA_2019
+1615872682204	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1679&sea=NAIMBA_2019
+1615872682371	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1679&sea=NAIMBA_2019
+JavaScript error: , line 0: uncaught exception: undefined
+1615872682775	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1679&sea=NAIMBA_2019
+1615872682791	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1679&sea=NAIMBA_2019
+1615872682986	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451070
+1615872682987	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451071
+1615872682987	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451072
+1615872682987	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451073
+1615872682988	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451074
+1615872682988	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451075
+1615872682988	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451090
+1615872682988	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451085
+1615872682989	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451087
+1615872682989	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451093
+1615872682989	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451082
+1615872683631	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1679&sea=NAIMBA_2019
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/OqSalp92o-4AtfYt583RauVJYevBmhjij2pcg0zPe10.js line 1 > eval line 789 > eval, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+1615872686256	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451124
+1615872687827	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1679&sea=NAIMBA_2019
+1615872687928	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1679&sea=NAIMBA_2019
+JavaScript error: , line 0: uncaught exception: undefined
+1615872688540	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1679&sea=NAIMBA_2019
+1615872688560	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1679&sea=NAIMBA_2019
+1615872688705	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451096
+1615872688706	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451097
+1615872688706	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451098
+1615872688707	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451099
+1615872688707	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451100
+1615872688707	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451101
+1615872688708	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451116
+1615872688708	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451126
+1615872688708	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451118
+1615872688709	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451121
+1615872688709	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451111
+1615872688709	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451113
+1615872688710	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451129
+1615872688710	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451108
+1615872689633	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1688&sea=NAIMBA_2019
+1615872690719	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1688&sea=NAIMBA_2019
+1615872690902	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1688&sea=NAIMBA_2019
+JavaScript error: , line 0: uncaught exception: undefined
+1615872691313	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451160
+1615872691558	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1688&sea=NAIMBA_2019
+1615872691589	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1688&sea=NAIMBA_2019
+1615872691800	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451133
+1615872691801	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451134
+1615872691801	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451135
+1615872691801	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451136
+1615872691802	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451137
+1615872691802	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451138
+1615872691802	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451153
+1615872691803	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451156
+1615872691803	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451148
+1615872691803	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451150
+1615872691803	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451158
+1615872691804	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451145
+1615872692282	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1688&sea=NAIMBA_2019
+1615872693448	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451188
+1615872693462	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1688&sea=NAIMBA_2019
+1615872693514	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1688&sea=NAIMBA_2019
+1615872693960	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1688&sea=NAIMBA_2019
+1615872693982	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1688&sea=NAIMBA_2019
+1615872694235	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451163
+1615872694236	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451164
+1615872694236	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451165
+1615872694236	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451166
+1615872694237	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451167
+1615872694237	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451168
+1615872694237	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451183
+1615872694238	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451186
+1615872694238	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451178
+1615872694238	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451180
+1615872694238	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451190
+1615872694239	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451175
+1615872694789	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1694&sea=NAIMBA_2019
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+1615872696610	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1694&sea=NAIMBA_2019
+1615872696768	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1694&sea=NAIMBA_2019
+JavaScript error: , line 0: uncaught exception: undefined
+1615872697146	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1694&sea=NAIMBA_2019
+1615872697168	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1694&sea=NAIMBA_2019
+JavaScript warning: https://pagead2.googlesyndication.com/bg/OqSalp92o-4AtfYt583RauVJYevBmhjij2pcg0zPe10.js line 1 > eval line 3165 > eval line 1 > eval, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+1615872697487	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451222
+1615872697835	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1694&sea=NAIMBA_2019
+1615872697847	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451194
+1615872697847	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451195
+1615872697847	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451196
+1615872697847	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451197
+1615872697848	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451198
+1615872697848	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451199
+1615872697848	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451211
+1615872697849	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451219
+1615872697849	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451213
+1615872697849	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451216
+1615872697849	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451206
+1615872697850	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451208
+1615872697850	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451224
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+1615872699531	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1694&sea=NAIMBA_2019
+1615872699630	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1694&sea=NAIMBA_2019
+JavaScript error: , line 0: uncaught exception: undefined
+1615872700261	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1694&sea=NAIMBA_2019
+1615872700273	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1694&sea=NAIMBA_2019
+JavaScript warning: https://pagead2.googlesyndication.com/bg/OqSalp92o-4AtfYt583RauVJYevBmhjij2pcg0zPe10.js line 1 > eval line 297 > eval line 1 > eval, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+1615872700429	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451258
+1615872700791	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451227
+1615872700791	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451228
+1615872700791	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451229
+1615872700792	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451230
+1615872700792	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451231
+1615872700792	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451232
+1615872700793	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451247
+1615872700793	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451255
+1615872700794	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451249
+1615872700794	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451252
+1615872700794	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451242
+1615872700795	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451244
+1615872700795	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451260
+1615872700795	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451239
+1615872700960	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1717&sea=NAIMBA_2019
+1615872702159	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1717&sea=NAIMBA_2019
+1615872702276	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1717&sea=NAIMBA_2019
+1615872702558	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451291
+1615872702982	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1717&sea=NAIMBA_2019
+1615872702995	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1717&sea=NAIMBA_2019
+1615872703358	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451264
+1615872703359	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451265
+1615872703359	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451266
+1615872703359	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451267
+1615872703360	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451268
+1615872703360	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451269
+1615872703360	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451284
+1615872703361	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451287
+1615872703361	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451279
+1615872703361	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451281
+1615872703361	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451289
+1615872703362	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451276
+1615872703516	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1717&sea=NAIMBA_2019
+1615872704739	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1717&sea=NAIMBA_2019
+1615872704840	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1717&sea=NAIMBA_2019
+1615872705250	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451321
+1615872705313	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1717&sea=NAIMBA_2019
+1615872705322	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1717&sea=NAIMBA_2019
+1615872705727	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451294
+1615872705728	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451295
+1615872705728	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451296
+1615872705729	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451297
+1615872705729	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451298
+1615872705729	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451299
+1615872705730	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451314
+1615872705730	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451317
+1615872705730	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451309
+1615872705731	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451311
+1615872705731	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451319
+1615872705731	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451306
+1615872705990	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1736&sea=NAIMBA_2019
+1615872707368	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1736&sea=NAIMBA_2019
+1615872707607	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1736&sea=NAIMBA_2019
+JavaScript error: , line 0: uncaught exception: undefined
+1615872708092	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1736&sea=NAIMBA_2019
+1615872708103	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1736&sea=NAIMBA_2019
+1615872708374	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451325
+1615872708375	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451326
+1615872708375	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451327
+1615872708375	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451328
+1615872708376	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451329
+1615872708376	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451330
+1615872708376	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451345
+1615872708377	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451348
+1615872708377	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451340
+1615872708377	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451342
+1615872708377	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451350
+1615872708378	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451337
+1615872708776	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1736&sea=NAIMBA_2019
+1615872709704	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1736&sea=NAIMBA_2019
+1615872709810	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1736&sea=NAIMBA_2019
+1615872710136	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451378
+JavaScript error: , line 0: uncaught exception: undefined
+1615872710438	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1736&sea=NAIMBA_2019
+1615872710461	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1736&sea=NAIMBA_2019
+1615872710753	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451353
+1615872710753	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451354
+1615872710754	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451355
+1615872710754	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451356
+1615872710755	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451357
+1615872710755	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451358
+1615872710755	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451373
+1615872710755	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451376
+1615872710756	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451368
+1615872710756	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451370
+1615872710756	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451380
+1615872710756	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451365
+1615872710808	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1780&sea=NAIMBA_2019
+1615872713020	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1780&sea=NAIMBA_2019
+1615872713398	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1780&sea=NAIMBA_2019
+JavaScript error: https://tpc.googlesyndication.com/sodar/sodar2.js, line 25: NotFoundError: Node was not found
+JavaScript error: , line 0: uncaught exception: undefined
+1615872713979	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1780&sea=NAIMBA_2019
+1615872713989	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1780&sea=NAIMBA_2019
+JavaScript warning: https://pagead2.googlesyndication.com/bg/OqSalp92o-4AtfYt583RauVJYevBmhjij2pcg0zPe10.js line 1 > eval line 1398 > eval line 1 > eval, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+1615872714107	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451413
+1615872714415	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1780&sea=NAIMBA_2019
+1615872714444	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451384
+1615872714444	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451385
+1615872714445	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451386
+1615872714445	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451387
+1615872714445	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451388
+1615872714446	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451389
+1615872714446	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451415
+1615872714446	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451410
+1615872714446	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451404
+1615872714447	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451406
+1615872714447	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451399
+1615872714447	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451401
+1615872714448	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451417
+1615872714448	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451396
+1615872715518	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1780&sea=NAIMBA_2019
+1615872715601	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1780&sea=NAIMBA_2019
+1615872715944	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451447
+1615872716028	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1780&sea=NAIMBA_2019
+1615872716036	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1780&sea=NAIMBA_2019
+1615872716412	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451420
+1615872716412	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451421
+1615872716412	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451422
+1615872716413	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451423
+1615872716413	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451424
+1615872716413	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451425
+1615872716413	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451440
+1615872716414	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451443
+1615872716414	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451435
+1615872716414	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451437
+1615872716414	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451445
+1615872716415	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451432
+1615872716667	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1805&sea=NAIMBA_2019
+1615872717876	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1805&sea=NAIMBA_2019
+1615872718022	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1805&sea=NAIMBA_2019
+1615872718446	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451478
+1615872718447	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1805&sea=NAIMBA_2019
+1615872718459	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1805&sea=NAIMBA_2019
+1615872718850	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451451
+1615872718850	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451452
+1615872718851	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451453
+1615872718851	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451454
+1615872718851	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451455
+1615872718851	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451456
+1615872718852	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451471
+1615872718852	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451474
+1615872718852	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451466
+1615872718852	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451468
+1615872718853	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451476
+1615872718853	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451463
+1615872719054	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1805&sea=NAIMBA_2019
+1615872719883	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1805&sea=NAIMBA_2019
+1615872720143	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1805&sea=NAIMBA_2019
+1615872720159	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451509
+1615872720547	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1805&sea=NAIMBA_2019
+1615872720551	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1805&sea=NAIMBA_2019
+1615872720723	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451482
+1615872720724	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451483
+1615872720724	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451484
+1615872720725	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451485
+1615872720726	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451486
+1615872720728	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451487
+1615872720728	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451502
+1615872720728	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451505
+1615872720729	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451497
+1615872720729	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451499
+1615872720729	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451507
+1615872720729	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451494
+1615872721121	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1784&sea=NAIMBA_2019
+1615872722566	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1784&sea=NAIMBA_2019
+1615872722702	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1784&sea=NAIMBA_2019
+1615872722981	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451539
+JavaScript error: , line 0: uncaught exception: undefined
+1615872723373	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1784&sea=NAIMBA_2019
+1615872723387	Marionette	DEBUG	[6442450945] Received DOM event unload for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1784&sea=NAIMBA_2019
+1615872723596	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451512
+1615872723596	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451513
+1615872723597	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451514
+1615872723597	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451515
+1615872723598	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451516
+1615872723598	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451517
+1615872723598	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451532
+1615872723599	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451535
+1615872723599	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451527
+1615872723599	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451529
+1615872723599	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451537
+1615872723600	Marionette	DEBUG	[6442450945] Received observer notification outer-window-destroyed for 6442451524
+1615872723869	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1784&sea=NAIMBA_2019
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://d9.flashtalking.com/d9core, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+1615872725768	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.dakstats.com/WebSync/Pages/Team/IndividualStats.aspx?association=10&sg=MBA&conference=NAIMBA1_CROSS&team=1784&sea=NAIMBA_2019
+JavaScript warning: https://pagead2.googlesyndication.com/bg/OqSalp92o-4AtfYt583RauVJYevBmhjij2pcg0zPe10.js line 1 > eval line 2137 > eval, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/OqSalp92o-4AtfYt583RauVJYevBmhjij2pcg0zPe10.js line 1 > eval line 1400 > eval, line 1: Error: WebGL warning: Failed to create WebGL context: WebGL is currently disabled.
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+[Parent 4028, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 8388, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1615872740317	Marionette	INFO	Stopped listening on port 62586
