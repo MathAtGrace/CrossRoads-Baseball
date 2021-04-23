@@ -1,0 +1,4 @@
+# in _config.yml
+title: "My book title"
+execute:
+  execute_notebooks: "off"
