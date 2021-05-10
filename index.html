@@ -14271,91 +14271,133 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Park-Factor">Park Factor<a class="anchor-link" href="#Park-Factor">&#182;</a></h4>
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><a href="https://mathatgrace.github.io/CrossRoads-Baseball/Park_Factor.html">https://mathatgrace.github.io/CrossRoads-Baseball/Park_Factor.html</a></p>
+<p>All data collected in this project comes from the DakStats website, which is used by the NAIA to store and maintain updated statistics. The home page for the 2021 Crossroads League, the conference Grace College plays in, can be found at the following URL: <a href="http://www.dakstats.com/WebSync/Pages/Conference/Conference.aspx?association=10&amp;sg=MBA&amp;sea=NAIMBA_2021&amp;conference=NAIMBA1_CROSS">http://www.dakstats.com/WebSync/Pages/Conference/Conference.aspx?association=10&amp;sg=MBA&amp;sea=NAIMBA_2021&amp;conference=NAIMBA1_CROSS</a>.</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Home-Field-Advantage">Home Field Advantage<a class="anchor-link" href="#Home-Field-Advantage">&#182;</a></h4>
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><a href="https://mathatgrace.github.io/CrossRoads-Baseball/HomeField.html">https://mathatgrace.github.io/CrossRoads-Baseball/HomeField.html</a></p>
+<p>Youtube videos explaining some of the code can be found at the links below:</p>
+<p><a href="https://youtu.be/-LPY3mun32M">https://youtu.be/-LPY3mun32M</a> (Park Factor, Conference Statistics, Batting Analysis, and Pitching Analysis notebooks)</p>
+<p><a href="https://youtu.be/3YRpYvsRJd4">https://youtu.be/3YRpYvsRJd4</a> (Updating Elo Rankings and Game Predictions notebooks)</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Conference-Statistics">Conference Statistics<a class="anchor-link" href="#Conference-Statistics">&#182;</a></h4>
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><a href="https://mathatgrace.github.io/CrossRoads-Baseball/Conference_Statistics.html">https://mathatgrace.github.io/CrossRoads-Baseball/Conference_Statistics.html</a></p>
+<p>Here are the notebooks used to conduct the project:</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Batting-Analysis">Batting Analysis<a class="anchor-link" href="#Batting-Analysis">&#182;</a></h4>
+<h3 id="Park-Factor">Park Factor<a class="anchor-link" href="#Park-Factor">&#182;</a></h3>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><a href="https://mathatgrace.github.io/CrossRoads-Baseball/Batting_Analysis.html">https://mathatgrace.github.io/CrossRoads-Baseball/Batting_Analysis.html</a></p>
+<p>Link: <a href="https://mathatgrace.github.io/CrossRoads-Baseball/Park_Factor.html">https://mathatgrace.github.io/CrossRoads-Baseball/Park_Factor.html</a></p>
+<p>To calculate some of the more advanced hitting statistics, we need a measure of how big or small a team's home field tends to play. Hitters that play in smaller, more hitter-friendly ballparks have an advantage over hitters that play at larger, more pitcher-friendly ballparks. Calculating a park factor allows us to quantify this advantage and adjust our statistics accordingly.</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Pitching-Analysis">Pitching Analysis<a class="anchor-link" href="#Pitching-Analysis">&#182;</a></h4>
+<h3 id="Conference-Statistics">Conference Statistics<a class="anchor-link" href="#Conference-Statistics">&#182;</a></h3>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><a href="https://mathatgrace.github.io/CrossRoads-Baseball/Pitching_Analysis.html">https://mathatgrace.github.io/CrossRoads-Baseball/Pitching_Analysis.html</a></p>
+<p>Link: <a href="https://mathatgrace.github.io/CrossRoads-Baseball/Conference_Statistics.html">https://mathatgrace.github.io/CrossRoads-Baseball/Conference_Statistics.html</a></p>
+<p>The data for each individual player in the Crossroads League is scraped from this website and placed into Python dataframes where it can be more easily manipulated. These dataframes are then stored in "pickle" files, which allow us to use them later in other notebooks.</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Getting-2021-Games">Getting 2021 Games<a class="anchor-link" href="#Getting-2021-Games">&#182;</a></h4>
+<h3 id="Batting-Analysis">Batting Analysis<a class="anchor-link" href="#Batting-Analysis">&#182;</a></h3>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><a href="https://mathatgrace.github.io/CrossRoads-Baseball/Get2021Games.html">https://mathatgrace.github.io/CrossRoads-Baseball/Get2021Games.html</a></p>
+<p>Link: <a href="https://mathatgrace.github.io/CrossRoads-Baseball/Batting_Analysis.html">https://mathatgrace.github.io/CrossRoads-Baseball/Batting_Analysis.html</a></p>
+<p>One advanced metric used to quantify the production of an individual hitter is Weighted Runs Created Plus (wRC+). This statistic has a default value of 100, with hitters achieving a score of over 100 for above average performance. A score of 150 indicates that a hitter created 50% more runs than the average hitter, while a score of 50 indicates that a hitter created 50% less runs than the average hitter. This statistic is used to rank the top 10 hitters in the Crossroads League in 2021.</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Updating-Elo-Rankings">Updating Elo Rankings<a class="anchor-link" href="#Updating-Elo-Rankings">&#182;</a></h4>
+<h3 id="Pitching-Analysis">Pitching Analysis<a class="anchor-link" href="#Pitching-Analysis">&#182;</a></h3>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><a href="https://mathatgrace.github.io/CrossRoads-Baseball/Update_Elo.html">https://mathatgrace.github.io/CrossRoads-Baseball/Update_Elo.html</a></p>
+<p>Link: <a href="https://mathatgrace.github.io/CrossRoads-Baseball/Pitching_Analysis.html">https://mathatgrace.github.io/CrossRoads-Baseball/Pitching_Analysis.html</a></p>
+<p>Pitching is often harder to measure with a single statistic. One statistic that can be used is Fielding Independent Pitching (FIP). FIP isolates pitchers based on plays that do not involve the defense at all (i.e. strikeouts, walks, home runs). The top ten Crossroads League pitchers in 2021 are ranked based on FIP.</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Game-Predictions">Game Predictions<a class="anchor-link" href="#Game-Predictions">&#182;</a></h4>
+<h3 id="Getting-2021-Games">Getting 2021 Games<a class="anchor-link" href="#Getting-2021-Games">&#182;</a></h3>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><a href="https://mathatgrace.github.io/CrossRoads-Baseball/PredictiveAnalysis.html">https://mathatgrace.github.io/CrossRoads-Baseball/PredictiveAnalysis.html</a></p>
+<p>Link: <a href="https://mathatgrace.github.io/CrossRoads-Baseball/Get2021Games.html">https://mathatgrace.github.io/CrossRoads-Baseball/Get2021Games.html</a></p>
+<p>The ultimate goal of this project was to make predictions about games that would be played in the Crossroads League this year. To keep updated rankings, the most recent games played must be scraped and incorporated. This is done here.</p>
 
 </div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Home-Field-Advantage">Home Field Advantage<a class="anchor-link" href="#Home-Field-Advantage">&#182;</a></h3>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Link: <a href="https://mathatgrace.github.io/CrossRoads-Baseball/HomeField.html">https://mathatgrace.github.io/CrossRoads-Baseball/HomeField.html</a></p>
+<p>In developing the functions to adjust ratings and predict games, a homefield advantage modification was added. This was done by collecting data from the last 5 years (excluding 2020) and calculating the win percentages of the home teams for each year. Then, an average win percentage was calculated for the 5 years.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Updating-Elo-Rankings">Updating Elo Rankings<a class="anchor-link" href="#Updating-Elo-Rankings">&#182;</a></h3>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Link: <a href="https://mathatgrace.github.io/CrossRoads-Baseball/Update_Elo.html">https://mathatgrace.github.io/CrossRoads-Baseball/Update_Elo.html</a></p>
+<p>As the season progresses, ratings must adjust accordingly. This notebook takes the 2021 games that have been scraped and runs the functions on them to play each game and adjust each team's rating. This is run each week to determine possible outcomes for the upcoming weekend series'.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Game-Predictions">Game Predictions<a class="anchor-link" href="#Game-Predictions">&#182;</a></h3>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Link: <a href="https://mathatgrace.github.io/CrossRoads-Baseball/PredictiveAnalysis.html">https://mathatgrace.github.io/CrossRoads-Baseball/PredictiveAnalysis.html</a></p>
+<p>Finally, predictions can be made for the outcome of each conference series. Two models are tested: one that adjusts the rating after each individual series game and one that maintains the same ratings throughout the entirety of the 4-game series. These models are compared to each other at the end of each week to determine if one model is better at predicting game results than the other.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
 </div>
 </body>
 
