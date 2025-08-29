@@ -7,7 +7,7 @@ You can do so in one of two ways:
 
 - If you are familiar with git, clone this repository with the command:
   ```sh
-  git clone https://github.com/scipy-2024-image-analysis/tutorial
+  git clone https://github.com/MathAtGrace/CrossRoads-Baseball.git
   ```
   And navigate to the cloned repository.
 
@@ -155,5 +155,14 @@ cd 'replace-this-with-the/name-of/the-path-to/your-folder'
     ```bash
     jupyter lab
     ```
+
+## Download Mozilla and GeckoDriver
+
+Download Mozilla at [https://www.firefox.com/en-US/?utm_campaign=SET_DEFAULT_BROWSER](https://www.firefox.com/en-US/?utm_campaign=SET_DEFAULT_BROWSER).
+
+Download Gecko Driver either by
+
+ - going here and downloading and installing it: [https://github.com/mozilla/geckodriver/releases/tag/v0.36.0](https://github.com/mozilla/geckodriver/releases/tag/v0.36.0)
+ - following these directions to install it with python: [https://pypi.org/project/get-gecko-driver/](https://pypi.org/project/get-gecko-driver/)
 
 This installation guide has been reproduced and edited from an [introductory napari tutorial](https://github.com/TheJacksonLaboratory/intro-napari-workshop) at the Jackson Laboratory.

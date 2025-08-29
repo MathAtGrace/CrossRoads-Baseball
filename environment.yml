@@ -10,4 +10,3 @@ dependencies:
   - bs4
   - pandas
   - selenium
-  - pickle
