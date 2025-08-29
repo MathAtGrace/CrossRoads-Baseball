@@ -1,0 +1,13 @@
+name: baseball
+channels:
+  - conda-forge
+dependencies:
+  - python
+  - jupyterlab
+  - matplotlib
+  - ipywidgets
+  - requests
+  - bs4
+  - pandas
+  - selenium
+  - pickle
